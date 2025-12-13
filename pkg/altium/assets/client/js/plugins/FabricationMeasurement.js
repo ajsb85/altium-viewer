@@ -1,1 +1,265 @@
-"use strict";(self.webpackChunkaltium_web_viewer=self.webpackChunkaltium_web_viewer||[]).push([[19455],{67402:()=>{function e(t){return e="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e(t)}function t(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,r(i.key),i)}}function r(t){var r=function(t,r){if("object"!=e(t)||!t)return t;var n=t[Symbol.toPrimitive];if(void 0!==n){var i=n.call(t,"string");if("object"!=e(i))return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(t)}(t);return"symbol"==e(r)?r:r+""}var n=window.__APP__,i=n.analytics,o=n.utils.getIcon,a=n.library.i18n.t,s=function(){return e=function e(){var t=this;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.meterController=void 0,this._disabled=!1,this.isActive=!1,this.metaInfo={name:"Measurement",displayName:"",comment:"Measurement",description:"Measurement",dependencies:["measurement.engine"],displayIcon:o("viewer-measurements-16","measurements-16"),localType:"primary",hint:a("viewer.plugins.FabricationMeasurement.meta.hint"),order:0,owner:"FabricationView",isGlobal:!1,view:{type:"modal",title:a("viewer.plugins.FabricationMeasurement.meta.viewTitle"),config:{type:"aside-right",hasCloseOnOutsideClick:!1}}},this.events=[],this.hidden=!1,this.onWillMeasure=function(e){t.clearCurrent(),t.app.setItem(e,0),i.dispatchPanelsEvent("Measure",{action:"Point.First"})},this.onDidMeasure=function(e){t.app.setItem(e,1),t.app.setResult(e),i.dispatchPanelsEvent("Measure",{action:"Point.Second"})},this.onSelectMeasure=function(e){t.clearCurrent(),t.app.setItem(e,0),t.app.setItem(e,1),t.app.setResult(e)},this.onCancelMeasure=function(){return t.clearCurrent()},this.onChangeHistory=function(e){t.app.setHistory(e.measurements)},this.onSelect=function(e){var r;(null==e?void 0:e.id)&&(null===(r=t.meterController)||void 0===r||r.select(e.id,!0))}},(r=[{key:"disabled",get:function(){return this._disabled},set:function(e){e!==this._disabled&&(this._disabled=e,window.__CORE__.bus.emit("Measurement:updateInterface",{disabled:this.disabled}))}},{key:"setup",value:function(e){var t=this;return this.disabled=!0,this.app=e.engines.Measurement.createApp([{id:0,name:"Free",isActive:!0}]),this.app.on("select",this.onSelect),e.bus.on("FabricationView:documentChanged",(function(r){t.disabled=!1,t.meterController=t.createController(e,r),t.meterController.on("willMeasure",t.onWillMeasure),t.meterController.on("selectMeasure",t.onSelectMeasure),t.meterController.on("didMeasure",t.onDidMeasure),t.meterController.on("cancelMeasure",t.onCancelMeasure),t.meterController.on("changeHistory",t.onChangeHistory),t.isActive&&t.meterController.activate()})),e.bus.on("FabricationView:documentChange",(function(){t.disabled=!0,t.meterController&&(t.meterController.off("willMeasure",t.onWillMeasure),t.meterController.off("didMeasure",t.onDidMeasure),t.meterController.off("selectMeasure",t.onSelectMeasure),t.meterController.off("cancelMeasure",t.onCancelMeasure),t.meterController.off("changeHistory",t.onChangeHistory),t.meterController.dispose(),t.clearCurrent(),t.app.setHistory([])),t.meterController=void 0})),Promise.resolve()}},{key:"activate",value:function(){var e;!this.app.initialized&&this.app.init(this.metaInfo.name),this.isActive=!0,null===(e=this.meterController)||void 0===e||e.activate()}},{key:"deactivate",value:function(){var e;this.isActive=!1,null===(e=this.meterController)||void 0===e||e.deactivate(),this.clearCurrent()}},{key:"createController",value:function(e,t){var r={name:"Default_Measurement_Layer",z_range:[-1,1],is_keepout:!1,is_layer_marks:!1,is_inverted:!1,is_cutout:!1,layer_type:window.GraphiteResolverInstance.module.LayerType.Regular,show3d:!1},n=t.createOverlayScene("Measurement_Scene",[r],[]),i=document.querySelector('[data-view="FabricationView"]'),o={documentName:t.id,view:i,scene:n,historyMaxLength:1/0,unitFactor:100};return e.engines.Measurement.createGraphiteSceneFreeModeOnlyController(o)}},{key:"clearCurrent",value:function(){this.app.clearItems(),this.app.clearResult()}}])&&t(e.prototype,r),Object.defineProperty(e,"prototype",{writable:!1}),e;var e,r}();window.__CORE__.addModule({type:"Plugin",description:"Represent fabrication measurement plugin module.",create:function(){return new s}})}},e=>{e(e.s=67402)}]);
+"use strict";
+(self.webpackChunkaltium_web_viewer =
+  self.webpackChunkaltium_web_viewer || []).push([
+  [19455],
+  {
+    67402: () => {
+      function e(t) {
+        return (
+          (e =
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              ? function (e) {
+                  return typeof e;
+                }
+              : function (e) {
+                  return e &&
+                    "function" == typeof Symbol &&
+                    e.constructor === Symbol &&
+                    e !== Symbol.prototype
+                    ? "symbol"
+                    : typeof e;
+                }),
+          e(t)
+        );
+      }
+      function t(e, t) {
+        for (var n = 0; n < t.length; n++) {
+          var i = t[n];
+          ((i.enumerable = i.enumerable || !1),
+            (i.configurable = !0),
+            "value" in i && (i.writable = !0),
+            Object.defineProperty(e, r(i.key), i));
+        }
+      }
+      function r(t) {
+        var r = (function (t, r) {
+          if ("object" != e(t) || !t) return t;
+          var n = t[Symbol.toPrimitive];
+          if (void 0 !== n) {
+            var i = n.call(t, "string");
+            if ("object" != e(i)) return i;
+            throw new TypeError("@@toPrimitive must return a primitive value.");
+          }
+          return String(t);
+        })(t);
+        return "symbol" == e(r) ? r : r + "";
+      }
+      var n = window.__APP__,
+        i = n.analytics,
+        o = n.utils.getIcon,
+        a = n.library.i18n.t,
+        s = (function () {
+          return (
+            (e = function e() {
+              var t = this;
+              (!(function (e, t) {
+                if (!(e instanceof t))
+                  throw new TypeError("Cannot call a class as a function");
+              })(this, e),
+                (this.meterController = void 0),
+                (this._disabled = !1),
+                (this.isActive = !1),
+                (this.metaInfo = {
+                  name: "Measurement",
+                  displayName: "",
+                  comment: "Measurement",
+                  description: "Measurement",
+                  dependencies: ["measurement.engine"],
+                  displayIcon: o("viewer-measurements-16", "measurements-16"),
+                  localType: "primary",
+                  hint: a("viewer.plugins.FabricationMeasurement.meta.hint"),
+                  order: 0,
+                  owner: "FabricationView",
+                  isGlobal: !1,
+                  view: {
+                    type: "modal",
+                    title: a(
+                      "viewer.plugins.FabricationMeasurement.meta.viewTitle",
+                    ),
+                    config: { type: "aside-right", hasCloseOnOutsideClick: !1 },
+                  },
+                }),
+                (this.events = []),
+                (this.hidden = !1),
+                (this.onWillMeasure = function (e) {
+                  (t.clearCurrent(),
+                    t.app.setItem(e, 0),
+                    i.dispatchPanelsEvent("Measure", {
+                      action: "Point.First",
+                    }));
+                }),
+                (this.onDidMeasure = function (e) {
+                  (t.app.setItem(e, 1),
+                    t.app.setResult(e),
+                    i.dispatchPanelsEvent("Measure", {
+                      action: "Point.Second",
+                    }));
+                }),
+                (this.onSelectMeasure = function (e) {
+                  (t.clearCurrent(),
+                    t.app.setItem(e, 0),
+                    t.app.setItem(e, 1),
+                    t.app.setResult(e));
+                }),
+                (this.onCancelMeasure = function () {
+                  return t.clearCurrent();
+                }),
+                (this.onChangeHistory = function (e) {
+                  t.app.setHistory(e.measurements);
+                }),
+                (this.onSelect = function (e) {
+                  var r;
+                  (null == e ? void 0 : e.id) &&
+                    (null === (r = t.meterController) ||
+                      void 0 === r ||
+                      r.select(e.id, !0));
+                }));
+            }),
+            (r = [
+              {
+                key: "disabled",
+                get: function () {
+                  return this._disabled;
+                },
+                set: function (e) {
+                  e !== this._disabled &&
+                    ((this._disabled = e),
+                    window.__CORE__.bus.emit("Measurement:updateInterface", {
+                      disabled: this.disabled,
+                    }));
+                },
+              },
+              {
+                key: "setup",
+                value: function (e) {
+                  var t = this;
+                  return (
+                    (this.disabled = !0),
+                    (this.app = e.engines.Measurement.createApp([
+                      { id: 0, name: "Free", isActive: !0 },
+                    ])),
+                    this.app.on("select", this.onSelect),
+                    e.bus.on("FabricationView:documentChanged", function (r) {
+                      ((t.disabled = !1),
+                        (t.meterController = t.createController(e, r)),
+                        t.meterController.on("willMeasure", t.onWillMeasure),
+                        t.meterController.on(
+                          "selectMeasure",
+                          t.onSelectMeasure,
+                        ),
+                        t.meterController.on("didMeasure", t.onDidMeasure),
+                        t.meterController.on(
+                          "cancelMeasure",
+                          t.onCancelMeasure,
+                        ),
+                        t.meterController.on(
+                          "changeHistory",
+                          t.onChangeHistory,
+                        ),
+                        t.isActive && t.meterController.activate());
+                    }),
+                    e.bus.on("FabricationView:documentChange", function () {
+                      ((t.disabled = !0),
+                        t.meterController &&
+                          (t.meterController.off(
+                            "willMeasure",
+                            t.onWillMeasure,
+                          ),
+                          t.meterController.off("didMeasure", t.onDidMeasure),
+                          t.meterController.off(
+                            "selectMeasure",
+                            t.onSelectMeasure,
+                          ),
+                          t.meterController.off(
+                            "cancelMeasure",
+                            t.onCancelMeasure,
+                          ),
+                          t.meterController.off(
+                            "changeHistory",
+                            t.onChangeHistory,
+                          ),
+                          t.meterController.dispose(),
+                          t.clearCurrent(),
+                          t.app.setHistory([])),
+                        (t.meterController = void 0));
+                    }),
+                    Promise.resolve()
+                  );
+                },
+              },
+              {
+                key: "activate",
+                value: function () {
+                  var e;
+                  (!this.app.initialized && this.app.init(this.metaInfo.name),
+                    (this.isActive = !0),
+                    null === (e = this.meterController) ||
+                      void 0 === e ||
+                      e.activate());
+                },
+              },
+              {
+                key: "deactivate",
+                value: function () {
+                  var e;
+                  ((this.isActive = !1),
+                    null === (e = this.meterController) ||
+                      void 0 === e ||
+                      e.deactivate(),
+                    this.clearCurrent());
+                },
+              },
+              {
+                key: "createController",
+                value: function (e, t) {
+                  var r = {
+                      name: "Default_Measurement_Layer",
+                      z_range: [-1, 1],
+                      is_keepout: !1,
+                      is_layer_marks: !1,
+                      is_inverted: !1,
+                      is_cutout: !1,
+                      layer_type:
+                        window.GraphiteResolverInstance.module.LayerType
+                          .Regular,
+                      show3d: !1,
+                    },
+                    n = t.createOverlayScene("Measurement_Scene", [r], []),
+                    i = document.querySelector('[data-view="FabricationView"]'),
+                    o = {
+                      documentName: t.id,
+                      view: i,
+                      scene: n,
+                      historyMaxLength: 1 / 0,
+                      unitFactor: 100,
+                    };
+                  return e.engines.Measurement.createGraphiteSceneFreeModeOnlyController(
+                    o,
+                  );
+                },
+              },
+              {
+                key: "clearCurrent",
+                value: function () {
+                  (this.app.clearItems(), this.app.clearResult());
+                },
+              },
+            ]) && t(e.prototype, r),
+            Object.defineProperty(e, "prototype", { writable: !1 }),
+            e
+          );
+          var e, r;
+        })();
+      window.__CORE__.addModule({
+        type: "Plugin",
+        description: "Represent fabrication measurement plugin module.",
+        create: function () {
+          return new s();
+        },
+      });
+    },
+  },
+  (e) => {
+    e((e.s = 67402));
+  },
+]);

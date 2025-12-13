@@ -27,47 +27,6 @@
 
 <body>
   <script>
-      // Visual Logger for Debugging
-      (function () {
-        var logDiv = document.createElement('div');
-        logDiv.style.position = 'fixed';
-        logDiv.style.top = '0';
-        logDiv.style.right = '0';
-        logDiv.style.width = '300px';
-        logDiv.style.height = '100%';
-        logDiv.style.backgroundColor = 'rgba(0,0,0,0.7)';
-        logDiv.style.color = 'lime';
-        logDiv.style.fontFamily = 'monospace';
-        logDiv.style.fontSize = '12px';
-        logDiv.style.overflowY = 'scroll';
-        logDiv.style.padding = '5px';
-        logDiv.style.zIndex = '9999';
-        logDiv.style.pointerEvents = 'none'; // click through
-        document.addEventListener('DOMContentLoaded', function () { document.body.appendChild(logDiv); });
-
-        function printLog(prefix, args) {
-          var msg = prefix + " " + Array.from(args).map(a =>
-            (typeof a === 'object' ? JSON.stringify(a) : String(a))
-          ).join(' ');
-          var line = document.createElement('div');
-          line.textContent = msg;
-          line.style.borderBottom = '1px solid #333';
-          logDiv.appendChild(line);
-          logDiv.scrollTop = logDiv.scrollHeight;
-        }
-
-        var oldLog = console.log;
-        var oldErr = console.error;
-        var oldWarn = console.warn;
-        console.log = function () { oldLog.apply(console, arguments); printLog('[LOG]', arguments); };
-        console.error = function () { oldErr.apply(console, arguments); printLog('[ERR]', arguments); };
-        console.warn = function () { oldWarn.apply(console, arguments); printLog('[WRN]', arguments); };
-
-        window.onerror = function (msg, url, line) {
-          printLog('[EXCEPTION]', [msg, url, line]);
-        };
-      })();
-
     // Bridge script injected by Go Altium Viewer
     window.addEventListener('message', function (e) {
       // Log all messages to see what's happening
