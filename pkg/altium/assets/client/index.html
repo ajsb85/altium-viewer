@@ -6,19 +6,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40175800-18"></script>
-  <script>window.dataLayer = window.dataLayer || []
-    function gtag() {
-      dataLayer.push(arguments)
-    }
-    gtag('js', new Date())
-    gtag('config', 'UA-40175800-18', {
-      custom_map: {
-        dimension1: 'domain',
-        dimension2: 'url',
-        dimension3: 'env'
-      }
-    })</script>
+  <script>
+    // Google Analytics Mock - prevents app.js crashes
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { };
+  </script>
   <script defer="defer" src="js/runtime.js?1761730629786"></script>
   <script defer="defer" src="js/vendors.js?1761730629786"></script>
   <script defer="defer" src="js/app.js?1761730629786"></script>
