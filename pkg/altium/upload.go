@@ -21,34 +21,35 @@ const (
 
 // newUploadProjectRequest creates a new HTTP POST request formatted for file upload.
 // It constructs a multipart/form-data body, which is standard for transferring files.
-func newUploadProjectRequest(projectFile io.Reader, filename string) (*http.Request, error) {
+func newUploadProjectRequest(projectFile io.Reader, filename, baseUrl string) (*http.Request, error) {
 	// A Buffer is used to build the request body in memory.
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
 
-	// Create a new form-data part for the file. The field name "Files" is required by the API.
-	part, err := writer.CreateFormFile("Files", filename)
+	// Create a form field for the file.
+	part, err := writer.CreateFormFile("file", filename)
 	if err != nil {
 		return nil, err
 	}
-	// Copy the file's content into the multipart section.
+	// Copy the file data into the form field.
 	if _, err := io.Copy(part, projectFile); err != nil {
 		return nil, err
 	}
 
-	// Close the multipart writer to finalize the body.
-	if err := writer.Close(); err != nil {
-		return nil, err
-	}
-
-	// Create the new POST request with the composed body.
-	req, err := http.NewRequest("POST", uploadUrl, body)
+	// Close the writer to finalize the multipart form boundary.
+	err = writer.Close()
 	if err != nil {
 		return nil, err
 	}
 
-	// Set necessary HTTP headers to mimic a legitimate browser request,
-	// preventing the server from rejecting the request.
+	// Create the HTTP request.
+	url := fmt.Sprintf("%s/proxy/api/widget/set", baseUrl)
+	req, err := http.NewRequest("POST", url, body)
+	if err != nil {
+		return nil, err
+	}
+
+	// Set the Content-Type header to multipart/form-data, including the boundary.
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 	req.Header.Set("X-AUTH", "anonymous")
 	req.Header.Set("Accept", "application/json, text/plain, */*")
@@ -74,17 +75,16 @@ func (res *uploadResponseJson) Error() string {
 	return fmt.Sprintf("%s: %s", res.Status, res.Message)
 }
 
-// UploadProject is the main function for uploading a design. It takes a file reader and filename,
-// orchestrates the API request, and returns the unique designId upon success.
-func UploadProject(projectFile io.Reader, filename string) (id string, err error) {
-	clt := &http.Client{}
-
+// UploadProject uploads a given project file to the Altium Viewer API.
+// It returns a designId on success, or an error on failure.
+func UploadProject(projectFile io.Reader, filename, baseUrl string) (string, error) {
 	// Create the upload request.
-	req, err := newUploadProjectRequest(projectFile, filename)
+	req, err := newUploadProjectRequest(projectFile, filename, baseUrl)
 	if err != nil {
 		return "", err
 	}
 
+	clt := &http.Client{Timeout: 300 * time.Second} // Increased timeout for uploads
 	// Send the request to the server.
 	res, err := clt.Do(req)
 	if err != nil {
@@ -128,9 +128,9 @@ func (s *StatusResponse) IsError() bool {
 }
 
 // PollStatus sends a GET request to the Altium API to fetch the current conversion status for a given designId.
-func PollStatus(designId string) (*StatusResponse, error) {
+func PollStatus(designId, baseUrl string) (*StatusResponse, error) {
 	// Construct the specific URL for the status request.
-	url := fmt.Sprintf(statusUrlFormat, designId)
+	url := fmt.Sprintf("%s/proxy/api/widget/get/data/%s?version=1", baseUrl, designId)
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err

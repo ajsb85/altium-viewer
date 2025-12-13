@@ -1,89 +1,91 @@
 package main
 
 import (
-	"fmt"
-	"io"
-	stdlog "log"
-	"os"
-	"path/filepath"
-	"time"
+"fmt"
+"io"
+stdlog "log"
+"os"
+"path/filepath"
+"time"
 
-	"github.com/jmichiels/altium-viewer/pkg/altium"
+"github.com/jmichiels/altium-viewer/pkg/altium"
 )
 
 func main() {
-	// --- Initial Setup ---
-	// Create a new logger that writes to standard output with timestamps.
-	// The standard logger from the 'lorca' library is discarded to prevent noisy output.
-	stdlog.SetOutput(io.Discard)
-	log := stdlog.New(os.Stdout, "", stdlog.Ltime)
+// --- Initial Setup ---
+stdlog.SetOutput(io.Discard)
+log := stdlog.New(os.Stdout, "", stdlog.Ltime)
 
-	// --- Argument Parsing ---
-	// Check if a file path was provided as a command-line argument.
-	if len(os.Args) < 2 {
-		log.Printf("Usage: %s my-altium-project.zip\n", filepath.Base(os.Args[0]))
-		os.Exit(1)
-	}
-	projectFilePath := os.Args[1]
+// --- File Handling ---
+var projectFilePath string
+if _, err := os.Stat("document.zip"); err == nil {
+projectFilePath = "document.zip"
+log.Println("Using document.zip found in current directory.")
+} else if len(os.Args) >= 2 {
+projectFilePath = os.Args[1]
+} else {
+log.Printf("Usage: %s my-altium-project.zip (or have document.zip in root)\n", filepath.Base(os.Args[0]))
+os.Exit(1)
+}
 
-	// --- File Handling ---
-	// Attempt to open the file provided by the user.
-	projectFile, err := os.Open(projectFilePath)
-	if err != nil {
-		log.Fatalf("Error opening file: %v", err)
-	}
-	// Ensure the file is closed when the main function exits.
-	defer projectFile.Close()
+projectFile, err := os.Open(projectFilePath)
+if err != nil {
+log.Fatalf("Error opening file: %v", err)
+}
+defer projectFile.Close()
 
-	// --- Project Upload ---
-	// Extract the filename from the full path.
-	projectFileName := filepath.Base(projectFilePath)
-	log.Printf("Upload \"%s\" to altium.com\n", projectFileName)
+projectFileName := filepath.Base(projectFilePath)
 
-	// Call the UploadProject function, which handles the API request.
-	id, err := altium.UploadProject(projectFile, projectFileName)
-	if err != nil {
-		// Provide a more helpful error message for the common EOF case.
-		if err == io.EOF {
-			log.Fatal("Upload failed: The server sent an empty response. This can happen if the API has changed or the request is malformed.")
-		}
-		log.Fatal(err)
-	}
-	log.Printf("Upload done, designId: %s\n", id)
+// --- Start Proxy Server for Upload ---
+// Start server with placeholders as we don't have DesignID yet
+srv, err := altium.NewServer("placeholder_id", "placeholder_name")
+if err != nil {
+log.Fatal(err)
+}
 
-	// --- Status Polling Loop ---
-	// After uploading, poll the server to check the status of the design conversion.
-	log.Println("Waiting for design to be converted...")
-	for {
-		// Call the PollStatus function to get the latest progress.
-		status, err := altium.PollStatus(id)
-		if err != nil {
-			log.Fatalf("Error while polling for status: %v", err)
-		}
+log.Printf("Upload \"%s\" to altium.com via %s\n", projectFileName, srv.BaseURL)
 
-		// Check if the server has finished successfully.
-		if status.IsComplete() {
-			log.Printf("Conversion complete.")
-			break // Exit the loop.
-		}
+id, err := altium.UploadProject(projectFile, projectFileName, srv.BaseURL)
+if err != nil {
+if err == io.EOF {
+log.Fatal("Upload failed: Empty response. API changed?")
+}
+log.Fatal(err)
+}
+log.Printf("Upload done, designId: %s\n", id)
 
-		// Check if the server reported an error.
-		if status.IsError() {
-			log.Fatalf("\nError converting design: %s", status.Details)
-		}
+// --- Status Polling ---
+log.Println("Waiting for design to be converted...")
+for {
+status, err := altium.PollStatus(id, srv.BaseURL)
+if err != nil {
+log.Fatalf("Error while polling status: %v", err)
+}
+if status.IsComplete() {
+log.Printf("Conversion complete.")
+break
+}
+if status.IsError() {
+log.Fatalf("\nError converting: %s", status.Details)
+}
+fmt.Printf("\rProgress: %d%% (%s)   ", status.Progress, status.Details)
+time.Sleep(1 * time.Second)
+}
 
-		// Print the progress to the console. The carriage return '\r' ensures
-		// that the progress updates on the same line.
-		fmt.Printf("\rProgress: %d%% (%s)   ", status.Progress, status.Details)
+// --- Restart Server for Viewer ---
+// Close upload proxy
+srv.Close()
 
-		// Wait for one second before polling again to avoid spamming the API.
-		time.Sleep(1 * time.Second)
-	}
+// Start new server with correct context (DesignID)
+srv, err = altium.NewServer(id, projectFileName)
+if err != nil {
+log.Fatal(err)
+}
+defer srv.Close()
 
-	// --- Launch Viewer ---
-	// Once the conversion is complete, open the local viewer window.
-	log.Printf("Open viewer\n")
-	if err := altium.OpenProject(id, projectFileName); err != nil {
-		log.Fatal(err)
-	}
+// --- Launch Viewer ---
+log.Printf("Open viewer at %s\n", srv.BaseURL)
+if err := altium.OpenProject(srv.BaseURL); err != nil {
+log.Fatal(err)
+}
 }

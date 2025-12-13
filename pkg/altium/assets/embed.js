@@ -1,1 +1,190 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var s=t[r]={i:r,l:!1,exports:{}};return e[r].call(s.exports,s,s.exports,n),s.l=!0,s.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var s in e)n.d(r,s,function(t){return e[t]}.bind(null,s));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=719)}({719:function(e,t){var n=function(){var e,t=function(){return["","","-","-","-","-","","",""].reduce((function(e,t){return e+Math.floor(65536*(1+Math.random())).toString(16).substring(1)+t}))};function n(){return{initViewer:function(){document.querySelectorAll("div.altium-ecad-viewer").forEach((function(e){var n=e.attributes.getNamedItem("data-project-src")||e.attributes.getNamedItem("project-src"),r=e.attributes.getNamedItem("use-border"),s=(Object({NODE_ENV:"production",VIEWER_DOMAIN:"https://viewer.altium.com",PATH_NAME:"",ATTR_OUTPUTS:"None",ATTR_HIDE_SRC:!0,FONT_FAMILY:"Segoe UI",allPlugins:Object({bomview:"js/plugins/BOMView.js?1614617111579",bomviewonpremise:"js/plugins/BOMViewOnPremise.js?1614617111579",comparedocument:"js/plugins/CompareDocument.js?1614617111579",comparelayers:"js/plugins/CompareLayers.js?1614617111579",comparepanel:"js/plugins/ComparePanel.js?1614617111579",download:"js/plugins/Download.js?1614617111579",export:"js/plugins/Export.js?1614617111579",exportonpremise:"js/plugins/ExportOnPremise.js?1614617111579",fabricationcommentpanel:"js/plugins/FabricationCommentPanel.js?1614617111579",fullscreen:"js/plugins/FullScreen.js?1614617111579",gerbercomparemeasurement:"js/plugins/GerberCompareMeasurement.js?1614617111579",gerbercompareview:"js/plugins/GerberCompareView.js?1614617111579",gerberview:"js/plugins/GerberView.js?1614617111579",helppanel:"js/plugins/HelpPanel.js?1614617111579",measurement:"js/plugins/Measurement.js?1614617111579",pcbview:"js/plugins/PCBView.js?1614617111579",pcbview3d:"js/plugins/PCBView3D.js?1614617111579",previewpanel:"js/plugins/PreviewPanel.js?1614617111579",schview:"js/plugins/SCHView.js?1614617111579",schcompareview:"js/plugins/SchCompareView.js?1614617111579",search:"js/plugins/Search.js?1614617111579",select:"js/plugins/Select.js?1614617111579",snapping:"js/plugins/Snapping.js?1614617111579",supportlibrary:"js/plugins/SupportLibrary.js?1614617111579",variants:"js/plugins/Variants.js?1614617111579",layers:"js/plugins/layers.js?1614617111579","comparison.gerber":"js/plugins/comparison.gerber.js?1614617111579",gerber:"js/plugins/gerber.js?1614617111579","graphite.engine":"js/plugins/graphite.engine.js?1614617111579",pcb:"js/plugins/pcb.js?1614617111579",sch:"js/plugins/sch.js?1614617111579",schcompare:"js/plugins/schCompare.js?1614617111579","search.engine":"js/plugins/search.engine.js?1614617111579"})}).CLIENT_INDEX?Object({NODE_ENV:"production",VIEWER_DOMAIN:"https://viewer.altium.com",PATH_NAME:"",ATTR_OUTPUTS:"None",ATTR_HIDE_SRC:!0,FONT_FAMILY:"Segoe UI",allPlugins:Object({bomview:"js/plugins/BOMView.js?1614617111579",bomviewonpremise:"js/plugins/BOMViewOnPremise.js?1614617111579",comparedocument:"js/plugins/CompareDocument.js?1614617111579",comparelayers:"js/plugins/CompareLayers.js?1614617111579",comparepanel:"js/plugins/ComparePanel.js?1614617111579",download:"js/plugins/Download.js?1614617111579",export:"js/plugins/Export.js?1614617111579",exportonpremise:"js/plugins/ExportOnPremise.js?1614617111579",fabricationcommentpanel:"js/plugins/FabricationCommentPanel.js?1614617111579",fullscreen:"js/plugins/FullScreen.js?1614617111579",gerbercomparemeasurement:"js/plugins/GerberCompareMeasurement.js?1614617111579",gerbercompareview:"js/plugins/GerberCompareView.js?1614617111579",gerberview:"js/plugins/GerberView.js?1614617111579",helppanel:"js/plugins/HelpPanel.js?1614617111579",measurement:"js/plugins/Measurement.js?1614617111579",pcbview:"js/plugins/PCBView.js?1614617111579",pcbview3d:"js/plugins/PCBView3D.js?1614617111579",previewpanel:"js/plugins/PreviewPanel.js?1614617111579",schview:"js/plugins/SCHView.js?1614617111579",schcompareview:"js/plugins/SchCompareView.js?1614617111579",search:"js/plugins/Search.js?1614617111579",select:"js/plugins/Select.js?1614617111579",snapping:"js/plugins/Snapping.js?1614617111579",supportlibrary:"js/plugins/SupportLibrary.js?1614617111579",variants:"js/plugins/Variants.js?1614617111579",layers:"js/plugins/layers.js?1614617111579","comparison.gerber":"js/plugins/comparison.gerber.js?1614617111579",gerber:"js/plugins/gerber.js?1614617111579","graphite.engine":"js/plugins/graphite.engine.js?1614617111579",pcb:"js/plugins/pcb.js?1614617111579",sch:"js/plugins/sch.js?1614617111579",schcompare:"js/plugins/schCompare.js?1614617111579","search.engine":"js/plugins/search.engine.js?1614617111579"})}).CLIENT_INDEX:"https://viewer.altium.com/client/index.html")+"?ver="+(new Date).getTime();if(n&&n.value){e.hasAttribute("data-project-src")||e.setAttribute("data-project-src",n.value);var i=function(e){var t=document.createElement("iframe");return t.setAttribute("data-src",e),t.setAttribute("class","lazy altium-web-viewer"),t.setAttribute("style","overflow:hidden; height:100%; width:100%; border: none;"),t.setAttribute("scrolling","no"),t.setAttribute("allowfullscreen","true"),t.setAttribute("onload","window.top.scrollTo(0,0);"),t}(s);i.onload=function(n){return function(e,n){var r=e.target,s=r.parentElement,i={};i.domainOrigin=window.location.href,Array.prototype.slice.call(s.attributes).filter((function(e){return s.hasAttribute(e.name)&&"style"!=e.name})).forEach((function(e){return i[e.name]=e.value}));var o=t(),a={id:o,message:"loadWidget",src:i};"https:"===location.protocol?a.scheme="https":a.scheme="http",window.addEventListener("message",(function(e){var t;return(null==e||null===(t=e.data)||void 0===t?void 0:t.id)===o&&n.dispatchEvent(new CustomEvent(e.data.message,{detail:{id:o,data:e.data.data}}))})),r.contentWindow.postMessage(a,"*"),n.dataset.iframeGuid=o,n.postCustomMessage=function(e){return r.contentWindow.postMessage(e,"*")}}(n,e)},e.style.overflow="hidden",e.style.width="100%",e.style.height="100%",e.appendChild(i)}else e.setAttribute("style","display:none; width:0; height:0; border:none;")})),i()}}}return{getViewer:function(){return e||(e=n()),e}}}();window.altiumViewerClient=n;var r=n.getViewer();function s(){var e;"true"!==(e=window.location.href,new URL(e).searchParams.get("delayedinit"))&&r.initViewer()}function i(){var e={intersectionObserverSupport:"IntersectionObserver"in window&&"IntersectionObserverEntry"in window&&"intersectionRatio"in window.IntersectionObserverEntry.prototype,mutationObserverSupport:"MutationObserver"in window,idleCallbackSupport:"requestIdleCallback"in window,eventsToBind:[[document,"scroll"],[document,"touchmove"],[window,"resize"],[window,"orientationchange"]]},t="lazy",n="lazy-bg",r="lazy-bg-loaded",s=200,i=!1,o=100,a=200,l=!1,u="body",c={childList:!0,subtree:!0},p="img.".concat(t,",video.").concat(t,",iframe.").concat(t,",.").concat(n),g={timeout:o},d=function(e){return[].slice.call(e)},j=function(e){if("IMG"===e.tagName){var t=e.parentNode;"PICTURE"===t.tagName&&d(t.querySelectorAll("source")).forEach((function(e){return m(e)})),m(e)}"VIDEO"===e.tagName&&(d(e.querySelectorAll("source")).forEach((function(e){return m(e)})),m(e),!0===e.autoplay&&e.load()),"IFRAME"===e.tagName&&m(e),e.classList.contains(n)&&(e.classList.remove(n),e.classList.add(r))},m=function(e){null!==e.getAttribute("data-srcset")&&e.setAttribute("srcset",e.getAttribute("data-srcset")),null!==e.getAttribute("data-src")&&e.setAttribute("src",e.getAttribute("data-src")),null!==e.getAttribute("data-poster")&&e.setAttribute("poster",e.getAttribute("data-poster"))},b=function n(){var r=!1;!1===r&&w.length>0&&(r=!0,setTimeout((function(){w.forEach((function(n){n.getBoundingClientRect().top<=window.innerHeight+a&&n.getBoundingClientRect().bottom>=-a&&"none"!==getComputedStyle(n).display&&(!0===i&&!0===e.idleCallbackSupport?requestIdleCallback((function(){j(n)}),g):j(n),n.classList.remove(t),w=w.filter((function(e){return e!==n})))})),r=!1,0===w.length&&!1===l&&e.eventsToBind.forEach((function(e){return e[0].removeEventListener(e[1],n)}))}),s))},w=d(document.querySelectorAll(p));if(!0===e.intersectionObserverSupport){var f=new IntersectionObserver((function(n,r){n.forEach((function(n){if(!0===n.isIntersecting||n.intersectionRatio>0){var s=n.target;!0===i&&!0===e.idleCallbackSupport?requestIdleCallback((function(){return j(s)}),g):j(s),s.classList.remove(t),r.unobserve(s),w=w.filter((function(e){return e!==s}))}}))}),{rootMargin:"".concat(a,"px 0%")});w.forEach((function(e){return f.observe(e)}))}else e.eventsToBind.forEach((function(e){return e[0].addEventListener(e[1],b)})),b();!0===e.mutationObserverSupport&&!0===l&&new MutationObserver((function(t){return t.forEach((function(){d(document.querySelectorAll(p)).forEach((function(t){-1===w.indexOf(t)&&(w.push(t),!0===e.intersectionObserverSupport?f.observe(t):b())}))}))})).observe(document.querySelector(u),c)}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",s):s(),window.eCadViewer=r,window.startViewer=s,window.yallForViewer=i}});
+/**
+ * Altium Viewer Client Embed Script
+ * Deobfuscated and Semantic Reconstruction
+ */
+
+(function () {
+    console.log("Initializing Altium Viewer Embed Script...");
+
+    // Configuration Constants
+    const CONFIG = {
+        NODE_ENV: "production",
+        VIEWER_DOMAIN: "https://viewer.altium.com", // This will be replaced by the Go proxy
+        CLIENT_INDEX: "https://viewer.altium.com/client/index.html", // This will also be replaced
+        PLUGINS: {
+            bomview: "js/plugins/BOMView.js",
+            bomviewonpremise: "js/plugins/BOMViewOnPremise.js",
+            comparedocument: "js/plugins/CompareDocument.js",
+            comparelayers: "js/plugins/CompareLayers.js",
+            comparepanel: "js/plugins/ComparePanel.js",
+            download: "js/plugins/Download.js",
+            export: "js/plugins/Export.js",
+            exportonpremise: "js/plugins/ExportOnPremise.js",
+            fabricationcommentpanel: "js/plugins/FabricationCommentPanel.js",
+            fullscreen: "js/plugins/FullScreen.js",
+            gerbercomparemeasurement: "js/plugins/GerberCompareMeasurement.js",
+            gerbercompareview: "js/plugins/GerberCompareView.js",
+            gerberview: "js/plugins/GerberView.js",
+            helppanel: "js/plugins/HelpPanel.js",
+            measurement: "js/plugins/Measurement.js",
+            pcbview: "js/plugins/PCBView.js",
+            pcbview3d: "js/plugins/PCBView3D.js",
+            previewpanel: "js/plugins/PreviewPanel.js",
+            schview: "js/plugins/SCHView.js",
+            schcompareview: "js/plugins/SchCompareView.js",
+            search: "js/plugins/Search.js",
+            select: "js/plugins/Select.js",
+            snapping: "js/plugins/Snapping.js",
+            supportlibrary: "js/plugins/SupportLibrary.js",
+            variants: "js/plugins/Variants.js",
+            layers: "js/plugins/layers.js",
+            "comparison.gerber": "js/plugins/comparison.gerber.js",
+            gerber: "js/plugins/gerber.js",
+            "graphite.engine": "js/plugins/graphite.engine.js",
+            pcb: "js/plugins/pcb.js",
+            sch: "js/plugins/sch.js",
+            schcompare: "js/plugins/schCompare.js",
+            "search.engine": "js/plugins/search.engine.js"
+        }
+    };
+
+    /**
+     * Creates and configures the Altium Viewer Iframe.
+     * @param {string} projectSrc - The value for data-project-src attribute.
+     * @returns {HTMLIFrameElement} The configured iframe element.
+     */
+    function createViewerIframe(projectSrc) {
+        const iframe = document.createElement("iframe");
+        // The src will be set via postMessage or specialized logic, initially we use data-src
+        iframe.setAttribute("data-src", CONFIG.CLIENT_INDEX);
+        iframe.setAttribute("class", "lazy altium-web-viewer");
+        iframe.setAttribute("style", "overflow:hidden; height:100%; width:100%; border: none;");
+        iframe.setAttribute("scrolling", "no");
+        iframe.setAttribute("allowfullscreen", "true");
+
+        // Scroll to top on load
+        iframe.setAttribute("onload", "window.top.scrollTo(0,0);");
+
+        return iframe;
+    }
+
+    /**
+     * Generates a unique GUID for the viewer instance.
+     * @returns {string} GUID
+     */
+    function generateGuid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    /**
+     * Initializes the viewer by finding the container and injecting the iframe.
+     */
+    function initViewer() {
+        // Find the container element
+        const container = document.querySelector(".altium-ecad-viewer");
+        if (!container) return;
+
+        // Get the design ID from the attribute
+        let projectSrc = container.getAttribute("data-project-src");
+
+        // If not present in attribute, check hidden input
+        if (!projectSrc) {
+            const hiddenInput = document.querySelector("input[name='project-src']");
+            if (hiddenInput && hiddenInput.value) {
+                projectSrc = hiddenInput.value;
+                container.setAttribute("data-project-src", projectSrc);
+            }
+        }
+
+        if (projectSrc) {
+            // Create the iframe
+            const iframe = createViewerIframe(projectSrc);
+            const guid = generateGuid();
+
+            // Set up the load handler to initialize communication
+            iframe.onload = function (event) {
+                const iframeWindow = iframe.contentWindow;
+                const parentElement = iframe.parentElement;
+
+                // Collect attributes to pass to the viewer
+                const attributes = {};
+                attributes.domainOrigin = window.location.href;
+                attributes.domain = CONFIG.VIEWER_DOMAIN;
+
+                // Copy all attributes from parent container to the configuration object
+                Array.prototype.slice.call(parentElement.attributes)
+                    .filter(attr => parentElement.hasAttribute(attr.name) && attr.name !== "style")
+                    .forEach(attr => {
+                        attributes[attr.name] = attr.value;
+                    });
+
+                // Prepare the initialization message
+                const initMessage = {
+                    id: guid,
+                    message: "loadWidget",
+                    src: attributes,
+                    scheme: location.protocol.replace(":", "")
+                };
+
+                // Listen for messages from this specific iframe
+                window.addEventListener("message", function (msgEvent) {
+                    if (msgEvent && msgEvent.data && msgEvent.data.id === guid) {
+                        // Redispatch as a custom event on the container
+                        container.dispatchEvent(new CustomEvent(msgEvent.data.message, {
+                            detail: {
+                                id: guid,
+                                data: msgEvent.data.data
+                            }
+                        }));
+                    }
+                });
+
+                // Send the initialization message
+                iframeWindow.postMessage(initMessage, "*");
+
+                // Expose a helper to post messages back to the iframe
+                container.dataset.iframeGuid = guid;
+                container.postCustomMessage = function (msg) {
+                    iframeWindow.postMessage(msg, "*");
+                };
+            };
+
+            // Style the container and append iframe
+            container.style.overflow = "hidden";
+            container.style.width = "100%";
+            container.style.height = "100%";
+            container.appendChild(iframe);
+
+            // Trigger lazy loading 
+            if (iframe.getAttribute("data-src")) {
+                iframe.setAttribute("src", iframe.getAttribute("data-src"));
+            }
+
+        } else {
+            // Hide container if no project source
+            container.setAttribute("style", "display:none; width:0; height:0; border:none;");
+        }
+    }
+
+    // Expose Global API
+    window.altiumViewerClient = {
+        getViewer: function () {
+            return initViewer();
+        },
+        initViewer: initViewer
+    };
+
+    // Auto-initialize if not delayed
+    const currentUrl = new URL(window.location.href);
+    if (currentUrl.searchParams.get("delayedinit") !== "true") {
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initViewer);
+        } else {
+            initViewer();
+        }
+    }
+
+})();

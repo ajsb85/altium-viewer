@@ -102,8 +102,8 @@ This error occurs during the `go generate` step.
 
 The program logs "upload done, open viewer" but either exits immediately or shows a `websocket.Dial: bad status` error.
 
-  * **Cause:** Modern browsers have strict security policies that prevent `lorca` from controlling them without explicit permission.
-  * **Solution:** The code in `pkg/altium/open.go` has been patched with the necessary flags (`--remote-allow-origins=*` and `--no-sandbox`). If you still encounter this issue, double-check that the Linux `webkit2gtk` dependencies are installed correctly.
+  * **Cause:** Modern browsers have strict security policies that prevent `lorca` from controlling them without explicit permission. Or, if running in WSL/Linux without a GUI browser, `lorca` cannot launch a window.
+  * **Solution:** The application now supports a **Headless Server Mode**. If the browser fails to launch (e.g., in WSL), the application will remain running and print the URL (e.g., `http://127.0.0.1:xxxxx`). Simply copy and paste this URL into your host system's browser.
 
 #### **3. Error: `EOF` after "upload..." message**
 
@@ -111,6 +111,19 @@ The program fails during the upload step.
 
   * **Cause:** The Altium Viewer API has been updated and is rejecting the request from the original code.
   * **Solution:** This codebase has been patched. The `pkg/altium/upload.go` file now sends the correct `multipart/form-data` field name (`Files`) and includes the required `Origin` and `Referer` headers to ensure the API accepts the request.
+
+#### **4. Error: `go: RLock ...: Incorrect function` (Windows/WSL)**
+
+This error occurs when trying to run the Go program from Windows PowerShell against files located in the WSL 2 filesystem (e.g., `\\wsl.localhost\Ubuntu\home\user\dev...`).
+
+  * **Cause:** The Go toolchain requires proper file locking, which is not fully supported over the WSL network share protocol when accessed from Windows binaries.
+  * **Solution:** Run the command **inside the WSL terminal** (e.g., Ubuntu) instead of from PowerShell.
+    ```bash
+    # Open your WSL terminal
+    cd ~/dev/go-altium-viewer
+    go run cmd/altium-viewer/main.go
+    ```
+    Alternatively, clone the repository to a native Windows path (e.g., `C:\Users\You\dev`) and run it from there.
 
 ## Contributing
 
