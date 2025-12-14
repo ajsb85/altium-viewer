@@ -1002,6 +1002,201 @@ var ViewerComponents = (function (exports) {
     };
 
     // ============================================================================
+    // TREE ITEM COMPONENT (from ViewerApp.js line 4523)
+    // ============================================================================
+
+    /**
+     * TreeItem - Tree view item with expand/collapse
+     */
+    var TreeItem = {
+        name: "TreeItem",
+        components: {
+            // AfsText, AfsIcon, Accordion resolved at runtime
+        },
+        directives: {
+            // trim directive resolved at runtime
+        },
+        props: {
+            item: {
+                type: Object,
+                default: function () { return {}; }
+            },
+            level: { type: Number, default: 0 },
+            startPadding: { type: [String, Number], default: 32 },
+            selectedItem: { type: [String, Number], default: "" }
+        },
+        data: function () {
+            return { refPrefix: "group-", isOpened: false };
+        },
+        computed: {
+            paddingLeft: function () {
+                return (+this.startPadding + 24 * +this.level) + "px";
+            },
+            childrenLevel: function () {
+                return +this.level + 1;
+            },
+            isSelected: function () {
+                return this.item.selected ||
+                    this.item.name === this.selectedItem ||
+                    this.item.id === this.selectedItem;
+            },
+            isIconFilled: function () {
+                return !("iconFilled" in this.item) || this.item.iconFilled;
+            }
+        },
+        watch: {
+            item: {
+                deep: true,
+                handler: function (val) {
+                    val.selected && this.openTree();
+                }
+            }
+        },
+        mounted: function () {
+            this.isSelected && this.openTree();
+        },
+        methods: {
+            onItemClick: function (item, event) {
+                if (event) {
+                    event.target.dispatchEvent(new Event("mouseleave"));
+                }
+                this.$emit("item-click", item);
+            },
+            onOpenChange: function () {
+                var refs = this.$refs;
+                if (this.isOpened) {
+                    refs && refs.container && refs.container.close();
+                } else {
+                    refs && refs.container && refs.container.open();
+                }
+                this.isOpened = !this.isOpened;
+            },
+            openTree: function () {
+                var refs = this.$refs;
+                refs && refs.container && refs.container.open();
+                this.isOpened = true;
+                if (this.level) this.$emit("open-parent");
+            }
+        }
+    };
+
+    // ============================================================================
+    // NOTIFICATION COMPONENT (from ViewerApp.js line 4169)
+    // ============================================================================
+
+    /**
+     * AppNotification - In-app notification display
+     */
+    var AppNotification = {
+        name: "AppNotification",
+        components: {
+            // AfsText, AfsButtonIcon, AfsIcon, AfsLink resolved at runtime
+        },
+        directives: {
+            // inject directive resolved at runtime
+        },
+        inject: ["appEmitter"],
+        props: {
+            containerId: { type: String, default: "" },
+            onClose: { type: Function }
+        },
+        data: function () {
+            return {
+                isOpened: false,
+                icon: "help-16",
+                autoClose: false,
+                autoCloseDelay: 3000,
+                text: "Something wrong",
+                fontStyle: "normal",
+                feedbackName: ""
+            };
+        },
+        computed: {
+            classes: function () {
+                return ["app-notification_" + this.fontStyle];
+            },
+            hasTextParts: function () {
+                return Array.isArray(this.text);
+            }
+        },
+        methods: {
+            setData: function (key, value) {
+                if (key === "text") return this.setText(value);
+                this[key] = value;
+            },
+            setText: function (text) {
+                var parts = text.split("%");
+                if (parts.length <= 1) {
+                    this.text = text;
+                    return;
+                }
+                var result = parts.map(function (part) {
+                    if (part.startsWith("{")) {
+                        return { id: Math.random().toString(36).substr(2, 9), ...JSON.parse(part) };
+                    }
+                    return { id: Math.random().toString(36).substr(2, 9), text: part };
+                });
+                this.text = result;
+            },
+            open: function () {
+                var self = this;
+                this.isOpened = true;
+                if (this.autoClose) {
+                    this.clearAutoclose();
+                    this.timer = setTimeout(function () { self.close(); }, this.autoCloseDelay);
+                }
+            },
+            close: function (emit) {
+                this.isOpened = false;
+                if (emit) this.appEmitter.emit("close");
+            },
+            clearAutoclose: function () {
+                if (this.timer) clearTimeout(this.timer);
+            }
+        }
+    };
+
+    // ============================================================================
+    // APPS LOADER COMPONENT (from ViewerApp.js line 3648)
+    // ============================================================================
+
+    /**
+     * AppsLoader - Full-page loading screen
+     */
+    var AppsLoader = {
+        name: "AppsLoader",
+        components: {
+            // AppLoader resolved at runtime
+        },
+        props: {
+            loading: { type: Boolean, default: false },
+            title: { type: String, default: "" },
+            subtitle: { type: String, default: "" }
+        },
+        data: function () {
+            return {
+                hasError: false,
+                errorText: ""
+            };
+        },
+        computed: {
+            isLoading: function () {
+                return this.loading && !this.hasError;
+            }
+        },
+        methods: {
+            setError: function (text) {
+                this.hasError = true;
+                this.errorText = text || "An error occurred";
+            },
+            clearError: function () {
+                this.hasError = false;
+                this.errorText = "";
+            }
+        }
+    };
+
+    // ============================================================================
     // EXPORTS
     // ============================================================================
 
@@ -1051,6 +1246,15 @@ var ViewerComponents = (function (exports) {
 
     // Header plugin
     exports.AppHeaderPlugin = AppHeaderPlugin;
+
+    // Tree view
+    exports.TreeItem = TreeItem;
+
+    // Notification
+    exports.AppNotification = AppNotification;
+
+    // Apps loader (full page)
+    exports.AppsLoader = AppsLoader;
 
     return exports;
 }({}));
