@@ -20,86 +20,63 @@
         y = n(77453),
         g = n(48226),
         b = n(36480),
-      /**
-     * Creates an API client with base URL from viewer domain.
-     * @returns {Object} API client instance
-     */
-      var createApiClient = function () {
-        return (0, b.Z)({
-          baseURL: window.__VIEWER_DOMAIN__ + "/api/",
-          type: "json",
-          withCredentials: !1,
-        });
-      };
-      /**
-       * Gets WebGL vendor and renderer information.
-       * @returns {Object|null} WebGL info or null if not available
-       */
-      const getWebGLInfo = function () {
-        var canvas = document.createElement("canvas").getContext("webgl");
-        if (canvas) {
-          var debugInfo = canvas.getExtension("WEBGL_debug_renderer_info");
+        w = function () {
+          return (0, b.Z)({
+            baseURL: window.__VIEWER_DOMAIN__ + "/api/",
+            type: "json",
+            withCredentials: !1,
+          });
+        };
+      const k = function () {
+        var e = document.createElement("canvas").getContext("webgl");
+        if (e) {
+          var t = e.getExtension("WEBGL_debug_renderer_info");
           return {
-            vendor: canvas.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
-            renderer: canvas.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
+            vendor: e.getParameter(t.UNMASKED_VENDOR_WEBGL),
+            renderer: e.getParameter(t.UNMASKED_RENDERER_WEBGL),
           };
         }
         return null;
       };
-      /**
-       * Returns the type of an object (handles Symbol properly).
-       * @param {*} obj - Object to check
-       * @returns {string} Type string
-       */
-      function getType(obj) {
+      function C(e) {
         return (
-          (getType =
+          (C =
             "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (obj) {
-                return typeof obj;
+              ? function (e) {
+                return typeof e;
               }
-              : function (obj) {
-                return obj &&
+              : function (e) {
+                return e &&
                   "function" == typeof Symbol &&
-                  obj.constructor === Symbol &&
-                  obj !== Symbol.prototype
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
                   ? "symbol"
-                  : typeof obj;
+                  : typeof e;
               }),
-          getType(obj)
+          C(e)
         );
       }
-      /**
-       * Defines properties on a target from an array of descriptors.
-       * @param {Object} target - Target object
-       * @param {Array} props - Property descriptors
-       */
-      function defineClassProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-          var descriptor = props[i];
-          ((descriptor.enumerable = descriptor.enumerable || !1),
-            (descriptor.configurable = !0),
-            "value" in descriptor && (descriptor.writable = !0),
-            Object.defineProperty(target, toPropertyKey(descriptor.key), descriptor));
+      function _(e, t) {
+        for (var n = 0; n < t.length; n++) {
+          var r = t[n];
+          ((r.enumerable = r.enumerable || !1),
+            (r.configurable = !0),
+            "value" in r && (r.writable = !0),
+            Object.defineProperty(e, P(r.key), r));
         }
       }
-      /**
-       * Converts a value to a valid property key.
-       * @param {*} arg - Value to convert
-       * @returns {string|Symbol} Property key
-       */
-      function toPropertyKey(arg) {
-        var key = (function (arg) {
-          if ("object" != getType(arg) || !arg) return arg;
-          var primitiveMethod = arg[Symbol.toPrimitive];
-          if (void 0 !== primitiveMethod) {
-            var result = primitiveMethod.call(arg, "string");
-            if ("object" != getType(result)) return result;
+      function P(e) {
+        var t = (function (e, t) {
+          if ("object" != C(e) || !e) return e;
+          var n = e[Symbol.toPrimitive];
+          if (void 0 !== n) {
+            var r = n.call(e, "string");
+            if ("object" != C(r)) return r;
             throw new TypeError("@@toPrimitive must return a primitive value.");
           }
-          return String(arg);
-        })(arg);
-        return "symbol" == getType(key) ? key : key + "";
+          return String(e);
+        })(e);
+        return "symbol" == C(t) ? t : t + "";
       }
       const S = new ((function () {
         return (
