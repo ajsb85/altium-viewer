@@ -1997,7 +1997,7 @@
             this.initUnits(),
             this.initOnSceneItnteracted(),
             setTimeout(function () {
-              return e.parentEvents.emit("viewer-inited");
+              return e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.VIEWER_INITED);
             }, 200),
             document.addEventListener("keyup", this.handleKey),
             (this.loaderMessage = this.$t(
@@ -2104,7 +2104,7 @@
                 this.initPluginsListeners(),
                 this.initLogoVisibilityListeners(),
                 Ne.Z.bus.on("designResolveFirstStatus", function (t) {
-                  return e.parentEvents.emit("source:status", t);
+                  return e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.SOURCE_STATUS, t);
                 }),
                 Ne.Z.bus.on("progress", this.onDesignProcessing),
                 Ne.Z.bus.on("designId", this.onSetupDeisgnId),
@@ -2377,9 +2377,9 @@
             onSetupError: function (e) {
               var t, n;
               (!e || e.isEmptySource || e.isSourceHasNotExists
-                ? this.parentEvents.emit("documents:loaded", {})
+                ? this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DOCUMENTS_LOADED, {})
                 : (this.captureError(e),
-                  this.parentEvents.emit("design-data-loaded", {
+                  this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DESIGN_DATA_LOADED, {
                     error: "object" === Ye(e) ? qe({}, e) : e,
                   })),
                 this.setLoaderMessage(
@@ -2399,7 +2399,7 @@
                 ));
             },
             onSetupDeisgnId: function (e) {
-              this.parentEvents.emit("design-loaded", { designId: e });
+              this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DESIGN_LOADED, { designId: e });
             },
             onModuleSetup: function (e, t) {
               var n = this;
@@ -2524,7 +2524,7 @@
                     return l.setInitialView();
                   }))
                 : this.setInitialPlugin(),
-                this.parentEvents.emit("design-data-loaded", {
+                this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DESIGN_DATA_LOADED, {
                   projectTypeName:
                     null === (e = Ne.Z.response) ||
                       void 0 === e ||
@@ -2668,7 +2668,7 @@
             addModalListeners: function (e) {
               var t = this;
               (Ne.Z.bus.on(e.events.disable, function () {
-                (t.parentEvents.emit("plugin-events", {
+                (t.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.PLUGIN_EVENTS, {
                   plugin: e.name,
                   event: "disable",
                 }),
@@ -2677,7 +2677,7 @@
                     : t.removeActivePlugin(e));
               }),
                 Ne.Z.bus.on(e.events.enable, function () {
-                  (t.parentEvents.emit("plugin-events", {
+                  (t.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.PLUGIN_EVENTS, {
                     plugin: e.name,
                     event: "enable",
                   }),
@@ -2829,7 +2829,7 @@
                 );
             },
             onNewDesignReady: function () {
-              this.parentEvents.emit("viewer:generated-new-version");
+              this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.GENERATED_NEW_VERSION);
             },
             getErrorContent: function (e) {
               return ViewerAppMethods.getErrorContent(e);
