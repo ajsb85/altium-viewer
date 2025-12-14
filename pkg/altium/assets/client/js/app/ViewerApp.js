@@ -2041,50 +2041,7 @@
             },
             initCore: function () {
               var e = this;
-              (Ne.Z.bus.registerEvent("View:activate"),
-                Ne.Z.bus.registerEvent("View:deactivate"),
-                Ne.Z.bus.registerEvent("Views:update"),
-                Ne.Z.bus.registerEvent("Views:disable"),
-                Ne.Z.bus.registerEvent("Views:enable"),
-                Ne.Z.bus.registerEvent("Views:updatePadding"),
-                Ne.Z.bus.registerEvent("GlobalPlugins:disable"),
-                Ne.Z.bus.registerEvent("GlobalPlugins:enable"),
-                Ne.Z.bus.registerEvent("LocalPlugins:disable"),
-                Ne.Z.bus.registerEvent("LocalPlugins:enable"),
-                Ne.Z.bus.registerEvent("Logo:show"),
-                Ne.Z.bus.registerEvent("Logo:hide"),
-                Ne.Z.bus.registerEvent("Modal:panelWidth"),
-                Ne.Z.bus.registerEvent("View:set"),
-                Ne.Z.bus.registerEvent("Document:open-error"),
-                Ne.Z.bus.registerEvent("Layout:update"),
-                this.initViewsListeners(),
-                this.initPluginsListeners(),
-                this.initLogoVisibilityListeners(),
-                Ne.Z.bus.on("designResolveFirstStatus", function (t) {
-                  return e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.SOURCE_STATUS, t);
-                }),
-                Ne.Z.bus.on("progress", this.onDesignProcessing),
-                Ne.Z.bus.on("designId", this.onSetupDeisgnId),
-                Ne.Z.bus.on("error", this.onSetupError),
-                Ne.Z.bus.on("moduleSetupCompleted", this.onModuleSetup),
-                Ne.Z.bus.on("view", this.onSetupReadyToView),
-                Ne.Z.bus.on("complete", this.onSetupComplete),
-                Ne.Z.bus.on("unAuthorized", function (t) {
-                  e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.VIEWER_UNAUTHORIZED);
-                }),
-                Ne.Z.bus.on("Document:open-error", this.onDocumentOpenError),
-                Ne.Z.bus.on(
-                  "designResolveComplete",
-                  this.onDesignResolveComplete,
-                ),
-                Ne.Z.bus.on("newDesignVersionReady", this.onNewDesignReady),
-                Ne.Z.bus.on("newDesignVersionError", this.onNewDesignReady),
-                Ne.Z.bus.on("View:get", function (t) {
-                  t.current = e.activeView;
-                }),
-                Ne.Z.bus.on("Layout:update", function (t) {
-                  e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.APP_LAYOUT_CHANGED, t);
-                }),
+                (ViewerAppMethods.initAppCore(this, Ne.Z, ViewerAppConfig),
                 this.parentEvents.on("app:layout:closePanels", function (t) {
                   if (t.panelIds) {
                     var n,
@@ -2262,160 +2219,11 @@
             initViewsListeners: function () {
               ViewerViewManager.initViewsListeners(this, Ne.Z.bus, Ne.Z);
             },
-            onDesignProcessing: function (e, t) {
-              ((this.isDesignProcessed = !1), this.setLoaderMessage(e, t));
-            },
-            setLoaderMessage: function (e, t) {
-              var n = this,
-                r =
-                  arguments.length > 2 && void 0 !== arguments[2]
-                    ? arguments[2]
-                    : "",
-                i = this.isCompare && !t ? "Comparison in progress" : e,
-                o =
-                  this.isAfsCompare && !t
-                    ? "You can wait or close the page. We will email you when completed."
-                    : this.isCompare && !t
-                      ? "It will take a few moments"
-                      : "";
-              (this.isCompare &&
-                !this.isAfsCompare &&
-                !t &&
-                setTimeout(function () {
-                  ((n.loaderMessage = "Comparison is still in progress"),
-                    (n.loaderMeta = "It will take longer than expected"),
-                    (n.isLoaderPrimary = !1));
-                }, 3e4),
-                (this.hasLoaderIcon =
-                  !this.isCompare || (this.isCompare && t)),
-                (this.isLoading = !0),
-                (this.isLoadingFailed = t));
-              var a = ViewerAppMethods.parseLoaderMessage(i);
-              ((this.loaderMessage =
-                a || this.$t(ViewerAppConfig.I18N_KEYS.INITIALIZING)),
-                (this.loaderMeta = o),
-                (this.loaderIcon = r));
-            },
-            onSetupError: function (e) {
-              var t, n;
-              (!e || e.isEmptySource || e.isSourceHasNotExists
-                ? this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DOCUMENTS_LOADED, {})
-                : (this.captureError(e),
-                  this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DESIGN_DATA_LOADED, {
-                    error: "object" === Ye(e) ? qe({}, e) : e,
-                  })),
-                this.setLoaderMessage(
-                  (null == e || null === (t = e.innerError) || void 0 === t
-                    ? void 0
-                    : t.message) ||
-                  (null == e ? void 0 : e.message) ||
-                  e ||
-                  "Error occurred. Please refresh the page or try a bit later.",
-                  !0,
-                  null != e &&
-                    null !== (n = e.innerError) &&
-                    void 0 !== n &&
-                    n.isManaged
-                    ? "info-16"
-                    : "",
-                ));
-            },
-            onSetupDeisgnId: function (e) {
-              this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DESIGN_LOADED, { designId: e });
-            },
-            onModuleSetup: function (e, t) {
-              var n = this;
-              try {
-                switch (e) {
-                  case "View":
-                    var r = this.setFilteredView(t);
-                    if (r) {
-                      ViewerPluginManager.setupViewListeners(n, r, Ne.Z.bus);
-                    }
-                    break;
-                  case "Plugin":
-                    if (t.metaInfo.owner) {
-                      ViewerPluginManager.setupLocalPlugin(n, t, Ne.Z.bus);
-                    } else {
-                      ViewerPluginManager.setupGlobalPlugin(n, t, Ne.Z.bus);
-                    }
-                    break;
-                }
-              } catch (t) {
-                Ne.Z.createLogger("App").LogError(
-                  "[".concat(e, "] module setup error."),
-                  t,
-                );
-              }
-            },
-            onSetupReadyToView: function () {
-              var e = this;
-              window.__CORE__.useFastView &&
-                ((this.isLoading = !1),
-                  (0, i.nextTick)().then(function () {
-                    return e.setInitialView();
-                  }));
-            },
-            setInitialPlugin: function () {
-              ViewerPluginManager.setInitialPlugin(this.coreInitialData, Ne.Z.bus);
-            },
-            onSetupComplete: function () {
-              var e,
-                t,
-                n,
-                r,
-                o,
-                a,
-                s,
-                c,
-                l = this;
-              (this.isLoading
-                ? ((this.isLoading = !1),
-                  (0, i.nextTick)().then(function () {
-                    return l.setInitialView();
-                  }))
-                : this.setInitialPlugin(),
-                this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DESIGN_DATA_LOADED, {
-                  projectTypeName:
-                    null === (e = Ne.Z.response) ||
-                      void 0 === e ||
-                      null === (t = e.metadata) ||
-                      void 0 === t
-                      ? void 0
-                      : t.projectTypeName,
-                  camtasticSourceKind:
-                    (null === (n = Ne.Z.response) ||
-                      void 0 === n ||
-                      null === (r = n.metadata) ||
-                      void 0 === r ||
-                      null === (o = r.camtastic) ||
-                      void 0 === o ||
-                      null === (a = o[0]) ||
-                      void 0 === a
-                      ? void 0
-                      : a.sourceKind) || null,
-                  files:
-                    null === (s = Ne.Z.response) ||
-                      void 0 === s ||
-                      null === (c = s.storage) ||
-                      void 0 === c
-                      ? void 0
-                      : c.files,
-                }));
-            },
-            initLogoVisibilityListeners: function () {
-              var e = this;
-              (Ne.Z.bus.on("Logo:show", function () {
-                e.isLogoVisible = !0;
-              }),
-                Ne.Z.bus.on("Logo:hide", function () {
-                  e.isLogoVisible = !1;
-                }));
-            },
 
-            initViewsListeners: function () {
-              ViewerViewManager.initViewsListeners(this, Ne.Z.bus);
-            },
+
+
+
+
             initPluginsListeners: function () {
               ViewerPluginManager.initPluginsListeners(this, Ne.Z.bus);
             },
@@ -2450,58 +2258,7 @@
                 );
               });
             },
-            captureError: function (e) {
-              var t =
-                arguments.length > 1 && void 0 !== arguments[1]
-                  ? arguments[1]
-                  : "",
-                n =
-                  arguments.length > 2 &&
-                  void 0 !== arguments[2] &&
-                  arguments[2],
-                r = this.getErrorDetails(e);
-              if (!r.skipMonitoring) {
-                if (window.__APP__.appMonitoring) {
-                  var i = this.getErrorContent(e),
-                    o = {
-                      analytics_error:
-                        window.__APP__.analytics.getErrorEventName(t),
-                      unload_page_signal: this.unloadPageSignal,
-                    };
-                  if (e.sendDetails || n) {
-                    var a = k(),
-                      s = a.vendor,
-                      c = a.renderer,
-                      l = S.getMemoryUsageDetails();
-                    ((o = qe(
-                      qe({}, o),
-                      {},
-                      {
-                        webgl_vendor: s,
-                        webgl_renderer: c,
-                        document_size: null == e ? void 0 : e.dataSize,
-                      },
-                    )),
-                      l &&
-                      (o = qe(
-                        qe({}, o),
-                        {},
-                        {
-                          js_heap_size_limit: l.jsHeapSizeLimit,
-                          total_js_heap_size: l.totalJSHeapSize,
-                          used_js_heap_size: l.usedJSHeapSize,
-                        },
-                      )));
-                  }
-                  (r.isManaged &&
-                    (o = qe(qe({}, o), {}, { is_managed_error: !0 })),
-                    window.__APP__.appMonitoring.capture(i, { tags: o }));
-                }
-                this.unloadPageSignal ||
-                  r.isManaged ||
-                  window.__APP__.analytics.dispatchErrorEvent(t);
-              }
-            },
+
             handleKey: function (e) {
               this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.VIEWER_KEY, ViewerAppMethods.formatKeyEvent(e));
             },

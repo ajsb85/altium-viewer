@@ -411,6 +411,157 @@ var ViewerAppMethods = (function (exports) {
         }
     }
 
+
+    /**
+     * Initialize Core and register event listeners
+     * @param {Object} app - Vue instance
+     * @param {Object} core - Core instance (Ne.Z)
+     * @param {Object} config - ViewerAppConfig
+     */
+    function initAppCore(app, core, config) {
+        core.bus.registerEvent("View:activate");
+        core.bus.registerEvent("View:deactivate");
+        core.bus.registerEvent("Views:update");
+        core.bus.registerEvent("Views:disable");
+        core.bus.registerEvent("Views:enable");
+        core.bus.registerEvent("Views:updatePadding");
+        core.bus.registerEvent("GlobalPlugins:disable");
+        core.bus.registerEvent("GlobalPlugins:enable");
+        core.bus.registerEvent("LocalPlugins:disable");
+        core.bus.registerEvent("LocalPlugins:enable");
+        core.bus.registerEvent("Logo:show");
+        core.bus.registerEvent("Logo:hide");
+        core.bus.registerEvent("Modal:panelWidth");
+        core.bus.registerEvent("View:set");
+        core.bus.registerEvent("Document:open-error");
+        core.bus.registerEvent("Layout:update");
+        
+        // Init listeners
+        if (app.initViewsListeners) app.initViewsListeners(); 
+        if (app.initPluginsListeners) app.initPluginsListeners();
+        initLogoVisibilityListeners(app, core);
+        
+        core.bus.on("designResolveFirstStatus", function (t) {
+            return app.parentEvents.emit(config.PARENT_EVENTS.SOURCE_STATUS, t);
+        });
+        
+        core.bus.on("progress", function(e, t) { onDesignProcessing(app, e, t); });
+        core.bus.on("designId", function(e) { onSetupDesignId(app, config, e); });
+        core.bus.on("error", function(e) { onSetupError(app, config, e); });
+        core.bus.on("moduleSetupCompleted", function(e, t) { onModuleSetup(app, core, e, t); });
+        core.bus.on("view", function() { onSetupReadyToView(app); });
+        core.bus.on("complete", function() { onSetupComplete(app, core, config); });
+        
+        core.bus.on("unAuthorized", function (t) {
+            app.parentEvents.emit(config.PARENT_EVENTS.VIEWER_UNAUTHORIZED);
+        });
+        
+        core.bus.on("Document:open-error", function(e) { app.onDocumentOpenError(e); });
+        
+        core.bus.on("designResolveComplete", function(e) {
+             if (e && e.activeVersion) {
+                 app.parentEvents.emit(config.PARENT_EVENTS.GENERATING_NEW_VERSION, e.activeVersion);
+             }
+        });
+        
+        core.bus.on("newDesignVersionReady", function() { app.parentEvents.emit(config.PARENT_EVENTS.GENERATED_NEW_VERSION); });
+        core.bus.on("newDesignVersionError", function() { app.parentEvents.emit(config.PARENT_EVENTS.GENERATED_NEW_VERSION); });
+        
+        core.bus.on("View:get", function (t) {
+            t.current = app.activeView;
+        });
+        
+        core.bus.on("Layout:update", function (t) {
+            app.parentEvents.emit(config.PARENT_EVENTS.APP_LAYOUT_CHANGED, t);
+        });
+    }
+
+    function initLogoVisibilityListeners(app, core) {
+        core.bus.on("Logo:show", function () { app.isLogoVisible = true; });
+        core.bus.on("Logo:hide", function () { app.isLogoVisible = false; });
+    }
+
+    function onDesignProcessing(app, message, isError) {
+        app.isDesignProcessed = false;
+        setLoaderMessage(app, message, isError);
+    }
+
+    function onSetupDesignId(app, config, id) {
+        app.parentEvents.emit(config.PARENT_EVENTS.DESIGN_LOADED, { designId: id });
+    }
+
+    function onSetupError(app, config, e) {
+        var msg, inner;
+        if (!e || e.isEmptySource || e.isSourceHasNotExists) {
+             app.parentEvents.emit(config.PARENT_EVENTS.DOCUMENTS_LOADED, {});
+        } else {
+             captureError(app, e);
+             app.parentEvents.emit(config.PARENT_EVENTS.DESIGN_DATA_LOADED, {
+                 error: e
+             });
+        }
+        
+        msg = (e && e.innerError && e.innerError.message) || (e && e.message) || e || "Error occurred. Please refresh the page or try a bit later.";
+        inner = (e && e.innerError);
+        
+        setLoaderMessage(app, msg, true, (inner && inner.isManaged) ? "info-16" : "");
+    }
+
+    function onModuleSetup(app, core, type, module) {
+         try {
+             if (type === "View") {
+                 var view = ViewerViewManager.setFilteredView(app, module);
+                 if (view) {
+                     ViewerPluginManager.setupViewListeners(app, view, core.bus);
+                 }
+             } else if (type === "Plugin") {
+                 if (module.metaInfo.owner) {
+                     ViewerPluginManager.setupLocalPlugin(app, module, core.bus);
+                 } else {
+                     ViewerPluginManager.setupGlobalPlugin(app, module, core.bus);
+                 }
+             }
+         } catch (err) {
+             console.error("[ViewerAppMethods] Module setup error:", type, err);
+         }
+    }
+
+    function onSetupReadyToView(app) {
+        if (window.__CORE__ && window.__CORE__.useFastView) {
+            app.isLoading = false;
+            setTimeout(function() {
+                ViewerViewManager.setInitialView(app, window.__CORE__);
+            }, 0);
+        }
+    }
+
+    function setInitialPlugin(coreInitialData, bus) {
+        ViewerPluginManager.setInitialPlugin(coreInitialData, bus);
+    }
+
+
+    function onSetupComplete(app, core, config) {
+        var resp = core.response;
+        var meta = resp && resp.metadata;
+        var storage = resp && resp.storage;
+        var cam = meta && meta.camtastic && meta.camtastic[0];
+        
+        if (app.isLoading) {
+             app.isLoading = false;
+             setTimeout(function() {
+                 ViewerViewManager.setInitialView(app, core);
+             }, 0);
+        } else {
+             ViewerPluginManager.setInitialPlugin(app.coreInitialData, core.bus);
+        }
+        
+        app.parentEvents.emit(config.PARENT_EVENTS.DESIGN_DATA_LOADED, {
+            projectTypeName: meta ? meta.projectTypeName : undefined,
+            camtasticSourceKind: cam ? cam.sourceKind : null,
+            files: storage ? storage.files : undefined
+        });
+    }
+
     // ============================================================================
     // EXPORTS
     // ============================================================================
@@ -434,6 +585,17 @@ var ViewerAppMethods = (function (exports) {
     exports.setLoader = setLoader;
     exports.setLoaderMessage = setLoaderMessage;
     exports.captureError = captureError;
+
+    // Phase 3 Exports (Tier 4 Methods)
+    exports.initAppCore = initAppCore;
+    exports.onDesignProcessing = onDesignProcessing;
+    exports.onSetupDesignId = onSetupDesignId;
+    exports.onSetupError = onSetupError;
+    exports.onModuleSetup = onModuleSetup;
+    exports.onSetupReadyToView = onSetupReadyToView;
+    exports.setInitialPlugin = setInitialPlugin;
+    exports.onSetupComplete = onSetupComplete;
+    exports.initLogoVisibilityListeners = initLogoVisibilityListeners;
 
     console.log('[ViewerAppMethods] Loaded with', METHOD_NAMES.length, 'method references');
 
