@@ -1358,6 +1358,124 @@ var ViewerComponents = (function (exports) {
     };
 
     // ============================================================================
+    // LAYOUT UPDATE NOTIFIER (from ViewerApp.js line 1587)
+    // ============================================================================
+
+    /**
+     * LayoutUpdateNotifier - Manages responsive layout updates
+     * Tracks window size, header height, sidebar width, and modals
+     */
+    var LayoutUpdateNotifier = (function () {
+        function LayoutUpdateNotifier(bus) {
+            var self = this;
+            this.bus = bus;
+            this.windowWidth = 0;
+            this.windowHeight = 0;
+            this.headerHeight = 0;
+            this.sidebarWidth = 0;
+            this.updated = false;
+            this.modals = new Map();
+            this.logger = window.__CORE__ ? window.__CORE__.createLogger("App:AppLayoutUpdateNotifier") : console;
+
+            this.onWindowResize = function () {
+                self.windowWidth = window.innerWidth;
+                self.windowHeight = window.innerHeight;
+                self.updateLayout();
+            };
+        }
+
+        LayoutUpdateNotifier.prototype.initialize = function () {
+            window.addEventListener("resize", this.onWindowResize);
+            this.onWindowResize();
+        };
+
+        LayoutUpdateNotifier.prototype.setHeaderHeight = function (height) {
+            if (Number.isFinite(height) && height !== this.headerHeight) {
+                this.headerHeight = height;
+                this.updateLayoutImmediate();
+            }
+        };
+
+        LayoutUpdateNotifier.prototype.setSideBarWidth = function (width) {
+            if (Number.isFinite(width) && width !== this.sidebarWidth) {
+                if (window.__APP__) window.__APP__.sidebarWidth = width;
+                this.sidebarWidth = width;
+                this.updateLayoutImmediate();
+            }
+        };
+
+        LayoutUpdateNotifier.prototype.addModal = function (modal) {
+            this.modals.set(modal.id, Object.assign({}, modal));
+            this.updateLayoutImmediate();
+        };
+
+        LayoutUpdateNotifier.prototype.removeModal = function (id) {
+            if (this.modals.delete(id)) {
+                this.updateLayoutImmediate();
+            }
+        };
+
+        LayoutUpdateNotifier.prototype.updateModalWidth = function (id, width) {
+            var modal = this.modals.get(id);
+            if (modal && modal.width !== width) {
+                modal.width = width;
+                this.updateLayoutImmediate();
+            }
+        };
+
+        LayoutUpdateNotifier.prototype.updateLayoutImmediate = function () {
+            try {
+                var collectModals = function (arr, modal, filter) {
+                    if (filter(modal)) arr.push({ id: modal.id, offset: modal.width });
+                    return arr;
+                };
+
+                var modalsArr = Array.from(this.modals.values());
+                var left = modalsArr.reduce(function (a, m) {
+                    return collectModals(a, m, function (x) { return x.isLeftModal; });
+                }, []);
+                var right = modalsArr.reduce(function (a, m) {
+                    return collectModals(a, m, function (x) { return x.isRightModal; });
+                }, []);
+
+                if (left.length < 2 && right.length < 2) {
+                    if (this.sidebarWidth > 0) {
+                        left.unshift({ id: "Sidebar", offset: this.sidebarWidth });
+                    }
+                    var layout = {
+                        width: this.windowWidth,
+                        height: this.windowHeight,
+                        left: left,
+                        right: right,
+                        top: this.headerHeight ? [{ id: "Header", offset: this.headerHeight }] : [],
+                        bottom: []
+                    };
+                    this.bus.emit("Layout:update", layout);
+                }
+                this.updated = true;
+            } catch (e) {
+                if (this.logger && this.logger.LogError) {
+                    this.logger.LogError("Update layout changing error", e);
+                }
+            }
+        };
+
+        LayoutUpdateNotifier.prototype.updateLayout = function () {
+            var self = this;
+            this.updated = false;
+            if (window.__APP__ && window.__APP__.utils && window.__APP__.utils.debounce) {
+                window.__APP__.utils.debounce("app:layout:changed", function () {
+                    if (!self.updated) self.updateLayoutImmediate();
+                }, 20);
+            } else {
+                this.updateLayoutImmediate();
+            }
+        };
+
+        return LayoutUpdateNotifier;
+    })();
+
+    // ============================================================================
     // EXPORTS
     // ============================================================================
 
@@ -1421,6 +1539,9 @@ var ViewerComponents = (function (exports) {
     exports.AppMainTabs = AppMainTabs;
     exports.AppHeader = AppHeader;
     exports.AppMenu = AppMenu;
+
+    // Layout management
+    exports.LayoutUpdateNotifier = LayoutUpdateNotifier;
 
     return exports;
 }({}));
