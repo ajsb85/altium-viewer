@@ -1989,55 +1989,10 @@
           {},
           {
             initCommon: function () {
-              var e = this;
-              ("ontouchstart" in window &&
-                document.body.classList.add("is-touch"),
-                Ne.Z.bus.on("storageResolveComplete", function (t) {
-                  return e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DATA_STORAGE_RESOLVE, {
-                    files: t.files,
-                  });
-                }),
-                this.initOnUpdateInterface(),
-                this.initAnalytics(),
-                this.checkWebGl2());
+              ViewerAppMethods.initCommon(this, Ne.Z, ViewerAppConfig);
             },
             initUnits: function () {
-              (!Me.Z.get() && Me.Z.set("mm"),
-                Ne.Z.bus.on("metadataResolveComplete", function (e) {
-                  var t, n, r, i;
-                  "number" ==
-                    typeof (null == e ||
-                      null === (t = e.pcbDocument) ||
-                      void 0 === t
-                      ? void 0
-                      : t.units) &&
-                    W.LG[
-                    null == e ||
-                      null === (n = e.pcbDocument) ||
-                      void 0 === n
-                      ? void 0
-                      : n.units
-                    ] &&
-                    (Me.Z.set(
-                      W.LG[
-                      null == e ||
-                        null === (r = e.pcbDocument) ||
-                        void 0 === r
-                        ? void 0
-                        : r.units
-                      ],
-                    ),
-                      Ne.Z.bus.emit(
-                        "HelpPanel:changeUnit",
-                        W.LG[
-                        null == e ||
-                          null === (i = e.pcbDocument) ||
-                          void 0 === i
-                          ? void 0
-                          : i.units
-                        ],
-                      ));
-                }));
+              ViewerAppMethods.initUnits(this, Ne.Z, Me.Z, ViewerAppConfig);
             },
             initCore: function () {
               var e = this;
@@ -2185,13 +2140,7 @@
                 : Ne.Z.setup(n, this.coreInitialData);
             },
             initOnSceneItnteracted: function () {
-              var e = this;
-              Ne.Z.bus.on("sceneInteracted", function (t) {
-                return e.parentEvents.emit(
-                  ViewerAppConfig.PARENT_EVENTS.SCENE_INTERACTED,
-                  qe(qe({}, t), {}, { viewName: e.activeView.name }),
-                );
-              });
+              ViewerAppMethods.initOnSceneInteracted(this, Ne.Z, ViewerAppConfig);
             },
             filterViewsByStr: function (e, t) {
               return ViewerAppMethods.filterViewsByStr(e, t);
@@ -2236,9 +2185,7 @@
             changeView: function (e, t, n) {
               return ViewerViewManager.changeView(this, e, t, n);
             },
-            initOnDocumentShown: function (e) {
-              return ViewerViewManager.initOnDocumentShown(this, e, Ne.Z.bus);
-            },
+
             onViewChange: function (e) {
               this.changeView(e, !1, !0);
             },
@@ -2251,12 +2198,7 @@
               Ne.Z.bus.emit(e.events.back);
             },
             initOnUpdateInterface: function () {
-              this.parentEvents.on("updateInterface", function (e) {
-                return Ne.Z.bus.emit(
-                  "".concat(e.name, ":updateInterface"),
-                  e.interface,
-                );
-              });
+              ViewerAppMethods.initOnUpdateInterface(this, Ne.Z);
             },
 
             handleKey: function (e) {
@@ -2290,35 +2232,14 @@
               ),
                 new Ze(window.__APP__.appMonitoring, Ne.Z).init());
             },
-            onLinkClick: function (e, t) {
-              t.eventName && (e.preventDefault(), Ne.Z.bus.emit(t.eventName));
+            onLinkClick: function(e, t) {
+                ViewerAppMethods.onLinkClick(this, e, t, Ne.Z);
             },
             onSidebarUpdated: function () {
-              var e,
-                t,
-                n,
-                r,
-                i =
-                  (null === (e = this.$refs) ||
-                    void 0 === e ||
-                    null === (t = e.viewerContainer) ||
-                    void 0 === t ||
-                    null === (n = t.$el) ||
-                    void 0 === n ||
-                    null === (r = n.getBoundingClientRect()) ||
-                    void 0 === r
-                    ? void 0
-                    : r.left) || 0;
-              this.appLayoutUpdateNotifier.setSideBarWidth(i);
+                ViewerAppMethods.onSidebarUpdated(this);
             },
             onHeaderUpdated: function () {
-              var e,
-                t =
-                  (null === (e = this.$refs.header) || void 0 === e
-                    ? void 0
-                    : e.$el.getBoundingClientRect().height) || 0;
-              (this.appLayoutUpdateNotifier.setHeaderHeight(t),
-                (this.layoutChanged = !0));
+                ViewerAppMethods.onHeaderUpdated(this);
             },
             checkWebGl2: function () {
               var status = ViewerAppMethods.checkWebGl2Support();

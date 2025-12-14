@@ -586,7 +586,101 @@ var ViewerAppMethods = (function (exports) {
     exports.setLoaderMessage = setLoaderMessage;
     exports.captureError = captureError;
 
+    function initCommon(app, core, config) {
+        if ("ontouchstart" in window) {
+            document.body.classList.add("is-touch");
+        }
+        core.bus.on("storageResolveComplete", function(t) {
+            return app.parentEvents.emit(config.PARENT_EVENTS.DATA_STORAGE_RESOLVE, {
+                files: t.files
+            });
+        });
+        if (app.initOnUpdateInterface) app.initOnUpdateInterface();
+        if (app.initAnalytics) app.initAnalytics();
+        if (app.checkWebGl2) app.checkWebGl2();
+    }
+
+    function initUnits(app, core, unitsService, config) {
+        if (!unitsService.get()) unitsService.set("mm");
+        
+        core.bus.on("metadataResolveComplete", function(e) {
+            var pcb = e && e.pcbDocument;
+            var units = pcb && pcb.units;
+            
+            if (typeof units === "number" && config.UNITS[units]) {
+                unitsService.set(config.UNITS[units]);
+                core.bus.emit("HelpPanel:changeUnit", config.UNITS[units]);
+            }
+        });
+    }
+
+    function initAnalytics(app, core) {
+        window.__APP__.analytics.initData(app.coreInitialData.attributes);
+        // Note: Ze (or specialized monitoring class) usage depends on availability. 
+        // Assuming Ze is globally available or we need to pass it.
+        // For now, retaining original logic but we might need to fix 'Ze' reference if it's a local import in ViewerApp.js.
+        // If Ze is not available here, we might need a wrapper in ViewerApp.js or pass it in.
+        // Checking imports... V.Z(Qe... Ze is imported as Ze from somewhere.
+        // Since we can't easily move the Ze import without checking, we'll delegate the INSTANTIATION to ViewerApp.js 
+        // or just keep initAnalytics logic simple if possible.
+        // ACTUALLY, Ze is likely an imported class. 
+        // Let's START by extracting pure logic or simple handlers. 
+        // initAnalytics uses `new Ze(...)`. We don't have Ze here. 
+        // So we will NOT extract initAnalytics body fully if Ze is missing.
+        // Strategy: Keep initAnalytics in ViewerApp.js for now OR pass Ze constructor.
+        // Let's pass the constructor if possible? No, too messy.
+        // We will SKIP initAnalytics extraction for this step to avoid ReferenceError on Ze 
+        // UNLESS we see Ze is available. Ze seems to be `import { Monitoring as Ze } ...`
+        
+        // Alternative: We only extract initCommon, initUnits, etc.
+    }
+    
+    // REDEFINING initCommon to NOT call app.initAnalytics() directly if we extract it, 
+    // but app.initAnalytics() will stay on app for now?
+    // User requested extraction. unique solution:
+    
+    function initOnSceneInteracted(app, core, config) {
+        core.bus.on("sceneInteracted", function(t) {
+            return app.parentEvents.emit(config.PARENT_EVENTS.SCENE_INTERACTED, {
+                ...t,
+                viewName: app.activeView.name
+            });
+        });
+    }
+
+    function initOnUpdateInterface(app, core) {
+        app.parentEvents.on("updateInterface", function(e) {
+            return core.bus.emit("".concat(e.name, ":updateInterface"), e.interface);
+        });
+    }
+
+    function onLinkClick(app, event, item, core) {
+        if (item.eventName) {
+            event.preventDefault();
+            core.bus.emit(item.eventName);
+        }
+    }
+    
+    // For sidebar/header updates, they use app.$refs and app.appLayoutUpdateNotifier
+    function onSidebarUpdated(app) {
+        var refs = app.$refs;
+        var vc = refs && refs.viewerContainer;
+        var el = vc && vc.$el;
+        var rect = el && el.getBoundingClientRect();
+        var left = (rect && rect.left) || 0;
+        app.appLayoutUpdateNotifier.setSideBarWidth(left);
+    }
+
+    function onHeaderUpdated(app) {
+        var refs = app.$refs;
+        var header = refs && refs.header;
+        var height = (header && header.$el.getBoundingClientRect().height) || 0;
+        app.appLayoutUpdateNotifier.setHeaderHeight(height);
+        app.layoutChanged = true;
+    }
+
     // Phase 3 Exports (Tier 4 Methods)
+
     exports.initAppCore = initAppCore;
     exports.onDesignProcessing = onDesignProcessing;
     exports.onSetupDesignId = onSetupDesignId;
@@ -596,6 +690,15 @@ var ViewerAppMethods = (function (exports) {
     exports.setInitialPlugin = setInitialPlugin;
     exports.onSetupComplete = onSetupComplete;
     exports.initLogoVisibilityListeners = initLogoVisibilityListeners;
+
+    // Phase 4 Exports (Final Cleanup)
+    exports.initCommon = initCommon;
+    exports.initUnits = initUnits;
+    exports.initOnSceneInteracted = initOnSceneInteracted;
+    exports.initOnUpdateInterface = initOnUpdateInterface;
+    exports.onLinkClick = onLinkClick;
+    exports.onSidebarUpdated = onSidebarUpdated;
+    exports.onHeaderUpdated = onHeaderUpdated;
 
     console.log('[ViewerAppMethods] Loaded with', METHOD_NAMES.length, 'method references');
 
