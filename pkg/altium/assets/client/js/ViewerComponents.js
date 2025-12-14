@@ -193,8 +193,9 @@ var ViewerComponents = (function (exports) {
         ["render", renderAfsBadge]
     ]);
 
+
     // ============================================================================
-    // GRID CONTAINER (from module 48226)
+    // GRID COMPONENTS (from modules 48226 and 20533)
     // ============================================================================
 
     /**
@@ -203,6 +204,58 @@ var ViewerComponents = (function (exports) {
     function joinModifiers(modifiers, prefix) {
         return modifiers.join(" " + prefix + "_").replace(/^\s+|\s+$/g, "");
     }
+
+    /**
+     * AfsGridSection - Grid section with padding
+     * Replaces module 20533 export 'G'
+     */
+    var GridSection = {
+        name: "AfsGridSection",
+        inheritAttrs: false,
+        props: {
+            dataLocator: { type: String, default: "grid-section" },
+            tag: { type: String, default: "div" },
+            paddingSize: {
+                type: String,
+                default: "lg",
+                validator: function (v) { return ["xl", "lg", "md", "sm", "xs"].includes(v); }
+            }
+        },
+        computed: {
+            classes: function () {
+                return "afs-grid-section_" + this.paddingSize;
+            }
+        }
+    };
+
+    /**
+     * GridSection render function
+     */
+    function renderGridSection(ctx, cache, props, setup, data, options) {
+        return (
+            Vue.openBlock(),
+            Vue.createBlock(
+                Vue.resolveDynamicComponent(props.tag),
+                Vue.mergeProps(ctx.$attrs, {
+                    class: ["afs-grid-section", options.classes],
+                    "data-locator": props.dataLocator
+                }),
+                {
+                    default: Vue.withCtx(function () {
+                        return [Vue.renderSlot(ctx.$slots, "default")];
+                    }),
+                    _: 3
+                },
+                16,
+                ["class", "data-locator"]
+            )
+        );
+    }
+
+    // Wrap GridSection with render function
+    var WrappedGridSection = wrapComponent(GridSection, [
+        ["render", renderGridSection]
+    ]);
 
     /**
      * AfsGridContainer - Flexible grid container component
@@ -809,9 +862,11 @@ var ViewerComponents = (function (exports) {
     exports.isFunction = isFunction;
     exports.ComponentRegistry = ComponentRegistry;
 
-    // Grid components
+    // Grid components (modules 48226, 20533)
     exports.GridContainer = GridContainer;
     exports.WrappedGridContainer = WrappedGridContainer;
+    exports.GridSection = GridSection;
+    exports.WrappedGridSection = WrappedGridSection;
 
     // Badge
     exports.AfsBadge = AfsBadge;

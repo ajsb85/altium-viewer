@@ -5,7 +5,7 @@
  * Replaces multiple vendor modules with shared implementations.
  */
 (self.webpackChunkaltium_web_viewer = self.webpackChunkaltium_web_viewer || []).push([
-    [46021, 93891, 29786, 48226, 77453, 55592, 23870], // Chunk IDs
+    [46021, 93891, 29786, 48226, 20533, 77453, 55592, 23870], // Chunk IDs
     {
         // Module 46021 - V.Z (exportComponent)
         46021: (e, t) => {
@@ -35,6 +35,14 @@
             "use strict";
             n.d(t, {
                 G: () => ViewerComponents.WrappedGridContainer
+            });
+        },
+
+        // Module 20533 - GridSection (g.G)
+        20533: (e, t, n) => {
+            "use strict";
+            n.d(t, {
+                G: () => ViewerComponents.WrappedGridSection
             });
         },
 
