@@ -2408,76 +2408,16 @@
                   case "View":
                     var r = this.setFilteredView(t);
                     if (r) {
-                      var i = r.name;
-                      (Ne.Z.bus.on(r.events.updateInterface, function (e) {
-                        return n.updateViewInterface({ view: r, data: e });
-                      }),
-                        Ne.Z.bus.on(
-                          "LocalPlugins:disable",
-                          this.toggleModulesDisableState({
-                            getItems: function () {
-                              return n.localPluginsDictionary[i];
-                            },
-                            disabled: !0,
-                            callback: function (e) {
-                              return n.updateLocalPluginsInterface({
-                                name: i,
-                                plugin: e,
-                                data: { disabled: !0 },
-                              });
-                            },
-                          }),
-                        ),
-                        Ne.Z.bus.on(
-                          "LocalPlugins:enable",
-                          this.toggleModulesDisableState({
-                            getItems: function () {
-                              return n.localPluginsDictionary[i];
-                            },
-                            disabled: !1,
-                            callback: function (e) {
-                              return n.updateLocalPluginsInterface({
-                                name: i,
-                                plugin: e,
-                                data: { disabled: !1 },
-                              });
-                            },
-                          }),
-                        ));
+                      ViewerPluginManager.setupViewListeners(n, r, Ne.Z.bus);
                     }
                     break;
                   case "Plugin":
-                    if (t.metaInfo.owner)
-                      t.metaInfo.owner.split(",").forEach(function (e) {
-                        var r = e.trim();
-                        n.setLocalPluginDictionary({ name: r, data: t });
-                        var i = n.localPluginsDictionary[r].find(
-                          function (e) {
-                            return e.id === t.metaInfo.name;
-                          },
-                        );
-                        (n.addModalListeners(i),
-                          Ne.Z.bus.on(i.events.updateInterface, function (e) {
-                            return n.updateLocalPluginsInterface({
-                              name: r,
-                              plugin: i,
-                              data: e,
-                            });
-                          }));
-                      });
-                    else {
-                      this.setGlobalPlugin(t);
-                      var o = this.globalPlugins.find(function (e) {
-                        return e.id === t.metaInfo.name;
-                      });
-                      (this.addModalListeners(o),
-                        Ne.Z.bus.on(o.events.updateInterface, function (e) {
-                          return n.updateGlobalPluginsInterface({
-                            plugin: o,
-                            data: e,
-                          });
-                        }));
+                    if (t.metaInfo.owner) {
+                      ViewerPluginManager.setupLocalPlugin(n, t, Ne.Z.bus);
+                    } else {
+                      ViewerPluginManager.setupGlobalPlugin(n, t, Ne.Z.bus);
                     }
+                    break;
                 }
               } catch (t) {
                 Ne.Z.createLogger("App").LogError(

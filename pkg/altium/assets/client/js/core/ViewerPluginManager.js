@@ -174,6 +174,125 @@ var ViewerPluginManager = (function(Config) {
 
     console.log('[ViewerPluginManager] Loaded');
 
+    /**
+     * Sets up listeners for a View module.
+     * 
+     * @param {Object} app - The ViewerApp Vue instance
+     * @param {Object} view - The view object
+     * @param {Object} bus - The event bus instance (Ne.Z.bus)
+     */
+    function setupViewListeners(app, view, bus) {
+        if (!view || !bus) return;
+        
+        var viewName = view.name;
+        
+        // Subscribe to updateInteface events from the view
+        bus.on(view.events.updateInterface, function(data) {
+            return app.updateViewInterface({ view: view, data: data });
+        });
+        
+        // Subscribe to LocalPlugins:disable
+        bus.on(
+            Config.CORE_BUS_EVENTS.LOCAL_PLUGINS_DISABLE,
+            toggleModulesDisableState({
+                getItems: function() {
+                    return app.localPluginsDictionary[viewName];
+                },
+                disabled: true,
+                callback: function(plugin) {
+                    return app.updateLocalPluginsInterface({
+                        name: viewName,
+                        plugin: plugin,
+                        data: { disabled: true }
+                    });
+                }
+            })
+        );
+        
+        // Subscribe to LocalPlugins:enable
+        bus.on(
+            Config.CORE_BUS_EVENTS.LOCAL_PLUGINS_ENABLE,
+            toggleModulesDisableState({
+                getItems: function() {
+                    return app.localPluginsDictionary[viewName];
+                },
+                disabled: false,
+                callback: function(plugin) {
+                    return app.updateLocalPluginsInterface({
+                        name: viewName,
+                        plugin: plugin,
+                        data: { disabled: false }
+                    });
+                }
+            })
+        );
+    }
+
+    /**
+     * Sets up a local plugin (associated with a specific view context).
+     * 
+     * @param {Object} app - The ViewerApp Vue instance
+     * @param {Object} pluginData - The plugin data/metadata
+     * @param {Object} bus - The event bus instance (Ne.Z.bus)
+     */
+    function setupLocalPlugin(app, pluginData, bus) {
+        if (!pluginData.metaInfo || !pluginData.metaInfo.owner) return;
+        
+        pluginData.metaInfo.owner.split(",").forEach(function(ownerName) {
+            var viewName = ownerName.trim();
+            
+            // Register in dictionary
+            app.setLocalPluginDictionary({ name: viewName, data: pluginData });
+            
+            // Find the instantiated plugin object
+            var plugin = app.localPluginsDictionary[viewName].find(function(p) {
+                return p.id === pluginData.metaInfo.name;
+            });
+            
+            if (plugin) {
+                addModalListeners(app, plugin, bus);
+                
+                // Subscribe to updateInterface
+                bus.on(plugin.events.updateInterface, function(data) {
+                    return app.updateLocalPluginsInterface({
+                        name: viewName,
+                        plugin: plugin,
+                        data: data
+                    });
+                });
+            }
+        });
+    }
+
+    /**
+     * Sets up a global plugin (available across all views).
+     * 
+     * @param {Object} app - The ViewerApp Vue instance
+     * @param {Object} pluginData - The plugin data/metadata
+     * @param {Object} bus - The event bus instance (Ne.Z.bus)
+     */
+    function setupGlobalPlugin(app, pluginData, bus) {
+        // Register global plugin
+        app.setGlobalPlugin(pluginData);
+        
+        // Find the instantiated plugin object
+        var plugin = app.globalPlugins.find(function(p) {
+            return p.id === pluginData.metaInfo.name;
+        });
+        
+        if (plugin) {
+            addModalListeners(app, plugin, bus);
+            
+            // Subscribe to updateInterface
+            bus.on(plugin.events.updateInterface, function(data) {
+                return app.updateGlobalPluginsInterface({
+                    plugin: plugin,
+                    data: data
+                });
+            });
+        }
+    }
+
     // ============================================================================
     // EXPORTS
     // ============================================================================
@@ -182,7 +301,10 @@ var ViewerPluginManager = (function(Config) {
         toggleModulesDisableState: toggleModulesDisableState,
         setInitialPlugin: setInitialPlugin,
         initPluginsListeners: initPluginsListeners,
-        addModalListeners: addModalListeners
+        addModalListeners: addModalListeners,
+        setupViewListeners: setupViewListeners,
+        setupLocalPlugin: setupLocalPlugin,
+        setupGlobalPlugin: setupGlobalPlugin
     };
 
 })(ViewerAppConfig);
