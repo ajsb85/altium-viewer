@@ -22,6 +22,8 @@ type templateData struct {
 	Name string // The filename of the project, used for the window title.
 }
 
+
+
 // OpenProject takes a designId and filename, and launches a native desktop window
 // to display the corresponding Altium Viewer instance, pointing to the local proxy server.
 func OpenProject(url string) error {

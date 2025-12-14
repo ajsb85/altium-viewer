@@ -9,7 +9,6 @@ import (
 	"log"
 	"net"
 	"net/http"
-	"net/url"
 	"os"
 	"path/filepath"
 	"strings"
@@ -18,6 +17,7 @@ import (
 
 	rice "github.com/GeertJohan/go.rice"
 )
+
 
 // Server handles local serving and proxying
 type Server struct {
@@ -196,30 +196,92 @@ func (s *Server) proxyHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	// 1a. Mock Status (POST /proxy/api/widget/status/{uuid}) - used for polling conversion status
+	if r.Method == "POST" && strings.Contains(r.URL.Path, "widget/status/") {
+		// Extract design ID from URL path
+		pathParts := strings.Split(r.URL.Path, "/")
+		var designId string
+		for i, part := range pathParts {
+			if part == "status" && i+1 < len(pathParts) {
+				designId = pathParts[i+1]
+				break
+			}
+		}
+		
+		if designId == "" {
+			http.Error(w, "Design ID not found", http.StatusBadRequest)
+			return
+		}
+		
+		log.Printf("Mocking POST /widget/status response for DesignID: %s", designId)
+		
+		// Check if design exists in downloads/
+		designPath := filepath.Join("downloads", designId)
+		if _, err := os.Stat(designPath); os.IsNotExist(err) {
+			// Design not found locally - return error
+			response := map[string]interface{}{
+				"currentVersion":    1,
+				"designId":          designId,
+				"faultCode":         1,
+				"originalFaultCode": 1,
+				"designType":        0,
+				"fileType":          "Gerber",
+				"status":            "Error",
+				"message":           "Design not found locally",
+			}
+			w.Header().Set("Content-Type", "application/json")
+			json.NewEncoder(w).Encode(response)
+			return
+		}
+		
+		// Design found - return complete status
+		response := map[string]interface{}{
+			"currentVersion": 1,
+			"designId":       designId,
+			"modules": []string{
+				"FABRICATIONVIEW",
+				"BOARDITEMSVISIBILITY",
+				"FULLSCREEN",
+				"HELPPANEL",
+				"FABRICATIONMEASUREMENT",
+			},
+			"extendModulesData": []interface{}{},
+			"faultCode":         255,
+			"originalFaultCode": 255,
+			"designType":        0,
+			"fileType":          "Gerber",
+			"status":            "Complete",
+		}
+		
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(response)
+		return
+	}
+
+
 	// 1b. Mock Get (POST /proxy/api/widget/get) - used for initial fetch
 	if r.Method == "POST" && strings.Contains(r.URL.Path, "widget/get") {
-        // User provided specific response structure for this.
-        // {"currentVersion":1,"designId":"...","modules":[...],"status":"Complete"}
-        // We will mock this dynamically based on the 001/002 data if possible, or just return a success/complete status
-        // so the viewer proceeds to the next step (polling).
-        
-        // Let's try to extract designId from request body if possible, or use the one we have.
+        // Extract designId from request body
         reqBody, _ := io.ReadAll(r.Body)
         var req map[string]interface{}
+        var designId string
         if json.Unmarshal(reqBody, &req) == nil {
-             // id might be in req["url"] based on curl: --data-raw '{"url":"..."}'
+            // id is in req["url"] based on curl: --data-raw '{"url":"..."}'
+            if urlVal, ok := req["url"].(string); ok {
+                designId = urlVal
+            }
         }
         
-        // We need the design ID. Let's peek at requests/001_set.json or just grab the first 002 file to get the ID.
-        var designId string
-        files, _ := os.ReadDir("requests")
-		for _, f := range files {
-			if strings.HasPrefix(f.Name(), "002_") && strings.HasSuffix(f.Name(), ".json") {
-                // Filename is 002_<uuid>.json
-                parts := strings.Split(f.Name(), "_")
-                if len(parts) >= 2 {
-                    designId = strings.TrimSuffix(parts[1], ".json")
-                    break
+        if designId == "" {
+            // Fallback: peek at requests/002_*.json
+            files, _ := os.ReadDir("requests")
+            for _, f := range files {
+                if strings.HasPrefix(f.Name(), "002_") && strings.HasSuffix(f.Name(), ".json") {
+                    parts := strings.Split(f.Name(), "_")
+                    if len(parts) >= 2 {
+                        designId = strings.TrimSuffix(parts[1], ".json")
+                        break
+                    }
                 }
             }
         }
@@ -228,15 +290,31 @@ func (s *Server) proxyHandler(w http.ResponseWriter, r *http.Request) {
             designId = "unknown-design-id"
         }
 
+        // Check if design exists in downloads/
+        designPath := filepath.Join("downloads", designId)
+        if _, err := os.Stat(designPath); os.IsNotExist(err) {
+            log.Printf("Design folder not found: %s", designPath)
+            response := map[string]interface{}{
+                "currentVersion": 1,
+                "designId": designId,
+                "faultCode": 1,
+                "status": "Error",
+                "message": "Design not found locally",
+            }
+            w.Header().Set("Content-Type", "application/json")
+            json.NewEncoder(w).Encode(response)
+            return
+        }
+
         response := map[string]interface{}{
             "currentVersion": 1,
             "designId": designId,
             "modules": []string{"FABRICATIONVIEW", "BOARDITEMSVISIBILITY", "FULLSCREEN", "HELPPANEL", "FABRICATIONMEASUREMENT"},
             "extendModulesData": []interface{}{},
-            "faultCode": 0, // 0 usually means success, user saw 255 but result was Complete. Let's try 0 or 255.
-            "originalFaultCode": 0,
+            "faultCode": 255,
+            "originalFaultCode": 255,
             "designType": 0,
-            "fileType": "Gerber", // Or whatever defaults
+            "fileType": "Gerber",
             "status": "Complete",
         }
 
@@ -248,100 +326,96 @@ func (s *Server) proxyHandler(w http.ResponseWriter, r *http.Request) {
 
 	// 2. Mock Poll/Get Data (GET /proxy/api/widget/get/data/{id})
 	if r.Method == "GET" && strings.Contains(r.URL.Path, "widget/get/data/") {
-		// Extract IDs/Pattern. Simpler: Iterate requests/002*.json and find one that matches.
-		// For now, let's hardcode looking for the main data file.
-		// In a real generic replay, we'd map URLs.
-		// Here we assume single session replay. 002_*.json is the one.
-		files, _ := os.ReadDir("requests")
-		for _, f := range files {
-			if strings.HasPrefix(f.Name(), "002_") && strings.HasSuffix(f.Name(), ".json") {
-				content, err := os.ReadFile(filepath.Join("requests", f.Name()))
-				if err == nil {
-					var interaction map[string]interface{}
-					if json.Unmarshal(content, &interaction) == nil {
-						// Check if the URL roughly matches (ignoring ID differences if we forced ID in step 1, but we should match ID)
-						// Actually, better to just serve it.
-						log.Printf("Replaying Data Response from %s", f.Name())
-						
-						// Rewrite Logic
-						log.Printf("Start rewriting logic for %s", f.Name())
-						resBody, ok := interaction["resBody"].(map[string]interface{})
-                        if !ok {
-                            log.Printf("Error: resBody is not a map")
-                            continue
-                        }
-						data, ok := resBody["data"].(map[string]interface{})
-                        if !ok {
-                            log.Printf("Error: data is not a map")
-                            continue
-                        }
-						filesList, ok := data["files"].([]interface{})
-                        if !ok {
-                            log.Printf("Error: files is not a list")
-                            continue
-                        }
-						
-						log.Printf("Found %d files in filesList", len(filesList))
-
-						for i, fileItem := range filesList {
-							f, ok := fileItem.(map[string]interface{})
-                            if !ok { 
-                                log.Printf("Item %d is not a map", i)
-                                continue 
-                            }
-							if originalName, ok := f["originalName"].(string); ok {
-                                fileType, _ := f["fileType"].(string)
-                                log.Printf("Processing file: %s (Type: %s)", originalName, fileType)
-
-                                // Determine unique local filename
-                                localFilename := originalName
-                                if fileType == "CamPreview" {
-                                    localFilename = originalName + ".png"
-                                } else if fileType == "CamGraphite" {
-                                    localFilename = originalName + ".graphite"
-                                }
-                                log.Printf("Resolved localFilename: %s", localFilename)
-
-								// Check if file exists locally in downloads/
-                                localPath := filepath.Join("downloads", localFilename)
-
-                                if _, err := os.Stat(localPath); err == nil {
-                                    // Exists -> Serve directly
-                                    newUrl := fmt.Sprintf("%s/downloads/Arduino_MEGA2560/%s", s.BaseURL, localFilename)
-                                    f["dataFileUrl"] = newUrl
-                                    log.Printf("File exists. Rewriting to: %s", newUrl)
-                                } else {
-                                    log.Printf("File missing at %s", localPath)
-                                    // Missing -> Use Proxy Download
-                                    // Original URL from payload
-                                    if originalUrl, ok := f["dataFileUrl"].(string); ok {
-                                        // Encode params
-                                        f["dataFileUrl"] = fmt.Sprintf("%s/proxy_download?url=%s&filename=%s", 
-                                            s.BaseURL, 
-                                            url.QueryEscape(originalUrl),
-                                            url.QueryEscape(localFilename))
-                                        log.Printf("Rewriting to proxy_download")
-                                    }
-                                }
-								filesList[i] = f
-							} else {
-                                log.Printf("Item %d has no originalName", i)
-                            }
-						}
-						data["files"] = filesList
-						resBody["data"] = data
-						
-						// Write modified response
-						w.Header().Set("Content-Type", "application/json")
-                        w.Header().Set("Cache-Control", "no-cache, no-store, must-revalidate")
-                        w.Header().Set("Pragma", "no-cache")
-                        w.Header().Set("Expires", "0")
-						json.NewEncoder(w).Encode(resBody)
-						return
-					}
-				}
+		// Extract design ID from URL path: /proxy/api/widget/get/data/{designId}
+		pathParts := strings.Split(r.URL.Path, "/")
+		var designId string
+		for i, part := range pathParts {
+			if part == "data" && i+1 < len(pathParts) {
+				designId = pathParts[i+1]
+				break
 			}
 		}
+		
+		if designId == "" {
+			http.Error(w, "Design ID not found in URL", http.StatusBadRequest)
+			return
+		}
+		
+		log.Printf("Loading design data for: %s", designId)
+		
+		// Check if design folder exists
+		designPath := filepath.Join("downloads", designId)
+		if _, err := os.Stat(designPath); os.IsNotExist(err) {
+			log.Printf("Design folder not found: %s", designPath)
+			http.Error(w, "Design not found", http.StatusNotFound)
+			return
+		}
+		
+		// Build file list from the design folder
+		entries, err := os.ReadDir(designPath)
+		if err != nil {
+			log.Printf("Error reading design folder: %v", err)
+			http.Error(w, "Error reading design folder", http.StatusInternalServerError)
+			return
+		}
+		
+		filesList := []map[string]interface{}{}
+		for _, entry := range entries {
+			if entry.IsDir() {
+				continue
+			}
+			
+			filename := entry.Name()
+			fileType := ""
+			originalName := filename
+			
+			// Determine file type based on filename/extension
+			switch {
+			case strings.HasSuffix(filename, ".graphite"):
+				fileType = "CamGraphite"
+				originalName = strings.TrimSuffix(filename, ".graphite")
+			case strings.Contains(filename, "_Small.png"):
+				fileType = "CamPreview"
+				originalName = strings.TrimSuffix(filename, "_cam_Small.png")
+			case filename == "ArkMetrics.json":
+				fileType = "ArkMetrics"
+			case filename == "ExecutionResult.json":
+				fileType = "ExecRes"
+			case strings.HasSuffix(filename, ".zip"):
+				fileType = "Source"
+			case filename == "metadata.json" || strings.HasSuffix(filename, ".PrjPcb"):
+				fileType = "Metadata"
+			default:
+				continue // Skip unknown files
+			}
+			
+			fileURL := fmt.Sprintf("%s/downloads/%s/%s", s.BaseURL, designId, filename)
+			filesList = append(filesList, map[string]interface{}{
+				"fileType":     fileType,
+				"originalName": originalName,
+				"dataFileUrl":  fileURL,
+			})
+			
+			log.Printf("Adding file: %s (Type: %s) -> %s", filename, fileType, fileURL)
+		}
+		
+		response := map[string]interface{}{
+			"status":   "Complete",
+			"designId": designId,
+			"data": map[string]interface{}{
+				"files":            filesList,
+				"expirationTime":   1800,
+				"hasAlternatePath": true,
+				"storageType":      "S3Direct",
+			},
+		}
+		
+		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Cache-Control", "no-cache, no-store, must-revalidate")
+		w.Header().Set("Pragma", "no-cache")
+		w.Header().Set("Expires", "0")
+		json.NewEncoder(w).Encode(response)
+		return
 	}
 
 	// 3. Generic Replay (Fallthrough)
@@ -641,3 +715,4 @@ func (s *Server) indexHandler(id, name string) http.HandlerFunc {
 		}
 	}
 }
+

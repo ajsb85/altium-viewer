@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>{{.Name}} - Altium Viewer</title>
+    <title>Altium Viewer</title>
     <script src="assets/embed.js"></script>
     <style>
         html, body {
@@ -13,6 +13,18 @@
     </style>
 </head>
 <body>
-<div class="altium-ecad-viewer" data-project-src="{{.Id}}" style="overflow: hidden;"></div>
+<script>
+    // Read UUID from URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    // Default to 7701036f-fbdc-4a91-9d84-5c5e5d6f3390 if no UUID provided
+    const uuid = urlParams.get('uuid') || '7701036f-fbdc-4a91-9d84-5c5e5d6f3390';
+    
+    // Create the viewer div with the UUID
+    const viewerDiv = document.createElement('div');
+    viewerDiv.className = 'altium-ecad-viewer';
+    viewerDiv.setAttribute('data-project-src', uuid);
+    viewerDiv.style.cssText = 'overflow: hidden; width: 100%; height: 100%;';
+    document.body.appendChild(viewerDiv);
+</script>
 </body>
 </html>

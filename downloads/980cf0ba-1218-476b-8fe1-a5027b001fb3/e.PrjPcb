@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0.6",
+  "camtastic": [
+    {
+      "fileName": "Sources__pic_programmer-F_Courtyard_Gerber274XDocument.cam",
+      "originalFileName": "Sources__pic_programmer-F_Courtyard_Gerber274XDocument",
+      "layers": [
+        {
+          "id": 1,
+          "name": "pic_programmer-f_courtyard.gbr",
+          "originalName": "pic_programmer-f_courtyard.gbr",
+          "color": "#FF0000",
+          "kind": 25,
+          "details": "User",
+          "soft": "KiCad"
+        }
+      ],
+      "units": 0,
+      "sourceKind": "Gerber"
+    }
+  ],
+  "draftsman": 0,
+  "pcbProjectsCount": 0,
+  "mbdProjectsCount": 0,
+  "projectTypeName": "Camtastic",
+  "mbsDocuments": [],
+  "mbaDocuments": []
+}
