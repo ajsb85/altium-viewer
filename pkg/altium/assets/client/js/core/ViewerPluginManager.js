@@ -293,6 +293,105 @@ var ViewerPluginManager = (function(Config) {
         }
     }
 
+    /**
+     * Handles a plugin click event.
+     * 
+     * @param {Object} app - The ViewerApp Vue instance
+     * @param {Object} plugin - The plugin object
+     */
+    function handlePluginClick(app, plugin) {
+        if (plugin.isActive) {
+            app.removeActivePlugin(plugin);
+        } else {
+            app.setActivePlugin(plugin);
+        }
+    }
+
+    /**
+     * Creates event listeners for a modal to interact with the app layout.
+     * 
+     * @param {Object} app - The ViewerApp Vue instance
+     * @param {Object} modal - The modal object
+     * @param {Object} bus - The event bus instance (Ne.Z.bus)
+     * @returns {Object} Listeners object for the modal
+     */
+     function createModalListeners(app, modal, bus) {
+        return {
+            open: function(n) {
+                app.setActivePlugin(modal.module);
+                app.appLayoutUpdateNotifier.addModal(n);
+                app.layoutChanged = true;
+            },
+            close: function() {
+                return app.appLayoutUpdateNotifier.removeModal(modal.id);
+            },
+            closed: function() {
+                app.removeActivePlugin(modal.module);
+                app.layoutChanged = true;
+            },
+            resized: function(n) {
+                app.appLayoutUpdateNotifier.updateModalWidth(modal.id, n);
+                if (n && bus) {
+                    bus.emit("Modal:panelWidth", {
+                        id: app.id,
+                        width: n
+                    });
+                }
+            }
+        };
+    }
+
+    /**
+     * Handles changes to the views list, ensuring correct view activation and event emission.
+     * 
+     * @param {Object} app - The ViewerApp Vue instance
+     * @param {Array} viewsList - The new list of views
+     * @param {Object} bus - The event bus instance (Ne.Z.bus)
+     */
+    function handleViewsListChange(app, viewsList, bus) {
+        var hasActiveHidden = viewsList.some(function(v) {
+            return v.hidden && v.isActive;
+        });
+
+        if (hasActiveHidden) {
+            var firstVisible = app.views.find(function(v) {
+                return !v.hidden;
+            });
+            if (firstVisible) {
+                app.changeView(firstVisible);
+            }
+        } else if (
+            viewsList.some(function(v) { return v.isActive; }) || 
+            viewsList.every(function(v) { return v.hidden; })
+        ) {
+            if (bus) {
+                bus.emit("Views:update", viewsList.map(function(v) {
+                    // Create a shallow copy to match qe({}, e) behavior if needed, 
+                    // though map creates a new array, the objects inside might need cloning if modified downstream.
+                    // For now, simple object spread or assign equivalent.
+                    return Object.assign({}, v); 
+                }));
+            }
+
+            var previousLength = app.presentViews ? app.presentViews.length : 0;
+            var newPresentList = viewsList.reduce(function(acc, t) {
+                if (t && !t.hidden) {
+                    acc.push({ id: t.id, name: t.text });
+                }
+                return acc;
+            }, []);
+
+            app.presentViews = newPresentList.length ? newPresentList.map(function(e) {
+                return e.name;
+            }) : [];
+
+            if (previousLength !== app.presentViews.length) {
+                app.parentEvents.emit("viewer:set-present-views", app.presentViews);
+                app.parentEvents.emit("viewer:set-present-list-views", newPresentList);
+            }
+        }
+    }
+
     // ============================================================================
     // EXPORTS
     // ============================================================================
@@ -304,7 +403,10 @@ var ViewerPluginManager = (function(Config) {
         addModalListeners: addModalListeners,
         setupViewListeners: setupViewListeners,
         setupLocalPlugin: setupLocalPlugin,
-        setupGlobalPlugin: setupGlobalPlugin
+        setupGlobalPlugin: setupGlobalPlugin,
+        handlePluginClick: handlePluginClick,
+        createModalListeners: createModalListeners,
+        handleViewsListChange: handleViewsListChange
     };
 
 })(ViewerAppConfig);

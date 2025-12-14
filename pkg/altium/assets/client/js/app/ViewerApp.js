@@ -1788,33 +1788,7 @@
                     qe({}, t),
                     {},
                     {
-                      listeners: {
-                        open: function (n) {
-                          (e.setActivePlugin(t.module),
-                            e.appLayoutUpdateNotifier.addModal(n),
-                            (e.layoutChanged = !0));
-                        },
-                        close: function () {
-                          return e.appLayoutUpdateNotifier.removeModal(
-                            t.id,
-                          );
-                        },
-                        closed: function () {
-                          (e.removeActivePlugin(t.module),
-                            (e.layoutChanged = !0));
-                        },
-                        resized: function (n) {
-                          (e.appLayoutUpdateNotifier.updateModalWidth(
-                            t.id,
-                            n,
-                          ),
-                            n &&
-                            Ne.Z.bus.emit("Modal:panelWidth", {
-                              id: e.id,
-                              width: n,
-                            }));
-                        },
-                      },
+                      listeners: ViewerPluginManager.createModalListeners(e, t, Ne.Z.bus),
                     },
                   );
                 });
@@ -1871,53 +1845,7 @@
         watch: {
           viewsList: {
             handler: function (e) {
-              if (
-                e.some(function (e) {
-                  return e.hidden && e.isActive;
-                })
-              )
-                this.changeView(
-                  this.views.find(function (e) {
-                    return !e.hidden;
-                  }),
-                );
-              else if (
-                e.some(function (e) {
-                  return e.isActive;
-                }) ||
-                e.every(function (e) {
-                  return e.hidden;
-                })
-              ) {
-                Ne.Z.bus.emit(
-                  "Views:update",
-                  e.map(function (e) {
-                    return qe({}, e);
-                  }),
-                );
-                var t = this.presentViews.length,
-                  n = e.reduce(function (e, t) {
-                    return (
-                      (null != t && t.hidden) ||
-                      e.push({ id: t.id, name: t.text }),
-                      e
-                    );
-                  }, []);
-                ((this.presentViews = n.length
-                  ? n.map(function (e) {
-                    return e.name;
-                  })
-                  : []),
-                  t !== this.presentViews.length &&
-                  (this.parentEvents.emit(
-                    "viewer:set-present-views",
-                    this.presentViews,
-                  ),
-                    this.parentEvents.emit(
-                      "viewer:set-present-list-views",
-                      n,
-                    )));
-              }
+              ViewerPluginManager.handleViewsListChange(this, e, Ne.Z.bus);
             },
             deep: !0,
           },
@@ -2190,9 +2118,7 @@
               this.changeView(e, !1, !0);
             },
             onPluginClick: function (e) {
-              e.isActive
-                ? this.removeActivePlugin(e)
-                : this.setActivePlugin(e);
+              ViewerPluginManager.handlePluginClick(this, e);
             },
             onBackButtonClick: function (e) {
               Ne.Z.bus.emit(e.events.back);
