@@ -2001,7 +2001,7 @@
             }, 200),
             document.addEventListener("keyup", this.handleKey),
             (this.loaderMessage = this.$t(
-              "viewer.plugins.ui.App.initializing",
+              ViewerAppConfig.I18N_KEYS.INITIALIZING,
             )),
             this.parentEvents.on("app:view:activate", function (e) {
               Ne.Z.bus.emit("View:set", e.id);
@@ -2370,7 +2370,7 @@
                 (this.isLoadingFailed = t));
               var a = G(i);
               ((this.loaderMessage =
-                a || this.$t("viewer.plugins.ui.App.initializing")),
+                a || this.$t(ViewerAppConfig.I18N_KEYS.INITIALIZING)),
                 (this.loaderMeta = o),
                 (this.loaderIcon = r));
             },
@@ -2881,7 +2881,7 @@
               this.isLoadingFailed = "error" === e;
               var o = G(t);
               ((this.loaderMessage =
-                o || this.$t("viewer.plugins.ui.App.initializing")),
+                o || this.$t(ViewerAppConfig.I18N_KEYS.INITIALIZING)),
                 (this.loaderMeta = i),
                 (this.loaderIcon = n));
             },

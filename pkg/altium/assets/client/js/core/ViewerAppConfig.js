@@ -183,6 +183,41 @@ var ViewerAppConfig = (function (exports) {
     }
 
     // ============================================================================
+    // PARENT EVENT NAMES
+    // ============================================================================
+
+    /**
+     * Event names emitted to parent via parentEvents.emit()
+     */
+    var PARENT_EVENTS = {
+        VIEWER_INITED: 'viewer-inited',
+        VIEWER_KEY: 'viewer-key',
+        DATA_STORAGE_RESOLVE: 'data-storage-resolve',
+        SOURCE_STATUS: 'source:status',
+        VIEWER_UNAUTHORIZED: 'viewer:unAuthorized',
+        APP_LAYOUT_CHANGED: 'app:layout:changed',
+        DOCUMENTS_LOADED: 'documents:loaded',
+        DESIGN_DATA_LOADED: 'design-data-loaded',
+        DESIGN_LOADED: 'design-loaded',
+        PLUGIN_EVENTS: 'plugin-events',
+        RENDER_COMPLETE: 'render-complete',
+        SCENE_INTERACTED: 'scene-interacted',
+        GENERATING_NEW_VERSION: 'viewer:generating-new-version',
+        GENERATED_NEW_VERSION: 'viewer:generated-new-version'
+    };
+
+    // ============================================================================
+    // I18N KEYS
+    // ============================================================================
+
+    /**
+     * Commonly used i18n translation keys
+     */
+    var I18N_KEYS = {
+        INITIALIZING: 'viewer.plugins.ui.App.initializing'
+    };
+
+    // ============================================================================
     // APP DATA DEFAULTS
     // ============================================================================
 
@@ -263,6 +298,10 @@ var ViewerAppConfig = (function (exports) {
     exports.EXCLUDE_VIEWS_FROM_ANALYTICS = EXCLUDE_VIEWS_FROM_ANALYTICS;
     exports.APP_DATA_DEFAULTS = APP_DATA_DEFAULTS;
     exports.getAppDataDefaults = getAppDataDefaults;
+    
+    // Event names and i18n keys
+    exports.PARENT_EVENTS = PARENT_EVENTS;
+    exports.I18N_KEYS = I18N_KEYS;
 
     console.log('[ViewerAppConfig] Loaded with', Object.keys(MODULES_TO_URLS).length, 'plugin URLs');
 
