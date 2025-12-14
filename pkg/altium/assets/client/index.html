@@ -38,7 +38,15 @@
   <script defer="defer" src="js/components/ViewerLoader.js"></script>
   <script defer="defer" src="js/components/ViewerHeader.js"></script>
   <script defer="defer" src="js/components/ViewerMisc.js"></script>
-  <script defer="defer" src="js/ViewerComponents.js"></script> <!-- Barrel export last -->
+  <!-- ViewerComponents split modules -->
+  <script defer="defer" src="js/ViewerComponents/core.js"></script>
+  <script defer="defer" src="js/ViewerComponents/layout.js"></script>
+  <script defer="defer" src="js/ViewerComponents/status.js"></script>
+  <script defer="defer" src="js/ViewerComponents/header.js"></script>
+  <script defer="defer" src="js/ViewerComponents/notification.js"></script>
+  <script defer="defer" src="js/ViewerComponents/misc.js"></script>
+  <script defer="defer" src="js/ViewerComponents/layout-notifier.js"></script>
+  <script defer="defer" src="js/ViewerComponents/index.js"></script>
   <script defer="defer" src="js/Logger.js"></script> <!-- Logger library -->
   <script defer="defer" src="js/ComponentFactory.js"></script> <!-- ComponentFactory library -->
 
@@ -79,7 +87,7 @@
               evtData.message = 'app:load';
               window.postMessage(evtData, '*');
               console.log("Bridge: PostMessage done.");
-            }, 1000);
+            }, 1);
           }
           attempts++;
           if (attempts > 100) { // 5 seconds
