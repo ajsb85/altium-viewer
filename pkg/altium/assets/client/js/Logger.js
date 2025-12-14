@@ -222,6 +222,88 @@ var Logger = (function (exports) {
     };
 
     // ============================================================================
+    // Log Filter Configuration
+    // ============================================================================
+
+    /**
+     * Filter rules for suppressing specific log messages
+     * Each filter can match by: component name, level, or message pattern
+     */
+    var LogFilter = {
+        /** @type {Array<Object>} List of filter rules */
+        rules: [],
+
+        /**
+         * Add a filter rule
+         * @param {Object} rule - Filter rule
+         * @param {string} [rule.component] - Component name to filter (exact match)
+         * @param {string} [rule.level] - Log level to filter
+         * @param {RegExp|string} [rule.message] - Message pattern to filter
+         * @param {boolean} [rule.suppressStackTrace] - Only suppress stack traces, not the message
+         */
+        addRule: function(rule) {
+            this.rules.push(rule);
+        },
+
+        /**
+         * Remove all filter rules
+         */
+        clearRules: function() {
+            this.rules = [];
+        },
+
+        /**
+         * Remove filter by component
+         * @param {string} component - Component name
+         */
+        removeByComponent: function(component) {
+            this.rules = this.rules.filter(function(r) {
+                return r.component !== component;
+            });
+        },
+
+        /**
+         * Check if a log entry should be filtered (suppressed)
+         * @param {Object} entry - Log entry
+         * @returns {boolean|string} false if not filtered, 'suppress' if fully suppressed, 'clean' if only stack trace suppressed
+         */
+        shouldFilter: function(entry) {
+            for (var i = 0; i < this.rules.length; i++) {
+                var rule = this.rules[i];
+                var matches = true;
+
+                // Check component match
+                if (rule.component && entry.name !== rule.component) {
+                    matches = false;
+                }
+
+                // Check level match
+                if (rule.level && entry.level !== rule.level) {
+                    matches = false;
+                }
+
+                // Check message pattern match
+                if (rule.message && matches) {
+                    if (rule.message instanceof RegExp) {
+                        if (!rule.message.test(entry.message)) {
+                            matches = false;
+                        }
+                    } else if (typeof rule.message === 'string') {
+                        if (entry.message.indexOf(rule.message) === -1) {
+                            matches = false;
+                        }
+                    }
+                }
+
+                if (matches) {
+                    return rule.suppressStackTrace ? 'clean' : 'suppress';
+                }
+            }
+            return false;
+        }
+    };
+
+    // ============================================================================
     // Configuration & Auto-initialization
     // ============================================================================
 
