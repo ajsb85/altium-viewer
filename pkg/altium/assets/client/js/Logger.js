@@ -182,14 +182,20 @@ var Logger = (function (exports) {
      * @param {Object} entry - Log entry with name, timestamp, level, message, error
      */
     ConsoleTransport.prototype.log = function (entry) {
+        // Check filtering rules
+        var filterAction = LogFilter.shouldFilter(entry);
+        if (filterAction === 'suppress') {
+            return;
+        }
+
         // Format: [ComponentName          | 2024-12-14 06:01:27.123 | Debug    |] Message
         var logMessage = "%c" + entry.name.padEnd(20, " ") + "%c | " +
             ConsoleTransport.getFormattedDate(entry.timestamp) + " | %c" +
             entry.level.padEnd(8, " ") + "%c |";
 
-        // Add error details if present
+        // Add error details if present and not suppressed
         var errorMessage = "";
-        if (entry.error) {
+        if (entry.error && filterAction !== 'clean') {
             errorMessage = " | Error: " + entry.error.message + " Stack: " + entry.error.stack;
         }
 
@@ -327,6 +333,14 @@ var Logger = (function (exports) {
         if (consoleConfig) {
             LoggerFactory.registerTransport(new ConsoleTransport(consoleConfig));
         }
+        
+        // Add default filter for DesignResolver Init debug stack trace
+        LogFilter.addRule({
+            component: "DesignResolver",
+            level: "Debug",
+            message: "Init",
+            suppressStackTrace: true
+        });
     }
 
     // Initialize on load
@@ -347,6 +361,7 @@ var Logger = (function (exports) {
     exports.LoggerInstance = LoggerInstance;
     exports.ConsoleTransport = ConsoleTransport;
     exports.createLogger = LoggerFactory.createLogger;
+    exports.LogFilter = LogFilter;
     exports.config = config;
 
     Object.defineProperty(exports, '__esModule', { value: true });
