@@ -2280,55 +2280,10 @@
               });
             },
             filterViewsByStr: function (e, t) {
-              var n = (null != t ? t : "")
-                .split(",")
-                .map(function (e) {
-                  return e.trim().toLowerCase();
-                })
-                .filter(function (e) {
-                  return e;
-                });
-              if (!n.length) return e;
-              var r = e.filter(function (e) {
-                var t;
-                return (
-                  n.includes(
-                    (
-                      (null == e || null === (t = e.metaInfo) || void 0 === t
-                        ? void 0
-                        : t.displayName) || (null == e ? void 0 : e.text)
-                    ).toLowerCase(),
-                  ) ||
-                  n.includes(
-                    null == e ? void 0 : e.metaInfo.name.toLowerCase(),
-                  )
-                );
-              });
-              return r.length ? r : e;
+              return ViewerAppMethods.filterViewsByStr(e, t);
             },
             filterViewByStr: function (e, t) {
-              var n,
-                r = (null != t ? t : "")
-                  .split(",")
-                  .map(function (e) {
-                    return e.trim().toLowerCase();
-                  })
-                  .filter(function (e) {
-                    return e;
-                  });
-              return (
-                !r.length ||
-                r.includes(
-                  (
-                    (null === (n = e.metaInfo) || void 0 === n
-                      ? void 0
-                      : n.displayName) || e.text
-                  ).toLowerCase() ||
-                  r.includes(
-                    null == e ? void 0 : e.metaInfo.name.toLowerCase(),
-                  ),
-                )
-              );
+              return ViewerAppMethods.filterViewByStr(e, t);
             },
             setInitialView: function () {
               try {
@@ -2858,14 +2813,7 @@
               }
             },
             handleKey: function (e) {
-              this.parentEvents.emit("viewer-key", {
-                key: e.key,
-                code: e.code,
-                altKey: e.altKey,
-                ctrlKey: e.ctrlKey,
-                shiftKey: e.shiftKey,
-                metaKey: e.metaKey,
-              });
+              this.parentEvents.emit("viewer-key", ViewerAppMethods.formatKeyEvent(e));
             },
             onDocumentOpenError: function (e) {
               try {
@@ -2884,31 +2832,10 @@
               this.parentEvents.emit("viewer:generated-new-version");
             },
             getErrorContent: function (e) {
-              var t = null == e ? void 0 : e.innerError,
-                n = t
-                  ? t instanceof Error
-                    ? "\nInner "
-                      .concat(t.name, ": ")
-                      .concat(t.message, "\n")
-                      .concat(t.stack)
-                    : "\nInner Error: ".concat(t)
-                  : "";
-              return (null == e ? void 0 : e.toString()) + n;
+              return ViewerAppMethods.getErrorContent(e);
             },
             getErrorDetails: function (e) {
-              var t, n;
-              return {
-                isManaged:
-                  (null == e ? void 0 : e.isManaged) ||
-                  (null == e || null === (t = e.innerError) || void 0 === t
-                    ? void 0
-                    : t.isManaged),
-                skipMonitoring:
-                  (null == e ? void 0 : e.skipMonitoring) ||
-                  (null == e || null === (n = e.innerError) || void 0 === n
-                    ? void 0
-                    : n.skipMonitoring),
-              };
+              return ViewerAppMethods.getErrorDetails(e);
             },
             initAnalytics: function () {
               (window.__APP__.analytics.initData(
@@ -2947,12 +2874,8 @@
                 (this.layoutChanged = !0));
             },
             checkWebGl2: function () {
-              var e = window.__APP__.analytics;
-              document.createElement("canvas").getContext("webgl2")
-                ? e.dispatchAnalyticsEvent("WebGL2", "On")
-                : "undefined" != typeof WebGL2RenderingContext
-                  ? e.dispatchAnalyticsEvent("WebGL2", "Off")
-                  : e.dispatchAnalyticsEvent("WebGL2", "None");
+              var status = ViewerAppMethods.checkWebGl2Support();
+              window.__APP__.analytics.dispatchAnalyticsEvent("WebGL2", status);
             },
             setLoader: function (e, t, n, r, i) {
               this.isLoadingFailed = "error" === e;
