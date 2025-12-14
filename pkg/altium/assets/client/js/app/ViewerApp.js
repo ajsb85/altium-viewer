@@ -42,6 +42,40 @@
       var C = ViewerUtils.getType,
         _ = ViewerUtils.defineProperties,
         P = ViewerUtils.toPropertyKey;
+      
+      // ===== COMPONENT BRIDGES FROM ViewerComponents =====
+      // These aliases import extracted components to replace duplicate definitions
+      var _VC = ViewerComponents; // Shorthand
+      
+      // Sidebar components (replaces lines 76-350)
+      var AfsSidebar_Extracted = _VC.WrappedAfsSidebar;
+      var AppSidebar_Extracted = _VC.AppSidebar;
+      
+      // Loader components (replaces lines 393-605)
+      var AppAlert_Extracted = _VC.WrappedAppAlert;
+      var AppLoader_Extracted = _VC.WrappedAppLoader;
+      
+      // Header components (replaces lines 608-1430)
+      var AppMainTabs_Extracted = _VC.AppMainTabs;
+      var AppHeader_Extracted = _VC.AppHeader;
+      var AppHeaderPlugin_Extracted = _VC.AppHeaderPlugin;
+      
+      // Watermark (replaces lines 1431-1460)
+      var AppWatermark_Extracted = _VC.WrappedAppWatermark;
+      
+      // Other components (replaces lines 3648-4900)
+      var AppsLoader_Extracted = _VC.AppsLoader;
+      var AppSnackbar_Extracted = _VC.AppSnackbar;
+      var AppNotification_Extracted = _VC.AppNotification;
+      var TreeItem_Extracted = _VC.TreeItem;
+      var AppMenu_Extracted = _VC.AppMenu;
+      
+      // Layout helper
+      var LayoutUpdateNotifier_Extracted = _VC.LayoutUpdateNotifier;
+      
+      // Log bridge loading
+      console.log("[ViewerApp] Component bridges loaded from ViewerComponents");
+      // ===== END COMPONENT BRIDGES =====
       const S = new ((function () {
         return (
           (e = function e(t) {
