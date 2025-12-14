@@ -2036,7 +2036,7 @@
               ("ontouchstart" in window &&
                 document.body.classList.add("is-touch"),
                 Ne.Z.bus.on("storageResolveComplete", function (t) {
-                  return e.parentEvents.emit("data-storage-resolve", {
+                  return e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.DATA_STORAGE_RESOLVE, {
                     files: t.files,
                   });
                 }),
@@ -2113,7 +2113,7 @@
                 Ne.Z.bus.on("view", this.onSetupReadyToView),
                 Ne.Z.bus.on("complete", this.onSetupComplete),
                 Ne.Z.bus.on("unAuthorized", function (t) {
-                  e.parentEvents.emit("viewer:unAuthorized");
+                  e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.VIEWER_UNAUTHORIZED);
                 }),
                 Ne.Z.bus.on("Document:open-error", this.onDocumentOpenError),
                 Ne.Z.bus.on(
@@ -2126,7 +2126,7 @@
                   t.current = e.activeView;
                 }),
                 Ne.Z.bus.on("Layout:update", function (t) {
-                  e.parentEvents.emit("app:layout:changed", t);
+                  e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.APP_LAYOUT_CHANGED, t);
                 }),
                 this.parentEvents.on("app:layout:closePanels", function (t) {
                   if (t.panelIds) {
@@ -2274,7 +2274,7 @@
               var e = this;
               Ne.Z.bus.on("sceneInteracted", function (t) {
                 return e.parentEvents.emit(
-                  "scene-interacted",
+                  ViewerAppConfig.PARENT_EVENTS.SCENE_INTERACTED,
                   qe(qe({}, t), {}, { viewName: e.activeView.name }),
                 );
               });
@@ -2731,7 +2731,7 @@
                   try {
                     (t.setInitialPlugin(),
                       t.parentEvents.emit(
-                        "render-complete",
+                        ViewerAppConfig.PARENT_EVENTS.RENDER_COMPLETE,
                         window.__APP__.analytics.getOpenPerformanceEventName(
                           e.name,
                         ),
@@ -2813,7 +2813,7 @@
               }
             },
             handleKey: function (e) {
-              this.parentEvents.emit("viewer-key", ViewerAppMethods.formatKeyEvent(e));
+              this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.VIEWER_KEY, ViewerAppMethods.formatKeyEvent(e));
             },
             onDocumentOpenError: function (e) {
               try {
@@ -2824,7 +2824,7 @@
               e &&
                 e.activeVersion &&
                 this.parentEvents.emit(
-                  "viewer:generating-new-version",
+                  ViewerAppConfig.PARENT_EVENTS.GENERATING_NEW_VERSION,
                   e.activeVersion,
                 );
             },
