@@ -5,7 +5,7 @@
  * Replaces multiple vendor modules with shared implementations.
  */
 (self.webpackChunkaltium_web_viewer = self.webpackChunkaltium_web_viewer || []).push([
-    [46021, 93891, 29786, 48226, 77453], // Chunk IDs
+    [46021, 93891, 29786, 48226, 77453, 55592, 23870], // Chunk IDs
     {
         // Module 46021 - V.Z (exportComponent)
         46021: (e, t) => {
@@ -43,6 +43,25 @@
             "use strict";
             n.d(t, {
                 A: () => ViewerComponents.WrappedAfsText
+            });
+        },
+
+        // Module 55592 - Constants (r.r, r.a, r.i, r.c)
+        55592: (e, t, n) => {
+            "use strict";
+            n.d(t, {
+                a: () => ViewerComponents.StateClasses,
+                r: () => ViewerComponents.CornerRadius,
+                i: () => ViewerComponents.isFunction,
+                c: () => ViewerComponents.ComponentRegistry
+            });
+        },
+
+        // Module 23870 - AfsBadge (ge.B)
+        23870: (e, t, n) => {
+            "use strict";
+            n.d(t, {
+                B: () => ViewerComponents.WrappedAfsBadge
             });
         }
     }

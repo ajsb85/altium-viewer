@@ -60,6 +60,140 @@ var ViewerComponents = (function (exports) {
     }
 
     // ============================================================================
+    // CONSTANTS (from module 55592)
+    // ============================================================================
+
+    /**
+     * CSS state classes
+     */
+    var StateClasses = {
+        isNotouch: "is-notouch",
+        isTouch: "is-touch",
+        isOpened: "is-opened",
+        isActive: "is-active",
+        isSelected: "is-selected",
+        isError: "is-error"
+    };
+
+    /**
+     * Corner radius constants
+     */
+    var CornerRadius = {
+        tl: "top-left",
+        tr: "top-right",
+        bl: "bottom-left",
+        br: "bottom-right"
+    };
+
+    /**
+     * Check if value is a function
+     */
+    function isFunction(e) {
+        return typeof e === "function";
+    }
+
+    /**
+     * Component registry for global access
+     */
+    var ComponentRegistry = {
+        set: function (opts) {
+            window.__afsComponents = window.__afsComponents || {};
+            window.__afsComponents[opts.id] = opts.component;
+        },
+        get: function (id) {
+            return window.__afsComponents && window.__afsComponents[id];
+        },
+        delete: function (id) {
+            if (window.__afsComponents && window.__afsComponents[id]) {
+                delete window.__afsComponents[id];
+            }
+        }
+    };
+
+    // ============================================================================
+    // BADGE COMPONENT (from module 23870)
+    // ============================================================================
+
+    var BADGE_SIZES = { default: "", xs: "xs", small: "small", middle: "middle" };
+    var BADGE_TYPES = { default: "", base: "base", pro: "pro", success: "success", alpha: "alpha", new: "new", guest: "guest" };
+
+    /**
+     * AfsBadge - Label/badge component
+     * Replaces module 23870 export 'B'
+     */
+    var AfsBadge = {
+        name: "AfsBadge",
+        props: {
+            tag: { type: String, default: "div" },
+            size: {
+                type: String,
+                default: "",
+                validator: function (v) { return Object.values(BADGE_SIZES).includes(v); }
+            },
+            type: {
+                type: String,
+                default: "",
+                validator: function (v) { return Object.values(BADGE_TYPES).includes(v); }
+            },
+            uppercase: { type: Boolean, default: false },
+            radius: {
+                type: String,
+                default: CornerRadius.tl + " " + CornerRadius.tr + " " + CornerRadius.bl + " " + CornerRadius.br
+            },
+            dataLocator: { type: String, default: "badge" }
+        },
+        computed: {
+            classes: function () {
+                var result = [];
+                if (this.type && this.type.length) {
+                    var typeClass = {};
+                    typeClass["afs-badge_" + this.type] = true;
+                    result.push(typeClass);
+                }
+                if (this.size && this.size.length) {
+                    var sizeClass = {};
+                    sizeClass["afs-badge_" + this.size] = true;
+                    result.push(sizeClass);
+                }
+                result.push(getRadiusClasses("afs-badge", this.radius));
+                if (this.uppercase) {
+                    result.push("afs-badge_uppercase");
+                }
+                return result;
+            }
+        }
+    };
+
+    /**
+     * AfsBadge render function
+     */
+    function renderAfsBadge(ctx, cache, props, setup, data, options) {
+        return (
+            Vue.openBlock(),
+            Vue.createBlock(
+                Vue.resolveDynamicComponent(props.tag),
+                {
+                    class: Vue.normalizeClass(["afs-badge", options.classes]),
+                    "data-locator": props.dataLocator
+                },
+                {
+                    default: Vue.withCtx(function () {
+                        return [Vue.renderSlot(ctx.$slots, "default")];
+                    }),
+                    _: 3
+                },
+                8,
+                ["data-locator", "class"]
+            )
+        );
+    }
+
+    // Wrap AfsBadge with its render function
+    var WrappedAfsBadge = wrapComponent(AfsBadge, [
+        ["render", renderAfsBadge]
+    ]);
+
+    // ============================================================================
     // GRID CONTAINER (from module 48226)
     // ============================================================================
 
@@ -532,9 +666,19 @@ var ViewerComponents = (function (exports) {
     exports.getRadiusClasses = getRadiusClasses;
     exports.joinModifiers = joinModifiers;
 
+    // Constants (module 55592)
+    exports.StateClasses = StateClasses;
+    exports.CornerRadius = CornerRadius;
+    exports.isFunction = isFunction;
+    exports.ComponentRegistry = ComponentRegistry;
+
     // Grid components
     exports.GridContainer = GridContainer;
     exports.WrappedGridContainer = WrappedGridContainer;
+
+    // Badge
+    exports.AfsBadge = AfsBadge;
+    exports.WrappedAfsBadge = WrappedAfsBadge;
 
     // Typography
     exports.AfsText = AfsText;
