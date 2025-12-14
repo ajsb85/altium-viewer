@@ -1792,15 +1792,7 @@
             isDesignProcessed: !0,
             unloadPageSignal: !1,
             appLayoutUpdateNotifier: new $e(window.__CORE__.bus),
-            excludeViewsFromAnalytics: [
-              "PCBView",
-              "PCBView3D",
-              "GerberCompareSourceView",
-              "GerberCompareTargetView",
-              "TABLE_COMPARE_LEFT",
-              "TABLE_COMPARE_RIGHT",
-              "SwitchPcbSide",
-            ],
+            excludeViewsFromAnalytics: ViewerAppConfig.EXCLUDE_VIEWS_FROM_ANALYTICS,
             layoutChanged: !1,
             headerBottom: 0,
           };

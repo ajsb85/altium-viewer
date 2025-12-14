@@ -183,6 +183,56 @@ var ViewerAppConfig = (function (exports) {
     }
 
     // ============================================================================
+    // APP DATA DEFAULTS
+    // ============================================================================
+
+    /**
+     * Views excluded from analytics tracking
+     */
+    var EXCLUDE_VIEWS_FROM_ANALYTICS = [
+        "PCBView",
+        "PCBView3D",
+        "GerberCompareSourceView",
+        "GerberCompareTargetView",
+        "TABLE_COMPARE_LEFT",
+        "TABLE_COMPARE_RIGHT",
+        "SwitchPcbSide"
+    ];
+
+    /**
+     * Default values for the main App component data
+     */
+    var APP_DATA_DEFAULTS = {
+        isExpired: false,
+        isLoading: true,
+        isLoadingFailed: false,
+        loaderMessage: "",
+        loaderMeta: "",
+        isLoaderPrimary: true,
+        hasLoaderIcon: true,
+        loaderIcon: "",
+        isLogoVisible: true,
+        viewsPadding: { left: 0, right: 0 },
+        presentViews: [],
+        isDesignProcessed: true,
+        unloadPageSignal: false,
+        layoutChanged: false,
+        headerBottom: 0
+    };
+
+    /**
+     * Get app data defaults (used by Vue component data function)
+     * @param {Object} bus - The event bus for AppLayoutUpdateNotifier
+     * @returns {Object} Default data object for Vue component
+     */
+    function getAppDataDefaults(bus) {
+        return Object.assign({}, APP_DATA_DEFAULTS, {
+            appLayoutUpdateNotifier: bus ? new bus.constructor(bus) : null,
+            excludeViewsFromAnalytics: EXCLUDE_VIEWS_FROM_ANALYTICS.slice()
+        });
+    }
+
+    // ============================================================================
     // APP INITIALIZATION CONFIG
     // ============================================================================
 
@@ -208,6 +258,11 @@ var ViewerAppConfig = (function (exports) {
     exports.getPluginUrl = getPluginUrl;
     exports.setVersion = setVersion;
     exports.createCoreInitialData = createCoreInitialData;
+    
+    // App data defaults
+    exports.EXCLUDE_VIEWS_FROM_ANALYTICS = EXCLUDE_VIEWS_FROM_ANALYTICS;
+    exports.APP_DATA_DEFAULTS = APP_DATA_DEFAULTS;
+    exports.getAppDataDefaults = getAppDataDefaults;
 
     console.log('[ViewerAppConfig] Loaded with', Object.keys(MODULES_TO_URLS).length, 'plugin URLs');
 
