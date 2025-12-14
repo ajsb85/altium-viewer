@@ -1,0 +1,45 @@
+
+.component-parameter-sticker[data-v-5e7e5c9a] {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background-color: var(--global-background-base-tertiary);
+    font-size: 11px;
+    gap: 6px
+}
+
+.component-parameter-sticker.bg-primary[data-v-5e7e5c9a] {
+    background-color: var(--global-background-base-tertiary)
+}
+
+.component-parameter-sticker.bg-secondary[data-v-5e7e5c9a] {
+    background-color: var(--global-background-base-primary)
+}
+
+.component-parameter-sticker__dot[data-v-5e7e5c9a] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.component-parameter-sticker__dot.unknown[data-v-5e7e5c9a] {
+    background-color: var(--afs-additional-gray)
+}
+
+.component-parameter-sticker__dot.info[data-v-5e7e5c9a] {
+    background-color: var(--afs-primary-default)
+}
+
+.component-parameter-sticker__dot.error[data-v-5e7e5c9a] {
+    background-color: var(--afs-error)
+}
+
+.component-parameter-sticker__dot.warning[data-v-5e7e5c9a] {
+    background-color: var(--afs-warning)
+}
+
+.component-parameter-sticker__dot.success[data-v-5e7e5c9a] {
+    background-color: var(--afs-success)
+}

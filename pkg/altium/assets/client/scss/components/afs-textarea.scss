@@ -1,0 +1,126 @@
+
+.afs-textarea__control {
+    box-sizing: border-box
+}
+
+.afs-textarea__control {
+    display: block;
+    outline: 0;
+    margin: 0;
+    border: 0;
+    max-width: 100%;
+    font-family: inherit;
+    resize: none;
+    -webkit-appearance: none
+}
+
+.afs-textarea__label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-textarea__control {
+    padding: 7px 15px;
+    border: 1px solid;
+    width: 100%;
+    min-height: 80px;
+    max-height: 144px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    resize: none;
+    transition: border-color .25s,color .25s,opacity .25s,background-color .25s,box-shadow .25s
+}
+
+.afs-textarea__control:disabled,.afs-textarea__control[disabled],.afs-textarea__control.is-disabled {
+    opacity: .48;
+    pointer-events: none
+}
+
+.afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus::placeholder,.afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-focused::placeholder {
+    opacity: .48
+}
+
+.afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus-within::placeholder,.afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined::placeholder {
+    opacity: .48
+}
+
+.afs-textarea__control.afs-textarea_radius-tl {
+    border-top-left-radius: 4px
+}
+
+.afs-textarea__control.afs-textarea_radius-tr {
+    border-top-right-radius: 4px
+}
+
+.afs-textarea__control.afs-textarea_radius-bl {
+    border-bottom-left-radius: 4px
+}
+
+.afs-textarea__control.afs-textarea_radius-br {
+    border-bottom-right-radius: 4px
+}
+
+.afs-textarea__control::placeholder {
+    opacity: 1;
+    transition: opacity .25s
+}
+
+.afs-textarea__control[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    pointer-events: none;
+    display: block
+}
+
+.afs-textarea__control_clickable {
+    padding: 7px 15px;
+    white-space: pre-wrap;
+    overflow: auto
+}
+
+.afs-textarea .afs-textarea__control {
+    border-color: var(--afs-secondary-border);
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-field);
+    box-shadow: var(--afs-black-inner-shadow)
+}
+
+.afs-textarea .afs-textarea__control:disabled.is-warning,.afs-textarea .afs-textarea__control[disabled].is-warning,.afs-textarea .afs-textarea__control.is-disabled.is-warning {
+    border-color: var(--afs-warning)
+}
+
+.afs-textarea .afs-textarea__control:disabled.is-error,.afs-textarea .afs-textarea__control[disabled].is-error,.afs-textarea .afs-textarea__control.is-disabled.is-error {
+    border-color: var(--afs-error)
+}
+
+.afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-warning {
+    border-color: var(--afs-warning)
+}
+
+.afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-error {
+    border-color: var(--afs-error)
+}
+
+.afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus,.afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):hover,.afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.afs-textarea .afs-textarea__control::placeholder,.afs-textarea .afs-textarea__control[contenteditable=true]:empty:before {
+    color: var(--afs-text-icon-hint)
+}
+
+.afs-textarea .afs-textarea__control::selection {
+    background-color: var(--afs-filed-highlighted)
+}

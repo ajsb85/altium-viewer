@@ -1,0 +1,41 @@
+
+.afs-primitive-button[data-v-c1238175] {
+    --button-primary-background-default: var(--global-fill-accent-primary-rest);
+    --button-primary-background-hover: var(--global-fill-accent-primary-active);
+    --button-primary-background-pressed: var(--global-fill-accent-primary-active);
+    --button-primary-border: var(--global-stroke-accent-primary-rest);
+    --button-primary-on-accent-background-default: transparent;
+    --button-primary-on-accent-border-default: var(--global-stroke-static-white-secondary-rest);
+    --button-primary-on-accent-background-hover: var(--global-fill-static-white-primary-active);
+    --button-primary-on-accent-border-hover: var(--global-stroke-static-white-secondary-active);
+    --button-secondary-background-default: var(--global-fill-neutral-primary-rest);
+    --button-secondary-background-hover: var(--global-fill-neutral-primary-active);
+    --button-secondary-background-pressed: var(--global-fill-neutral-primary-active);
+    --button-secondary-border-default: var(--global-stroke-neutral-secondary-rest);
+    --button-secondary-on-accent-background-default: transparent;
+    --button-secondary-on-accent-border-default: var(--global-stroke-static-white-secondary-rest);
+    --button-secondary-on-accent-background-hover: var(--global-fill-static-white-primary-active);
+    --button-secondary-on-accent-border-hover: var(--global-stroke-static-white-secondary-active);
+    position: relative;
+    overflow: hidden;
+    padding: 8px 16px;
+    border-radius: 4px;
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: opacity .3s ease-out,background-color .3s ease-out,color .3s ease-out
+}
+
+.afs-primitive-button[disabled][data-v-c1238175] {
+    opacity: .48;
+    cursor: default
+}
+
+.afs-primitive-button[data-v-c1238175]:focus,.afs-primitive-button.focus[data-v-c1238175] {
+    outline: 2px solid var(--afs-border-focus)
+}

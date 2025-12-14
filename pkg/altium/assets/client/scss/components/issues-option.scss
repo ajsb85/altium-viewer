@@ -1,0 +1,20 @@
+
+.issues-option[data-v-9cbc9738] {
+    max-width: 280px;
+    border-bottom: 1px solid var(--afs-border)
+}
+
+.issues-option__item[data-v-9cbc9738] {
+    padding: 4px 16px;
+    margin: 4px 0;
+    transition: background-color var(--afs-transition-duration),color var(--afs-transition-duration)
+}
+
+.issues-option__item[data-v-9cbc9738]:hover {
+    color: var(--afs-text-icon-primary);
+    background-color: var(--afs-selected-item-background)
+}
+
+.issues-option__link[data-v-9cbc9738] {
+    color: var(--afs-text-primary)
+}

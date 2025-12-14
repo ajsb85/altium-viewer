@@ -1,0 +1,79 @@
+
+.edit-comment__user-avatar[data-v-18cfd749] {
+    margin-right: 8px
+}
+
+.edit-comment__user-query-empty[data-v-18cfd749] {
+    text-align: center
+}
+
+.edit-comment__user-query_with-result[data-v-18cfd749] {
+    margin-bottom: 0
+}
+
+.edit-comment[data-v-74a7fada] {
+    text-align: left;
+    width: 320px;
+    border-radius: 4px;
+    color: var(--afs-text-icon-primary);
+    border: 1px solid var(--border-primary)
+}
+
+.edit-comment .is-resolved[data-v-74a7fada] {
+    color: var(--comment-resolved) !important
+}
+
+.edit-comment__body[data-v-74a7fada] {
+    padding: 0 0 16px
+}
+
+.edit-comment__body-wrapper[data-v-74a7fada] {
+    max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse
+}
+
+.edit-comment__body .link[data-v-74a7fada] {
+    color: var(--comment-text-user)
+}
+
+.edit-comment__reply-block[data-v-74a7fada] {
+    padding: 0 16px
+}
+
+.edit-comment__separator[data-v-74a7fada] {
+    border-bottom: 1px solid var(--background-black);
+    padding: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-link)
+}
+
+.edit-comment__separator-text[data-v-74a7fada] {
+    display: inline-block;
+    cursor: pointer
+}
+
+.edit-comment__register[data-v-74a7fada] {
+    margin-top: 16px
+}
+
+.edit-comment .is-detached-comment[data-v-74a7fada] {
+    background-color: var(--afs-panel);
+    border-bottom: 1px solid var(--modal-border-color);
+    cursor: default
+}
+
+.edit-comment__detached-comment-title[data-v-74a7fada] {
+    padding-left: 16px
+}
+
+.edit-comment__header[data-v-74a7fada] {
+    padding-left: 8px
+}
+
+.edit-comment__body .requirement-info-wrapper {
+    margin: 0
+}

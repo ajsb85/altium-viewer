@@ -1,0 +1,40 @@
+
+.mcad-export-poly-to-brep-confirmation-modal__container {
+    background: var(--afs-popup)
+}
+
+.mcad-export-poly-to-brep-confirmation-modal__content {
+    display: flex;
+    align-items: flex-start
+}
+
+.mcad-export-poly-to-brep-confirmation-modal__icon {
+    flex: 0 0 auto;
+    margin-right: 16px;
+    font-size: 32px
+}
+
+.mcad-export-poly-to-brep-confirmation-modal__body {
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    padding: 16px
+}
+
+.mcad-export-poly-to-brep-confirmation-modal__body:not(:last-child) {
+    margin-bottom: 16px
+}
+
+.mcad-export-poly-to-brep-confirmation-modal__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    align-items: center;
+    margin: -2px
+}
+
+.mcad-export-poly-to-brep-confirmation-modal__btn {
+    flex: 0 0 auto;
+    margin: 2px
+}

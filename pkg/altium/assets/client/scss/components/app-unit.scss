@@ -1,0 +1,15 @@
+
+.app-unit-switcher__in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    color: var(--color-primary)
+}
+
+.app-unit-switcher:before {
+    content: "";
+    display: block;
+    margin: .25rem .94rem 0;
+    border-bottom: 1px solid var(--border-primary)
+}

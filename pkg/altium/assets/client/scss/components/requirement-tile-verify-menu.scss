@@ -1,0 +1,93 @@
+
+.requirement-tile-verify-menu__wrapper.afs-context-menu.afs-context-menu_dropdown {
+    background: var(--afs-group);
+    border-radius: 0;
+    width: auto;
+    overflow: visible;
+    padding: 5px 0;
+    margin-left: 40px;
+    margin-top: -4px;
+    max-width: 240px
+}
+
+.requirement-tile-verify-menu__wrapper .afs-context-menu__inner {
+    overflow: visible
+}
+
+.requirement-tile-verify-menu__btn {
+    font-size: 12px;
+    background: rgba(0,0,0,0);
+    color: var(--afs-text-icon-primary);
+    text-align: left;
+    text-wrap: nowrap;
+    padding: 5px 5px 5px 10px;
+    width: 100%
+}
+
+.requirement-tile-verify-menu__btn>span {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100% - 12px)
+}
+
+.requirement-tile-verify-menu__btn .icon {
+    float: right
+}
+
+.requirement-tile-verify-menu__btn:hover {
+    background: var(--afs-primary-default);
+    overflow: visible
+}
+
+.requirement-tile-verify-menu__btn:hover+ul,.requirement-tile-verify-menu__btn+ul:hover {
+    opacity: 100%;
+    visibility: visible;
+    transition: .25s opacity
+}
+
+.requirement-tile-verify-menu__btn+ul,.requirement-tile-verify-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown {
+    left: initial;
+    right: 100%;
+    top: -1px;
+    width: 145px;
+    padding: 0;
+    background: var(--afs-group)
+}
+
+.requirement-tile-verify-menu__btn+ul .requirement-tile-verify-menu__subitem,.requirement-tile-verify-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-tile-verify-menu__subitem {
+    font-size: 12px;
+    background: rgba(0,0,0,0);
+    color: var(--afs-text-icon-primary);
+    cursor: pointer;
+    padding: 5px 5px 2px 10px
+}
+
+.requirement-tile-verify-menu__btn+ul .requirement-tile-verify-menu__subitem:not(.requirement-tile-verify-menu__btn+ul .requirement-tile-verify-menu__subitem--selected,.requirement-tile-verify-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-tile-verify-menu__subitem--selected):hover,.requirement-tile-verify-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-tile-verify-menu__subitem:not(.requirement-tile-verify-menu__btn+ul .requirement-tile-verify-menu__subitem--selected,.requirement-tile-verify-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-tile-verify-menu__subitem--selected):hover {
+    background: var(--afs-primary-default)
+}
+
+.requirement-tile-verify-menu__btn+ul .requirement-tile-verify-menu__subitem--selected,.requirement-tile-verify-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-tile-verify-menu__subitem--selected {
+    cursor: default
+}
+
+.requirement-tile-verify-menu__btn+ul .requirement-tile-verify-menu__subitem .icon,.requirement-tile-verify-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-tile-verify-menu__subitem .icon {
+    margin-right: 10px;
+    margin-top: 2px
+}
+
+.requirement-tile-verify-menu__element-wrapper {
+    position: relative;
+    overflow: visible
+}
+
+.requirement-tile-verify-menu__element-wrapper--disabled,.requirement-tile-verify-menu__element-wrapper--disabled ul.afs-context-menu.afs-context-menu_dropdown .requirement-tile-verify-menu__subitem,.requirement-tile-verify-menu__element-wrapper--disabled .requirement-tile-verify-menu__btn {
+    cursor: not-allowed;
+    color: var(--afs-text-secondary);
+    background: var(--afs-group)
+}
+
+.requirement-tile-verify-menu__element-wrapper--disabled--disabled:hover,.requirement-tile-verify-menu__element-wrapper--disabled ul.afs-context-menu.afs-context-menu_dropdown .requirement-tile-verify-menu__subitem--disabled:hover,.requirement-tile-verify-menu__element-wrapper--disabled .requirement-tile-verify-menu__btn--disabled:hover {
+    background: var(--afs-group)
+}

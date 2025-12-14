@@ -1,0 +1,65 @@
+
+.afs-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1;
+    text-transform: capitalize;
+    font-size: 0;
+    letter-spacing: .03rem;
+    color: var(--afs-text-icon-hint)
+}
+
+.afs-breadcrumbs.is-uppercase {
+    text-transform: uppercase
+}
+
+.afs-breadcrumbs__item {
+    display: flex;
+    align-items: center
+}
+
+.afs-breadcrumbs__item:last-child .afs-breadcrumbs__arrow {
+    display: none
+}
+
+.afs-breadcrumbs__arrow {
+    margin: 0 8px;
+    font-size: 8px;
+    vertical-align: baseline
+}
+
+.afs-breadcrumbs__text {
+    user-select: none;
+    font-size: 12px;
+    white-space: nowrap
+}
+
+.afs-breadcrumbs__link {
+    text-decoration: none;
+    font-size: 12px
+}
+
+.afs-breadcrumbs__link.is-disabled {
+    pointer-events: none;
+    user-select: none
+}
+
+.afs-breadcrumbs .afs-breadcrumbs__link {
+    color: currentcolor
+}
+
+.afs-breadcrumbs .afs-breadcrumbs__arrow {
+    color: var(--afs-text-icon-hint)
+}
+
+.afs-breadcrumbs.afs-breadcrumbs_light {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-breadcrumbs.afs-breadcrumbs_simple {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-breadcrumbs.afs-breadcrumbs_simple .afs-breadcrumbs__text {
+    color: var(--afs-text-icon-primary)
+}

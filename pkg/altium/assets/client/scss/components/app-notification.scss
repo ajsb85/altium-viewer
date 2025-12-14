@@ -1,0 +1,43 @@
+
+.app-notification[data-v-3c13eb8e] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    order: -1;
+    min-height: 2rem;
+    padding: 0 1rem;
+    color: var(--color-primary);
+    background: var(--afs-primary-overlay)
+}
+
+.app-notification__icon[data-v-3c13eb8e] {
+    flex: 0 0 auto;
+    font-size: 1rem;
+    margin-right: .5rem
+}
+
+.app-notification__link[data-v-3c13eb8e] {
+    margin-left: .25rem;
+    text-decoration: underline
+}
+
+.app-notification__close[data-v-3c13eb8e] {
+    position: absolute;
+    flex: 0 0 auto;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    z-index: 1
+}
+
+.app-notification__title[data-v-3c13eb8e] {
+    color: var(--color-primary);
+    font-weight: 500
+}
+
+.app-notification__part-icon[data-v-3c13eb8e] {
+    font-size: 1rem;
+    vertical-align: bottom
+}

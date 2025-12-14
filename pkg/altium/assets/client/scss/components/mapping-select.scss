@@ -1,0 +1,103 @@
+
+.mapping-select[data-v-09b16c53] {
+    --disabled-opacity: .48;
+    display: flex
+}
+
+.mapping-select[data-v-09b16c53] .select-autocomplete .select-autocomplete__container {
+    background-color: var(--afs-field);
+    border-radius: 4px
+}
+
+.mapping-select[data-v-09b16c53] .select-autocomplete {
+    border: 1px solid var(--afs-secondary-border);
+    border-radius: 4px;
+    color: var(--afs-text-icon-secondary)
+}
+
+.mapping-select[data-v-09b16c53] .select-autocomplete.is-disabled {
+    opacity: 1;
+    border-radius: 4px;
+    overflow: hidden
+}
+
+.mapping-select__icon[data-v-09b16c53] {
+    margin-left: 16px
+}
+
+.mapping-select.is-disabled[data-v-09b16c53] {
+    cursor: not-allowed
+}
+
+.mapping-select.is-disabled[data-v-09b16c53] .select-autocomplete {
+    cursor: not-allowed;
+    color: var(--afs-text-icon-secondary)
+}
+
+.mapping-select.is-disabled[data-v-09b16c53] .select-autocomplete .select-autocomplete__container {
+    background-color: var(--afs-field)
+}
+
+.mapping-select.is-disabled[data-v-09b16c53] .select-autocomplete .select-autocomplete__container .select-autocomplete__control {
+    cursor: not-allowed;
+    opacity: var(--disabled-opacity);
+    color: var(--afs-text-icon-secondary)
+}
+
+.mapping-select.is-disabled .mapping-select__icon[data-v-09b16c53] {
+    opacity: var(--disabled-opacity)
+}
+
+.mapping-select__loader[data-v-09b16c53] {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center
+}
+
+.mapping-select__dropdown[data-v-09b16c53] {
+    padding: 4px 0
+}
+
+.mapping-select__item[data-v-09b16c53] {
+    padding: 4px 16px;
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out
+}
+
+.mapping-select__item[data-v-09b16c53]:hover {
+    background-color: var(--afs-secondary-hover)
+}
+
+.mapping-select__icon[data-v-09b16c53] {
+    flex-shrink: 0;
+    font-size: 16px
+}
+
+.mapping-select .unlink-cell[data-v-09b16c53] {
+    height: 32px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin-left: 8px;
+    cursor: pointer
+}
+
+.mapping-select .unlink-cell .unlink-button_icon[data-v-09b16c53] {
+    width: 16px;
+    height: 16px;
+    color: var(--afs-hint-icons)
+}
+
+.mapping-select .unlink-cell[data-v-09b16c53]:hover {
+    background-color: var(--afs-secondary-hover)
+}
+
+.mapping-select .unlink-cell.is-disabled[data-v-09b16c53],.mapping-select .unlink-cell.is-disabled[data-v-09b16c53]:hover {
+    opacity: var(--disabled-opacity);
+    cursor: not-allowed;
+    background-color: rgba(0,0,0,0)
+}

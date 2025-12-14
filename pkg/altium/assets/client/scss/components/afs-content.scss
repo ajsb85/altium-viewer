@@ -1,0 +1,71 @@
+
+.afs-content-placeholder {
+    padding: 16px;
+    border-radius: 4px;
+    text-align: center
+}
+
+.afs-content-placeholder_card {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+.afs-content-placeholder_card .afs-content-placeholder__text:not(:last-child) {
+    margin-bottom: 8px
+}
+
+.afs-content-placeholder__icon {
+    font-size: 48px;
+    transition: color .25s
+}
+
+.afs-content-placeholder__icon:not(:last-child) {
+    margin-bottom: 16px
+}
+
+.afs-content-placeholder__icon_md {
+    font-size: 32px
+}
+
+.afs-content-placeholder__title {
+    transition: color .25s
+}
+
+.afs-content-placeholder__title:not(:last-child) {
+    margin-bottom: 8px
+}
+
+.afs-content-placeholder__text {
+    transition: color .25s
+}
+
+.afs-content-placeholder__text:not(:last-child) {
+    margin-bottom: 16px
+}
+
+.afs-content-placeholder.is-error {
+    box-shadow: inset 0 0 0 1px var(--afs-error)
+}
+
+.afs-content-placeholder .afs-content-placeholder__title {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-content-placeholder .afs-content-placeholder__text {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-content-placeholder .afs-content-placeholder__icon-primary {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-content-placeholder .afs-content-placeholder__icon-secondary {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-content-placeholder.afs-content-placeholder_card {
+    background: var(--afs-card-package-background-default)
+}

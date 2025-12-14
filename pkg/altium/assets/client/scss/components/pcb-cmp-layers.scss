@@ -1,0 +1,46 @@
+
+.pcb-cmp-layers {
+    position: relative
+}
+
+.pcb-cmp-layers__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    height: 36px;
+    padding: 0 4px 0 16px
+}
+
+.pcb-cmp-layers__reset-btn {
+    color: var(--color-primary);
+    opacity: .6;
+    transition: opacity var(--transition-duration-default)
+}
+
+.pcb-cmp-layers__reset-btn .icon {
+    font-size: 32px
+}
+
+.pcb-cmp-layers {
+    position: relative
+}
+
+.pcb-cmp-layers__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    height: 36px;
+    padding: 0 4px 0 16px
+}
+
+.pcb-cmp-layers__reset-btn {
+    color: var(--color-primary);
+    opacity: .6;
+    transition: opacity var(--transition-duration-default)
+}
+
+.pcb-cmp-layers__reset-btn .icon {
+    font-size: 32px
+}

@@ -1,0 +1,21 @@
+
+.multiline__label[data-v-d79f9ce7] {
+    color: var(--afs-text-icon-secondary)
+}
+
+.multiline__value[data-v-d79f9ce7] {
+    height: 115px
+}
+
+.multiline__value--readonly[data-v-d79f9ce7] {
+    color: var(--afs-hint-icons);
+    font-style: italic;
+    white-space: pre-wrap;
+    overflow: auto;
+    word-wrap: break-word;
+    height: auto
+}
+
+.multiline__value .afs-textarea__control[data-v-d79f9ce7] {
+    height: 100%
+}

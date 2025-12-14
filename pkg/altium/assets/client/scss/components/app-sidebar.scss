@@ -1,0 +1,45 @@
+.app-sidebar__title[data-v-56ae3e48] {
+    color: var(--color-control-secondary);
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1rem;
+    font-weight: 500;
+    font-size: .63rem
+}
+
+.app-sidebar__sub-title[data-v-56ae3e48] {
+    color: var(--afs-color-primary);
+    line-height: 1.5rem;
+    padding: .75rem 1rem;
+    font-weight: 500;
+    font-size: .88rem;
+    border-bottom: 1px solid var(--afs-primary-border)
+}
+
+.app-sidebar__sub-title-additional-text[data-v-56ae3e48] {
+    color: var(--global-text-base-tertiary);
+    margin-left: .25rem
+}
+
+.app-sidebar__content[data-v-56ae3e48] {
+    overflow-y: auto
+}
+
+.app-sidebar[data-v-56ae3e48] .afs-sidebar-container__resizer {
+    width: 5px
+}
+
+.app-sidebar[data-v-56ae3e48] ::-webkit-scrollbar {
+    width: 20px
+}
+
+.app-sidebar[data-v-56ae3e48] ::-webkit-scrollbar-thumb {
+    border: 8px solid var(--color-rgba_0);
+    background-clip: padding-box;
+    min-height: 40px
+}
+
+.app-sidebar.is-flex .app-sidebar__content[data-v-56ae3e48] {
+    display: flex;
+    height: 100%
+}

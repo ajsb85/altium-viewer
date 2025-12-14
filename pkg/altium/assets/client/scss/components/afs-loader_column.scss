@@ -1,0 +1,13 @@
+
+.afs-loader_column .afs-loader__content {
+    flex-direction: column;
+    display: inline-flex
+}
+
+.afs-loader_column .afs-loader__text {
+    margin: 8px 0 0
+}
+
+.afs-loader_column .afs-loader.afs-loader_middle__text,.afs-loader_column .afs-loader.afs-loader_large__text {
+    margin: 16px 0 0
+}

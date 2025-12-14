@@ -1,0 +1,16 @@
+
+.design-reviewer-status-icon[data-v-1c74bec8] {
+    font-size: 16px
+}
+
+.design-reviewer-status-icon.is-pending[data-v-1c74bec8] {
+    color: var(--global-text-base-tertiary)
+}
+
+.design-reviewer-status-icon.is-accepted[data-v-1c74bec8] {
+    color: var(--text-semantic-positive-primary)
+}
+
+.design-reviewer-status-icon.is-rejected[data-v-1c74bec8] {
+    color: var(--text-semantic-negative-primary)
+}

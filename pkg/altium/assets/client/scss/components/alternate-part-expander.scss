@@ -1,0 +1,13 @@
+
+.alternate-part-expander[data-v-cbdce432] {
+    position: absolute;
+    width: 8px;
+    font-size: 8px;
+    left: 18px;
+    cursor: pointer;
+    z-index: 50
+}
+
+.alternate-part-expander--collapsed[data-v-cbdce432] {
+    transform: rotate(-90deg)
+}

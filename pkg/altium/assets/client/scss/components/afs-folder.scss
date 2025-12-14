@@ -1,0 +1,18 @@
+
+.afs-folder-select {
+    position: relative
+}
+
+.afs-folder-select__input {
+    padding-right: 70px;
+    text-overflow: ellipsis
+}
+
+.afs-folder-select__change {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    font-size: 12px;
+    z-index: 5
+}

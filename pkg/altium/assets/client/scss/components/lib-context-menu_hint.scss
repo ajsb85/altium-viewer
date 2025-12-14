@@ -1,0 +1,11 @@
+
+.lib-context-menu_hint {
+    padding: .38rem .5rem;
+    border-radius: 2px;
+    color: var(--color-hint);
+    background: var(--background-hint);
+    box-shadow: var(--box-shadow-hint);
+    font-size: .69rem;
+    line-height: 1.1;
+    pointer-events: none
+}

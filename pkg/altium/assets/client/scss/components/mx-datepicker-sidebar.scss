@@ -1,0 +1,13 @@
+
+.mx-datepicker-sidebar {
+    float: left;
+    box-sizing: border-box;
+    width: 100px;
+    padding: 6px;
+    overflow: auto
+}
+
+.mx-datepicker-sidebar+.mx-datepicker-content {
+    margin-left: 100px;
+    border-left: 1px solid #e8e8e8
+}

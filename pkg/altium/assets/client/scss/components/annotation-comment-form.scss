@@ -1,0 +1,60 @@
+
+.annotation-comment-form {
+    text-align: left;
+    border-radius: 4px;
+    color: var(--background-primary)
+}
+
+.annotation-comment-form__assigned {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 16px
+}
+
+.annotation-comment-form__assigned-text {
+    line-height: 16px;
+    color: var(--comment-text)
+}
+
+.annotation-comment-form__assigned-user {
+    font-weight: 500;
+    line-height: 16px;
+    color: var(--comment-text);
+    margin-left: 4px;
+    cursor: pointer;
+    display: flex
+}
+
+.annotation-comment-form__assigned-user-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 146px
+}
+
+.annotation-comment-form__assigned-user .afs-btn-icon {
+    height: 16px
+}
+
+.annotation-comment-form__assignee-context-menu .afs-context-menu__section {
+    border-top: 1px solid var(--afs-border);
+    max-height: 300px;
+    overflow: hidden;
+    overflow-y: scroll
+}
+
+.annotation-comment-form__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 16px
+}
+
+.annotation-comment-form__buttons :deep(.afs-loader) {
+    display: flex
+}
+
+.annotation-comment-form__guest-badge {
+    margin-left: 4px
+}

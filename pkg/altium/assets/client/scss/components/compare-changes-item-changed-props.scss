@@ -1,0 +1,55 @@
+
+.compare-changes-item-changed-props[data-v-c2177c1a] {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 16px;
+    gap: 4px
+}
+
+.compare-changes-item-changed-props .prop-updated-value[data-v-c2177c1a] {
+    padding-left: 4px;
+    cursor: auto
+}
+
+.compare-changes-item-changed-props__item[data-v-c2177c1a] {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 44px
+}
+
+.compare-changes-item-changed-props__item-action-name-group[data-v-c2177c1a] {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    gap: 4px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--global-text-base-primary)
+}
+
+.compare-changes-item-changed-props__item-action[data-v-c2177c1a] {
+    font-weight: 500
+}
+
+.compare-changes-item-changed-props__item-name[data-v-c2177c1a] {
+    font-weight: 400
+}
+
+.compare-changes-item-changed-props__item-change[data-v-c2177c1a] {
+    padding: 4px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px
+}
+
+.compare-changes-item-changed-props__item-change .icon[data-v-c2177c1a] {
+    width: 16px;
+    height: 16px;
+    margin: 0 4px
+}
+
+.compare-changes-item-changed-props__item-change .old-value[data-v-c2177c1a] {
+    color: var(--global-text-semantic-negative-primary)
+}

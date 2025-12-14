@@ -1,0 +1,120 @@
+
+.entity-picker__empty-text[data-v-400a4f83] {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.entity-picker[data-v-400a4f83] {
+    height: 528px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 0 16px
+}
+
+.entity-picker__block[data-v-400a4f83] {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex
+}
+
+.entity-picker__search[data-v-400a4f83] {
+    flex: 1 0 auto
+}
+
+.entity-picker__info[data-v-400a4f83] {
+    flex: 0 0 auto;
+    margin-left: 8px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--afs-border);
+    border-radius: 4px
+}
+
+.entity-picker__loader-cover[data-v-400a4f83] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    background-color: var(--afs-background_48);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.entity-picker__loader[data-v-400a4f83] {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.entity-picker__loader[data-v-400a4f83] .afs-loader__content {
+    flex-wrap: nowrap;
+    overflow: hidden
+}
+
+.entity-picker__table-block[data-v-400a4f83] {
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    overflow: hidden
+}
+
+.entity-picker__table-wrap[data-v-400a4f83] {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex: 1 1 auto;
+    overflow: auto
+}
+
+.entity-picker__table[data-v-400a4f83] {
+    flex: 1 1 auto;
+    overflow-x: auto;
+    background-color: var(--afs-background)
+}
+
+.entity-picker__checkbox.is-disabled[data-v-400a4f83] {
+    background-color: var(--afs-secondary-hover)
+}
+
+.entity-picker__sidebar[data-v-400a4f83] {
+    flex: 0 0 auto;
+    margin-left: 16px
+}
+
+.entity-picker__results[data-v-400a4f83],.entity-picker__selected[data-v-400a4f83] {
+    color: var(--afs-text-primary)
+}
+
+.entity-picker__tags[data-v-400a4f83] {
+    margin-top: 8px
+}
+
+.entity-picker__empty[data-v-400a4f83] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px
+}
+
+.entity-picker__empty-icon[data-v-400a4f83] {
+    color: var(--afs-text-icon-secondary);
+    width: 32px;
+    height: 32px
+}
+
+.entity-picker__empty-text[data-v-400a4f83] {
+    color: var(--afs-text-primary)
+}

@@ -1,0 +1,18 @@
+
+.mcad-export-representation-status-icon {
+    margin-right: .5rem
+}
+
+.mcad-export-representation-status-icon .afs-loader {
+    display: inline
+}
+
+.mcad-export-representation-status-icon .icon {
+    width: 1rem;
+    height: 1rem;
+    opacity: .48
+}
+
+.mcad-export-representation-status-icon .icon.is-available {
+    opacity: 1
+}

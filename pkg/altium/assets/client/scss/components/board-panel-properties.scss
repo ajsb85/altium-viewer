@@ -1,0 +1,28 @@
+
+.board-panel-properties[data-v-70bfb63f] {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--afs-border);
+    margin-top: 1rem;
+    padding-top: 1rem
+}
+
+.board-panel-properties[data-v-70bfb63f]:not(:first-child) {
+    margin-top: 16px
+}
+
+.board-panel-properties>*[data-v-70bfb63f]:not(:first-child) {
+    margin-top: 8px
+}
+
+.board-panel-properties__item[data-v-70bfb63f] {
+    padding-right: 1.63rem
+}
+
+.board-panel-properties__img[data-v-70bfb63f]:not(:first-child) {
+    align-self: flex-end;
+    height: 16.57rem;
+    width: 13rem;
+    margin-top: -2.12rem;
+    margin-bottom: -2.56rem
+}

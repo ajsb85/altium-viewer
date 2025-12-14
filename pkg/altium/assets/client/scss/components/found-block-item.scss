@@ -1,0 +1,18 @@
+
+.found-block-item[data-v-fba73377] {
+    cursor: pointer;
+    padding: 4px 0 4px 16px;
+    gap: 8px;
+    height: 28px;
+    display: flex;
+    align-items: center
+}
+
+.found-block-item[data-v-fba73377]:hover {
+    background-color: var(--afs-secondary-hover)
+}
+
+.found-block-item.is-disabled[data-v-fba73377] {
+    opacity: .64;
+    cursor: default
+}

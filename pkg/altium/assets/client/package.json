@@ -1,0 +1,12 @@
+{
+  "name": "client-assets",
+  "version": "1.0.0",
+  "description": "Client assets build scripts",
+  "scripts": {
+    "sass:build": "sass --no-source-map scss/main.scss appStyles.css && rm -f appStyles.css.map",
+    "sass:watch": "sass --watch --source-map scss/main.scss appStyles.css"
+  },
+  "devDependencies": {
+    "sass": "^1.96.0"
+  }
+}

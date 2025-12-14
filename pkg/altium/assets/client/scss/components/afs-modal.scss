@@ -1,0 +1,250 @@
+
+.afs-modal-warning__body {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px
+}
+
+.afs-modal-warning__body:not(:last-child) {
+    margin-bottom: 16px
+}
+
+.afs-modal-warning__icon {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: flex-start;
+    justify-content: center;
+    margin-right: 16px;
+    width: 32px;
+    font-size: 32px;
+    line-height: 1
+}
+
+.afs-modal-warning__content {
+    flex: 1 1 auto;
+    align-self: center;
+    word-break: break-word
+}
+
+.afs-modal-warning .afs-modal-warning__container {
+    background: var(--afs-popup)
+}
+
+.afs-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    padding: 16px;
+    font-size: 0;
+    text-align: center
+}
+
+.afs-modal:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%
+}
+
+.afs-modal:after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .48;
+    transition: background-color .25s
+}
+
+.afs-modal__container {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+    transition: border-color .25s,color .25s,background-color .25s,box-shadow .25s
+}
+
+.afs-modal__close {
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    right: 5px
+}
+
+.afs-modal__close+.afs-modal__header {
+    padding-right: 20px
+}
+
+.afs-modal__close+.afs-modal__header_center {
+    padding-left: 20px
+}
+
+.afs-modal__body {
+    padding: 16px
+}
+
+.afs-modal__section {
+    padding-top: 16px
+}
+
+.afs-modal__preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px
+}
+
+.afs-modal__footer-btns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    column-gap: 8px;
+    margin: -2px
+}
+
+.afs-modal__footer-btn {
+    margin: 2px
+}
+
+.afs-modal__title:not(:last-child) {
+    margin-bottom: 4px
+}
+
+.afs-modal:after {
+    background-color: var(--afs-background)
+}
+
+.afs-modal .afs-modal__container {
+    border-color: var(--afs-border);
+    color: var(--afs-text-icon-secondary);
+    background: var(--afs-popup);
+    box-shadow: var(--afs-black-drop-shadow-large)
+}
+
+.afs-modal .afs-modal__color-active {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-modal-move__content {
+    display: grid
+}
+
+.afs-modal-move__content__loader {
+    align-self: center;
+    justify-self: center
+}
+
+.afs-modal-loader__container {
+    margin: -15px;
+    border-radius: 3px
+}
+
+.afs-modal-loader__header {
+    padding: 15px
+}
+
+.afs-modal-loader__header:not(:last-child) {
+    border-bottom: 1px solid
+}
+
+.afs-modal-loader__body {
+    padding: 15px
+}
+
+.afs-modal-loader .afs-modal-loader__header:not(:last-child) {
+    border-color: var(--afs-border)
+}
+
+.afs-modal-loader .afs-modal-loader__container {
+    background: var(--afs-popup)
+}
+
+.afs-modal-confirmation__body {
+    padding: 16px
+}
+
+.afs-modal-confirmation__body:not(:last-child) {
+    margin-bottom: 16px
+}
+
+.afs-modal-confirmation__content {
+    display: flex;
+    align-items: flex-start
+}
+
+.afs-modal-confirmation__icon {
+    flex: 0 0 auto;
+    margin-right: 16px;
+    font-size: 32px
+}
+
+.afs-modal-confirmation__text {
+    flex: 1 1 auto;
+    align-self: center;
+    min-width: 0
+}
+
+.afs-modal-confirmation__title {
+    margin-bottom: 8px
+}
+
+.afs-modal-confirmation__paragraph:not(:last-child) {
+    margin-bottom: 8px
+}
+
+.afs-modal-confirmation__footer {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+    margin: -2px
+}
+
+.afs-modal-confirmation__footer-additional {
+    align-self: center;
+    flex: 1 1 auto;
+    padding-left: 16px;
+    min-width: 0
+}
+
+.afs-modal-confirmation__btn {
+    flex: 0 0 auto
+}
+
+.afs-modal-confirmation__loader {
+    margin-right: 16px;
+    align-items: center;
+    display: inline-flex
+}
+
+.afs-modal-confirmation__loader-text {
+    margin-left: 8px
+}
+
+.afs-modal-confirmation .btn-group_center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase
+}
+
+.afs-modal-confirmation .afs-modal-confirmation__header:not(:last-child) {
+    border-color: var(--afs-border)
+}
+
+.afs-modal-confirmation .afs-modal-confirmation__container {
+    background: var(--afs-popup)
+}

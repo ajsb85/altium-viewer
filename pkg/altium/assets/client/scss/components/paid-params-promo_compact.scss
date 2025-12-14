@@ -1,0 +1,22 @@
+
+.paid-params-promo_compact[data-v-faf1c478] {
+    color: var(--afs-hint-icons);
+    padding: 4px 16px;
+    cursor: pointer
+}
+
+.paid-params-promo_compact[data-v-faf1c478]:hover {
+    background-color: var(--afs-group)
+}
+
+.paid-params-promo_compact .paid-params-promo__link[data-v-faf1c478] {
+    color: var(--afs-text-icon-secondary)
+}
+
+.paid-params-promo_compact:hover .paid-params-promo__link[data-v-faf1c478] {
+    color: var(--afs-text-icon-primary)
+}
+
+.paid-params-promo_compact .paid-params-promo__quota[data-v-faf1c478] {
+    margin-left: unset
+}

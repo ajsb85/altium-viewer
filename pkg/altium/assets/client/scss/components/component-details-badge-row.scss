@@ -1,0 +1,34 @@
+
+.component-details-badge-row[data-v-eb7d0bf3] {
+    border-radius: 2px;
+    padding: 2px 4px;
+    cursor: default
+}
+
+.component-details-badge-row__text[data-v-eb7d0bf3] {
+    font-size: 11px;
+    line-height: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--afs-text-icon-primary)
+}
+
+.component-details-badge-row.default[data-v-eb7d0bf3] {
+    background-color: var(--afs-additional-gray)
+}
+
+.component-details-badge-row.info[data-v-eb7d0bf3] {
+    background-color: var(--afs-primary-default)
+}
+
+.component-details-badge-row.error[data-v-eb7d0bf3] {
+    background-color: var(--afs-error)
+}
+
+.component-details-badge-row.warning[data-v-eb7d0bf3] {
+    background-color: var(--afs-warning)
+}
+
+.component-details-badge-row.success[data-v-eb7d0bf3] {
+    background-color: var(--afs-success)
+}

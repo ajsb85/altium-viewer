@@ -1,0 +1,27 @@
+
+.measurement-history-section {
+    padding: .94rem 0;
+    line-height: .75rem
+}
+
+.measurement-history-section__title {
+    display: inline-block;
+    margin-left: 1rem;
+    margin-bottom: .5rem;
+    font-size: .63rem;
+    text-transform: uppercase
+}
+
+.measurement-history-section__item {
+    padding: .5rem 1rem;
+    color: var(--color-primary);
+    cursor: pointer
+}
+
+.measurement-history-section__hint {
+    display: flex
+}
+
+.measurement-history-section__hint-title {
+    min-width: 2.82rem
+}

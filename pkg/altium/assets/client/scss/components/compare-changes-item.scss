@@ -1,0 +1,14 @@
+
+.compare-changes-item[data-v-43b71d98] {
+    display: flex;
+    flex-direction: column
+}
+
+.compare-changes-item[data-v-43b71d98]:hover:not(.selected) {
+    background-color: var(--gray-100);
+    transition: all .2s ease-in-out
+}
+
+.compare-changes-item.selected[data-v-43b71d98] {
+    background-color: var(--global-background-accent-secondary)
+}

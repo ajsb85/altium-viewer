@@ -1,0 +1,327 @@
+
+body:not(.is-touch) .app-main-tabs__btn:not(:disabled):not([disabled]):not(.is-disabled):not(.is-selected):hover {
+    background: var(--background-tab-secondary_hover)
+}
+
+body:not(.is-touch) .app-main-tabs .app-main-tabs__dropdown:not(:disabled):not([disabled]):not(.is-disabled):hover {
+    background: var(--background-main-tabs_active)
+}
+
+body:not(.is-touch) .app-main-tabs__menu-item:not(:disabled):not([disabled]):not(.is-disabled):hover {
+    background: var(--background-main-tabs_active)
+}
+
+body:not(.is-touch) .app-header-plugins__btn[data-v-315549df]:not(:disabled):not([disabled]):not(.is-disabled):not(.is-selected):hover {
+    background: var(--background-tab-secondary_hover)
+}
+
+body:not(.is-touch) .app-watermark__icon:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) a:hover {
+    text-decoration: none
+}
+
+body:not(.is-touch) .app__back-btn:hover {
+    color: var(--color-primary)
+}
+
+body:not(.is-touch) .app-layers-panel__acc[data-v-4cf76076] .afs-accordion__header:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-layers-panel__acc[data-v-4cf76076] .afs-accordion__header:hover .app-layers-panel__visibility-btn:not(:hover) {
+    opacity: .5
+}
+
+body:not(.is-touch) .app-layers-panel__layer-row:hover .app-layers-panel__layer-item[data-v-4cf76076] {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-layers-panel__layer-row:hover .app-layers-panel__layer-checkbox[data-v-4cf76076] {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-layers-panel__layer-row:hover .app-layers-panel__visibility-btn[data-v-4cf76076]:not(:hover) {
+    opacity: .5
+}
+
+body:not(.is-touch) .app-layers-panel__visibility-btn[data-v-4cf76076]:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-layers-panel__visibility-only[data-v-4cf76076]:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-object-panel__btn-icon[data-v-3cee8e5a]:hover {
+    color: var(--color-primary)
+}
+
+body:not(.is-touch) .app-object-panel__btn-only[data-v-3cee8e5a]:hover {
+    color: var(--color-primary)
+}
+
+body:not(.is-touch) .app-object-panel__btn[data-v-3cee8e5a]:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-object-panel__btn:hover .app-object-panel__btn-icon[data-v-3cee8e5a],body:not(.is-touch) .app-object-panel__btn:hover .app-object-panel__btn-only[data-v-3cee8e5a] {
+    visibility: visible
+}
+
+body:not(.is-touch) .app-object-panel__btn-icon[data-v-b0d4e50c]:hover {
+    color: var(--color-primary)
+}
+
+body:not(.is-touch) .app-object-panel__acc[data-v-b0d4e50c] .afs-accordion__header:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-object-panel__acc[data-v-b0d4e50c] .afs-accordion__header:hover .app-object-panel__btn-visibility {
+    visibility: visible
+}
+
+body:not(.is-touch) .tab-panel__buttons-reset[data-v-3a931345]:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-board-control__controls-btn[data-v-ee46f088] .afs-tabs__item:hover {
+    background-color: var(--background-button-secondary_selected)
+}
+
+body:not(.is-touch) .app-layers-panel__acc[data-v-198db60e] .afs-accordion__header:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-layers-panel__acc[data-v-198db60e] .afs-accordion__header:hover .app-layers-panel__visibility-btn:not(:hover) {
+    opacity: .5
+}
+
+body:not(.is-touch) .app-layers-panel__layer-row:hover .app-layers-panel__layer-item[data-v-198db60e] {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-layers-panel__layer-row:hover .app-layers-panel__layer-checkbox[data-v-198db60e] {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-layers-panel__layer-row:hover .app-layers-panel__visibility-btn[data-v-198db60e]:not(:hover) {
+    opacity: .5
+}
+
+body:not(.is-touch) .app-layers-panel__visibility-btn[data-v-198db60e]:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-layers-panel__visibility-only[data-v-198db60e]:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .fbom-table__body .fbom-table__row[data-v-790e65e4]:focus-within {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+body:not(.is-touch) .fbom-table__body .fbom-table__row:focus-within .fbom-table__col[data-v-790e65e4] {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+body:not(.is-touch) .fbom-table__body .fbom-table__row[data-v-790e65e4]:hover:not(.is-focused,:focus-within) {
+    background: var(--afs-group);
+    color: var(--afs-text-icon-primary)
+}
+
+body:not(.is-touch) .fbom-table__body .fbom-table__row:hover:not(.is-focused,:focus-within) .fbom-table__col[data-v-790e65e4] {
+    background: var(--afs-group)
+}
+
+body:not(.is-touch) .list__item[data-v-41c64191]:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .pcb-cmp-layers__reset-btn:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-layers-panel__acc .afs-accordion__header:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-layers-panel__acc .afs-accordion__header:hover .app-layers-panel__visibility-btn:not(:hover) {
+    opacity: .5
+}
+
+body:not(.is-touch) .app-layers-panel__layer-item:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-layers-panel__layer-item:hover .app-layers-panel__visibility-btn:not(:hover) {
+    opacity: .5
+}
+
+body:not(.is-touch) .app-layers-panel__visibility-btn:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-layers-panel__visibility-only:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .pcb-cmp-layers__reset-btn:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-layers-panel__acc .afs-accordion__header:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-layers-panel__acc .afs-accordion__header:hover .app-layers-panel__visibility-btn:not(:hover) {
+    opacity: .5
+}
+
+body:not(.is-touch) .app-layers-panel__layer-item:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-layers-panel__layer-item:hover .app-layers-panel__visibility-btn:not(:hover) {
+    opacity: .5
+}
+
+body:not(.is-touch) .app-layers-panel__visibility-btn:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-layers-panel__visibility-only:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .preview-item[data-v-0560aa1c]:not(.is-selected):hover {
+    box-shadow: 0 0 0 1px var(--border-focused)
+}
+
+body:not(.is-touch) .lib-btn:not(.lib-btn_transparent):not(:disabled):not([disabled]):not(.is-disabled):hover:not(:active):not(.is-active) {
+    background: var(--background-button-secondary_hover)
+}
+
+body:not(.is-touch) .lib-btn:not(.lib-btn_transparent).lib-btn_primary:not(:disabled):not([disabled]):not(.is-disabled):hover:not(:active):not(.is-active) {
+    background: var(--background-button-primary_hover)
+}
+
+body:not(.is-touch) .lib-btn:not(.lib-btn_transparent).lib-btn_primary:not(:disabled):not([disabled]):not(.is-disabled):active {
+    background: var(--background-button-primary_active)
+}
+
+body:not(.is-touch) .list__control[data-v-bd042d40]:focus {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .list__control[data-v-bd042d40]:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .footer__control:focus {
+    color: var(--color-meta);
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .footer__control:hover {
+    color: var(--color-meta);
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-layers-panel__reset-btn[data-v-c67fe11c]:hover {
+    opacity: 1
+}
+
+body:not(.is-touch) .app-simulation-layers-panel__acc .afs-accordion__header:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .app-simulation-layers-panel__layer-item:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .lib-input__reset:hover .lib-input__reset-icon[data-v-7e2ca0a1] {
+    color: var(--color-control)
+}
+
+body:not(.is-touch) .lib-kv-list_clickable .lib-kv-list__item:hover {
+    background: var(--background-kv-list_clickable_hover)
+}
+
+body:not(.is-touch) .lib-modal__close:hover {
+    color: var(--color-primary)
+}
+
+body:not(.is-touch) .lib-tab:not(:disabled):not([disabled]):not(.is-disabled):hover:not(.is-active) {
+    background: var(--background-tab-secondary_hover)
+}
+
+body:not(.is-touch) .lib-tab:not(:disabled):not([disabled]):not(.is-disabled):focus {
+    box-shadow: 0 0 6px 0 var(--afs-additional-black)
+}
+
+body:not(.is-touch) .lib-table.has-hover .lib-table__body .lib-table__row[data-v-a4126fc8]:focus-within {
+    background: var(--background-control)
+}
+
+body:not(.is-touch) .lib-table.has-hover .lib-table__body .lib-table__row[data-v-a4126fc8]:hover {
+    background: var(--background-control)
+}
+
+body:not(.is-touch) .lib-table__col_sort[data-v-a4126fc8]:hover {
+    background: var(--background-clickable_hover)
+}
+
+body:not(.is-touch) .lib-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus {
+    box-shadow: var(--box-shadow-textarea_active)
+}
+
+body:not(.is-touch) .lib-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus::placeholder {
+    opacity: .48
+}
+
+body:not(.is-touch) .measurement-history-section__item:hover {
+    background: var(--background-measurements-section)
+}
+
+body:not(.is-touch) .bom-compare-table-row[data-v-43d5183c]:focus-within {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+body:not(.is-touch) .bom-compare-table-row:focus-within .bom-compare-table__col[data-v-43d5183c] {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+body:not(.is-touch) .bom-compare-table-row[data-v-43d5183c]:hover:not(.is-focused,:focus-within) {
+    background: var(--afs-group);
+    color: var(--afs-text-icon-primary)
+}
+
+body:not(.is-touch) .bom-compare-table-row:hover:not(.is-focused,:focus-within) .bom-compare-table__col[data-v-43d5183c] {
+    background: var(--afs-group)
+}
+
+body:not(.is-touch) .bom-compare-table-row[data-v-08b34d11]:focus-within {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+body:not(.is-touch) .bom-compare-table-row:focus-within .bom-compare-table__col[data-v-08b34d11] {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+body:not(.is-touch) .bom-compare-table-row[data-v-08b34d11]:hover:not(.is-focused,:focus-within) {
+    background: var(--afs-group);
+    color: var(--afs-text-icon-primary)
+}
+
+body:not(.is-touch) .bom-compare-table-row:hover:not(.is-focused,:focus-within) .bom-compare-table__col[data-v-08b34d11] {
+    background: var(--afs-group)
+}

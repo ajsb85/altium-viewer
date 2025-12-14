@@ -1,0 +1,31 @@
+
+.status-option[data-v-84014424] {
+    max-width: 320px;
+    border-bottom: 1px solid var(--afs-border)
+}
+
+[data-v-84014424] .status-option__icon_start {
+    align-self: start
+}
+
+.status-option__item[data-v-84014424] {
+    padding: 4px 16px;
+    margin: 4px 0
+}
+
+.status-option__description[data-v-84014424] {
+    color: var(--afs-text-secondary);
+    transition: color var(--afs-transition-duration);
+    margin: 7px 0 3px;
+    font-size: 11px;
+    line-height: 12px;
+    white-space: normal;
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+.status-option__description-img[data-v-84014424] {
+    width: 16px;
+    aspect-ratio: 1
+}

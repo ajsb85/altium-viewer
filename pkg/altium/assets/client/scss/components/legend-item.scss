@@ -1,0 +1,32 @@
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    vertical-align: bottom
+}
+
+.legend-item__point {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    margin-right: 8px
+}
+
+.legend-item[data-v-1c158595] {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    vertical-align: bottom
+}
+
+.legend-item__point[data-v-1c158595] {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px
+}

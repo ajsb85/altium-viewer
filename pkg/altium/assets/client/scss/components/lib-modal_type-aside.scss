@@ -1,0 +1,11 @@
+
+.lib-modal_type-aside {
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    flex-direction: column
+}
+
+.lib-modal_type-aside:not(.lib-modal_resizable) {
+    max-width: 15rem
+}

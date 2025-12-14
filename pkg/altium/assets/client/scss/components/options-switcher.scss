@@ -1,0 +1,23 @@
+
+.options-switcher[data-v-4cf74474] {
+    padding: 1rem;
+    margin: 0 -16px;
+    border-bottom: 1px solid var(--border-primary)
+}
+
+.options-switcher__control[data-v-4cf74474] {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0 8px
+}
+
+.options-switcher__control[data-v-4cf74474]>* {
+    flex: 0 0 auto;
+    min-width: 0;
+    height: 24px;
+    padding: 4px 8px;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 12px
+}

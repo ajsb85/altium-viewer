@@ -1,0 +1,29 @@
+
+.app-item[data-v-24e96402] {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: .32rem .94rem
+}
+
+.app-item.is-disabled[data-v-24e96402] {
+    opacity: .4
+}
+
+.app-item.is-active[data-v-24e96402] {
+    background: var(--background-item_active)
+}
+
+.app-item__title[data-v-24e96402] {
+    color: var(--color-primary)
+}
+
+.app-item__title_primary[data-v-24e96402] {
+    display: inline-block;
+    min-width: 4.5rem
+}
+
+.app-item__text[data-v-24e96402] {
+    margin-top: .5rem;
+    margin-left: 0
+}

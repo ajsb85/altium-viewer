@@ -1,0 +1,156 @@
+
+.reply-item[data-v-2c637740] {
+    text-align: left;
+    color: var(--afs-text-icon-primary);
+    padding: 16px;
+    border-bottom: 1px solid var(--border-primary)
+}
+
+.reply-item[data-v-2c637740]:last-child {
+    border: none
+}
+
+.reply-item__design-review-link[data-v-2c637740] {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2
+}
+
+.reply-item__header[data-v-2c637740] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px
+}
+
+.reply-item__text[data-v-2c637740] {
+    color: var(--afs-text-icon-secondary);
+    line-height: 16px;
+    white-space: pre-wrap;
+    word-break: break-word
+}
+
+.reply-item__text.is-short[data-v-2c637740] {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 15;
+    display: -webkit-box;
+    -webkit-box-orient: vertical
+}
+
+.reply-item__text.is-system-message[data-v-2c637740] {
+    font-style: italic;
+    color: var(--comment-text-reply)
+}
+
+.reply-item__user[data-v-2c637740] {
+    color: var(--comment-text-user);
+    cursor: default
+}
+
+.reply-item__user-name[data-v-2c637740] {
+    font-weight: 500;
+    line-height: 16px;
+    margin-bottom: 0
+}
+
+.reply-item__user-time[data-v-2c637740] {
+    color: var(--afs-text-icon-hint);
+    line-height: 16px
+}
+
+.reply-item__context-menu[data-v-2c637740] {
+    margin-right: -8px
+}
+
+.reply-item__more[data-v-2c637740] {
+    padding-top: 8px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-link)
+}
+
+.reply-item__more-text[data-v-2c637740] {
+    display: inline-block;
+    cursor: pointer
+}
+
+.reply-item__release-link[data-v-2c637740],.reply-item__revision-link[data-v-2c637740] {
+    color: var(--comment-text)
+}
+
+.reply-item {
+    text-align: left;
+    color: var(--afs-text-icon-primary);
+    padding: 16px;
+    border-bottom: 1px solid var(--afs-border)
+}
+
+.reply-item:last-child {
+    border: none
+}
+
+.reply-item__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px
+}
+
+.reply-item__text {
+    color: var(--afs-text-primary);
+    line-height: 16px;
+    white-space: pre-wrap;
+    word-break: break-word
+}
+
+.reply-item__text.is-short {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 15;
+    display: -webkit-box;
+    -webkit-box-orient: vertical
+}
+
+.reply-item__text.is-system-message {
+    font-style: italic;
+    color: var(--afs-text-icon-hint)
+}
+
+.reply-item__user {
+    color: var(--afs-text-secondary);
+    cursor: default
+}
+
+.reply-item__user-name {
+    font-weight: 500;
+    line-height: 16px;
+    margin-bottom: 0
+}
+
+.reply-item__user-time {
+    color: var(--afs-text-icon-hint);
+    line-height: 16px
+}
+
+.reply-item__context-menu {
+    margin-right: -8px
+}
+
+.reply-item__more {
+    padding-top: 8px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--afs-text-icon-link)
+}
+
+.reply-item__more-text {
+    display: inline-block;
+    cursor: pointer
+}
+
+.reply-item__release-link,.reply-item__revision-link {
+    color: var(--afs-text-primary)
+}

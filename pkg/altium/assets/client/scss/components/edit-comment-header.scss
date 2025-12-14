@@ -1,0 +1,17 @@
+
+.edit-comment-header[data-v-dd6f6dd1] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%
+}
+
+.edit-comment-header__left[data-v-dd6f6dd1],.edit-comment-header__right[data-v-dd6f6dd1] {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.edit-comment-header__jira[data-v-dd6f6dd1] {
+    width: 16px
+}

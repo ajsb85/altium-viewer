@@ -1,0 +1,24 @@
+
+.accent-background[data-v-c1238175] {
+    color: var(--afs-text-on-accent)
+}
+
+.accent-background.primary[data-v-c1238175] {
+    background-color: var(--button-primary-on-accent-background-default);
+    border-color: var(--button-primary-on-accent-border-default)
+}
+
+.accent-background.primary[data-v-c1238175]:hover,.accent-background.primary.hover[data-v-c1238175],.accent-background.primary[data-v-c1238175]:active,.accent-background.primary.pressed[data-v-c1238175] {
+    background-color: var(--button-primary-on-accent-background-hover);
+    border-color: var(--button-primary-on-accent-border-hover)
+}
+
+.accent-background.secondary[data-v-c1238175] {
+    background-color: var(--button-secondary-on-accent-background-default);
+    border-color: var(--button-secondary-on-accent-border-default)
+}
+
+.accent-background.secondary[data-v-c1238175]:hover,.accent-background.secondary.hover[data-v-c1238175],.accent-background.secondary[data-v-c1238175]:active,.accent-background.secondary.pressed[data-v-c1238175] {
+    background-color: var(--button-secondary-on-accent-background-hover);
+    border-color: var(--button-secondary-on-accent-border-hover)
+}

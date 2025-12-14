@@ -1,0 +1,131 @@
+
+.afs-checkbox {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline
+}
+
+.afs-checkbox {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: flex-start;
+    color: var(--afs-text-icon-secondary);
+    cursor: pointer;
+    user-select: none
+}
+
+.afs-checkbox:disabled,.afs-checkbox[disabled],.afs-checkbox.is-disabled {
+    opacity: .48;
+    cursor: not-allowed
+}
+
+.afs-checkbox:checked .afs-checkbox__figure-icon,.afs-checkbox:checked .afs-checkbox__figure-square,.afs-checkbox[checked] .afs-checkbox__figure-icon,.afs-checkbox[checked] .afs-checkbox__figure-square,.afs-checkbox.is-checked .afs-checkbox__figure-icon,.afs-checkbox.is-checked .afs-checkbox__figure-square {
+    opacity: 1
+}
+
+.afs-checkbox__input {
+    display: none
+}
+
+.afs-checkbox__figure {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    border: 1px solid;
+    border-radius: 2px;
+    width: 16px;
+    height: 16px;
+    transition: border-color .25s,background-color .25s,box-shadow .25s
+}
+
+.afs-checkbox__figure-icon,.afs-checkbox__figure-square {
+    opacity: 0
+}
+
+.afs-checkbox__figure-icon {
+    font-size: 8px;
+    transition: color .25s,opacity .25s
+}
+
+.afs-checkbox__figure-square {
+    width: 8px;
+    height: 2px;
+    transition: opacity .25s,background-color .25s
+}
+
+.afs-checkbox__text {
+    flex: 1 1 auto;
+    align-self: center;
+    padding-left: 8px;
+    max-width: 99%
+}
+
+.afs-checkbox:disabled.is-warning .afs-checkbox__figure,.afs-checkbox[disabled].is-warning .afs-checkbox__figure,.afs-checkbox.is-disabled.is-warning .afs-checkbox__figure {
+    border-color: var(--afs-warning)
+}
+
+.afs-checkbox:disabled.is-error .afs-checkbox__figure,.afs-checkbox[disabled].is-error .afs-checkbox__figure,.afs-checkbox.is-disabled.is-error .afs-checkbox__figure {
+    border-color: var(--afs-error)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-warning .afs-checkbox__figure {
+    border-color: var(--afs-warning)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-error .afs-checkbox__figure {
+    border-color: var(--afs-error)
+}
+
+.afs-checkbox .afs-checkbox__figure {
+    border-color: var(--afs-secondary-border);
+    box-shadow: var(--afs-white-inner-shadow-small)
+}
+
+.afs-checkbox .afs-checkbox__figure-icon {
+    color: var(--afs-text-icon-over-background)
+}
+
+.afs-checkbox .afs-checkbox__figure-square {
+    background: var(--afs-text-icon-over-background)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):focus .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-focused .afs-checkbox__figure {
+    border-color: var(--afs-focus)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):focus-within .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined .afs-checkbox__figure {
+    border-color: var(--afs-focus)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):active .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-active .afs-checkbox__figure {
+    border-color: var(--afs-primary-border);
+    box-shadow: var(--afs-black-inner-shadow)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked) .afs-checkbox__figure {
+    background: var(--afs-secondary-default)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked):hover .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked).is-hovered .afs-checkbox__figure {
+    background: var(--afs-secondary-hover)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked):active .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked).is-active .afs-checkbox__figure {
+    background: var(--afs-secondary-down)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):checked:hover .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):checked.is-hovered .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled)[checked]:hover .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled)[checked].is-hovered .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-checked:hover .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-checked.is-hovered .afs-checkbox__figure {
+    background: var(--afs-primary-hover)
+}
+
+.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):checked:active .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):checked.is-active .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled)[checked]:active .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled)[checked].is-active .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-checked:active .afs-checkbox__figure,.afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-checked.is-active .afs-checkbox__figure {
+    background: var(--afs-primary-down)
+}
+
+.afs-checkbox:checked .afs-checkbox__figure,.afs-checkbox[checked] .afs-checkbox__figure,.afs-checkbox.is-checked .afs-checkbox__figure {
+    border-color: var(--afs-primary-border);
+    background: var(--afs-primary-selected)
+}

@@ -1,0 +1,28 @@
+
+.lib-accordion_has-arrow .lib-accordion__header:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-style: solid;
+    border-width: .19rem 0 .19rem .25rem;
+    border-color: rgba(0,0,0,0);
+    border-left-color: var(--color-primary);
+    transition: transform var(--transition-duration-default)
+}
+
+.lib-accordion_has-arrow.lib-accordion_arrow-left .lib-accordion__header:before {
+    left: 0
+}
+
+.lib-accordion_has-arrow.lib-accordion_arrow-left .lib-accordion__header {
+    padding-left: .75rem
+}
+
+.lib-accordion_has-arrow.lib-accordion_arrow-right .lib-accordion__header:before {
+    right: 0
+}
+
+.lib-accordion_has-arrow.lib-accordion_arrow-right .lib-accordion__header {
+    padding-right: .75rem
+}

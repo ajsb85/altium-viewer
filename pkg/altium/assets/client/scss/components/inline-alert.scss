@@ -1,0 +1,17 @@
+
+.inline-alert {
+    display: flex;
+    gap: 8px;
+    justify-content: left;
+    align-items: flex-start;
+    color: var(--afs-text-primary);
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: var(--afs-card-package-background-default);
+    padding: 16px
+}
+
+.inline-alert__icon {
+    font-size: 16px
+}

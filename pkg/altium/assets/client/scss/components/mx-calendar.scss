@@ -1,0 +1,10 @@
+
+.mx-calendar {
+    box-sizing: border-box;
+    width: 248px;
+    padding: 6px 12px
+}
+
+.mx-calendar+.mx-calendar {
+    border-left: 1px solid #e8e8e8
+}

@@ -1,0 +1,22 @@
+
+.afs-report-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.afs-report-list__item {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer
+}
+
+.afs-report-list__iconName {
+    display: flex;
+    gap: 8px
+}
+
+.afs-report-list__icon {
+    width: 16px;
+    height: 15px
+}

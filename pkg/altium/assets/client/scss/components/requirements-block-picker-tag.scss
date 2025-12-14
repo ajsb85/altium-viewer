@@ -1,0 +1,21 @@
+
+.requirements-block-picker-tag[data-v-a1736157] {
+    min-width: 0;
+    display: flex;
+    align-items: center
+}
+
+.requirements-block-picker-tag.disabled[data-v-a1736157] {
+    opacity: .5
+}
+
+.requirements-block-picker-tag__text[data-v-a1736157] {
+    padding: 0 4px;
+    max-width: 350px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-user-select: none;
+    user-select: none
+}

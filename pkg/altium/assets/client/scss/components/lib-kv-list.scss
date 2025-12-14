@@ -1,0 +1,28 @@
+
+.lib-kv-list {
+    min-width: 0
+}
+
+.lib-kv-list__item {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .32rem 1rem
+}
+
+.lib-kv-list__key,.lib-kv-list__value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color var(--transition-duration-default)
+}
+
+.lib-kv-list__key {
+    padding-right: .38rem;
+    color: var(--color-kv-list-key)
+}
+
+.lib-kv-list__value {
+    white-space: normal;
+    padding-left: .38rem;
+    color: var(--color-kv-list-value)
+}

@@ -1,0 +1,182 @@
+
+.afs-structure-tree__wrapper {
+    margin-bottom: 16px;
+    padding: 10px;
+    height: 288px;
+    overflow: auto;
+    display: grid;
+    border: 1px solid var(--afs-secondary-border);
+    background: var(--afs-field);
+    box-shadow: var(--afs-black-inner-shadow-md)
+}
+
+.afs-structure-tree__btn {
+    display: flex;
+    padding: 4px 16px;
+    width: 100%;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    box-shadow: none;
+    font-family: inherit;
+    transition: .25s
+}
+
+.afs-structure-tree__btn:disabled,.afs-structure-tree__btn[disabled],.afs-structure-tree__btn.is-disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none
+}
+
+.afs-structure-tree__btn.has-disabled-overlay {
+    opacity: .48
+}
+
+.afs-structure-tree__btn.is-opened .afs-structure-tree__arrow {
+    transform: rotate(90deg)
+}
+
+.afs-structure-tree__btn_transparent.is-active .afs-structure-tree__text {
+    font-weight: 500
+}
+
+.afs-structure-tree__btn_full {
+    width: auto;
+    min-width: 100%
+}
+
+.afs-structure-tree__btn-inner {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0
+}
+
+.afs-structure-tree__arrow-container {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px
+}
+
+.afs-structure-tree__arrow {
+    font-size: 8px
+}
+
+.afs-structure-tree__icon {
+    flex: 0 0 auto;
+    font-size: 16px
+}
+
+.afs-structure-tree__icon:not(:last-child) {
+    margin-right: 8px
+}
+
+.afs-structure-tree__icon:disabled,.afs-structure-tree__icon[disabled],.afs-structure-tree__icon.is-disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none
+}
+
+.afs-structure-tree__text {
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: auto
+}
+
+.afs-structure-tree__text:disabled,.afs-structure-tree__text[disabled],.afs-structure-tree__text.is-disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none
+}
+
+.afs-structure-tree__hint {
+    white-space: pre-wrap
+}
+
+.afs-structure-tree__badge {
+    margin-left: 8px
+}
+
+.afs-structure-tree__counter {
+    padding-left: 0;
+    margin-left: 2px;
+    color: var(--afs-text-icon-hint)
+}
+
+.afs-structure-tree__item {
+    position: relative
+}
+
+.afs-structure-tree__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 24px;
+    z-index: 5
+}
+
+.afs-structure-tree__overlay_before {
+    right: auto;
+    left: 0
+}
+
+.afs-structure-tree__download {
+    display: none;
+    margin-left: 8px
+}
+
+.afs-structure-tree__item-loader {
+    margin-left: 8px
+}
+
+.afs-structure-tree__selected-icon {
+    flex: 0 0 auto;
+    font-size: 8px;
+    margin-left: auto
+}
+
+.afs-structure-tree__info {
+    flex: 0 0 auto;
+    font-size: 16px;
+    margin-left: auto
+}
+
+.afs-structure-tree__link {
+    display: none;
+    flex: 0 0 auto;
+    margin-left: auto
+}
+
+.afs-structure-tree__children .slide-enter-active,.afs-structure-tree__children .slide-leave-active {
+    transition: height .5s
+}
+
+.afs-structure-tree__children .slide-enter,.afs-structure-tree__children .slide-leave-to {
+    height: 0
+}
+
+.afs-structure-tree__btn {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-structure-tree__btn.is-active {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-structure-tree__btn.is-active:not(.afs-structure-tree__btn_transparent) {
+    background-color: var(--afs-selected-item-background)
+}
+
+.afs-structure-tree__btn:not(:disabled):not([disabled]):not(.is-disabled):not(.is-active):hover,.afs-structure-tree__btn:not(:disabled):not([disabled]):not(.is-disabled):not(.is-active).is-hovered {
+    background: var(--afs-secondary-hover);
+    color: var(--afs-text-icon-primary)
+}

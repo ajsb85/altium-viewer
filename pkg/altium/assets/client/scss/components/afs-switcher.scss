@@ -1,0 +1,107 @@
+
+.afs-switcher {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline
+}
+
+.afs-switcher {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: top;
+    color: inherit;
+    cursor: pointer;
+    user-select: none
+}
+
+.afs-switcher.is-reverse .afs-switcher__square {
+    flex-direction: row-reverse
+}
+
+.afs-switcher.is-reverse .afs-switcher__text {
+    margin: 0 0 0 8px
+}
+
+.afs-switcher.is-button-first {
+    flex-direction: row-reverse
+}
+
+.afs-switcher.is-button-first .afs-switcher__text {
+    margin: 0 0 0 8px
+}
+
+.afs-switcher:disabled,.afs-switcher[disabled],.afs-switcher.is-disabled {
+    opacity: .48;
+    cursor: not-allowed
+}
+
+.afs-switcher:checked .afs-switcher__square,.afs-switcher[checked] .afs-switcher__square,.afs-switcher.is-checked .afs-switcher__square {
+    justify-content: flex-end
+}
+
+.afs-switcher:focus .afs-switcher__square,.afs-switcher.is-focused .afs-switcher__square {
+    outline-color: var(--afs-focus);
+    outline-style: solid;
+    outline-width: 2px
+}
+
+.afs-switcher:focus-within .afs-switcher__square,.afs-switcher.is-focus-withined .afs-switcher__square {
+    outline-color: var(--afs-focus);
+    outline-style: solid;
+    outline-width: 2px
+}
+
+.afs-switcher__input {
+    display: none
+}
+
+.afs-switcher__square {
+    padding: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid;
+    border-radius: 8px;
+    width: 28px;
+    height: 16px;
+    justify-content: flex-start;
+    transition: border-color .25s,background-color .25s
+}
+
+.afs-switcher__trigger {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%
+}
+
+.afs-switcher__text {
+    flex-grow: 1;
+    margin-right: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--afs-text-primary)
+}
+
+.afs-switcher:disabled.is-error .afs-switcher__square,.afs-switcher[disabled].is-error .afs-switcher__square,.afs-switcher.is-disabled.is-error .afs-switcher__square {
+    border-color: var(--afs-error)
+}
+
+.afs-switcher:not(:disabled):not([disabled]):not(.is-disabled).is-error .afs-switcher__square {
+    border-color: var(--afs-error)
+}
+
+.afs-switcher .afs-switcher__square {
+    border-color: var(--afs-border);
+    background-color: var(--afs-secondary-hover)
+}
+
+.afs-switcher .afs-switcher__trigger {
+    background-color: var(--afs-additional-white)
+}
+
+.afs-switcher:checked .afs-switcher__square,.afs-switcher[checked] .afs-switcher__square,.afs-switcher.is-checked .afs-switcher__square {
+    background: var(--afs-primary-selected)
+}

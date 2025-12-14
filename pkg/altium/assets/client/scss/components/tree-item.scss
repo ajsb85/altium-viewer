@@ -1,0 +1,53 @@
+
+.tree-item[data-v-b85329d6] {
+    display: flex;
+    align-items: center;
+    height: 1.5rem;
+    padding-right: .88rem;
+    cursor: pointer;
+    color: var(--afs-text-icon-secondary)
+}
+
+.tree-item__acc-icon[data-v-b85329d6] {
+    flex: 0 0 auto;
+    font-size: 16px;
+    margin-left: -20px;
+    padding: 4px;
+    height: 16px;
+    width: 16px;
+    margin-right: 4px
+}
+
+.tree-item__acc-icon.is-opened[data-v-b85329d6] {
+    transform: rotate(90deg)
+}
+
+.tree-item[data-v-b85329d6]:not(.is-selected):hover {
+    background: var(--afs-group);
+    color: var(--afs-text-icon-primary)
+}
+
+.tree-item.is-selected[data-v-b85329d6] {
+    background: var(--afs-selected-item-background);
+    color: var(--afs-text-icon-primary)
+}
+
+.tree-item.is-sub-item[data-v-b85329d6] {
+    padding-left: 3.5rem
+}
+
+.tree-item.is-disabled[data-v-b85329d6] {
+    opacity: .48
+}
+
+.tree-item__controls[data-v-b85329d6] {
+    display: flex;
+    flex: 0 0 auto;
+    margin-left: auto
+}
+
+.tree-item__icon[data-v-b85329d6] {
+    flex: 0 0 auto;
+    font-size: 1rem;
+    margin-right: .5rem
+}

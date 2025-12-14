@@ -1,0 +1,18 @@
+
+.part-rank {
+    height: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px
+}
+
+.part-rank__icon {
+    width: 16px;
+    height: 16px;
+    color: var(--afs-text-icon-secondary)
+}
+
+.part-rank__icon.editable {
+    cursor: pointer
+}

@@ -1,0 +1,150 @@
+
+.afs-tree-menu__link,.afs-tree-menu__link:hover {
+    text-decoration: none
+}
+
+.afs-tree-menu__item,.afs-tree-menu {
+    padding: 0;
+    margin: 0;
+    list-style-type: none
+}
+
+.afs-tree-menu {
+    transition: color .25s
+}
+
+.afs-tree-menu__link {
+    display: flex;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.afs-tree-menu__link_lvl-1 {
+    padding-left: 16px
+}
+
+.afs-tree-menu__link_lvl-2 {
+    padding-left: 40px
+}
+
+.afs-tree-menu__link_lvl-3 {
+    padding-left: 64px
+}
+
+.afs-tree-menu__link_lvl-4 {
+    padding-left: 88px
+}
+
+.afs-tree-menu__link_lvl-5 {
+    padding-left: 112px
+}
+
+.afs-tree-menu__link_lvl-6 {
+    padding-left: 132px
+}
+
+.afs-tree-menu__link_lvl-7 {
+    padding-left: 160px
+}
+
+.afs-tree-menu__link_lvl-8 {
+    padding-left: 184px
+}
+
+.afs-tree-menu__link_lvl-9 {
+    padding-left: 208px
+}
+
+.afs-tree-menu__link_lvl-10 {
+    padding-left: 232px
+}
+
+.afs-tree-menu__icon-loader {
+    vertical-align: top
+}
+
+.afs-tree-menu__icon-container {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: top;
+    transition: opacity .25s
+}
+
+.afs-tree-menu__nav-badge {
+    margin-left: 8px
+}
+
+.afs-tree-menu__icon {
+    font-size: 16px
+}
+
+.afs-tree-menu__custom-icon {
+    max-width: 16px;
+    max-height: 16px
+}
+
+.afs-tree-menu__icon,.afs-tree-menu__text {
+    transition: color .25s;
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-tree-menu__icon-promotion,.afs-tree-menu__text-promotion {
+    color: var(--afs-text-icon-link)
+}
+
+.afs-tree-menu__text {
+    align-self: center
+}
+
+.afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled).is-selected>.afs-tree-menu__link:hover,.afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled).is-selected>.afs-tree-menu__link.is-hovered {
+    background-color: var(--afs-selected-item-background)
+}
+
+.afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link:hover,.afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link.is-hovered {
+    background-color: var(--afs-secondary-hover)
+}
+
+.afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link:hover .afs-tree-menu__text,.afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link:hover .afs-tree-menu__icon,.afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link.is-hovered .afs-tree-menu__text,.afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link.is-hovered .afs-tree-menu__icon {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-tree-menu .afs-tree-menu__item:disabled:not(.is-selected) .afs-tree-menu__link,.afs-tree-menu .afs-tree-menu__item[disabled]:not(.is-selected) .afs-tree-menu__link,.afs-tree-menu .afs-tree-menu__item.is-disabled:not(.is-selected) .afs-tree-menu__link {
+    cursor: not-allowed
+}
+
+.afs-tree-menu .afs-tree-menu__item:disabled:not(.is-selected) .afs-tree-menu__link .afs-tree-menu__icon-container,.afs-tree-menu .afs-tree-menu__item[disabled]:not(.is-selected) .afs-tree-menu__link .afs-tree-menu__icon-container,.afs-tree-menu .afs-tree-menu__item.is-disabled:not(.is-selected) .afs-tree-menu__link .afs-tree-menu__icon-container {
+    opacity: .48
+}
+
+.afs-tree-menu .afs-tree-menu__item.is-loading:not(.is-selected) .afs-tree-menu__link {
+    cursor: not-allowed
+}
+
+.afs-tree-menu .afs-tree-menu__item:not(.afs-tree-menu__subitem).is-selected>.afs-tree-menu__link {
+    color: var(--afs-text-icon-primary);
+    background-color: var(--afs-selected-item-background)
+}
+
+.afs-tree-menu .afs-tree-menu__item.is-selected>.afs-tree-menu__link .afs-tree-menu__text,.afs-tree-menu .afs-tree-menu__item.is-selected>.afs-tree-menu__link .afs-tree-menu__icon {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-tree-menu .afs-tree-menu__notification-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--afs-additional-pink);
+    border-radius: 50%;
+    margin-left: 10px;
+    align-self: center
+}
+
+.afs-tree-accordion-enter-active[data-v-e8e6ae79],.afs-tree-accordion-leave-active[data-v-e8e6ae79] {
+    transition: height .3s ease-in-out;
+    overflow: hidden
+}
+
+.afs-tree-accordion-enter[data-v-e8e6ae79],.afs-tree-accordion-leave-to[data-v-e8e6ae79] {
+    height: 0
+}

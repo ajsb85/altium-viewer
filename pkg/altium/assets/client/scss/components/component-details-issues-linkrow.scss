@@ -1,0 +1,15 @@
+
+.component-details-issues-linkrow[data-v-9782dc73] {
+    padding: 4px 16px;
+    margin: 4px 0;
+    color: var(--afs-text-primary)
+}
+
+.component-details-issues-linkrow[data-v-9782dc73]:hover {
+    color: var(--afs-text-icon-primary);
+    background-color: var(--afs-selected-item-background)
+}
+
+.component-details-issues-linkrow[data-v-9782dc73] .row-link-title__icon {
+    color: inherit
+}

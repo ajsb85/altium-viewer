@@ -1,0 +1,14 @@
+
+.mx-table-date td,.mx-table-date th {
+    height: 32px;
+    font-size: 12px
+}
+
+.mx-table-date .today {
+    color: #2a90e9
+}
+
+.mx-table-date .cell.not-current-month {
+    color: #ccc;
+    background: none
+}

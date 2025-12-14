@@ -1,0 +1,24 @@
+
+.fbom-overflow-container[data-v-790e65e4] {
+    overflow: scroll;
+    max-width: 100vw;
+    max-height: calc(100vh - 32px - 33px - var(--search-height, 0px) - var(--banner-height, 0px));
+    height: calc(100vh - 32px - 33px - var(--search-height, 0px) - var(--banner-height, 0px));
+    background-color: var(--afs-table-background);
+    --border-radius-scrollbar: 4px;
+    --width-scrollbar: 6px
+}
+
+.fbom-overflow-container[data-v-790e65e4]::-webkit-scrollbar {
+    width: var(--width-scrollbar);
+    height: var(--width-scrollbar)
+}
+
+.fbom-overflow-container[data-v-790e65e4]::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar);
+    border-radius: var(--border-radius-scrollbar)
+}
+
+.fbom-overflow-container[data-v-790e65e4]::-webkit-scrollbar-corner,.fbom-overflow-container[data-v-790e65e4]::-webkit-resizer {
+    display: none
+}

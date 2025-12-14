@@ -1,0 +1,136 @@
+
+.part-choice {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-radius: 4px
+}
+
+.part-choice__image {
+    flex: 0 0 auto
+}
+
+.part-choice__body {
+    margin-left: 16px;
+    margin-right: 8px;
+    padding: 16px 0;
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto
+}
+
+.part-choice__content {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: 16px
+}
+
+.part-choice__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0
+}
+
+.part-choice__main {
+    display: flex;
+    gap: 16px;
+    width: 100%
+}
+
+.part-choice__names {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden
+}
+
+.part-choice__title {
+    display: flex;
+    height: 16px;
+    width: 100%;
+    gap: 16px
+}
+
+.part-choice__rank {
+    margin-left: auto
+}
+
+.part-choice__description {
+    margin-top: 8px;
+    min-height: 16px;
+    width: 100%
+}
+
+.part-choice__description-text {
+    max-width: 640px
+}
+
+.part-choice__details {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 8px
+}
+
+.part-choice__supply {
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+.part-choice__more-link {
+    margin-left: auto
+}
+
+.part-choice__menu {
+    flex: 0 0 auto;
+    display: flex;
+    height: 16px;
+    align-items: center;
+    overflow: hidden
+}
+
+.part-choice__more {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 256px;
+    width: 100%;
+    margin-top: 16px;
+    background: var(--afs-background);
+    border-radius: 4px;
+    padding: 16px
+}
+
+.part-choice__status {
+    flex: 0 0 4;
+    margin-left: 4px;
+    border-radius: 0 4px 4px 0;
+    width: 4px;
+    min-height: 100%
+}
+
+.part-choice__status-hint {
+    white-space: pre
+}
+
+.part-choice__datasheets {
+    position: relative
+}
+
+.part-choice__datasheets .datasheets-menu__doc-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0
+}
+
+.part-choice__datasheets .cell-dropdown-menu__cell-link {
+    max-width: none
+}

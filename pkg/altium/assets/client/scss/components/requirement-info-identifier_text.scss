@@ -1,0 +1,11 @@
+
+.requirement-info-identifier_text {
+    display: inline-block;
+    color: var(--afs-focus, #64D2FF);
+    white-space: nowrap
+}
+
+.requirement-info-identifier_text.clickable:hover {
+    cursor: pointer;
+    color: #fff
+}

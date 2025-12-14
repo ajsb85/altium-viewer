@@ -1,0 +1,123 @@
+
+.afs-skeleton {
+    background-color: var(--afs-skeleton-glow-background-primary);
+    background-image: linear-gradient(90deg, var(--afs-skeleton-glow-background-primary), var(--afs-skeleton-glow-background-secondary), var(--afs-skeleton-glow-background-primary));
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    display: inline-block;
+    line-height: 1;
+    width: 100%;
+    height: 50px;
+    animation: skeleton-animation 1.5s ease-in-out infinite
+}
+
+.afs-skeleton-chart {
+    padding: 0 10%
+}
+
+.afs-skeleton-chart .afs-skeleton {
+    background-image: linear-gradient(0deg, var(--afs-skeleton-glow-background-primary), var(--afs-skeleton-glow-background-secondary), var(--afs-skeleton-glow-background-primary));
+    animation: skeleton-animation-vertical 1.5s ease-in-out infinite
+}
+
+.afs-skeleton-chart .afs-skeleton:nth-child(7n) {
+    height: 15%
+}
+
+.afs-skeleton-chart .afs-skeleton:nth-child(7n+1) {
+    height: 25%
+}
+
+.afs-skeleton-chart .afs-skeleton:nth-child(7n+2) {
+    height: 40%
+}
+
+.afs-skeleton-chart .afs-skeleton:nth-child(7n+3) {
+    height: 45%
+}
+
+.afs-skeleton-chart .afs-skeleton:nth-child(7n+4) {
+    height: 35%
+}
+
+.afs-skeleton-chart .afs-skeleton:nth-child(7n+5) {
+    height: 45%
+}
+
+.afs-skeleton-chart .afs-skeleton:nth-child(7n+6) {
+    height: 35%
+}
+
+.afs-skeleton-grid {
+    display: grid;
+    gap: 8px
+}
+
+.afs-skeleton-grid .afs-skeleton+.afs-skeleton {
+    margin: 0
+}
+
+.afs-skeleton-grid.col-2 {
+    grid-template-columns: repeat(2, 1fr)
+}
+
+.afs-skeleton-flex {
+    align-items: center;
+    display: flex;
+    gap: 8px
+}
+
+.afs-skeleton-flex .afs-skeleton+.afs-skeleton {
+    margin: 0
+}
+
+.afs-skeleton-flex+.afs-skeleton-flex {
+    margin-top: 8px
+}
+
+.afs-skeleton-flex-vertical {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 1px
+}
+
+.afs-skeleton-flex-vertical .afs-skeleton {
+    width: 16px
+}
+
+.afs-skeleton-flex-vertical .afs-skeleton+.afs-skeleton {
+    margin: 0
+}
+
+.afs-skeleton:not(.no-margin)+.afs-skeleton,.afs-skeleton:not(.no-margin)+.afs-skeleton-grid,.afs-skeleton:not(.no-margin)+.afs-skeleton-flex {
+    margin-top: 8px
+}
+
+.afs-skeleton-circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    flex: 0 0 16px
+}
+
+.afs-skeleton-text {
+    height: .7rem
+}
+
+.afs-skeleton-header {
+    height: 1.4rem
+}
+
+.afs-skeleton-full {
+    height: 100%
+}
+
+.afs-skeleton-box {
+    height: 88px
+}
+
+.afs-skeleton-chart {
+    height: 496px
+}

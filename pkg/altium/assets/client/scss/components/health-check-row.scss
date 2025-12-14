@@ -1,0 +1,38 @@
+
+.health-check-row[data-v-4995fc05] {
+    display: flex;
+    padding-block:4px}
+
+.health-check-row__provider-icon[data-v-4995fc05] {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom
+}
+
+.health-check-row__container[data-v-4995fc05] {
+    display: flex
+}
+
+.health-check-row__icons[data-v-4995fc05] {
+    display: flex;
+    gap: 8px;
+    margin-right: 8px
+}
+
+.health-check-row__icon[data-v-4995fc05] {
+    width: 16px;
+    height: 16px
+}
+
+.health-check-row__texts[data-v-4995fc05] {
+    display: flex;
+    flex-direction: column
+}
+
+.health-check-row__description[data-v-4995fc05] {
+    color: var(--afs-text-icon-hint);
+    font-size: 11px;
+    margin-top: 4px;
+    white-space: pre-wrap
+}

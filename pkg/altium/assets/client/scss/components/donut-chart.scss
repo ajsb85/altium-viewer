@@ -1,0 +1,34 @@
+
+.donut-chart[data-v-495e4ebc] {
+    display: flex;
+    align-items: center;
+    height: var(--2960c888);
+    position: relative
+}
+
+.donut-chart>svg[data-v-495e4ebc] {
+    flex-grow: 0;
+    flex-shrink: 0
+}
+
+.donut-chart__legend-container[data-v-495e4ebc] {
+    flex: 1 1 fit-content;
+    margin-left: 16px
+}
+
+.donut-chart[data-v-495e4ebc]:has(.legend-header) {
+    align-items: flex-start
+}
+
+.donut-chart .donut-item[data-v-495e4ebc] {
+    transition: opacity .3s
+}
+
+.donut-chart .donut-item.dimmed[data-v-495e4ebc] {
+    opacity: var(--2acaa326);
+    transition: opacity .3s
+}
+
+.donut-chart.is-clickable .donut-item[data-v-495e4ebc] {
+    cursor: pointer
+}

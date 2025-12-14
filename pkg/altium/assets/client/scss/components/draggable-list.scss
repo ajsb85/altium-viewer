@@ -1,0 +1,61 @@
+
+.draggable-list[data-v-920d2920] {
+    overflow-y: auto;
+    overflow-x: hidden;
+    user-select: none
+}
+
+.draggable-list .dnd-target[data-v-920d2920] {
+    height: 6px;
+    padding: 2px;
+    position: relative
+}
+
+.draggable-list .dnd-target.is-active[data-v-920d2920]:before {
+    content: "";
+    height: 2px;
+    display: block;
+    background: var(--afs-focus)
+}
+
+.draggable-list .dnd-target.is-invisible[data-v-920d2920] {
+    visibility: hidden
+}
+
+.draggable-list__handlebar[data-v-920d2920] {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--afs-text-icon-link-secondary)
+}
+
+.draggable-list__item[data-v-920d2920] {
+    display: flex;
+    cursor: not-allowed;
+    line-height: initial;
+    position: relative;
+    padding-left: 16px
+}
+
+.draggable-list__item[draggable=true][data-v-920d2920] {
+    cursor: grab
+}
+
+.draggable-list__item:hover .draggable-list__handlebar[data-v-920d2920] {
+    display: block
+}
+
+.draggable-list__item .draggable-list__content[data-v-920d2920] {
+    flex-shrink: 1;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.draggable-list__item[data-v-920d2920]:active {
+    cursor: grabbing
+}

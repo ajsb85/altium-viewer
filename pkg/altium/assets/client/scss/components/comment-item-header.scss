@@ -1,0 +1,43 @@
+
+.comment-item-header[data-v-addd37f5] {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 32px
+}
+
+.comment-item-header__title[data-v-addd37f5] {
+    border-radius: 4px 4px 0 0;
+    min-height: 24px;
+    padding: 8px 16px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--afs-group);
+    margin-bottom: 8px;
+    width: 100%
+}
+
+.comment-item-header__title.is-active[data-v-addd37f5] {
+    background-color: var(--afs-selected-item-background)
+}
+
+.comment-item-header__left[data-v-addd37f5],.comment-item-header__right[data-v-addd37f5] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden
+}
+
+.comment-item-header__issue[data-v-addd37f5] {
+    width: 16px
+}
+
+.comment-item-header__link[data-v-addd37f5] {
+    min-width: 50px;
+    color: var(--afs-text-icon-link);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}

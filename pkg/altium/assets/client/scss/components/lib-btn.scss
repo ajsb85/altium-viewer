@@ -1,0 +1,95 @@
+
+.lib-btn {
+    position: relative;
+    display: inline-flex;
+    vertical-align: top;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    padding: 0 .44rem;
+    border: 1px solid;
+    border-radius: .25rem;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-button-primary);
+    font-family: inherit;
+    line-height: normal;
+    text-decoration: none;
+    transition-property: border-color,background-color,opacity;
+    transition-duration: var(--transition-duration-default)
+}
+
+.lib-btn:not(.lib-btn_transparent) {
+    border-color: var(--border-color-button-primary);
+    background: var(--background-button-secondary)
+}
+
+.lib-btn:not(.lib-btn_transparent):not(:disabled):not([disabled]):not(.is-disabled):active {
+    background: var(--background-button-secondary_active)
+}
+
+.lib-btn:not(.lib-btn_transparent):not(:disabled):not([disabled]):not(.is-disabled):focus {
+    border-color: var(--border-color-button-primary_focus)
+}
+
+.lib-btn:not(.lib-btn_transparent).lib-btn_primary {
+    background: var(--background-button-primary)
+}
+
+.lib-btn:not(.lib-btn_transparent).lib-btn_primary:not(:disabled):not([disabled]):not(.is-disabled):active {
+    background: var(--background-button-primary_active)
+}
+
+.lib-btn:not(.lib-btn_transparent).lib-btn_rounded {
+    border-radius: .5rem
+}
+
+.lib-btn:not(.lib-btn_transparent).is-active {
+    background: var(--background-button-secondary_selected)
+}
+
+.lib-btn:not(.lib-btn_transparent).is-busy {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none
+}
+
+.lib-btn:not(.lib-btn_transparent).is-busy .lib-btn__icon,.lib-btn:not(.lib-btn_transparent).is-busy .lib-btn__text {
+    opacity: 0
+}
+
+.lib-btn:not(.lib-btn_transparent).is-busy .lib-btn__loader {
+    opacity: 1
+}
+
+.lib-btn:disabled,.lib-btn[disabled],.lib-btn.is-disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none
+}
+
+.lib-btn__text,.lib-btn__icon,.lib-btn__loader {
+    transition: opacity var(--transition-duration-default)
+}
+
+.lib-btn__icon {
+    font-size: .75rem
+}
+
+.lib-btn__icon~.lib-btn__text {
+    margin-left: .5rem
+}
+
+.lib-btn__text {
+    font-size: .75rem;
+    line-height: .75rem;
+    font-weight: var(--font-weight-bold)
+}
+
+.lib-btn__loader {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1em;
+    opacity: 0
+}

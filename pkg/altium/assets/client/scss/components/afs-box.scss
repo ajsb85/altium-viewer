@@ -1,0 +1,34 @@
+
+.afs-box {
+    position: relative;
+    transition: border-color .25s,background-color .25s,box-shadow .25s;
+    background: var(--afs-panel)
+}
+
+.afs-box.afs-box_radius-tl {
+    border-top-left-radius: 4px
+}
+
+.afs-box.afs-box_radius-tr {
+    border-top-right-radius: 4px
+}
+
+.afs-box.afs-box_radius-bl {
+    border-bottom-left-radius: 4px
+}
+
+.afs-box.afs-box_radius-br {
+    border-bottom-right-radius: 4px
+}
+
+.afs-box.afs-box_border {
+    border-color: var(--afs-border)
+}
+
+.afs-box.afs-box_shadow {
+    box-shadow: var(--afs-black-drop-shadow-large)
+}
+
+.afs-box.afs-box_group {
+    background: var(--afs-group)
+}

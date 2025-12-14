@@ -1,0 +1,23 @@
+
+.afs-snackbar_primary .afs-snackbar {
+    --close-icon-color: initial
+}
+
+.afs-snackbar_primary .afs-snackbar__container {
+    padding: 8px;
+    border: none;
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-panel);
+    box-shadow: var(--afs-black-drop-shadow-small)
+}
+
+.afs-snackbar_primary .afs-snackbar__content {
+    position: relative;
+    display: flex;
+    margin: 8px 16px 8px 0
+}
+
+.afs-snackbar_primary .afs-snackbar__divider {
+    border-left: 1px solid var(--afs-border-on-accent);
+    margin: -4px -16px -4px 16px
+}

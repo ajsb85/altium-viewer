@@ -1,0 +1,42 @@
+
+.afs-datepicker .mx-datepicker {
+    width: 100%
+}
+
+.afs-datepicker__popup {
+    font-family: Inter,Helvetica,sans-serif;
+    color: var(--afs-text-icon-secondary);
+    background-color: var(--afs-sidebar);
+    border-color: var(--afs-primary-border)
+}
+
+.afs-datepicker__popup.inline {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important
+}
+
+.afs-datepicker__popup .mx-calendar-header .mx-btn,.afs-datepicker__popup .mx-time-header .mx-btn {
+    color: var(--afs-title-active)
+}
+
+.afs-datepicker__popup .cell.today {
+    color: var(--afs-text-icon-primary);
+    background-color: var(--afs-selected-item-background);
+    border-radius: 50%
+}
+
+.afs-datepicker__popup .cell.active {
+    color: var(--afs-text-on-accent);
+    background-color: var(--afs-primary-selected);
+    border-radius: 50%
+}
+
+.afs-datepicker__popup .cell.disabled {
+    color: var(--afs-secondary-hover);
+    background-color: var(--afs-sidebar)
+}
+
+.afs-datepicker .mx-icon-calendar,.afs-datepicker .mx-icon-clear {
+    color: var(--afs-hint-icons)
+}

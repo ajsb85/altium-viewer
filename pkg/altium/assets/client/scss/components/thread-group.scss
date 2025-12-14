@@ -1,0 +1,117 @@
+
+.thread-group[data-v-cbad1945] {
+    padding: 16px 0;
+    margin: 0 16px
+}
+
+.thread-group[data-v-cbad1945]:not(:last-child) {
+    border-bottom: 1px solid var(--border-primary)
+}
+
+.thread-group__title[data-v-cbad1945] {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    max-width: calc(100% - 16px)
+}
+
+.thread-group__icon[data-v-cbad1945] {
+    font-size: 16px;
+    margin-right: 8px;
+    flex-shrink: 0
+}
+
+.thread-group__name[data-v-cbad1945] {
+    font-family: var(--afs-font-family);
+    color: var(--afs-text-icon-primary);
+    -webkit-user-select: none;
+    user-select: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px
+}
+
+.thread-group__count[data-v-cbad1945] {
+    margin-left: 4px;
+    color: var(--afs-text-icon-hint)
+}
+
+.thread-group__acc[data-v-cbad1945] .afs-accordion__main-header {
+    padding-left: 0
+}
+
+.thread-group__acc[data-v-cbad1945] .afs-accordion__main-header:after {
+    display: none
+}
+
+.thread-group__acc[data-v-cbad1945] .afs-accordion__body {
+    margin-top: 0
+}
+
+.thread-group__acc-icon[data-v-cbad1945] {
+    flex: 0 0 auto;
+    font-size: 8px;
+    margin-right: 8px
+}
+
+.thread-group__acc-icon.is-opened[data-v-cbad1945] {
+    transform: rotate(90deg)
+}
+
+.thread-group[data-v-0a0a5c05] {
+    padding: 16px 0;
+    margin: 0 16px
+}
+
+.thread-group[data-v-0a0a5c05]:not(:last-child) {
+    border-bottom: 1px solid var(--afs-border)
+}
+
+.thread-group__title[data-v-0a0a5c05] {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    max-width: calc(100% - 16px)
+}
+
+.thread-group__icon[data-v-0a0a5c05] {
+    font-size: 16px;
+    margin-right: 8px;
+    flex-shrink: 0
+}
+
+.thread-group__name[data-v-0a0a5c05] {
+    font-family: var(--afs-font-family);
+    color: var(--afs-text-icon-primary);
+    user-select: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px
+}
+
+.thread-group__count[data-v-0a0a5c05] {
+    margin-left: 4px;
+    color: var(--afs-text-icon-hint)
+}
+
+.thread-group__acc[data-v-0a0a5c05] .afs-accordion__main-header {
+    padding-left: 0
+}
+
+.thread-group__acc[data-v-0a0a5c05] .afs-accordion__main-header:after {
+    display: none
+}
+
+.thread-group__acc[data-v-0a0a5c05] .afs-accordion__body {
+    margin-top: 0
+}
+
+.thread-group__acc-icon[data-v-0a0a5c05] {
+    flex: 0 0 auto;
+    font-size: 8px;
+    margin-right: 8px
+}
+
+.thread-group__acc-icon.is-opened[data-v-0a0a5c05] {
+    transform: rotate(90deg)
+}

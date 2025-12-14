@@ -1,0 +1,14 @@
+
+.app-watermark {
+    position: absolute;
+    left: .5rem;
+    bottom: .5rem;
+    z-index: 5
+}
+
+.app-watermark__icon {
+    width: 6rem;
+    height: 2.75rem;
+    opacity: .48;
+    transition: opacity var(--transition-duration-default)
+}

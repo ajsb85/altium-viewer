@@ -1,0 +1,40 @@
+
+.status[data-v-24b23d04] {
+    cursor: default;
+    padding: 0 4px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.status.is-editable[data-v-24b23d04] {
+    cursor: pointer
+}
+
+.status.to-do[data-v-24b23d04] {
+    background: var(--afs-secondary-default);
+    color: var(--afs-text-primary)
+}
+
+.status.in-progress[data-v-24b23d04] {
+    background: #002651;
+    color: var(--afs-hint-info)
+}
+
+.status.done[data-v-24b23d04] {
+    background: #003d09;
+    color: #50d052
+}
+
+.status.is-disabled[data-v-24b23d04] {
+    opacity: .4
+}
+
+.status__dropdown[data-v-24b23d04] {
+    min-width: 50px;
+    min-height: 50px
+}

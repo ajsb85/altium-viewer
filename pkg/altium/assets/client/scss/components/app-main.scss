@@ -1,0 +1,122 @@
+
+.app-main-tabs {
+    display: flex;
+    align-items: stretch
+}
+
+.app-main-tabs__text {
+    display: flex;
+    align-items: center;
+    color: var(--color-main-tabs);
+    text-shadow: var(--text-shadow-main-tabs);
+    white-space: nowrap
+}
+
+.app-main-tabs__name {
+    max-width: 9.38rem;
+    line-height: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.app-main-tabs__badge {
+    margin-left: 8px;
+    text-transform: capitalize
+}
+
+.app-main-tabs__display-items {
+    display: flex;
+    margin-top: -0.12rem;
+    margin-bottom: -0.12rem
+}
+
+.app-main-tabs__display-items .app-main-tabs__icon {
+    font-size: 1rem
+}
+
+.app-main-tabs__display-items .app-main-tabs__text {
+    line-height: 1rem
+}
+
+.app-main-tabs__display-items .app-main-tabs__text:not(:first-child) {
+    margin-left: 1rem
+}
+
+.app-main-tabs__btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: .5rem;
+    min-width: 3rem;
+    background: none;
+    transition: background-color var(--transition-duration-default)
+}
+
+.app-main-tabs__btn:disabled,.app-main-tabs__btn[disabled],.app-main-tabs__btn.is-disabled {
+    opacity: .5;
+    cursor: wait
+}
+
+.app-main-tabs__btn.is-selected {
+    background: var(--background-button-secondary_selected)
+}
+
+.app-main-tabs__btn-icon {
+    padding: .5rem 1rem
+}
+
+.app-main-tabs .app-main-tabs__dropdown {
+    display: none;
+    padding-top: .57rem;
+    padding-bottom: .69rem;
+    min-width: 3.75rem;
+    background: none;
+    transition: background-color var(--transition-duration-default)
+}
+
+.app-main-tabs .app-main-tabs__dropdown:disabled,.app-main-tabs .app-main-tabs__dropdown[disabled],.app-main-tabs .app-main-tabs__dropdown.is-disabled {
+    opacity: .5;
+    cursor: wait
+}
+
+.app-main-tabs__dropdown-icon {
+    color: var(--color-main-tabs);
+    font-size: .5rem;
+    margin-left: .5rem;
+    transition: transform var(--transition-duration-default)
+}
+
+.app-main-tabs__dropdown-icon.is-active {
+    transform: rotate(180deg)
+}
+
+.app-main-tabs__menu.afs-context-menu.is-dark-theme.afs-context-menu_dropdown {
+    background: var(--background-header);
+    border: none;
+    border-radius: 0
+}
+
+.app-main-tabs__menu-container {
+    display: flex;
+    flex-direction: column
+}
+
+.app-main-tabs__menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 .75rem;
+    min-height: 2rem;
+    min-width: 2.88rem;
+    background: none
+}
+
+.app-main-tabs__menu-item:disabled,.app-main-tabs__menu-item[disabled],.app-main-tabs__menu-item.is-disabled {
+    opacity: .5;
+    cursor: wait
+}
+
+.app-main-tabs__icon {
+    margin-right: .5rem
+}

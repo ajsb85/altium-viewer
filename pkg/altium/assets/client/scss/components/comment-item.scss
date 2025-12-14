@@ -1,0 +1,209 @@
+
+.comment-item[data-v-a60f947e] {
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: var(--afs-group)
+}
+
+.comment-item__owner[data-v-a60f947e] {
+    padding: 8px 16px 0
+}
+
+.comment-item__owner-name[data-v-a60f947e] {
+    font-weight: 500;
+    line-height: 16px
+}
+
+.comment-item__owner-data[data-v-a60f947e] {
+    color: var(--afs-text-icon-hint);
+    font-size: 12px;
+    line-height: 16px
+}
+
+.comment-item__body[data-v-a60f947e] {
+    padding: 16px 16px 12px
+}
+
+.comment-item__design-review-link[data-v-a60f947e] {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.comment-item__release-link[data-v-a60f947e],.comment-item__revision-link[data-v-a60f947e] {
+    color: var(--comment-text);
+    line-height: 16px
+}
+
+.comment-item__replay[data-v-a60f947e] {
+    padding-top: 16px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--afs-text-icon-hint)
+}
+
+.comment-item__text[data-v-a60f947e] {
+    word-break: break-word;
+    line-height: 16px;
+    white-space: pre-wrap;
+    color: var(--afs-text-icon-primary);
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden
+}
+
+.comment-item__drawing[data-v-a60f947e] {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    color: var(--afs-text-icon-primary)
+}
+
+.comment-item__icon-drawing[data-v-a60f947e] {
+    font-size: 16px;
+    margin-right: 8px;
+    color: var(--afs-text-icon-primary)
+}
+
+.comment-item .link[data-v-a60f947e] {
+    color: var(--comment-text-user)
+}
+
+.comment-item .link[data-v-a60f947e]:hover {
+    color: var(--afs-text-icon-link-hover)
+}
+
+.comment-item__resolved-icon[data-v-a60f947e] {
+    font-size: 16px;
+    color: var(--comment-resolved)
+}
+
+.comment-item__resolved-label[data-v-a60f947e] {
+    padding: 0 6px 0 4px
+}
+
+.comment-item__requirement-assigned-text[data-v-a60f947e] {
+    display: block;
+    font-style: italic;
+    margin-bottom: 12px
+}
+
+.comment-item__identifier[data-v-a60f947e] {
+    display: flex;
+    align-items: center
+}
+
+.comment-item__identifier_icon[data-v-a60f947e] {
+    font-size: 16px;
+    margin-right: 8px
+}
+
+.comment-item__identifier_text[data-v-a60f947e] {
+    font-size: 12px;
+    padding: 2px 4px;
+    background: var(--afs-link-background-default);
+    color: var(--afs-focus, #64D2FF)
+}
+
+.comment-item.is-active .link[data-v-a60f947e] {
+    color: var(---afs-text-icon-link)
+}
+
+.comment-item.is-active .link[data-v-a60f947e]:hover {
+    color: var(--afs-text-icon-link-hover)
+}
+
+.comment-item.is-active .comment-item__owner-data[data-v-a60f947e],.comment-item.is-active .comment-item__owner[data-v-a60f947e],.comment-item.is-active .comment-item__text[data-v-a60f947e],.comment-item.is-active .comment-item__drawing[data-v-a60f947e],.comment-item.is-active .comment-item__icon-drawing[data-v-a60f947e],.comment-item.is-active .comment-item__release-link[data-v-a60f947e],.comment-item.is-active .comment-item__replay[data-v-a60f947e] {
+    color: var(--afs-text-icon-primary)
+}
+
+.comment-item.is-active[data-v-a60f947e] {
+    background-color: var(--afs-selected-item-background)
+}
+
+.comment-item.is-resolved[data-v-a60f947e] {
+    opacity: .48
+}
+
+.comment-item {
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: var(--afs-group)
+}
+
+.comment-item__owner {
+    padding: 8px 16px 0;
+    color: var(--comment-text-reply)
+}
+
+.comment-item__body {
+    padding: 16px
+}
+
+.comment-item__text {
+    word-break: break-word;
+    line-height: 16px;
+    white-space: pre-wrap;
+    color: var(--comment-text);
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden
+}
+
+.comment-item__drawing {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    color: var(--comment-text)
+}
+
+.comment-item__icon-drawing {
+    font-size: 16px;
+    margin-right: 8px;
+    color: var(--comment-text)
+}
+
+.comment-item__owner {
+    padding: 8px 16px 0
+}
+
+.comment-item__owner-name {
+    font-weight: 500;
+    line-height: 16px;
+    transition: color .2s ease-in-out !important
+}
+
+.comment-item__owner-data {
+    color: var(--comment-text);
+    font-size: 12px;
+    line-height: 16px;
+    transition: color .2s ease-in-out !important
+}
+
+.comment-item__text,.comment-item__drawing,.comment-item__icon-drawing {
+    transition: color .2s ease-in-out !important
+}
+
+.comment-item.is-active .comment-item__owner-data {
+    color: var(--afs-text-icon-primary)
+}
+
+.comment-item.is-active .comment-item__owner,.comment-item.is-active .comment-item__text,.comment-item.is-active .comment-item__drawing,.comment-item.is-active .comment-item__icon-drawing {
+    color: var(--afs-text-icon-primary)
+}
+
+.comment-item.is-active {
+    background-color: var(--afs-selected-item-background);
+    box-shadow: inset 0px 0px 0px 2px var(--global-border-accent-primary)
+}
+
+.comment-item.is-resolved {
+    opacity: .48
+}

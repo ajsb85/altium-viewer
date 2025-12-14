@@ -1,0 +1,98 @@
+
+.lib-loader {
+    display: inline-block
+}
+
+.lib-loader__icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 1em;
+    height: 1em;
+    font-size: 1rem
+}
+
+.lib-loader__icon-line {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    width: .0625em;
+    height: .5em;
+    opacity: 0;
+    transform-origin: center bottom
+}
+
+.lib-loader__icon-line:nth-of-type(1) {
+    transform: rotate(0deg);
+    animation: loaderAnimation .7s 0.0583333333s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(2) {
+    transform: rotate(30deg);
+    animation: loaderAnimation .7s 0.1166666667s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(3) {
+    transform: rotate(60deg);
+    animation: loaderAnimation .7s .175s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(4) {
+    transform: rotate(90deg);
+    animation: loaderAnimation .7s 0.2333333333s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(5) {
+    transform: rotate(120deg);
+    animation: loaderAnimation .7s 0.2916666667s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(6) {
+    transform: rotate(150deg);
+    animation: loaderAnimation .7s .35s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(7) {
+    transform: rotate(180deg);
+    animation: loaderAnimation .7s 0.4083333333s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(8) {
+    transform: rotate(210deg);
+    animation: loaderAnimation .7s 0.4666666667s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(9) {
+    transform: rotate(240deg);
+    animation: loaderAnimation .7s .525s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(10) {
+    transform: rotate(270deg);
+    animation: loaderAnimation .7s 0.5833333333s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(11) {
+    transform: rotate(300deg);
+    animation: loaderAnimation .7s 0.6416666667s infinite
+}
+
+.lib-loader__icon-line:nth-of-type(12) {
+    transform: rotate(330deg);
+    animation: loaderAnimation .7s .7s infinite
+}
+
+.lib-loader__icon-line:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: .25em
+}
+
+.lib-loader .lib-loader__icon-line:before {
+    background: var(--background-loader)
+}
+
+.lib-loader__text {
+    margin-left: .5rem
+}

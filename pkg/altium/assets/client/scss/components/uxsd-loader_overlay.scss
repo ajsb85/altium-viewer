@@ -1,0 +1,21 @@
+
+.uxsd-loader_overlay[data-v-4c00b255]:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--loader-backdrop);
+    z-index: 1
+}
+
+.uxsd-loader_overlay .uxsd-loader__wrapper[data-v-4c00b255] {
+    padding: 8px 16px 8px 8px;
+    background-color: var(--loader-popup-background);
+    border: 1px solid var(--loader-popup-border);
+    border-radius: 40px;
+    box-shadow: var(--loader-box-shadow, 0 0 8px 0 rgba(0, 0, 0, 0.0392156863), 0 8px 16px 0 rgba(0, 0, 0, 0.0784313725));
+    position: relative;
+    z-index: 2
+}

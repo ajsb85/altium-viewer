@@ -1,0 +1,20 @@
+
+.entity-picker-tags[data-v-78ad5f05] {
+    max-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 8px;
+    width: 100%
+}
+
+.entity-picker-tags.disabled[data-v-78ad5f05] {
+    opacity: .5
+}
+
+.entity-picker-tags__tag[data-v-78ad5f05] {
+    flex: 0 0 auto
+}

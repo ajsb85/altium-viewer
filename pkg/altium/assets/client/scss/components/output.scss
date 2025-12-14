@@ -1,0 +1,20 @@
+
+.output {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--color-secondary)
+}
+
+.output__name {
+    margin-left: .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.output__icon {
+    opacity: .5;
+    flex-shrink: inherit
+}

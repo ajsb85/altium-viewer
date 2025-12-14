@@ -1,0 +1,14 @@
+
+.multiboard-panel-accordion {
+    color: var(--afs-text-icon-secondary);
+    transition: color .25s
+}
+
+.multiboard-panel-accordion .icon {
+    margin-right: 5px
+}
+
+.multiboard-panel-accordion:hover {
+    cursor: pointer;
+    color: var(--afs-text-icon-primary)
+}

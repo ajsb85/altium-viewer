@@ -1,0 +1,31 @@
+
+.compare-legend[data-v-30439d7e] {
+    display: flex;
+    flex: 0 0 auto;
+    height: 48px;
+    border-top: 1px solid var(--afs-border);
+    padding: 1rem;
+    overflow: hidden
+}
+
+.compare-legend__icon .icon[data-v-30439d7e] {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px
+}
+
+.compare-legend__text[data-v-30439d7e] {
+    margin-right: 16px
+}
+
+.compare-legend .is-added[data-v-30439d7e] {
+    color: var(--afs-text-positive)
+}
+
+.compare-legend .is-removed[data-v-30439d7e] {
+    color: var(--afs-text-negative)
+}
+
+.compare-legend .is-modified[data-v-30439d7e] {
+    color: var(--afs-text-caution)
+}

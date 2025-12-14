@@ -1,0 +1,112 @@
+
+.afs-switch__btn {
+    box-sizing: border-box
+}
+
+.afs-switch__btn {
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+    -webkit-appearance: none
+}
+
+.afs-switch {
+    display: inline-flex;
+    vertical-align: top
+}
+
+.afs-switch__icon {
+    font-size: 16px
+}
+
+.afs-switch__combined {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px
+}
+
+.afs-switch__btn {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 4px 15px;
+    border: 1px solid;
+    min-width: 80px;
+    min-height: 32px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    transition: border-color .25s,color .25s,opacity .25s,background-color .25s,box-shadow .25s
+}
+
+.afs-switch__btn:disabled,.afs-switch__btn[disabled],.afs-switch__btn.is-disabled {
+    opacity: .48
+}
+
+.afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled):focus:before,.afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled).is-focused:before {
+    opacity: 1
+}
+
+.afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled):focus-within:before,.afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined:before {
+    opacity: 1
+}
+
+.afs-switch__btn:not(:last-child) {
+    margin-right: -1px
+}
+
+.afs-switch__btn:first-child,.afs-switch__btn:first-child:before {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+
+.afs-switch__btn:last-child,.afs-switch__btn:last-child:before {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+}
+
+.afs-switch__btn:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 1px solid;
+    opacity: 0;
+    transition: border-color .25s,opacity .25s
+}
+
+.afs-switch .afs-switch__btn {
+    border-color: var(--afs-secondary-border);
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-secondary-default);
+    box-shadow: var(--afs-white-inner-shadow-small)
+}
+
+.afs-switch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled):hover,.afs-switch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-group)
+}
+
+.afs-switch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled):active,.afs-switch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-secondary-down);
+    box-shadow: var(--afs-black-inner-shadow)
+}
+
+.afs-switch .afs-switch__btn.is-selected {
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-secondary-selected)
+}
+
+.afs-switch .afs-switch__btn:before {
+    border-color: var(--afs-focus)
+}

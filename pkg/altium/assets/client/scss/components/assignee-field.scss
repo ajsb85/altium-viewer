@@ -1,0 +1,66 @@
+
+.assignee-field[data-v-682a5761] {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 8px
+}
+
+.assignee-field__user[data-v-682a5761] {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer
+}
+
+.assignee-field__user_disabled[data-v-682a5761] {
+    cursor: default;
+    pointer-events: none
+}
+
+.assignee-field__icon[data-v-682a5761] {
+    width: 12px;
+    font-size: 12px;
+    flex-shrink: 0;
+    align-self: center
+}
+
+.assignee-field__icon_unassign[data-v-682a5761] {
+    width: 16px;
+    font-size: 16px
+}
+
+.assignee-field__dropdown-item[data-v-682a5761] {
+    font-size: 12px;
+    line-height: 16px;
+    display: grid;
+    column-gap: 16px;
+    grid-template-columns: max-content;
+    grid-template-areas: "avatar fullName" "avatar email"
+}
+
+.assignee-field__dropdown-item-avatar[data-v-682a5761] {
+    grid-area: avatar
+}
+
+.assignee-field__dropdown-item-fullName[data-v-682a5761] {
+    grid-area: fullName;
+    color: var(--afs-text-icon-secondary)
+}
+
+.assignee-field__dropdown-item-email[data-v-682a5761] {
+    grid-area: email;
+    color: var(--afs-text-icon-hint)
+}
+
+.assignee-field__dropdown .is-selected[data-v-682a5761] {
+    background-color: var(--afs-selected-item-background)
+}
+
+.assignee-field__dropdown .is-selected .assignee-field__dropdown-item-fullName[data-v-682a5761],.assignee-field__dropdown .is-selected .assignee-field__dropdown-item-email[data-v-682a5761] {
+    color: var(--afs-text-icon-primary)
+}
+
+.assignee-field__guest-badge[data-v-682a5761] {
+    margin-left: 4px
+}

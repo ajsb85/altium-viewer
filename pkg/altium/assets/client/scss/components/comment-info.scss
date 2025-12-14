@@ -1,0 +1,44 @@
+
+.comment-info__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px
+}
+
+.comment-info__context-menu {
+    margin-right: -8px
+}
+
+.comment-info__data {
+    color: var(--comment-text);
+    line-height: 16px
+}
+
+.comment-info__text {
+    color: var(--comment-text);
+    line-height: 16px;
+    white-space: pre-wrap;
+    word-break: break-word
+}
+
+.comment-info__text.is-short {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-clamp: 15;
+    -webkit-line-clamp: 15;
+    display: -webkit-box;
+    -webkit-box-orient: vertical
+}
+
+.comment-info__more {
+    padding-top: 8px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-link)
+}
+
+.comment-info__more-text {
+    display: inline-block;
+    cursor: pointer
+}

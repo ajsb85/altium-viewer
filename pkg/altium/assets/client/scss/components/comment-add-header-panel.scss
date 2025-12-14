@@ -1,0 +1,29 @@
+
+.comment-add-header-panel[data-v-778444bf] {
+    display: flex;
+    width: 100%;
+    min-height: 32px
+}
+
+.comment-add-header-panel__dropdown[data-v-778444bf] {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    gap: 8px
+}
+
+.comment-add-header-panel__button[data-v-778444bf] {
+    position: relative
+}
+
+.comment-add-header-panel__icon[data-v-778444bf] {
+    font-size: 8px
+}
+
+.comment-add-header-panel__checkmark[data-v-778444bf] {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+    font-size: 8px
+}

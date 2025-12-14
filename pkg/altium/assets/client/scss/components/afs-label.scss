@@ -1,0 +1,17 @@
+
+.afs-label {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-label.is-pointer:not(:disabled):not([disabled]):not(.is-disabled) {
+    cursor: pointer
+}
+
+.afs-label:disabled,.afs-label[disabled],.afs-label.is-disabled {
+    opacity: .48;
+    pointer-events: none
+}

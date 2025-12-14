@@ -1,0 +1,104 @@
+
+.afs-folders-tree__nav-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px 16px 8px 32px;
+    width: 100%;
+    background: none;
+    font-family: inherit
+}
+
+.afs-folders-tree__nav-button.is-opened .afs-folders-tree__nav-arrow {
+    transform: rotate(90deg)
+}
+
+.afs-folders-tree__nav-button.is-hidden {
+    display: none
+}
+
+.afs-folders-tree__nav-button:disabled,.afs-folders-tree__nav-button[disabled],.afs-folders-tree__nav-button.is-disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none
+}
+
+.afs-folders-tree__loader {
+    vertical-align: top;
+    padding: 8px 16px 8px 32px;
+    width: 100%
+}
+
+.afs-folders-tree__nav-arrow {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    margin-top: -0.5em;
+    font-size: 8px
+}
+
+.afs-folders-tree__nav-icon {
+    flex: 0 0 auto;
+    font-size: 16px;
+    width: 1em
+}
+
+.afs-folders-tree__nav-icon-promotion {
+    color: var(--afs-text-icon-link)
+}
+
+.afs-folders-tree__nav-icon:not(:last-child) {
+    margin-right: 8px
+}
+
+.afs-folders-tree__nav-list.has-no-root {
+    margin: 8px 0 0 -24px
+}
+
+.afs-folders-tree__nav-text {
+    flex: 0 1 auto;
+    overflow: hidden;
+    font-weight: 500;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.afs-folders-tree__nav-text-promotion {
+    color: var(--afs-text-icon-link)
+}
+
+.afs-folders-tree__nav-badge {
+    margin-left: 8px
+}
+
+.afs-folders-tree__nav-extend {
+    flex: 1 1 auto;
+    font-size: 0;
+    text-align: left
+}
+
+.afs-folders-tree__nav-extend:not(:first-child) {
+    margin-left: 8px
+}
+
+.afs-folders-tree .afs-folders-tree__nav-button {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-folders-tree .afs-folders-tree__nav-button.is-selected {
+    background: var(--afs-selected-item-background)
+}
+
+.afs-folders-tree .afs-folders-tree__nav-button.is-selected .afs-folders-tree__nav-text-promotion,.afs-folders-tree .afs-folders-tree__nav-button.is-selected .afs-folders-tree__nav-icon-promotion {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-folders-tree .afs-folders-tree__nav-button.is-opened.is-selected {
+    background: var(--afs-secondary-default)
+}
+
+.afs-folders-tree .afs-folders-tree__nav-button:not(:disabled):not([disabled]):not(.is-disabled):not(.is-selected):hover,.afs-folders-tree .afs-folders-tree__nav-button:not(:disabled):not([disabled]):not(.is-disabled):not(.is-selected).is-hovered {
+    background: var(--afs-secondary-hover)
+}

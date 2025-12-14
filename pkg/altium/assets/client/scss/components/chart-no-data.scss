@@ -1,0 +1,92 @@
+
+.chart-no-data[data-v-2e2931d4] {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.chart-no-data__placeholder[data-v-2e2931d4] {
+    display: flex;
+    height: 300px;
+    align-items: center;
+    padding: 0 10%;
+    gap: 1px;
+    opacity: .5
+}
+
+.chart-no-data__bar[data-v-2e2931d4] {
+    width: 16px;
+    height: 50%;
+    background-color: var(--afs-data-cyan-background-secondary);
+    position: relative
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:before {
+    content: "";
+    width: 16px;
+    height: 100%;
+    background-color: var(--afs-data-indigo-background-secondary);
+    position: absolute
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n) {
+    height: 30px
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+1) {
+    height: 50px;
+    transform: translateY(25px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+1):before {
+    transform: translateY(-50px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+2) {
+    height: 40px;
+    transform: translateY(20px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+2):before {
+    transform: translateY(-40px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+3) {
+    height: 90px;
+    transform: translateY(45px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+3):before {
+    transform: translateY(-90px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+4) {
+    height: 80px;
+    transform: translateY(40px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+4):before {
+    transform: translateY(-80px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+5) {
+    height: 66px;
+    transform: translateY(33px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+5):before {
+    transform: translateY(-66px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+6) {
+    height: 36px;
+    transform: translateY(18px)
+}
+
+.chart-no-data__bar[data-v-2e2931d4]:nth-child(7n+6):before {
+    transform: translateY(-36px)
+}
+
+.chart-no-data__text[data-v-2e2931d4] {
+    color: var(--afs-text-secondary)
+}

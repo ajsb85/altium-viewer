@@ -1,0 +1,18 @@
+
+.requirements-cell[data-v-fba73377] {
+    display: flex;
+    flex-grow: 1;
+    background-color: var(--afs-field);
+    align-items: center;
+    height: 32px;
+    border-radius: 4px;
+    position: relative
+}
+
+.requirements-cell .afs-input[data-v-fba73377] {
+    width: 100%
+}
+
+.requirements-cell.requirements-cell-selected[data-v-fba73377] {
+    padding-left: 16px
+}

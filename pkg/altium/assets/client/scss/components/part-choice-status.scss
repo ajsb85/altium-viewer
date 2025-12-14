@@ -1,0 +1,27 @@
+
+.part-choice-status {
+    flex: 0 0 4px;
+    width: 4px;
+    min-height: 16px;
+    background-color: var(--afs-additional-gray)
+}
+
+.part-choice-status:hover {
+    cursor: pointer
+}
+
+.part-choice-status.unknown,.part-choice-status.default {
+    background-color: var(--afs-additional-gray)
+}
+
+.part-choice-status.error {
+    background-color: var(--afs-additional-red)
+}
+
+.part-choice-status.warning {
+    background-color: var(--afs-additional-orange)
+}
+
+.part-choice-status.success {
+    background-color: var(--afs-additional-green)
+}

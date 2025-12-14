@@ -1,0 +1,22 @@
+
+.mx-scrollbar-track {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    width: 6px;
+    z-index: 1;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity .24s ease-out
+}
+
+.mx-scrollbar-track .mx-scrollbar-thumb {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(144,147,153,.3019607843);
+    transition: background-color .3s
+}

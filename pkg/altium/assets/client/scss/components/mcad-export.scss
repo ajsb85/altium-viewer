@@ -1,0 +1,17 @@
+
+.mcad-export {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%
+}
+
+.mcad-export__divider {
+    margin: 0 1rem;
+    border-bottom: .07rem solid var(--border-primary)
+}
+
+.mcad-export__snackbar {
+    z-index: 6
+}

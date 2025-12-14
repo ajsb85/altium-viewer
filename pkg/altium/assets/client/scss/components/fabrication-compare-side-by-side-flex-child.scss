@@ -1,0 +1,14 @@
+
+.fabrication-compare-side-by-side-flex-child {
+    flex: 1;
+    border: none;
+    position: relative
+}
+
+.fabrication-compare-side-by-side-flex-child:first-child {
+    border-right: thin solid var(--afs-border)
+}
+
+.fabrication-compare-side-by-side-flex-child:last-child {
+    border-left: thin solid var(--afs-border)
+}

@@ -1,0 +1,85 @@
+
+.mba-objects-item[data-v-96f11f98] {
+    display: flex;
+    align-items: center;
+    height: 1.5rem;
+    padding-right: .88rem;
+    color: var(--afs-text-icon-secondary);
+    cursor: pointer
+}
+
+.mba-objects-item__acc-icon[data-v-96f11f98] {
+    flex: 0 0 auto;
+    font-size: 16px;
+    margin-left: -20px;
+    padding: 4px;
+    height: 16px;
+    width: 16px;
+    margin-right: 4px
+}
+
+.mba-objects-item__acc-icon.is-opened[data-v-96f11f98] {
+    transform: rotate(90deg)
+}
+
+.mba-objects-item[data-v-96f11f98]:not(.is-selected):hover {
+    background: var(--afs-group);
+    color: var(--afs-text-icon-primary)
+}
+
+.mba-objects-item:hover .mba-objects-item__icon-transparency[data-v-96f11f98],.mba-objects-item:hover .mba-objects-item__icon-visibility[data-v-96f11f98] {
+    display: flex;
+    visibility: visible !important
+}
+
+.mba-objects-item.is-selected[data-v-96f11f98] {
+    background: var(--afs-selected-item-background);
+    color: var(--afs-text-icon-primary)
+}
+
+.mba-objects-item.is-sub-item[data-v-96f11f98] {
+    padding-left: 3.5rem
+}
+
+.mba-objects-item.is-disabled[data-v-96f11f98] {
+    opacity: .48
+}
+
+.mba-objects-item__controls[data-v-96f11f98] {
+    display: flex;
+    flex: 0 0 auto;
+    margin-left: auto
+}
+
+.mba-objects-item__icon[data-v-96f11f98] {
+    flex: 0 0 auto;
+    font-size: 1rem;
+    margin-right: .5rem
+}
+
+.mba-objects-item__icon-transparency[data-v-96f11f98],.mba-objects-item__icon-visibility[data-v-96f11f98] {
+    flex: 0 0 auto;
+    font-size: 1rem;
+    color: var(--afs-text-icon-secondary)
+}
+
+.mba-objects-item__icon-transparency[data-v-96f11f98]:hover,.mba-objects-item__icon-visibility[data-v-96f11f98]:hover {
+    color: var(--afs-text-icon-primary)
+}
+
+.mba-objects-item__icon-transparency[data-v-96f11f98],.mba-objects-item__icon-visibility.is-visible[data-v-96f11f98] {
+    display: none
+}
+
+.mba-objects-item__icon-transparency.is-transparent[data-v-96f11f98] {
+    display: flex
+}
+
+.mba-objects-item__icon-transparency.is-transparent~.mba-objects-item__icon-visibility.is-visible[data-v-96f11f98] {
+    display: flex;
+    visibility: hidden
+}
+
+.mba-objects-item__icon-visibility[data-v-96f11f98] {
+    margin-left: .5rem
+}

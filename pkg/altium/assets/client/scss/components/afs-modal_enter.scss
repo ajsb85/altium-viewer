@@ -1,0 +1,8 @@
+
+.afs-modal_enter-active,.afs-modal_leave-active {
+    transition: opacity .5s
+}
+
+.afs-modal_enter,.afs-modal_leave-to {
+    opacity: 0
+}

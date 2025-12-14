@@ -1,0 +1,165 @@
+
+.fbom-table[data-v-790e65e4] {
+    font-family: var(--afs-font-family);
+    font-size: 12px;
+    line-height: 16px;
+    border-collapse: separate;
+    table-layout: fixed;
+    min-width: 100%
+}
+
+.fbom-table .afs-link[data-v-790e65e4] {
+    line-height: 16px
+}
+
+.fbom-table__body[data-v-790e65e4] {
+    z-index: 10;
+    height: 100%;
+    position: relative
+}
+
+.fbom-table__body .fbom-table__col[data-v-790e65e4] {
+    background-color: var(--background-table);
+    color: var(--afs-text-icon-secondary);
+    border-top: 1px solid var(--afs-table-background);
+    border-bottom: 1px solid var(--afs-table-background)
+}
+
+.fbom-table__body .fbom-table__col_active-thread[data-v-790e65e4] {
+    border-top: 1px solid var(--afs-focus);
+    border-bottom: 1px solid var(--afs-focus)
+}
+
+.fbom-table__body .fbom-table__col_active-thread[data-v-790e65e4]:first-child {
+    border-left: 1px solid var(--afs-focus)
+}
+
+.fbom-table__body .fbom-table__col_active-thread[data-v-790e65e4]:last-child {
+    border-right: 1px solid var(--afs-focus)
+}
+
+.fbom-table__body .fbom-table__row[data-v-790e65e4] {
+    height: 24px;
+    background-color: var(--background-table);
+    color: var(--afs-text-icon-secondary);
+    cursor: pointer
+}
+
+.fbom-table__body .fbom-table__row.is-focused[data-v-790e65e4] {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+.fbom-table__body .fbom-table__row.is-focused[data-v-790e65e4] .afs-link {
+    color: var(--afs-text-icon-primary);
+    position: relative
+}
+
+.fbom-table__body .fbom-table__row.is-focused[data-v-790e65e4] .afs-link::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: calc(100% - 1px);
+    height: 1px;
+    width: 100%;
+    background: var(--afs-border-on-accent)
+}
+
+.fbom-table__body .fbom-table__row.is-focused .fbom-table__col[data-v-790e65e4] {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+.fbom-table__body .fbom-table__row[data-v-790e65e4]:focus-within {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+.fbom-table__body .fbom-table__row:focus-within .fbom-table__col[data-v-790e65e4] {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+.fbom-table__header .fbom-table__col[data-v-790e65e4] {
+    z-index: 20;
+    background: var(--afs-table-header);
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--border-primary)
+}
+
+.fbom-table__header .fbom-table__col .column-more .icon-slider[data-v-790e65e4] {
+    margin-top: 2px
+}
+
+.fbom-table__header .fbom-table__col[data-v-790e65e4]:first-child {
+    z-index: 30
+}
+
+.fbom-table__col-content[data-v-790e65e4] {
+    text-align: inherit;
+    color: inherit;
+    background: none;
+    font-size: inherit;
+    font-weight: inherit;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+    width: 100%;
+    display: flex;
+    align-items: center
+}
+
+.fbom-table__col-data[data-v-790e65e4] {
+    padding: 4px 8px;
+    display: flex;
+    align-items: center
+}
+
+.fbom-table__col-data-default[data-v-790e65e4] {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.fbom-table__col-content[data-v-790e65e4] {
+    padding: 8px
+}
+
+.fbom-table__col[data-v-790e65e4] {
+    vertical-align: middle;
+    text-align: inherit
+}
+
+.fbom-table__col_last[data-v-790e65e4] {
+    width: 100%
+}
+
+.fbom-table__col[data-v-790e65e4]:first-child {
+    box-shadow: -1px 0 0 var(--border-primary) inset;
+    border-left: 1px solid var(--afs-table-background);
+    position: sticky;
+    left: 0
+}
+
+.fbom-table__col:first-child .fbom-table__col-content[data-v-790e65e4],.fbom-table__col:first-child .fbom-table__col-data[data-v-790e65e4] {
+    padding: 0
+}
+
+.fbom-table__col[data-v-790e65e4]:last-child {
+    border-right: 1px solid var(--afs-table-background);
+    position: sticky;
+    right: 0
+}
+
+.fbom-table__col:last-child .fbom-table__col-content[data-v-790e65e4],.fbom-table__col:last-child .fbom-table__col-data[data-v-790e65e4] {
+    border-left: 1px solid var(--border-primary)
+}
+
+.fbom-table__col_more[data-v-790e65e4] {
+    width: 48px
+}

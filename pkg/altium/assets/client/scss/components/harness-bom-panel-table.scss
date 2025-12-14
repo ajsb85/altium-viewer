@@ -1,0 +1,70 @@
+
+.harness-bom-panel-table__container {
+    flex-direction: column;
+    border-color: var(--afs-border);
+    border-style: solid;
+    border-width: thin;
+    margin: 2px;
+    padding: 0px;
+    display: flex;
+    gap: 4px;
+    background-color: var(--afs-table-background);
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.harness-bom-panel-table__container.harness-pins-columns .row-item.component-details-parameter-row__label {
+    width: 25%;
+    margin-right: 0px
+}
+
+.harness-bom-panel-table__container.harness-pins-columns .row-item.component-details-parameter-row__value {
+    width: 75%
+}
+
+.harness-bom-panel-table__container.harness-simple-double-columns .row-item.component-details-parameter-row__label {
+    width: 60%;
+    margin-right: 0px
+}
+
+.harness-bom-panel-table__container.harness-simple-double-columns .row-item.component-details-parameter-row__value {
+    width: 40%
+}
+
+.harness-bom-panel-table__container.harness-simple-double-columns .row-item.component-details-parameter-row__value .row-item__icon {
+    display: none
+}
+
+.harness-bom-panel-table__header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--afs-table-header);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.harness-bom-panel-table__item {
+    width: 50%
+}
+
+.harness-bom-panel-table__item_first {
+    min-width: 25%
+}
+
+.harness-bom-panel-table__item_second {
+    min-width: 40%
+}
+
+.harness-bom-panel-table__item_short {
+    width: 25%
+}
+
+.harness-bom-panel-table__item_long {
+    width: 75%;
+    margin-left: 12px
+}

@@ -1,0 +1,32 @@
+
+.paid-params-promo[data-v-faf1c478] {
+    margin: 8px 0
+}
+
+.paid-params-promo__loader[data-v-faf1c478] {
+    display: inline
+}
+
+.paid-params-promo__content[data-v-faf1c478] {
+    display: flex;
+    gap: 8px
+}
+
+.paid-params-promo__link[data-v-faf1c478] {
+    line-height: 16px
+}
+
+.paid-params-promo__quota[data-v-faf1c478] {
+    margin-left: auto;
+    flex-shrink: 0;
+    cursor: default
+}
+
+.paid-params-promo__quota-icon[data-v-faf1c478] {
+    width: 16px;
+    height: 16px
+}
+
+.paid-params-promo__quota[data-v-faf1c478]:hover {
+    color: var(--afs-text-icon-primary)
+}

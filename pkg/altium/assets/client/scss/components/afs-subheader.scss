@@ -1,0 +1,33 @@
+
+.afs-subheader {
+    position: relative;
+    border-bottom: 1px solid;
+    transition: border-color .25s,color .25s,background-color .25s,box-shadow .25s;
+    border-color: var(--afs-border);
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-titlebar)
+}
+
+.afs-subheader__icon {
+    position: absolute;
+    top: 0;
+    right: 6px
+}
+
+.afs-subheader__icon~.afs-subheader__title {
+    padding-right: 38px
+}
+
+.afs-subheader__title {
+    padding: 10px 15px 9px
+}
+
+.afs-subheader__title_multi-line {
+    word-break: break-word
+}
+
+.afs-subheader__title_single-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}

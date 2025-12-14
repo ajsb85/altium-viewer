@@ -1,0 +1,14 @@
+
+.side-by-side-flex-child {
+    flex: 1;
+    border: none
+}
+
+.side-by-side-flex-child:first-child {
+    background-color: var(--component-model-view-background-color);
+    border-right: thin solid var(--afs-border)
+}
+
+.side-by-side-flex-child:last-child {
+    background-color: var(--component-footprint-view-background-color)
+}

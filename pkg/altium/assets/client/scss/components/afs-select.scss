@@ -1,0 +1,43 @@
+
+.afs-select {
+    position: relative
+}
+
+.afs-select__button .afs-btn__text {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    column-gap: 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.afs-select__menu-item-icon {
+    width: 16px;
+    height: 16px
+}
+
+.afs-select__arrow {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center
+}
+
+.afs-select__checkmark {
+    font-size: 8px
+}
+
+.afs-select .afs-select__button.is-open {
+    background-color: var(--afs-field);
+    border-color: var(--afs-focus)
+}
+
+.afs-select .afs-select__button.is-quiet {
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0)
+}
+
+.afs-select .afs-select__button:not(.is-transparent).is-error {
+    border-color: var(--afs-error) !important
+}

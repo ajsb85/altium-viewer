@@ -1,0 +1,34 @@
+
+.complex-sorting-menu[data-v-8036230f]:after {
+    left: 0;
+    right: 0
+}
+
+.complex-sorting-menu__text-container[data-v-8036230f] {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.complex-sorting-menu__option[data-v-8036230f] {
+    padding: 0 16px;
+    font-weight: 400
+}
+
+.complex-sorting-menu__option[data-v-8036230f]:hover {
+    cursor: pointer;
+    background-color: var(--afs-secondary-selected)
+}
+
+.complex-sorting-menu__option.selected[data-v-8036230f] {
+    background-color: var(--afs-secondary-selected)
+}
+
+.complex-sorting-menu__check-icon-container[data-v-8036230f] {
+    width: 12px
+}
+
+.complex-sorting-menu__check-icon[data-v-8036230f] {
+    font-size: 8px;
+    height: 32px
+}

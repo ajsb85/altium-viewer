@@ -1,0 +1,91 @@
+
+.compare-layers-section[data-v-f23c8dd0] {
+    color: var(--afs-text-icon-secondary);
+    padding: .5rem 0
+}
+
+.compare-layers-section[data-v-f23c8dd0]:not(:last-child) {
+    border-bottom: 1px solid var(--afs-primary-border)
+}
+
+.compare-layers-section__title[data-v-f23c8dd0] {
+    color: var(--color-meta-secondary);
+    padding: .5rem 1rem;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: .8px;
+    text-transform: uppercase
+}
+
+.compare-layers-section__acc[data-v-f23c8dd0] {
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    gap: 8px
+}
+
+.compare-layers-section__acc.is-selected[data-v-f23c8dd0] {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+.compare-layers-section__acc[data-v-f23c8dd0]:not(.is-selected):hover {
+    background: var(--afs-group);
+    color: var(--afs-text-icon-primary)
+}
+
+.compare-layers-section__acc-icon[data-v-f23c8dd0] {
+    flex: 0 0 auto;
+    font-size: 16px;
+    padding: 4px
+}
+
+.compare-layers-section__acc-icon.is-opened[data-v-f23c8dd0] {
+    transform: rotate(90deg)
+}
+
+.compare-layers-section__acc-number[data-v-f23c8dd0] {
+    color: var(--global-text-base-tertiary)
+}
+
+.compare-layers-section__item[data-v-f23c8dd0],.compare-layers-section__layer[data-v-f23c8dd0] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0 8px 52px;
+    cursor: pointer
+}
+
+.compare-layers-section__item:not(.is-selected).is-hover[data-v-f23c8dd0],.compare-layers-section__layer:not(.is-selected).is-hover[data-v-f23c8dd0] {
+    background: var(--afs-group);
+    color: var(--afs-text-icon-primary)
+}
+
+.compare-layers-section__item.is-selected[data-v-f23c8dd0],.compare-layers-section__layer.is-selected[data-v-f23c8dd0] {
+    background: var(--afs-selected-item-background);
+    color: var(--afs-text-icon-primary)
+}
+
+.compare-layers-section__item[data-v-f23c8dd0] {
+    padding: 4px 0 4px 64px
+}
+
+.compare-layers-section__item-bubble[data-v-f23c8dd0] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 12px;
+    color: var(--afs-additional-white);
+    height: 16px;
+    min-width: 16px;
+    padding: 4px;
+    background: var(--afs-dr-reviewer-pending-sticker-bg);
+    border-radius: 8px
+}
+
+.compare-layers-section__layer[data-v-f23c8dd0] {
+    padding-left: 32px
+}

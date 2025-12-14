@@ -1,0 +1,10 @@
+
+.afs-snackbar_enter-active,.afs-snackbar_leave-active {
+    transition-property: opacity,transform;
+    transition-duration: .25s
+}
+
+.afs-snackbar_enter,.afs-snackbar_leave-to {
+    opacity: 0;
+    transform: translateY(16px)
+}

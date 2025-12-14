@@ -1,0 +1,60 @@
+
+.afs-button-with-dropdown {
+    display: inline-flex
+}
+
+.afs-button-with-dropdown__button.is-linked-with-dropdown {
+    pointer-events: none
+}
+
+.afs-button-with-dropdown__icon {
+    margin-left: -1px
+}
+
+.afs-button-with-dropdown_disabled {
+    pointer-events: none;
+    opacity: .48
+}
+
+.afs-button-with-dropdown_wide {
+    width: 100%
+}
+
+.afs-button-with-dropdown__separator {
+    display: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    height: 32px;
+    background: var(--afs-border)
+}
+
+.afs-button-with-dropdown .afs-button-with-dropdown__icon:focus,.afs-button-with-dropdown .afs-button-with-dropdown__icon.is-focused {
+    border-color: var(--afs-border) !important
+}
+
+.afs-button-with-dropdown .afs-button-with-dropdown__icon:focus-within,.afs-button-with-dropdown .afs-button-with-dropdown__icon.is-focus-withined {
+    border-color: var(--afs-border) !important
+}
+
+.afs-button-with-dropdown .afs-button-with-dropdown_selected {
+    background: var(--afs-secondary-selected)
+}
+
+.afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled):hover,.afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-secondary-selected)
+}
+
+.afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled):active,.afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: var(--afs-secondary-selected);
+    outline: none
+}
+
+.afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled):focus,.afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    background: var(--afs-secondary-selected)
+}
+
+.afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    background: var(--afs-secondary-selected)
+}

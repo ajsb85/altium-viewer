@@ -1,0 +1,101 @@
+
+.afs-properties-info {
+    padding-bottom: 16px;
+    text-align: center
+}
+
+.afs-properties-info__icon {
+    vertical-align: top;
+    font-size: 64px
+}
+
+.afs-properties-info__icon:not(:last-child) {
+    margin-bottom: 16px
+}
+
+.afs-properties-info__title {
+    font-size: 16px;
+    line-height: 1;
+    transition: color .25s
+}
+
+.afs-properties-info__title:not(:last-child) {
+    margin-bottom: 8px
+}
+
+.afs-properties-info__text {
+    font-size: 12px;
+    line-height: 1.3333333333;
+    transition: color .25s
+}
+
+.afs-properties-info .afs-properties-info__title {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-properties-info .afs-properties-info__text {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-properties {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    flex: 1 1 auto;
+    padding: 16px;
+    transition: color .25s,background-color .25s;
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-panel)
+}
+
+.afs-properties__section {
+    border-bottom: 1px solid;
+    transition: border-color .25s
+}
+
+.afs-properties__section.is-opened .afs-properties__section-control:before {
+    transform: rotate(90deg)
+}
+
+.afs-properties__section-control {
+    position: relative;
+    padding: 16px 0 16px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none
+}
+
+.afs-properties__section-control:before {
+    content: "";
+    position: absolute;
+    top: 19px;
+    left: 0;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 3px 0 3px 4px;
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) currentColor;
+    transition: transform .25s
+}
+
+.afs-properties__section-control~.afs-properties__section-content {
+    padding-top: 0
+}
+
+.afs-properties__section-content {
+    padding: 16px 0
+}
+
+.afs-properties__placeholder {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+.afs-properties .afs-properties__section {
+    border-color: var(--afs-border)
+}

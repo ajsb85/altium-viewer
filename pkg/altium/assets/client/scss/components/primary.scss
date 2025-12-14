@@ -1,0 +1,14 @@
+
+.primary[data-v-c1238175] {
+    background-color: var(--button-primary-background-default);
+    border-color: var(--button-primary-border);
+    color: var(--afs-text-on-accent)
+}
+
+.primary[data-v-c1238175]:hover,.primary.hover[data-v-c1238175] {
+    background-color: var(--button-primary-background-hover)
+}
+
+.primary[data-v-c1238175]:active,.primary.pressed[data-v-c1238175] {
+    background-color: var(--button-primary-background-pressed)
+}

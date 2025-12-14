@@ -1,0 +1,34 @@
+
+.mx-input {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    padding: 6px 30px 6px 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.0745098039)
+}
+
+.mx-input:hover,.mx-input:focus {
+    border-color: #409aff
+}
+
+.mx-input:disabled,.mx-input.disabled {
+    color: #ccc;
+    background-color: #f3f3f3;
+    border-color: #ccc;
+    cursor: not-allowed
+}
+
+.mx-input:focus {
+    outline: none
+}
+
+.mx-input::-ms-clear {
+    display: none
+}

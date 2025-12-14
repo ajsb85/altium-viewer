@@ -1,0 +1,10 @@
+
+.measurement-section {
+    background: var(--background-measurements-section)
+}
+
+.measurement-section__row {
+    padding: .69rem 0;
+    border-bottom: 1px solid var(--border-primary);
+    line-height: .75rem
+}

@@ -1,0 +1,21 @@
+
+.component-details-sim-model-row[data-v-10b2e762] {
+    width: 100%;
+    display: flex;
+    line-height: 16px
+}
+
+.component-details-sim-model-row[data-v-10b2e762]:first-of-type {
+    margin-top: 16px
+}
+
+.component-details-sim-model-row__label[data-v-10b2e762] {
+    flex: 1 1 50%;
+    color: var(--afs-text-icon-secondary);
+    padding-right: 16px
+}
+
+.component-details-sim-model-row__value[data-v-10b2e762] {
+    flex: 1 1 50%;
+    color: var(--afs-title-active)
+}

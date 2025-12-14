@@ -1,0 +1,25 @@
+
+.fbom[data-v-33901d86] {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    height: 100%;
+    background: var(--background-primary)
+}
+
+.fbom__content[data-v-33901d86] {
+    flex: 1 1 auto;
+    background: var(--afs-background)
+}
+
+.fbom__empty[data-v-33901d86] {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: var(--color-secondary);
+    font-size: .88rem;
+    font-weight: 600;
+    line-height: 1.43
+}

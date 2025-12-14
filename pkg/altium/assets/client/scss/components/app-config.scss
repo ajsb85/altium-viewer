@@ -1,0 +1,39 @@
+
+.app-config-block__title[data-v-98ab1a88] {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500
+}
+
+.app-config-block[data-v-98ab1a88] {
+    color: var(--afs-text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background-color: var(--afs-panel);
+    border-radius: 4px
+}
+
+.app-config-block__trigger[data-v-98ab1a88] {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-content: start
+}
+
+.app-config-block__header[data-v-98ab1a88] {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1 1 100%
+}
+
+.app-config-block__title[data-v-98ab1a88] {
+    cursor: default;
+    color: var(--afs-title-active)
+}
+
+.app-config-block__description[data-v-98ab1a88] {
+    color: var(--afs-text-primary)
+}

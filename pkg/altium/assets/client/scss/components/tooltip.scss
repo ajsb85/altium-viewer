@@ -1,0 +1,19 @@
+
+.tooltip[data-v-495e4ebc] {
+    padding: 4px;
+    display: grid;
+    align-items: center;
+    column-gap: 4px;
+    row-gap: 2px;
+    grid-template-columns: 1fr 2fr 1fr
+}
+
+.tooltip .icon[data-v-495e4ebc] {
+    width: 16px;
+    height: 16px;
+    cursor: default
+}
+
+.tooltip .value[data-v-495e4ebc] {
+    text-align: end
+}

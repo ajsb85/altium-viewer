@@ -1,0 +1,104 @@
+
+.afs-advanced-filters__trigger-button[data-v-a55a369d] {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 240px;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 32px;
+    min-width: auto
+}
+
+.afs-advanced-filters__trigger-button.has-filters-applied[data-v-a55a369d] {
+    background-color: var(--global-fill-accent-secondary-rest)
+}
+
+.afs-advanced-filters__trigger-button[data-v-a55a369d]:hover,.afs-advanced-filters__trigger-button.afs-btn_selected[data-v-a55a369d] {
+    background-color: var(--tool-button-background-hover)
+}
+
+.afs-advanced-filters__trigger-button.no-label[data-v-a55a369d] .icon {
+    margin-right: 0
+}
+
+.afs-advanced-filters__trigger-button-caption-wrapper[data-v-a55a369d] {
+    white-space: nowrap;
+    display: flex;
+    align-items: center
+}
+
+.afs-advanced-filters__trigger-button-caption[data-v-a55a369d] {
+    display: inline-block;
+    max-width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: normal;
+    overflow: hidden
+}
+
+.afs-advanced-filters__trigger-icon[data-v-a55a369d] {
+    margin-left: 8px;
+    width: 8px;
+    height: 8px;
+    margin-right: 0
+}
+
+.afs-advanced-filters__dropdown-inner[data-v-a55a369d] {
+    margin-bottom: 16px
+}
+
+.afs-advanced-filters__section[data-v-a55a369d] {
+    margin-top: 2px
+}
+
+.afs-advanced-filters__section[data-v-a55a369d]:last-child {
+    margin-bottom: -8px
+}
+
+.afs-advanced-filters__section-title[data-v-a55a369d] {
+    color: var(--global-text-base-tertiary);
+    text-transform: uppercase;
+    display: flex;
+    min-height: 30px;
+    justify-content: space-between;
+    align-items: center
+}
+
+.afs-advanced-filters__subheader-wrapper[data-v-a55a369d] {
+    margin-bottom: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 1
+}
+
+.afs-advanced-filters__subheader[data-v-a55a369d] {
+    display: flex;
+    justify-content: space-between
+}
+
+.afs-advanced-filters__section-button[data-v-a55a369d] {
+    padding: 0 0 0 16px;
+    min-width: 0;
+    color: var(--global-text-base-tertiary)
+}
+
+.afs-advanced-filters__section-button .afs-typography[data-v-a55a369d] {
+    line-height: 1
+}
+
+.afs-advanced-filters__items[data-v-a55a369d] {
+    padding: 0 16px;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.afs-advanced-filters__filter-item[data-v-a55a369d] {
+    margin-bottom: 8px;
+    margin-right: 8px
+}
+
+.afs-advanced-filters__menu[data-v-a55a369d] .afs-context-menu__inner {
+    overflow: unset
+}

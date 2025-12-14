@@ -1,0 +1,27 @@
+
+.dropdown__label[data-v-43a612c9] {
+    color: var(--afs-text-icon-secondary)
+}
+
+.dropdown__readonly[data-v-43a612c9] {
+    color: var(--afs-hint-icons);
+    font-style: italic
+}
+
+.dropdown__select-wrapper[data-v-43a612c9] {
+    gap: 8px
+}
+
+.dropdown__select-wrapper .afs-select[data-v-43a612c9] {
+    width: 100%
+}
+
+.dropdown__select-icon[data-v-43a612c9] {
+    margin-right: 8px;
+    width: 16px
+}
+
+.dropdown__icon_disabled[data-v-43a612c9] {
+    pointer-events: none;
+    opacity: .48
+}

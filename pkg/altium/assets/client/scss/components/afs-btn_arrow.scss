@@ -1,0 +1,13 @@
+
+.afs-btn_arrow:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 3px 0 3px 4px;
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
+    border-left-color: var(--afs-additional-white);
+    right: 16px;
+    transform: rotate(90deg)
+}

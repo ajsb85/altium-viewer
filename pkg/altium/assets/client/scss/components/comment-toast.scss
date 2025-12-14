@@ -1,0 +1,18 @@
+
+.comment-toast__first-plan {
+    z-index: 20
+}
+
+.comment-toast__icon {
+    flex-shrink: 0
+}
+
+.comment-toast__text {
+    margin: 0 8px
+}
+
+.comment-toast__btn {
+    padding: 0 8px;
+    color: var(--color-text);
+    cursor: pointer
+}

@@ -1,0 +1,39 @@
+
+.afs-release-tile-tag-with-dropdown__option {
+    display: inline-flex;
+    padding: 6px 15px;
+    width: 100%;
+    align-items: center
+}
+
+.afs-release-tile-tag-with-dropdown__option-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px
+}
+
+.afs-release-tile-tag-with-dropdown__option-text {
+    line-height: 1;
+    cursor: default
+}
+
+.afs-release-tile-tag-with-dropdown .afs-button-with-dropdown__button {
+    padding: 4px 8px
+}
+
+.afs-release-tile-tag-with-dropdown .afs-button-with-dropdown__icon {
+    width: 24px;
+    height: 26px
+}
+
+.afs-release-tile-tag__text {
+    font-weight: 500;
+    cursor: default
+}
+
+.afs-release-tile-tag__icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 10px
+}

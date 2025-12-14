@@ -1,0 +1,57 @@
+
+.afs-file-info {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    padding: 16px;
+    border-radius: 4px;
+    max-width: 100%;
+    transition: background-color .25s;
+    background: var(--afs-group)
+}
+
+.afs-file-info__icon {
+    flex: 0 0 auto;
+    font-size: 32px
+}
+
+.afs-file-info__icon~.afs-file-info__content {
+    padding-left: 16px
+}
+
+.afs-file-info__content {
+    flex: 1 1 auto;
+    min-width: 0
+}
+
+.afs-file-info__close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    transition: color .25s
+}
+
+.afs-file-info__close~.afs-file-info__content .afs-file-info__title {
+    padding-right: 24px
+}
+
+.afs-file-info__title {
+    transition: color .25s
+}
+
+.afs-file-info__title:not(:last-child) {
+    margin-bottom: 4px
+}
+
+.afs-file-info__text {
+    transition: color .25s
+}
+
+.afs-file-info .afs-file-info__close,.afs-file-info .afs-file-info__title {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-file-info .afs-file-info__text {
+    color: var(--afs-text-icon-secondary)
+}

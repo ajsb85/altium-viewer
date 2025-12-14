@@ -1,0 +1,92 @@
+
+.requirement-verification-menu__wrapper.afs-context-menu.afs-context-menu_dropdown {
+    background: var(--afs-group);
+    border-radius: 0;
+    width: auto;
+    overflow: visible;
+    padding: 5px 0;
+    max-width: 240px
+}
+
+.requirement-verification-menu__wrapper .afs-context-menu__inner {
+    overflow: visible
+}
+
+.requirement-verification-menu__element-wrapper {
+    position: relative;
+    overflow: visible
+}
+
+.requirement-verification-menu__btn {
+    font-size: 12px;
+    background: rgba(0,0,0,0);
+    color: var(--afs-text-icon-primary);
+    text-align: left;
+    text-wrap: nowrap;
+    overflow: hidden;
+    padding: 5px 5px 5px 10px;
+    width: 100%
+}
+
+.requirement-verification-menu__btn>span {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100% - 12px)
+}
+
+.requirement-verification-menu__btn .icon {
+    float: right
+}
+
+.requirement-verification-menu__btn:hover {
+    background: var(--afs-primary-default);
+    overflow: visible
+}
+
+.requirement-verification-menu__btn:hover+ul,.requirement-verification-menu__btn+ul:hover {
+    opacity: 100%;
+    visibility: visible;
+    transition: .5s opacity
+}
+
+.requirement-verification-menu__btn+ul,.requirement-verification-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown {
+    right: 0;
+    left: 100%;
+    top: -1px;
+    width: 145px;
+    padding: 0;
+    background: var(--afs-group)
+}
+
+.requirement-verification-menu__btn+ul .requirement-verification-menu__subitem,.requirement-verification-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-verification-menu__subitem {
+    font-size: 12px;
+    background: rgba(0,0,0,0);
+    color: var(--afs-text-icon-primary);
+    cursor: pointer;
+    padding: 5px 5px 2px 10px
+}
+
+.requirement-verification-menu__btn+ul .requirement-verification-menu__subitem:not(.requirement-verification-menu__btn+ul .requirement-verification-menu__subitem--selected,.requirement-verification-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-verification-menu__subitem--selected):hover,.requirement-verification-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-verification-menu__subitem:not(.requirement-verification-menu__btn+ul .requirement-verification-menu__subitem--selected,.requirement-verification-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-verification-menu__subitem--selected):hover {
+    background: var(--afs-primary-default)
+}
+
+.requirement-verification-menu__btn+ul .requirement-verification-menu__subitem--selected,.requirement-verification-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-verification-menu__subitem--selected {
+    cursor: default
+}
+
+.requirement-verification-menu__btn+ul .requirement-verification-menu__subitem .icon,.requirement-verification-menu__btn+ul.afs-context-menu.afs-context-menu_dropdown .requirement-verification-menu__subitem .icon {
+    margin-right: 10px;
+    margin-top: 2px
+}
+
+.requirement-verification-menu__btn--disabled+ul.afs-context-menu.afs-context-menu_dropdown .requirement-verification-menu__subitem,.requirement-verification-menu__btn--disabled {
+    cursor: not-allowed;
+    color: var(--afs-text-secondary);
+    background: var(--afs-group)
+}
+
+.requirement-verification-menu__btn--disabled+ul.afs-context-menu.afs-context-menu_dropdown .requirement-verification-menu__subitem:hover,.requirement-verification-menu__btn--disabled:hover {
+    background: var(--afs-group)
+}

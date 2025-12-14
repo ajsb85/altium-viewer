@@ -1,0 +1,751 @@
+
+.is-no-touch .afs-requirement-tile__remove[data-v-7972597e]:hover,.is-no-touch .afs-requirement-tile__remove.is-hovered[data-v-7972597e],.afs-requirement-tile__remove[data-v-7972597e]:hover,.afs-requirement-tile__remove.is-hovered[data-v-7972597e] {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):focus .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-focused .afs-checkbox__figure {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):focus-within .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined .afs-checkbox__figure {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):active .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-active .afs-checkbox__figure {
+    border-color: var(--afs-primary-border);
+    box-shadow: var(--afs-black-inner-shadow)
+}
+
+.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked):hover .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked).is-hovered .afs-checkbox__figure {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked):active .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked).is-active .afs-checkbox__figure {
+    background: var(--afs-secondary-down)
+}
+
+.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):checked:hover .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):checked.is-hovered .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled)[checked]:hover .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled)[checked].is-hovered .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-checked:hover .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-checked.is-hovered .afs-checkbox__figure {
+    background: var(--afs-primary-hover)
+}
+
+.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):checked:active .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled):checked.is-active .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled)[checked]:active .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled)[checked].is-active .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-checked:active .afs-checkbox__figure,.is-no-touch .afs-checkbox:not(:disabled):not([disabled]):not(.is-disabled).is-checked.is-active .afs-checkbox__figure {
+    background: var(--afs-primary-down)
+}
+
+.is-no-touch .afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header:hover .afs-accordion__main-chevron,.is-no-touch .afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header:hover .afs-accordion__main-header,.is-no-touch .afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header:hover .afs-accordion__main-header-icon,.is-no-touch .afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header.is-hovered .afs-accordion__main-chevron,.is-no-touch .afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header.is-hovered .afs-accordion__main-header,.is-no-touch .afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header.is-hovered .afs-accordion__main-header-icon {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-btn-icon_facebook:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-icon_facebook:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    border-color: #344e86;
+    background: #344e86
+}
+
+.is-no-touch .afs-btn-icon_facebook:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-icon_facebook:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon_facebook:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-icon_facebook:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon_facebook:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-icon_facebook:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    border-color: #2d4373;
+    background: #2d4373
+}
+
+.is-no-touch .afs-btn-icon_google-plus:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-icon_google-plus:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    border-color: #d83a2b;
+    background: #d83a2b
+}
+
+.is-no-touch .afs-btn-icon_google-plus:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-icon_google-plus:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon_google-plus:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-icon_google-plus:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon_google-plus:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-icon_google-plus:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    border-color: #c63224;
+    background: #c63224
+}
+
+.is-no-touch .afs-btn-icon_linkedin:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-icon_linkedin:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    border-color: #00669c;
+    background: #00669c
+}
+
+.is-no-touch .afs-btn-icon_linkedin:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-icon_linkedin:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon_linkedin:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-icon_linkedin:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon_linkedin:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-icon_linkedin:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    border-color: #005582;
+    background: #005582
+}
+
+.is-no-touch .afs-btn-icon:not(.afs-btn-icon_transparent):not(.afs-btn-icon_semitransparent):not(.afs-btn-icon_social):not(.afs-btn-icon_gallery):not(.afs-btn-icon_primary):not(.afs-btn-icon_accent):not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-icon:not(.afs-btn-icon_transparent):not(.afs-btn-icon_semitransparent):not(.afs-btn-icon_social):not(.afs-btn-icon_gallery):not(.afs-btn-icon_primary):not(.afs-btn-icon_accent):not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-btn-icon:not(.afs-btn-icon_transparent):not(.afs-btn-icon_semitransparent):not(.afs-btn-icon_social):not(.afs-btn-icon_gallery):not(.afs-btn-icon_primary):not(.afs-btn-icon_accent):not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-icon:not(.afs-btn-icon_transparent):not(.afs-btn-icon_semitransparent):not(.afs-btn-icon_social):not(.afs-btn-icon_gallery):not(.afs-btn-icon_primary):not(.afs-btn-icon_accent):not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon:not(.afs-btn-icon_transparent):not(.afs-btn-icon_semitransparent):not(.afs-btn-icon_social):not(.afs-btn-icon_gallery):not(.afs-btn-icon_primary):not(.afs-btn-icon_accent):not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-icon:not(.afs-btn-icon_transparent):not(.afs-btn-icon_semitransparent):not(.afs-btn-icon_social):not(.afs-btn-icon_gallery):not(.afs-btn-icon_primary):not(.afs-btn-icon_accent):not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon:not(.afs-btn-icon_transparent):not(.afs-btn-icon_semitransparent):not(.afs-btn-icon_social):not(.afs-btn-icon_gallery):not(.afs-btn-icon_primary):not(.afs-btn-icon_accent):not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-icon:not(.afs-btn-icon_transparent):not(.afs-btn-icon_semitransparent):not(.afs-btn-icon_social):not(.afs-btn-icon_gallery):not(.afs-btn-icon_primary):not(.afs-btn-icon_accent):not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    border-color: var(--afs-primary-border);
+    background: var(--afs-secondary-down)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_primary:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-icon.afs-btn-icon_primary:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-primary-hover)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_primary:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-icon.afs-btn-icon_primary:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: var(--afs-primary-down)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_primary:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-icon.afs-btn-icon_primary:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_primary:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-icon.afs-btn-icon_primary:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_transparent:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-icon.afs-btn-icon_transparent:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_transparent:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-icon.afs-btn-icon_transparent:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_transparent:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-icon.afs-btn-icon_transparent:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_transparent:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-icon.afs-btn-icon_transparent:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_transparent.afs-btn-icon_transparent-highlight:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-icon.afs-btn-icon_transparent.afs-btn-icon_transparent-highlight:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_transparent.afs-btn-icon_transparent-highlight:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-icon.afs-btn-icon_transparent.afs-btn-icon_transparent-highlight:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_transparent.afs-btn-icon_transparent-highlight:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-icon.afs-btn-icon_transparent.afs-btn-icon_transparent-highlight:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_transparent.afs-btn-icon_transparent-highlight:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-icon.afs-btn-icon_transparent.afs-btn-icon_transparent-highlight:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_gallery:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-icon.afs-btn-icon_gallery:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    color: var(--afs-text-icon-secondary)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_gallery:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-icon.afs-btn-icon_gallery:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    color: var(--afs-text-icon-secondary)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_gallery:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-icon.afs-btn-icon_gallery:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    color: var(--afs-text-icon-secondary)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_gallery:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-icon.afs-btn-icon_gallery:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    color: var(--afs-text-icon-secondary)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_accent:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-icon.afs-btn-icon_accent:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    color: var(--afs-text-on-accent)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_accent:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-icon.afs-btn-icon_accent:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    color: var(--afs-text-on-accent)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_accent:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-icon.afs-btn-icon_accent:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    color: var(--afs-text-on-accent)
+}
+
+.is-no-touch .afs-btn-icon.afs-btn-icon_accent:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-icon.afs-btn-icon_accent:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    color: var(--afs-text-on-accent)
+}
+
+.is-no-touch .afs-user-avatar__add-avatar:hover,.is-no-touch .afs-user-avatar__add-avatar.is-hovered {
+    cursor: pointer
+}
+
+.is-no-touch .afs-user-avatar__add-avatar:hover .afs-user-avatar__add-avatar-icon_has-img,.is-no-touch .afs-user-avatar__add-avatar.is-hovered .afs-user-avatar__add-avatar-icon_has-img {
+    opacity: 1
+}
+
+.is-no-touch .afs-user-avatar.afs-user-avatar__add-avatar:hover,.is-no-touch .afs-user-avatar.afs-user-avatar__add-avatar.is-hovered,.afs-user-avatar.afs-user-avatar__add-avatar:hover,.afs-user-avatar.afs-user-avatar__add-avatar.is-hovered,.afs-user-avatar.afs-user-avatar__show-icon {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-user-button .afs-user-button__control:not(.afs-user-button__control_no-hover):active .afs-user-button__control-more,.is-no-touch .afs-user-button .afs-user-button__control:not(.afs-user-button__control_no-hover).is-active .afs-user-button__control-more {
+    border-color: var(--afs-border);
+    background: var(--afs-secondary-down)
+}
+
+.is-no-touch .afs-btn:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    border-color: var(--afs-primary-border)
+}
+
+.is-no-touch .afs-btn.afs-btn_default:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn.afs-btn_default:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-hovered,.is-no-touch .afs-btn.afs-btn_secondary:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn.afs-btn_secondary:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-btn.afs-btn_default:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn.afs-btn_default:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-active,.is-no-touch .afs-btn.afs-btn_secondary:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn.afs-btn_secondary:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: var(--afs-secondary-down)
+}
+
+.is-no-touch .afs-btn.afs-btn_default:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn.afs-btn_default:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-focused,.is-no-touch .afs-btn.afs-btn_secondary:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn.afs-btn_secondary:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_default:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn.afs-btn_default:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined,.is-no-touch .afs-btn.afs-btn_secondary:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn.afs-btn_secondary:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_primary:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn.afs-btn_primary:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-primary-hover)
+}
+
+.is-no-touch .afs-btn.afs-btn_primary:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn.afs-btn_primary:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: var(--afs-primary-down)
+}
+
+.is-no-touch .afs-btn.afs-btn_primary:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn.afs-btn_primary:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_primary:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn.afs-btn_primary:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_combinedPrimary:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn.afs-btn_combinedPrimary:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border: 1px solid;
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_combinedPrimary:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn.afs-btn_combinedPrimary:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border: 1px solid;
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_combinedSecondary:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn.afs-btn_combinedSecondary:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border: 1px solid;
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_combinedSecondary:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn.afs-btn_combinedSecondary:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border: 1px solid;
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_accent:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn.afs-btn_accent:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-btn.afs-btn_accent:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn.afs-btn_accent:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-btn.afs-btn_accent:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn.afs-btn_accent:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_accent:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn.afs-btn_accent:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn.afs-btn_transparent:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn.afs-btn_transparent:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-btn.afs-btn_transparent:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn.afs-btn_transparent:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-btn.afs-btn_transparent:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn.afs-btn_transparent:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-btn.afs-btn_transparent:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn.afs-btn_transparent:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-btn.afs-btn_selected-dark:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn.afs-btn_selected-dark:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-secondary-down)
+}
+
+.is-no-touch .afs-btn.afs-btn_selected-dark:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn.afs-btn_selected-dark:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: var(--afs-secondary-down);
+    outline: none
+}
+
+.is-no-touch .afs-btn.afs-btn_selected-dark:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn.afs-btn_selected-dark:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    background: var(--afs-secondary-down)
+}
+
+.is-no-touch .afs-btn.afs-btn_selected-dark:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn.afs-btn_selected-dark:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    background: var(--afs-secondary-down)
+}
+
+.is-no-touch .afs-btn.afs-btn_selected:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn.afs-btn_selected:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-btn.afs-btn_selected:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn.afs-btn_selected:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: var(--afs-secondary-selected);
+    outline: none
+}
+
+.is-no-touch .afs-btn.afs-btn_selected:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn.afs-btn_selected:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-btn.afs-btn_selected:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn.afs-btn_selected:not(.afs-btn_transparent):not(.afs-btn_accent):not(.afs-btn_combinedPrimary):not(.afs-btn_combinedSecondary):not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-link:focus,.is-no-touch .afs-link.is-focused {
+    outline-offset: 2px;
+    outline: none;
+    border-radius: 1px
+}
+
+.is-no-touch .afs-link:focus-within,.is-no-touch .afs-link.is-focus-withined {
+    outline-offset: 2px;
+    outline: none;
+    border-radius: 1px
+}
+
+.is-no-touch .afs-tag__clickable[data-v-bd2c459f]:hover,.is-no-touch .afs-tag__clickable.is-hovered[data-v-bd2c459f],.afs-tag__clickable[data-v-bd2c459f]:hover,.afs-tag__clickable.is-hovered[data-v-bd2c459f] {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-tag[data-v-bd2c459f]:not(.afs-tag__disabled):focus,.is-no-touch .afs-tag:not(.afs-tag__disabled).is-focused[data-v-bd2c459f] {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-tag[data-v-bd2c459f]:not(.afs-tag__disabled):focus-within,.is-no-touch .afs-tag:not(.afs-tag__disabled).is-focus-withined[data-v-bd2c459f] {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled):focus::placeholder,.is-no-touch .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled).is-focused::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled):focus-within::placeholder,.is-no-touch .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .afs-input .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled):not(.is-transparent):focus,.is-no-touch .afs-input .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled):not(.is-transparent).is-focused {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-input .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled):not(.is-transparent):focus-within,.is-no-touch .afs-input .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled):not(.is-transparent).is-focus-withined {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-input .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled):not(.is-transparent):hover,.is-no-touch .afs-input .afs-input__control:not(:disabled):not([disabled]):not(.is-disabled):not(.is-transparent).is-hovered {
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-table_clickable .afs-table__tr:hover .afs-table__more,.is-no-touch .afs-table_clickable .afs-table__tr.is-hovered .afs-table__more,.afs-table_clickable .afs-table__tr:hover .afs-table__more,.afs-table_clickable .afs-table__tr.is-hovered .afs-table__more,.afs-table_clickable .afs-table__tr.is-active .afs-table__more {
+    opacity: 1
+}
+
+.is-no-touch .afs-table.afs-table_clickable .afs-table__tr:not(.is-active):not(.is-without-hover):hover,.is-no-touch .afs-table.afs-table_clickable .afs-table__tr:not(.is-active):not(.is-without-hover).is-hovered {
+    color: var(--afs-text-icon-secondary);
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-context-menu__inner:hover .afs-select__menu-item.is-active,.is-no-touch .afs-context-menu__inner:hover .afs-select__menu-item.is-selected,.is-no-touch .afs-context-menu__inner.is-hovered .afs-select__menu-item.is-active,.is-no-touch .afs-context-menu__inner.is-hovered .afs-select__menu-item.is-selected,.afs-context-menu__inner:hover .afs-select__menu-item.is-active,.afs-context-menu__inner:hover .afs-select__menu-item.is-selected,.afs-context-menu__inner.is-hovered .afs-select__menu-item.is-active,.afs-context-menu__inner.is-hovered .afs-select__menu-item.is-selected {
+    background-color: var(--afs-group)
+}
+
+.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):focus::placeholder,.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-focused::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):focus-within::placeholder,.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):focus .select-autocomplete__container,.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-focused .select-autocomplete__container {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):focus-within .select-autocomplete__container,.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined .select-autocomplete__container {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):hover .select-autocomplete__container,.is-no-touch .select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-hovered .select-autocomplete__container {
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .select-autocomplete.is-transparent:hover .select-autocomplete__container,.is-no-touch .select-autocomplete.is-transparent.is-hovered .select-autocomplete__container,.select-autocomplete.is-transparent:hover .select-autocomplete__container,.select-autocomplete.is-transparent.is-hovered .select-autocomplete__container {
+    box-shadow: none !important
+}
+
+.is-no-touch .select-autocomplete.is-transparent:focus .select-autocomplete__container,.is-no-touch .select-autocomplete.is-transparent.is-focused .select-autocomplete__container {
+    box-shadow: none !important
+}
+
+.is-no-touch .select-autocomplete.is-transparent:focus-within .select-autocomplete__container,.is-no-touch .select-autocomplete.is-transparent.is-focus-withined .select-autocomplete__container {
+    box-shadow: none !important
+}
+
+.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown__icon:focus,.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown__icon.is-focused {
+    border-color: var(--afs-border) !important
+}
+
+.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown__icon:focus-within,.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown__icon.is-focus-withined {
+    border-color: var(--afs-border) !important
+}
+
+.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: var(--afs-secondary-selected);
+    outline: none
+}
+
+.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-button-with-dropdown .afs-button-with-dropdown_selected:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-history-card__info-inner:hover .afs-history-card__info-icon_download,.is-no-touch .afs-history-card__info-inner.is-hovered .afs-history-card__info-icon_download,.afs-history-card__info-inner:hover .afs-history-card__info-icon_download,.afs-history-card__info-inner.is-hovered .afs-history-card__info-icon_download {
+    display: block
+}
+
+.is-no-touch .afs-history-card.afs-history-card_created:hover,.is-no-touch .afs-history-card.afs-history-card_created.is-hovered,.afs-history-card.afs-history-card_created:hover,.afs-history-card.afs-history-card_created.is-hovered {
+    background: var(--afs-history-commit-active)
+}
+
+.is-no-touch .afs-history-card.afs-history-card_made-available-online:hover,.is-no-touch .afs-history-card.afs-history-card_made-available-online.is-hovered,.afs-history-card.afs-history-card_made-available-online:hover,.afs-history-card.afs-history-card_made-available-online.is-hovered {
+    background: var(--afs-history-commit-active)
+}
+
+.is-no-touch .afs-history-card.afs-history-card_commited:hover,.is-no-touch .afs-history-card.afs-history-card_commited.is-hovered,.afs-history-card.afs-history-card_commited:hover,.afs-history-card.afs-history-card_commited.is-hovered {
+    background: var(--afs-history-commit-active)
+}
+
+.is-no-touch .afs-history-card.afs-history-card_released:hover,.is-no-touch .afs-history-card.afs-history-card_released.is-hovered,.afs-history-card.afs-history-card_released:hover,.afs-history-card.afs-history-card_released.is-hovered {
+    background: var(--afs-history-release-active)
+}
+
+.is-no-touch .afs-history-card.afs-history-card_cloned:hover,.is-no-touch .afs-history-card.afs-history-card_cloned.is-hovered,.afs-history-card.afs-history-card_cloned:hover,.afs-history-card.afs-history-card_cloned.is-hovered {
+    background: var(--afs-history-clone-active)
+}
+
+.is-no-touch .afs-history-card.afs-history-card_mcad-suggested:hover,.is-no-touch .afs-history-card.afs-history-card_mcad-suggested.is-hovered,.afs-history-card.afs-history-card_mcad-suggested:hover,.afs-history-card.afs-history-card_mcad-suggested.is-hovered {
+    background: var(--afs-history-suggested-active)
+}
+
+.is-no-touch .afs-history-card.afs-history-card_mcad-accepted:hover,.is-no-touch .afs-history-card.afs-history-card_mcad-accepted.is-hovered,.afs-history-card.afs-history-card_mcad-accepted:hover,.afs-history-card.afs-history-card_mcad-accepted.is-hovered {
+    background: var(--afs-history-accepted-active)
+}
+
+.is-no-touch .afs-workspace-card.is-clickable:hover,.is-no-touch .afs-workspace-card.is-clickable.is-hovered {
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-workspace-card.is-clickable:hover .afs-workspace-card__title,.is-no-touch .afs-workspace-card.is-clickable.is-hovered .afs-workspace-card__title,.is-no-touch .afs-workspace-card.is-clickable:hover .afs-workspace-card__description,.is-no-touch .afs-workspace-card.is-clickable.is-hovered .afs-workspace-card__description {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-tabs__item:active,.is-no-touch .afs-tabs__item.is-active,.afs-tabs__item:active,.afs-tabs__item.is-active,.is-no-touch .afs-tabs__item:hover,.is-no-touch .afs-tabs__item.is-hovered,.afs-tabs__item:hover,.afs-tabs__item.is-hovered {
+    color: var(--afs-text-icon-primary);
+    border-bottom: 2px solid var(--afs-primary-default)
+}
+
+.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item:hover>.afs-context-menu_inner,.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item.is-hovered>.afs-context-menu_inner {
+    opacity: 1;
+    visibility: visible
+}
+
+.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item-clickable:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item-clickable:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-secondary-selected)
+}
+
+.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item-clickable:not(:disabled):not([disabled]):not(.is-disabled):hover .afs-context-menu__item-icon,.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item-clickable:not(:disabled):not([disabled]):not(.is-disabled):hover .afs-context-menu__item-checkmark,.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item-clickable:not(:disabled):not([disabled]):not(.is-disabled).is-hovered .afs-context-menu__item-icon,.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item-clickable:not(:disabled):not([disabled]):not(.is-disabled).is-hovered .afs-context-menu__item-checkmark {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item-clickable:not(:disabled):not([disabled]):not(.is-disabled):hover .afs-context-menu__user-email,.is-no-touch .afs-context-menu.afs-context-menu_dropdown .afs-context-menu__item-clickable:not(:disabled):not([disabled]):not(.is-disabled).is-hovered .afs-context-menu__user-email {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus::placeholder,.is-no-touch .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-focused::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus-within::placeholder,.is-no-touch .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-textarea .afs-textarea__control:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-switcher:focus .afs-switcher__square,.is-no-touch .afs-switcher.is-focused .afs-switcher__square {
+    outline-color: var(--afs-focus);
+    outline-style: solid;
+    outline-width: 2px
+}
+
+.is-no-touch .afs-switcher:focus-within .afs-switcher__square,.is-no-touch .afs-switcher.is-focus-withined .afs-switcher__square {
+    outline-color: var(--afs-focus);
+    outline-style: solid;
+    outline-width: 2px
+}
+
+.is-no-touch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled):focus:before,.is-no-touch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled).is-focused:before {
+    opacity: 1
+}
+
+.is-no-touch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled):focus-within:before,.is-no-touch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined:before {
+    opacity: 1
+}
+
+.is-no-touch .afs-switch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-switch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-group)
+}
+
+.is-no-touch .afs-switch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-switch .afs-switch__btn:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-secondary-down);
+    box-shadow: var(--afs-black-inner-shadow)
+}
+
+.is-no-touch .afs-shared-card__files-link:hover,.is-no-touch .afs-shared-card__files-link.is-hovered,.afs-shared-card__files-link:hover,.afs-shared-card__files-link.is-hovered {
+    text-decoration: none
+}
+
+.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):focus .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-focused .afs-radiobutton__figure {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):focus-within .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined .afs-radiobutton__figure {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):active .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-active .afs-radiobutton__figure {
+    box-shadow: var(--afs-black-inner-shadow)
+}
+
+.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked):hover .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked).is-hovered .afs-radiobutton__figure {
+    background: var(--afs-group)
+}
+
+.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked):active .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked).is-active .afs-radiobutton__figure {
+    background: var(--afs-secondary-down)
+}
+
+.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):checked:hover .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):checked.is-hovered .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled)[checked]:hover .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled)[checked].is-hovered .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-checked:hover .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-checked.is-hovered .afs-radiobutton__figure {
+    background: var(--afs-primary-hover)
+}
+
+.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):checked:active .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):checked.is-active .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled)[checked]:active .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled)[checked].is-active .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-checked:active .afs-radiobutton__figure,.is-no-touch .afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-checked.is-active .afs-radiobutton__figure {
+    background: var(--afs-primary-down)
+}
+
+.is-no-touch .afs-input-tags[data-v-7029de72]:not(:disabled):not([disabled]):not(.is-disabled):focus::placeholder,.is-no-touch .afs-input-tags:not(:disabled):not([disabled]):not(.is-disabled).is-focused[data-v-7029de72]::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .afs-input-tags[data-v-7029de72]:not(:disabled):not([disabled]):not(.is-disabled):focus-within::placeholder,.is-no-touch .afs-input-tags:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined[data-v-7029de72]::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .afs-input-tags:not(:disabled):not([disabled]):not(.is-disabled):focus .afs-input-tags__container[data-v-7029de72],.is-no-touch .afs-input-tags:not(:disabled):not([disabled]):not(.is-disabled).is-focused .afs-input-tags__container[data-v-7029de72] {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-input-tags:not(:disabled):not([disabled]):not(.is-disabled):focus-within .afs-input-tags__container[data-v-7029de72],.is-no-touch .afs-input-tags:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined .afs-input-tags__container[data-v-7029de72] {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-input-tags:not(:disabled):not([disabled]):not(.is-disabled):hover .afs-input-tags__container[data-v-7029de72],.is-no-touch .afs-input-tags:not(:disabled):not([disabled]):not(.is-disabled).is-hovered .afs-input-tags__container[data-v-7029de72] {
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-input-counter:not(:disabled):not([disabled]):not(.is-disabled):focus .afs-input-counter__container,.is-no-touch .afs-input-counter:not(:disabled):not([disabled]):not(.is-disabled).is-focused .afs-input-counter__container {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-input-counter:not(:disabled):not([disabled]):not(.is-disabled):focus-within .afs-input-counter__container,.is-no-touch .afs-input-counter:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined .afs-input-counter__container {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.is-no-touch .afs-btn-social_facebook:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-social_facebook:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: #344e86
+}
+
+.is-no-touch .afs-btn-social_facebook:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-social_facebook:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: #2d4373
+}
+
+.is-no-touch .afs-btn-social_google-plus:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-social_google-plus:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: #2a75f3
+}
+
+.is-no-touch .afs-btn-social_google-plus:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-social_google-plus:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: #1266f1
+}
+
+.is-no-touch .afs-btn-social_linkedin:not(:disabled):not([disabled]):not(.is-disabled):hover,.is-no-touch .afs-btn-social_linkedin:not(:disabled):not([disabled]):not(.is-disabled).is-hovered {
+    background: #00669c
+}
+
+.is-no-touch .afs-btn-social_linkedin:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-social_linkedin:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    background: #005582
+}
+
+.is-no-touch .afs-btn-social:not(:disabled):not([disabled]):not(.is-disabled):focus,.is-no-touch .afs-btn-social:not(:disabled):not([disabled]):not(.is-disabled).is-focused {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-social:not(:disabled):not([disabled]):not(.is-disabled):focus-within,.is-no-touch .afs-btn-social:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined {
+    border-color: var(--afs-focus)
+}
+
+.is-no-touch .afs-btn-social:not(:disabled):not([disabled]):not(.is-disabled):active,.is-no-touch .afs-btn-social:not(:disabled):not([disabled]):not(.is-disabled).is-active {
+    border-color: var(--afs-border)
+}
+
+.is-no-touch .afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled).is-selected>.afs-tree-menu__link:hover,.is-no-touch .afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled).is-selected>.afs-tree-menu__link.is-hovered {
+    background-color: var(--afs-selected-item-background)
+}
+
+.is-no-touch .afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link:hover,.is-no-touch .afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link.is-hovered {
+    background-color: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link:hover .afs-tree-menu__text,.is-no-touch .afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link:hover .afs-tree-menu__icon,.is-no-touch .afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link.is-hovered .afs-tree-menu__text,.is-no-touch .afs-tree-menu .afs-tree-menu__item:not(:disabled):not([disabled]):not(.is-disabled) .afs-tree-menu__link.is-hovered .afs-tree-menu__icon {
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-project-card.afs-project-card:not(.is-active):hover,.is-no-touch .afs-project-card.afs-project-card:not(.is-active).is-hovered {
+    background-color: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-project-card.afs-project-card:not(.is-active):hover .afs-project-card__processingicon,.is-no-touch .afs-project-card.afs-project-card:not(.is-active):hover .afs-project-card__placeholder-icon,.is-no-touch .afs-project-card.afs-project-card:not(.is-active).is-hovered .afs-project-card__processingicon,.is-no-touch .afs-project-card.afs-project-card:not(.is-active).is-hovered .afs-project-card__placeholder-icon {
+    opacity: .32
+}
+
+.is-no-touch .afs-project-card.afs-project-card:not(.is-active):hover .afs-project-card__placeholder-text,.is-no-touch .afs-project-card.afs-project-card:not(.is-active).is-hovered .afs-project-card__placeholder-text {
+    opacity: .64
+}
+
+.is-no-touch .afs-folders-tree .afs-folders-tree__nav-button:not(:disabled):not([disabled]):not(.is-disabled):not(.is-selected):hover,.is-no-touch .afs-folders-tree .afs-folders-tree__nav-button:not(:disabled):not([disabled]):not(.is-disabled):not(.is-selected).is-hovered {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-structure-tree__btn:hover .afs-structure-tree__download,.is-no-touch .afs-structure-tree__btn:hover .afs-structure-tree__link,.is-no-touch .afs-structure-tree__btn.is-hovered .afs-structure-tree__download,.is-no-touch .afs-structure-tree__btn.is-hovered .afs-structure-tree__link,.afs-structure-tree__btn:hover .afs-structure-tree__download,.afs-structure-tree__btn:hover .afs-structure-tree__link,.afs-structure-tree__btn.is-hovered .afs-structure-tree__download,.afs-structure-tree__btn.is-hovered .afs-structure-tree__link {
+    display: inline-block;
+    flex: 0 0 auto
+}
+
+.is-no-touch .afs-structure-tree__btn:not(:disabled):not([disabled]):not(.is-disabled):not(.is-active):hover,.is-no-touch .afs-structure-tree__btn:not(:disabled):not([disabled]):not(.is-disabled):not(.is-active).is-hovered {
+    background: var(--afs-secondary-hover);
+    color: var(--afs-text-icon-primary)
+}
+
+.is-no-touch .afs-category-card.is-clickable:not(.is-active):hover .afs-category-card__processingicon,.is-no-touch .afs-category-card.is-clickable:not(.is-active):hover .afs-category-card__placeholder-icon,.is-no-touch .afs-category-card.is-clickable:not(.is-active).is-hovered .afs-category-card__processingicon,.is-no-touch .afs-category-card.is-clickable:not(.is-active).is-hovered .afs-category-card__placeholder-icon {
+    opacity: .32
+}
+
+.is-no-touch .afs-category-card.is-clickable:not(.is-active):hover .afs-category-card__placeholder-text,.is-no-touch .afs-category-card.is-clickable:not(.is-active).is-hovered .afs-category-card__placeholder-text {
+    opacity: .64
+}
+
+.is-no-touch .afs-category-card.is-clickable:not(.is-active):hover,.is-no-touch .afs-category-card.is-clickable:not(.is-active).is-hovered {
+    background-color: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-table-smart_clickable .afs-table-smart__tr:hover .afs-table-smart__more,.is-no-touch .afs-table-smart_clickable .afs-table-smart__tr.is-hovered .afs-table-smart__more,.is-no-touch .afs-table-smart_clickable .afs-table-smart__tr:hover .afs-table-smart__more-inner,.is-no-touch .afs-table-smart_clickable .afs-table-smart__tr.is-hovered .afs-table-smart__more-inner {
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-table-smart_clickable .afs-table-smart__tr:hover .afs-table-smart__more-inner-icon,.is-no-touch .afs-table-smart_clickable .afs-table-smart__tr.is-hovered .afs-table-smart__more-inner-icon {
+    opacity: 1
+}
+
+.is-no-touch .afs-table-smart.afs-table-smart_clickable .afs-table-smart__tr:not(.is-active):not(.is-without-hover):hover,.is-no-touch .afs-table-smart.afs-table-smart_clickable .afs-table-smart__tr:not(.is-active):not(.is-without-hover).is-hovered {
+    color: var(--afs-text-icon-secondary);
+    background: var(--afs-secondary-hover)
+}
+
+.is-no-touch .afs-comment-textarea:not(:disabled):not([disabled]):not(.is-disabled):focus::placeholder,.is-no-touch .afs-comment-textarea:not(:disabled):not([disabled]):not(.is-disabled).is-focused::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .afs-comment-textarea:not(:disabled):not([disabled]):not(.is-disabled):focus-within::placeholder,.is-no-touch .afs-comment-textarea:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined::placeholder {
+    opacity: .48
+}
+
+.is-no-touch .afs-datepicker__popup .cell.disabled:hover,.is-no-touch .afs-datepicker__popup .cell.disabled.is-hovered,.afs-datepicker__popup .cell.disabled:hover,.afs-datepicker__popup .cell.disabled.is-hovered {
+    color: var(--afs-text-icon-primary);
+    background-color: var(--afs-sidebar)
+}
+
+.is-no-touch .afs-datepicker__popup .cell:hover,.is-no-touch .afs-datepicker__popup .cell.is-hovered,.afs-datepicker__popup .cell:hover,.afs-datepicker__popup .cell.is-hovered {
+    color: var(--afs-text-icon-primary);
+    background-color: var(--afs-selected-item-background);
+    border-radius: 50%
+}

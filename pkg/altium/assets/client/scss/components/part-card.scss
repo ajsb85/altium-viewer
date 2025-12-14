@@ -1,0 +1,188 @@
+
+.part-card__texts[data-v-14b7e512] {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.part-card[data-v-14b7e512] {
+    background-color: var(--afs-group);
+    border-radius: 4px;
+    padding: 16px;
+    color: var(--afs-text-primary);
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    container-type: inline-size;
+    border: 2px solid rgba(0,0,0,0)
+}
+
+.part-card__main[data-v-14b7e512] {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: minmax(32px, auto) minmax(32px, auto) 1fr;
+    grid-template-areas: "preview texts" "preview stats" "footer footer"
+}
+
+.part-card__main>*[data-v-14b7e512]:empty {
+    display: none
+}
+
+.part-card__preview[data-v-14b7e512] {
+    display: none;
+    grid-area: preview;
+    margin-right: 8px
+}
+
+.part-card__texts[data-v-14b7e512] {
+    grid-area: texts;
+    display: grid;
+    grid-template-columns: auto max-content;
+    align-items: center
+}
+
+.part-card__texts-content[data-v-14b7e512] {
+    overflow: hidden
+}
+
+.part-card__stats[data-v-14b7e512] {
+    grid-area: stats;
+    position: relative;
+    display: flex;
+    align-items: center
+}
+
+.part-card__stats-content[data-v-14b7e512] {
+    display: flex;
+    align-items: center
+}
+
+.part-card__actions[data-v-14b7e512] {
+    padding-left: 8px;
+    margin: auto 0 auto auto;
+    display: flex;
+    align-items: center
+}
+
+.part-card__actions-button[data-v-14b7e512]:hover {
+    background: var(--afs-group_hover)
+}
+
+.part-card__score[data-v-14b7e512] {
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    margin-left: auto
+}
+
+.part-card__score[data-v-14b7e512] .circle-chart {
+    width: 32px;
+    height: 32px
+}
+
+.part-card__score-icon[data-v-14b7e512] {
+    width: 16px;
+    height: 16px
+}
+
+.part-card__footer[data-v-14b7e512] {
+    margin-top: 8px;
+    border-top: 1px solid var(--afs-border);
+    padding-top: 8px;
+    grid-area: footer
+}
+
+.part-card__name-link[data-v-14b7e512],.part-card__name-text[data-v-14b7e512],.part-card__description[data-v-14b7e512] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.part-card__name[data-v-14b7e512] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 16px
+}
+
+.part-card__lifecycle[data-v-14b7e512] {
+    position: absolute;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 4px;
+    height: 100%;
+    right: 0;
+    top: 0
+}
+
+.part-card__lifecycle_success[data-v-14b7e512] {
+    background: var(--afs-additional-green)
+}
+
+.part-card__lifecycle_error[data-v-14b7e512] {
+    background: var(--afs-additional-red)
+}
+
+.part-card__lifecycle_warning[data-v-14b7e512] {
+    background: var(--afs-additional-orange)
+}
+
+.part-card__lifecycle_unknown[data-v-14b7e512] {
+    background: var(--afs-additional-gray)
+}
+
+.part-card[data-v-6be13558] {
+    position: relative;
+    background-color: var(--global-background-base-tertiary);
+    border-radius: 4px;
+    padding: 12px 16px
+}
+
+.part-card__content[data-v-6be13558] {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.part-card__category[data-v-6be13558] {
+    color: var(--global-text-base-tertiary)
+}
+
+.part-card__name[data-v-6be13558] {
+    margin-bottom: -4px
+}
+
+.part-card__stickers[data-v-6be13558] {
+    display: flex;
+    gap: 8px
+}
+
+.part-card__status-bar[data-v-6be13558] {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 4px;
+    border-radius: 0 4px 4px 0
+}
+
+.part-card__status-bar.unknown[data-v-6be13558] {
+    background-color: var(--afs-additional-gray)
+}
+
+.part-card__status-bar.info[data-v-6be13558] {
+    background-color: var(--afs-primary-default)
+}
+
+.part-card__status-bar.error[data-v-6be13558] {
+    background-color: var(--afs-error)
+}
+
+.part-card__status-bar.warning[data-v-6be13558] {
+    background-color: var(--afs-warning)
+}
+
+.part-card__status-bar.success[data-v-6be13558] {
+    background-color: var(--afs-success)
+}

@@ -1,0 +1,22 @@
+
+.compare-change-details-members[data-v-6dbd66c8] {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--global-text-base-secondary)
+}
+
+.compare-change-details-members__member[data-v-6dbd66c8] {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center
+}
+
+.compare-change-details-members__member.added[data-v-6dbd66c8] {
+    color: var(--afs-data-green-text)
+}
+
+.compare-change-details-members__member.removed[data-v-6dbd66c8] {
+    color: var(--global-text-semantic-negative-primary)
+}

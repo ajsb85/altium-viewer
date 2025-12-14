@@ -1,0 +1,17 @@
+
+.mx-calendar-week-mode .mx-date-row {
+    cursor: pointer
+}
+
+.mx-calendar-week-mode .mx-date-row:hover {
+    background-color: #f3f9fe
+}
+
+.mx-calendar-week-mode .mx-date-row.mx-active-week {
+    background-color: #dbedfb
+}
+
+.mx-calendar-week-mode .mx-date-row .cell:hover,.mx-calendar-week-mode .mx-date-row .cell.active {
+    color: inherit;
+    background-color: rgba(0,0,0,0)
+}

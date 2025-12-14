@@ -1,0 +1,10 @@
+
+.app-mode-switcher {
+    padding: .25rem;
+    border-bottom: 1px solid var(--border-primary)
+}
+
+.app-mode-switcher .afs-tabs_sm .afs-tabs__item {
+    white-space: nowrap;
+    font-size: .65rem
+}

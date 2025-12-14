@@ -1,0 +1,171 @@
+
+.afs-project-card {
+    width: 100%;
+    transition: color .25s,background-color .25s
+}
+
+.afs-project-card:not(.is-loaded) .afs-project-card__img {
+    opacity: 0
+}
+
+.afs-project-card.is-failed .afs-project-card__img,.afs-project-card.is-failed .afs-project-card__loader {
+    display: none
+}
+
+.afs-project-card__inner {
+    padding: var(--spacing-200)
+}
+
+.afs-project-card__figure {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 164px;
+    user-select: none
+}
+
+.afs-project-card__figure:not(:last-child) {
+    margin-bottom: var(--spacing-200)
+}
+
+.afs-project-card__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+.afs-project-card__placeholder {
+    text-align: center
+}
+
+.afs-project-card__placeholder-icon {
+    font-size: var(--font-size-400);
+    transition: opacity .25s;
+    opacity: .18;
+    margin-bottom: var(--spacing-200)
+}
+
+.afs-project-card__placeholder-icon.icon-multiboard {
+    font-size: 43px
+}
+
+.afs-project-card__placeholder-text {
+    transition: opacity .25s;
+    opacity: .32;
+    max-width: 180px;
+    white-space: pre-line;
+    display: inline-block
+}
+
+.afs-project-card__processingicon {
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    opacity: .18;
+    transition: opacity .25s
+}
+
+.afs-project-card__meta {
+    transition: color .25s
+}
+
+.afs-project-card__img {
+    max-width: 100%;
+    max-height: 100%
+}
+
+.afs-project-card__header {
+    display: flex;
+    align-items: flex-start
+}
+
+.afs-project-card__header:not(:last-child) {
+    margin-bottom: 2px
+}
+
+.afs-project-card__header-in {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 1 auto;
+    min-width: 0;
+    cursor: pointer
+}
+
+.afs-project-card__icon,.afs-project-card__btn {
+    flex: 0 0 auto
+}
+
+.afs-project-card__icon {
+    order: 1;
+    margin-right: 8px;
+    font-size: 16px;
+    width: 16px
+}
+
+.afs-project-card__btn {
+    order: 3;
+    margin: -8px -8px -8px 0
+}
+
+.afs-project-card__title {
+    order: 2;
+    flex: 1 1 auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    min-width: 0;
+    word-break: break-word
+}
+
+.afs-project-card__context-menu {
+    min-width: 120px
+}
+
+.afs-project-card.afs-project-card {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-project-card.afs-project-card:not(.is-active):hover,.afs-project-card.afs-project-card:not(.is-active).is-hovered {
+    background-color: var(--afs-secondary-hover)
+}
+
+.afs-project-card.afs-project-card:not(.is-active):hover .afs-project-card__processingicon,.afs-project-card.afs-project-card:not(.is-active):hover .afs-project-card__placeholder-icon,.afs-project-card.afs-project-card:not(.is-active).is-hovered .afs-project-card__processingicon,.afs-project-card.afs-project-card:not(.is-active).is-hovered .afs-project-card__placeholder-icon {
+    opacity: .32
+}
+
+.afs-project-card.afs-project-card:not(.is-active):hover .afs-project-card__placeholder-text,.afs-project-card.afs-project-card:not(.is-active).is-hovered .afs-project-card__placeholder-text {
+    opacity: .64
+}
+
+.afs-project-card.afs-project-card.is-active {
+    color: var(--afs-text-icon-primary);
+    background-color: var(--afs-selected-item-background);
+    box-shadow: inset 0 0 0 2px var(--global-border-accent-primary)
+}
+
+.afs-project-card.afs-project-card.is-active .afs-project-card__meta {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-project-card.afs-project-card.is-active .afs-project-card__processingicon,.afs-project-card.afs-project-card.is-active .afs-project-card__placeholder-icon {
+    opacity: .45
+}
+
+.afs-project-card.afs-project-card.is-active .afs-project-card__placeholder-text {
+    opacity: .96
+}
+
+.afs-project-card.afs-project-card .afs-project-card__meta {
+    color: var(--afs-text-icon-hint)
+}
+
+.afs-project-card.afs-project-card .afs-project-card__placeholder-icon,.afs-project-card.afs-project-card .afs-project-card__placeholder-text {
+    color: var(--afs-text-icon-primary)
+}

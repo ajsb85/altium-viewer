@@ -1,0 +1,10 @@
+
+.revision-select[data-v-e9100945] {
+    display: flex;
+    align-items: center;
+    justify-content: start
+}
+
+.revision-select[data-v-e9100945]:not(.disabled) {
+    cursor: pointer
+}

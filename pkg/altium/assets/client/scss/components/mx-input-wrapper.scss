@@ -1,0 +1,16 @@
+
+.mx-input-wrapper {
+    position: relative
+}
+
+.mx-input-wrapper .mx-icon-clear {
+    display: none
+}
+
+.mx-input-wrapper:hover .mx-icon-clear {
+    display: block
+}
+
+.mx-input-wrapper:hover .mx-icon-clear+.mx-icon-calendar {
+    display: none
+}

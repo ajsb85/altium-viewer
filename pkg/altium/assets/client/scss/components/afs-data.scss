@@ -1,0 +1,200 @@
+
+.afs-data-table .text-center {
+    text-align: center
+}
+
+.afs-data-table .text-capitalize {
+    text-transform: capitalize
+}
+
+.afs-data-table__sort {
+    display: inline-block;
+    position: relative;
+    width: 6px;
+    height: 6px;
+    margin-left: 4px
+}
+
+.afs-data-table__sort:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 3px 0 3px;
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
+    border-top-color: var(--afs-additional-white);
+    left: 0
+}
+
+.afs-data-table__sort.asc:after {
+    transform: rotate(180deg)
+}
+
+.afs-data-table__context-menu {
+    overflow: auto
+}
+
+.afs-data-table__menu_column {
+    width: 32px;
+    text-align: center
+}
+
+.afs-data-table__menu_trigger {
+    height: 2em;
+    width: 1.3em;
+    cursor: pointer;
+    opacity: 0;
+    top: 2px;
+    position: relative;
+    transition: opacity .25s
+}
+
+.afs-data-table__resize_grip {
+    width: 3px;
+    height: 16px;
+    cursor: col-resize;
+    position: absolute;
+    top: 7px;
+    bottom: 7px;
+    right: -2px;
+    z-index: 1
+}
+
+.afs-data-table__column_filter {
+    position: absolute;
+    right: 4px;
+    top: 7px;
+    border: 1px solid var(--afs-inverted);
+    width: 1.2em;
+    height: 1.2em;
+    padding: 2px;
+    opacity: 0;
+    transition: opacity .25s
+}
+
+.afs-data-table__column_filter.is-active,.afs-data-table__th:hover .afs-data-table__column_filter {
+    opacity: 1
+}
+
+.afs-data-table__container {
+    border: 1px solid;
+    border-radius: 4px;
+    transition: border-color .25s
+}
+
+.afs-data-table__container:not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none
+}
+
+.afs-data-table__thead .afs-data-table__menu_trigger,.afs-data-table__tr:hover .afs-data-table__menu_trigger {
+    opacity: 1
+}
+
+.afs-data-table__thead {
+    border-bottom: 1px solid;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    position: relative
+}
+
+.afs-data-table__thead,.afs-data-table__tr {
+    display: flex;
+    transition: border-color .25s,color .25s,background-color .25s
+}
+
+.afs-data-table__th {
+    position: relative;
+    padding: 9px 16px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    user-select: none
+}
+
+.afs-data-table__th:not(:first-child):before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 0;
+    bottom: 7px;
+    border-left: 1px solid;
+    transition: border-color .25s
+}
+
+.afs-data-table__td {
+    padding: 8px 16px
+}
+
+.afs-data-table__td-icon {
+    float: left;
+    font-size: 14px;
+    margin-right: 4px
+}
+
+.afs-data-table__th,.afs-data-table__td {
+    flex: none
+}
+
+.afs-data-table__th_full,.afs-data-table__td_full {
+    flex: 1
+}
+
+.afs-data-table.is-selectable .afs-data-table__td {
+    cursor: pointer
+}
+
+.afs-data-table .afs-data-table__thead,.afs-data-table .afs-data-table__container,.afs-data-table .afs-data-table__th:before {
+    border-color: var(--afs-border)
+}
+
+.afs-data-table .afs-data-table__thead {
+    color: var(--afs-text-icon-primary);
+    background: var(--afs-table-header);
+    box-shadow: var(--afs-white-inner-shadow-small)
+}
+
+.afs-data-table .afs-data-table__tbody {
+    color: var(--afs-text-icon-secondary);
+    background: var(--afs-table-background)
+}
+
+.afs-data-table .afs-data-table__resize_grip:hover {
+    background: var(--afs-inverted)
+}
+
+.afs-data-table .afs-data-table__tr.is-selected {
+    background: var(--afs-primary-selected);
+    color: var(--afs-text-icon-over-background)
+}
+
+.afs-data-table .afs-data-table__td.color-unspecified {
+    color: var(--afs-secondary-default)
+}
+
+.afs-data-table .afs-data-table__td.color-valid {
+    color: var(--afs-additional-green)
+}
+
+.afs-data-table .afs-data-table__td.color-warning-1 {
+    color: var(--afs-additional-yellow)
+}
+
+.afs-data-table .afs-data-table__td.color-warning-2 {
+    color: var(--afs-additional-orange)
+}
+
+.afs-data-table .afs-data-table__td.color-error {
+    color: var(--afs-error)
+}
+
+.afs-data-table .afs-data-table__column_filter.is-active {
+    color: var(--afs-text-icon-link);
+    border-color: var(--afs-focus)
+}
+
+.afs-data-table .is-highlighted {
+    background: var(--afs-text-icon-link);
+    color: var(--afs-text-icon-primary)
+}

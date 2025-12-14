@@ -1,0 +1,9 @@
+
+.afs-snackbar_success .afs-snackbar {
+    --close-icon-color: initial
+}
+
+.afs-snackbar_success .afs-snackbar__container {
+    background: var(--afs-success);
+    color: var(--afs-text-on-accent)
+}

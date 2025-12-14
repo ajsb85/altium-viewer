@@ -1,0 +1,91 @@
+
+.compare-changes-item-header[data-v-0059b132] {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 4px 0 4px 16px;
+    gap: 8px;
+    color: var(--afs-text-secondary);
+    font-size: 12px;
+    line-height: 16px;
+    cursor: pointer
+}
+
+.compare-changes-item-header__actions[data-v-0059b132] {
+    position: absolute;
+    right: 16px;
+    cursor: pointer
+}
+
+.compare-changes-item-header__icon-wrapper[data-v-0059b132] {
+    display: inline
+}
+
+.compare-changes-item-header.is-word-wrap .compare-changes-item-header__icon-wrapper[data-v-0059b132] {
+    display: flex
+}
+
+.compare-changes-item-header__title[data-v-0059b132] {
+    display: inline;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%
+}
+
+.compare-changes-item-header.is-word-wrap .compare-changes-item-header__title-inner[data-v-0059b132] {
+    display: inline
+}
+
+.compare-changes-item-header.is-word-wrap .compare-changes-item-header__title[data-v-0059b132] {
+    display: flex;
+    white-space: break-spaces;
+    word-break: break-all
+}
+
+.compare-changes-item-header__option[data-v-0059b132] {
+    word-break: break-word
+}
+
+.compare-changes-item-header__option.current[data-v-0059b132] {
+    color: var(--afs-text-secondary)
+}
+
+.compare-changes-item-header__expand[data-v-0059b132] {
+    display: flex;
+    padding: 4px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.compare-changes-item-header__expand.expand-placeholder[data-v-0059b132] {
+    cursor: default;
+    min-width: 16px
+}
+
+.compare-changes-item-header .icon[data-v-0059b132] {
+    width: 16px;
+    height: 16px
+}
+
+.compare-changes-item-header .icon.modification-kind-icon[data-v-0059b132] {
+    min-width: 16px
+}
+
+.compare-changes-item-header .icon.added[data-v-0059b132] {
+    color: var(--global-text-semantic-positive-primary)
+}
+
+.compare-changes-item-header .icon.updated[data-v-0059b132] {
+    color: var(--global-text-semantic-caution-primary)
+}
+
+.compare-changes-item-header .icon.removed[data-v-0059b132] {
+    color: var(--global-text-semantic-negative-primary)
+}
+
+.compare-changes-item-header .icon.icon-expand[data-v-0059b132] {
+    width: 8px;
+    height: 8px
+}

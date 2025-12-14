@@ -1,0 +1,97 @@
+
+.loader-container[data-v-9755f4a5] {
+    display: flex
+}
+
+.loader-container.fill[data-v-9755f4a5] {
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    height: 100%
+}
+
+.loader-container__wrapper[data-v-9755f4a5] {
+    display: flex;
+    row-gap: 8px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.loader-container__wrapper.fill-background[data-v-9755f4a5] {
+    width: 240px;
+    padding: 32px;
+    background-color: var(--afs-popup);
+    border-radius: 4px;
+    border: 1px solid var(--afs-primary-border);
+    box-shadow: var(--afs-black-drop-shadow-large)
+}
+
+.loader-container__loader-image-main[data-v-9755f4a5] {
+    fill: var(--afs-page-loader-main)
+}
+
+.loader-container__loader-image-part[data-v-9755f4a5] {
+    fill: var(--afs-page-loader-part)
+}
+
+.loader-container__loader[data-v-9755f4a5] {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    overflow: hidden
+}
+
+.loader-container__loader svg[data-v-9755f4a5] {
+    animation: rotate-9755f4a5 1s linear infinite
+}
+
+.loader-container__description-group[data-v-9755f4a5] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4px
+}
+
+.loader-container__description-group__title[data-v-9755f4a5] {
+    display: flex;
+    color: var(--afs-text-primary)
+}
+
+.loader-container__description-group__description[data-v-9755f4a5] {
+    display: flex;
+    color: var(--afs-page-loader-subtext)
+}
+
+.loader-container[data-v-d5a00893] {
+    display: flex;
+    gap: 8px
+}
+
+.loader-container__loader-image-main[data-v-d5a00893] {
+    fill: var(--afs-page-loader-main)
+}
+
+.loader-container__loader-image-part[data-v-d5a00893] {
+    fill: var(--afs-page-loader-part)
+}
+
+.loader-container__loader[data-v-d5a00893] {
+    display: flex;
+    width: 16px;
+    height: 16px;
+    overflow: hidden
+}
+
+.loader-container__loader svg[data-v-d5a00893] {
+    animation: rotate-d5a00893 1s linear infinite
+}
+
+.loader-container__text[data-v-d5a00893] {
+    display: flex;
+    color: var(--global-text-base-secondary);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px
+}

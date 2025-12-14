@@ -1,0 +1,39 @@
+
+.part-number {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    justify-content: space-between
+}
+
+.part-number__link,.part-number__text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.part-number__marker {
+    margin-left: 4px;
+    white-space: nowrap;
+    display: inline-block;
+    width: 4px;
+    height: 100%
+}
+
+.part-number__marker.success {
+    background: var(--afs-text-positive)
+}
+
+.part-number__marker.unknown {
+    background: var(--afs-text-icon-hint)
+}
+
+.part-number__marker.warning {
+    background: var(--afs-text-warning)
+}
+
+.part-number__marker.error {
+    background: var(--afs-text-negative)
+}

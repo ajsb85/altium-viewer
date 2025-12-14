@@ -1,0 +1,75 @@
+
+.afs-link,.afs-link:hover {
+    text-decoration: none
+}
+
+.afs-link {
+    background: none;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    transition: color .25s,border-bottom .25s
+}
+
+.afs-link.is-primary {
+    color: var(--afs-text-icon-link)
+}
+
+.afs-link.is-primary:hover {
+    color: var(--afs-text-icon-link-hover)
+}
+
+.afs-link.is-accent {
+    color: var(--afs-text-icon-link-accent);
+    padding-top: 1px;
+    border-bottom: 1px solid var(--afs-text-icon-link-accent-border)
+}
+
+.afs-link.is-accent:hover {
+    color: var(--afs-text-icon-link-accent);
+    border-bottom: 1px solid var(--afs-text-icon-link-accent)
+}
+
+.afs-link.is-secondary {
+    color: var(--afs-text-icon-link-secondary)
+}
+
+.afs-link.is-secondary:hover {
+    color: var(--afs-text-icon-link-accent)
+}
+
+.afs-link.is-regular-text {
+    color: var(--afs-text-secondary)
+}
+
+.afs-link.is-regular-text:hover {
+    color: var(--afs-text-icon-link-hover)
+}
+
+.afs-link.has-icon {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 8px
+}
+
+.afs-link:focus,.afs-link.is-focused {
+    outline-offset: 2px;
+    outline: none;
+    border-radius: 1px
+}
+
+.afs-link:focus-within,.afs-link.is-focus-withined {
+    outline-offset: 2px;
+    outline: none;
+    border-radius: 1px
+}
+
+.afs-link:not(:disabled):not([disabled]):not(.is-disabled) {
+    cursor: pointer
+}
+
+.afs-link:disabled,.afs-link[disabled],.afs-link.is-disabled {
+    opacity: .48;
+    pointer-events: none
+}

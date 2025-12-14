@@ -1,0 +1,51 @@
+
+.component-details-connectivity-row[data-v-5374e571] {
+    margin-top: 8px;
+    width: 100%;
+    display: flex
+}
+
+.component-details-connectivity-row__link[data-v-5374e571] {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    width: 100%;
+    color: var(--afs-text-icon-secondary)
+}
+
+.component-details-connectivity-row__link[data-v-5374e571]:hover {
+    color: var(--afs-text-icon-primary)
+}
+
+.component-details-connectivity-row__link.is-active[data-v-5374e571] {
+    pointer-events: none
+}
+
+.component-details-connectivity-row__icon[data-v-5374e571] {
+    font-size: 16px;
+    flex-shrink: 0
+}
+
+.component-details-connectivity-row__checkmark[data-v-5374e571] {
+    font-size: 12px;
+    flex-shrink: 0;
+    opacity: 0
+}
+
+.component-details-connectivity-row__checkmark.is-show[data-v-5374e571] {
+    opacity: 1
+}
+
+.component-details-connectivity-row__text[data-v-5374e571] {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1
+}
+
+.component-details-connectivity-row__text.is-active[data-v-5374e571] {
+    color: var(--afs-text-icon-primary);
+    pointer-events: all;
+    cursor: default;
+    font-weight: 500
+}

@@ -1,0 +1,19 @@
+
+.activate-paid-parameters-button[data-v-03e7e460] {
+    color: inherit;
+    border-color: var(--afs-bg-scrollbar);
+    background: none;
+    outline: none
+}
+
+.activate-paid-parameters-button.loading[data-v-03e7e460] {
+    opacity: .5
+}
+
+.activate-paid-parameters-button[data-v-03e7e460]:hover {
+    background: none
+}
+
+.activate-paid-parameters-button[data-v-03e7e460]:focus {
+    outline: none
+}

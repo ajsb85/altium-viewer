@@ -1,0 +1,61 @@
+
+.library-health-chart .health-legend .health-legend-item[data-v-767e2db2] {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.library-health-chart .health-bar-container[data-v-767e2db2] {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+    background: var(--afs-group)
+}
+
+.library-health-chart .health-bar-container .health-bar[data-v-767e2db2] {
+    height: 100%;
+    flex: 1 1 auto;
+    transition: opacity .3s
+}
+
+.library-health-chart .health-bar-container .health-bar[data-v-767e2db2]:not(:last-child) {
+    margin-right: 1px
+}
+
+.library-health-chart .health-bar-container .health-bar.dimmed[data-v-767e2db2] {
+    opacity: var(--1ad7b1d5);
+    transition: opacity .3s
+}
+
+.library-health-chart .health-legend[data-v-767e2db2] {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 16px;
+    color: var(--afs-text-secondary)
+}
+
+.library-health-chart .health-legend .health-legend-item[data-v-767e2db2] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--afs-text-primary)
+}
+
+.library-health-chart .health-legend .health-legend-item__bullet[data-v-767e2db2] {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%
+}
+
+.library-health-chart .health-legend .health-legend-item__value[data-v-767e2db2] {
+    color: var(--afs-text-secondary)
+}
+
+.library-health-chart.is-clickable .health-bar[data-v-767e2db2],.library-health-chart.is-clickable .health-legend-item[data-v-767e2db2] {
+    cursor: pointer
+}

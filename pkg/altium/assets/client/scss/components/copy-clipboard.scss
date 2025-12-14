@@ -1,0 +1,23 @@
+
+.copy-clipboard[data-v-d443d7ab] {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.copy-clipboard__button-container[data-v-d443d7ab] {
+    display: flex;
+    align-items: center;
+    min-width: 16px;
+    height: 16px
+}
+
+.copy-clipboard__button[data-v-d443d7ab] {
+    display: none;
+    color: var(--afs-text-icon-primary)
+}
+
+.copy-clipboard:hover .copy-clipboard__button[data-v-d443d7ab] {
+    display: inline-block;
+    color: var(--afs-text-icon-primary)
+}

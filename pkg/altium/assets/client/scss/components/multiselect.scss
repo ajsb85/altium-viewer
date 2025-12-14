@@ -1,0 +1,33 @@
+
+.multiselect[data-v-04466232] {
+    display: block;
+    color: var(--afs-text-primary);
+    background-color: var(--afs-background);
+    overflow-y: auto;
+    border-radius: 4px;
+    padding: 8px 0
+}
+
+.multiselect[data-v-04466232]:disabled,.multiselect[disabled][data-v-04466232],.multiselect.is-disabled[data-v-04466232] {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none
+}
+
+.multiselect__item[data-v-04466232] {
+    list-style: none;
+    padding: 4px 16px;
+    line-height: 16px;
+    cursor: pointer
+}
+
+.multiselect__item_selected[data-v-04466232] {
+    display: flex;
+    align-items: center;
+    background-color: var(--afs-primary-selected)
+}
+
+.multiselect__item_disabled[data-v-04466232] {
+    color: var(--afs-text-secondary);
+    cursor: default
+}

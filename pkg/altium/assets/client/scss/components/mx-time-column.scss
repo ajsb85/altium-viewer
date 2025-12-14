@@ -1,0 +1,47 @@
+
+.mx-time-column {
+    flex: 1;
+    position: relative;
+    border-left: 1px solid #e8e8e8;
+    text-align: center
+}
+
+.mx-time-column:first-child {
+    border-left: 0
+}
+
+.mx-time-column .mx-time-list {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.mx-time-column .mx-time-list:after {
+    content: "";
+    display: block;
+    height: 192px
+}
+
+.mx-time-column .mx-time-item {
+    cursor: pointer;
+    font-size: 12px;
+    height: 32px;
+    line-height: 32px
+}
+
+.mx-time-column .mx-time-item:hover {
+    color: #73879c;
+    background-color: #f3f9fe
+}
+
+.mx-time-column .mx-time-item.active {
+    color: #1284e7;
+    background-color: rgba(0,0,0,0);
+    font-weight: 700
+}
+
+.mx-time-column .mx-time-item.disabled {
+    cursor: not-allowed;
+    color: #ccc;
+    background-color: #f3f3f3
+}

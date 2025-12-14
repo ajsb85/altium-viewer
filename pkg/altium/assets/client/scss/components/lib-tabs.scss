@@ -1,0 +1,10 @@
+
+.lib-tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.lib-tabs__item:not(:first-child) {
+    margin-left: .25rem
+}

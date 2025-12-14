@@ -1,0 +1,29 @@
+
+.afs-preview {
+    position: relative;
+    flex: 1 1 auto;
+    padding-bottom: 100%;
+    border-radius: 4px;
+    width: 100%;
+    transition: background-color .25s;
+    background: var(--afs-panel)
+}
+
+.afs-preview__figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 16px
+}
+
+.afs-preview__img {
+    flex: 0 0 auto;
+    max-width: 100%;
+    max-height: 100%
+}

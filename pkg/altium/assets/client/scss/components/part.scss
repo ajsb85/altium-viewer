@@ -1,0 +1,97 @@
+
+.part__original-label[data-v-0108ddb3],.part__manufacturer-row[data-v-0108ddb3] {
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 400
+}
+
+.part[data-v-0108ddb3] {
+    position: relative;
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto min-content 16px;
+    grid-template-rows: 16px 16px;
+    align-items: stretch;
+    justify-content: stretch
+}
+
+.part__part-number-row[data-v-0108ddb3] {
+    grid-column: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center
+}
+
+.part__part-number-row>span[data-v-0108ddb3]:first-child {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.part__part-number-row-text[data-v-0108ddb3] {
+    margin-right: 4px
+}
+
+.part__part-number-row-icon[data-v-0108ddb3] {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 2px
+}
+
+.part__manufacturer-row[data-v-0108ddb3] {
+    grid-column: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--afs-text-secondary)
+}
+
+.part__original-label[data-v-0108ddb3] {
+    align-self: start;
+    line-height: 12px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: var(--afs-text-secondary);
+    border: 1px solid var(--afs-text-secondary)
+}
+
+.part__use-button-container[data-v-0108ddb3] {
+    grid-column: 2;
+    grid-row: 1/span 2;
+    text-align: center;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.part__use-button[data-v-0108ddb3] {
+    height: 24px;
+    min-width: 0;
+    padding: 0 8px;
+    border-width: 1px;
+    border-style: solid
+}
+
+.part__use-button[data-v-0108ddb3] .afs-btn__text {
+    color: var(--afs-text-icon-primary)
+}
+
+.part__lifecycle-indicator-container[data-v-0108ddb3] {
+    grid-column: 3;
+    grid-row: 1/span 2;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.part__lifecycle-indicator[data-v-0108ddb3] {
+    width: 2px;
+    height: 100%
+}
+
+.part.part_is-error .part__part-number-row[data-v-0108ddb3],.part.part_is-error .part__manufacturer-row[data-v-0108ddb3] {
+    color: var(--afs-additional-red)
+}

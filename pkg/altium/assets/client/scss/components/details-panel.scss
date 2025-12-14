@@ -1,0 +1,21 @@
+
+.details-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%
+}
+
+.details-panel__header {
+    height: 36px
+}
+
+.details-panel__controls {
+    display: flex;
+    flex: 0 0 auto
+}
+
+.details-panel__content {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto
+}

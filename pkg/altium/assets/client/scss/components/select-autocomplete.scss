@@ -1,0 +1,205 @@
+
+.select-autocomplete__control {
+    box-sizing: border-box
+}
+
+.select-autocomplete__control {
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: inherit;
+    -webkit-appearance: none
+}
+
+.select-autocomplete {
+    position: relative;
+    width: 100%;
+    transition: opacity .25s
+}
+
+.select-autocomplete:disabled,.select-autocomplete[disabled],.select-autocomplete.is-disabled {
+    opacity: .48;
+    pointer-events: none
+}
+
+.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):focus::placeholder,.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-focused::placeholder {
+    opacity: .48
+}
+
+.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):focus-within::placeholder,.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined::placeholder {
+    opacity: .48
+}
+
+.select-autocomplete.select-autocomplete_radius-tl .select-autocomplete__container {
+    border-top-left-radius: 4px
+}
+
+.select-autocomplete.select-autocomplete_radius-tr .select-autocomplete__container {
+    border-top-right-radius: 4px
+}
+
+.select-autocomplete.select-autocomplete_radius-bl .select-autocomplete__container {
+    border-bottom-left-radius: 4px
+}
+
+.select-autocomplete.select-autocomplete_radius-br .select-autocomplete__container {
+    border-bottom-right-radius: 4px
+}
+
+.select-autocomplete.is-combo-box .select-autocomplete__container {
+    border-width: 1px;
+    border-style: solid
+}
+
+.select-autocomplete.is-combo-box .select-autocomplete__container_has-arrow {
+    padding-right: 32px
+}
+
+.select-autocomplete.is-combo-box .select-autocomplete__field_has-arrow {
+    margin-right: 32px
+}
+
+.select-autocomplete__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 0 1px;
+    border: none;
+    box-shadow: none;
+    transition: border-color .25s,color .25s,background-color .25s,box-shadow .25s
+}
+
+.select-autocomplete__container_has-arrow {
+    padding-right: 26px
+}
+
+.select-autocomplete__field {
+    flex: 1 1 auto;
+    min-width: 100px;
+    display: flex;
+    align-items: center
+}
+
+.select-autocomplete__field_has-arrow {
+    margin-right: 24px
+}
+
+.select-autocomplete__control {
+    padding: 0 13px;
+    width: 100%;
+    height: 30px;
+    background: none;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    transition: color .25s
+}
+
+.select-autocomplete__control::placeholder {
+    opacity: 1;
+    transition: opacity .25s
+}
+
+.select-autocomplete__trigger {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 31px;
+    height: 30px;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--afs-field);
+    color: var(--afs-text-icon-secondary);
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid var(--afs-border)
+}
+
+.select-autocomplete__arrow {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 7px;
+    right: 10px
+}
+
+.select-autocomplete__arrow:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 3px 0 3px 4px;
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0);
+    border-left-color: var(--afs-text-icon-primary);
+    right: 6px;
+    top: 5px;
+    transform: rotate(90deg)
+}
+
+.select-autocomplete .select-autocomplete__container {
+    border-color: var(--afs-secondary-border);
+    background: var(--afs-table-background)
+}
+
+.select-autocomplete:disabled.is-warning .select-autocomplete__container,.select-autocomplete[disabled].is-warning .select-autocomplete__container,.select-autocomplete.is-disabled.is-warning .select-autocomplete__container {
+    border-color: var(--afs-warning)
+}
+
+.select-autocomplete:disabled.is-error .select-autocomplete__container,.select-autocomplete[disabled].is-error .select-autocomplete__container,.select-autocomplete.is-disabled.is-error .select-autocomplete__container {
+    border-color: var(--afs-error)
+}
+
+.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-warning .select-autocomplete__container {
+    border-color: var(--afs-warning)
+}
+
+.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-error .select-autocomplete__container {
+    border-color: var(--afs-error)
+}
+
+.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):focus .select-autocomplete__container,.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-focused .select-autocomplete__container {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):focus-within .select-autocomplete__container,.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined .select-autocomplete__container {
+    border-color: var(--afs-focus);
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled):hover .select-autocomplete__container,.select-autocomplete:not(:disabled):not([disabled]):not(.is-disabled).is-hovered .select-autocomplete__container {
+    box-shadow: var(--afs-black-inner-shadow-lg)
+}
+
+.select-autocomplete .select-autocomplete__control {
+    color: var(--afs-text-icon-primary)
+}
+
+.select-autocomplete .select-autocomplete__control::placeholder {
+    color: var(--afs-text-icon-hint)
+}
+
+.select-autocomplete.is-combo-box .select-autocomplete__container {
+    background: var(--afs-field)
+}
+
+.select-autocomplete.is-transparent:focus .select-autocomplete__container,.select-autocomplete.is-transparent.is-focused .select-autocomplete__container {
+    box-shadow: none !important
+}
+
+.select-autocomplete.is-transparent:focus-within .select-autocomplete__container,.select-autocomplete.is-transparent.is-focus-withined .select-autocomplete__container {
+    box-shadow: none !important
+}
+
+.select-autocomplete.is-transparent .select-autocomplete__container,.select-autocomplete.is-transparent .select-autocomplete__trigger {
+    background: rgba(0,0,0,0);
+    border: 0 none
+}

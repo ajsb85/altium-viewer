@@ -1,0 +1,23 @@
+
+.afs-filters-panel {
+    background-color: var(--afs-bar-general);
+    border-radius: 4px;
+    padding: 8px;
+    color: var(--afs-text-icon-secondary);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.afs-filters-panel__tag {
+    border-radius: 2px;
+    border: none
+}
+
+.afs-filters-panel__tag-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 250px
+}

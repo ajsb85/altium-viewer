@@ -1,0 +1,43 @@
+
+.row-link-title[data-v-7715012a] {
+    display: flex;
+    line-height: 16px;
+    align-items: center;
+    overflow: hidden
+}
+
+.row-link-title__icon[data-v-7715012a] {
+    flex: 0 0 auto;
+    margin-right: 8px;
+    height: 16px;
+    max-width: 16px;
+    font-size: 16px;
+    color: var(--afs-text-icon-secondary)
+}
+
+.row-link-title__icon.default[data-v-7715012a] {
+    color: var(--afs-text-icon-secondary)
+}
+
+.row-link-title__icon.error[data-v-7715012a] {
+    color: var(--afs-additional-red)
+}
+
+.row-link-title__icon.warning[data-v-7715012a] {
+    color: var(--afs-additional-orange)
+}
+
+.row-link-title__icon.success[data-v-7715012a] {
+    color: var(--afs-additional-green)
+}
+
+.row-link-title__text[data-v-7715012a] {
+    flex: 1 1 auto
+}
+
+.row-link-title__arrow[data-v-7715012a] {
+    flex: 0 0 auto;
+    margin-left: 8px;
+    display: flex;
+    align-items: center
+}

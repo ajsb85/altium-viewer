@@ -1,0 +1,63 @@
+
+.create-task-from-requirement-form {
+    width: 100%;
+    height: 200px;
+    background: var(--afs-background);
+    border-radius: 4px
+}
+
+.create-task-from-requirement-form__search-input {
+    margin-bottom: 8px;
+    position: relative;
+    overflow: hidden
+}
+
+.create-task-from-requirement-form__search-input_loader {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.create-task-from-requirement-form__summary {
+    margin-bottom: 16px
+}
+
+.create-task-from-requirement-form__buttons-block {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 8px;
+    margin-top: 8px
+}
+
+.create-task-from-requirement-form__loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px
+}
+
+.create-task-from-requirement-form__selected-user {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    max-width: calc(100% - 12px);
+    height: 24px;
+    max-height: 24px;
+    left: 8px;
+    top: 50%;
+    padding: 0 4px;
+    transform: translateY(-50%);
+    background-color: var(--afs-secondary-default);
+    color: #fff;
+    border-radius: 2px;
+    column-gap: 4px;
+    z-index: 1
+}
+
+.create-task-from-requirement-form__selected-user_name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden
+}

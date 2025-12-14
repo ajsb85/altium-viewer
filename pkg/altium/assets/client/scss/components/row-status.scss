@@ -1,0 +1,22 @@
+
+.row-status[data-v-67fb498b] {
+    height: 16px;
+    width: 4px;
+    background-color: var(--afs-additional-gray)
+}
+
+.row-status.unknown[data-v-67fb498b],.row-status.default[data-v-67fb498b] {
+    background-color: var(--afs-additional-gray)
+}
+
+.row-status.error[data-v-67fb498b] {
+    background-color: var(--afs-additional-red)
+}
+
+.row-status.warning[data-v-67fb498b] {
+    background-color: var(--afs-additional-orange)
+}
+
+.row-status.success[data-v-67fb498b] {
+    background-color: var(--afs-additional-green)
+}

@@ -1,0 +1,5 @@
+
+.lib-accordion_enter-active,.lib-accordion_leave-active {
+    transition: height var(--transition-duration-default) ease-in-out;
+    overflow: hidden
+}

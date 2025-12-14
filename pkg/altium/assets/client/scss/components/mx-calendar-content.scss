@@ -1,0 +1,31 @@
+
+.mx-calendar-content {
+    position: relative;
+    height: 224px;
+    box-sizing: border-box
+}
+
+.mx-calendar-content .cell {
+    cursor: pointer
+}
+
+.mx-calendar-content .cell:hover {
+    color: #73879c;
+    background-color: #f3f9fe
+}
+
+.mx-calendar-content .cell.active {
+    color: #fff;
+    background-color: #1284e7
+}
+
+.mx-calendar-content .cell.in-range,.mx-calendar-content .cell.hover-in-range {
+    color: #73879c;
+    background-color: #dbedfb
+}
+
+.mx-calendar-content .cell.disabled {
+    cursor: not-allowed;
+    color: #ccc;
+    background-color: #f3f3f3
+}

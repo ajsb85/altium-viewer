@@ -1,0 +1,91 @@
+
+.afs-workspace-card {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    min-height: 24px;
+    max-width: 100%;
+    text-decoration: none;
+    transition: background-color .25s
+}
+
+.afs-workspace-card.is-clickable {
+    cursor: pointer
+}
+
+.afs-workspace-card.is-items-start {
+    justify-content: flex-start
+}
+
+.afs-workspace-card.is-items-start .afs-workspace-card__content {
+    flex: initial
+}
+
+.afs-workspace-card__icon {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    margin-right: 8px;
+    font-size: 16px;
+    transition: color .25s
+}
+
+.afs-workspace-card__content {
+    flex: 1 1 auto;
+    min-width: 0
+}
+
+.afs-workspace-card__title {
+    font-weight: 400
+}
+
+.afs-workspace-card__title:not(:last-child) {
+    margin-bottom: 4px
+}
+
+.afs-workspace-card__title,.afs-workspace-card__description {
+    transition: color .25s
+}
+
+.afs-workspace-card__badge {
+    margin-left: 4px
+}
+
+.afs-workspace-card .afs-workspace-card__title,.afs-workspace-card .afs-workspace-card__description {
+    display: block
+}
+
+.afs-workspace-card.is-active {
+    background-color: var(--afs-primary-default)
+}
+
+.afs-workspace-card.is-active .afs-workspace-card__title {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-workspace-card.is-active .afs-workspace-card__description {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-workspace-card.is-clickable:hover,.afs-workspace-card.is-clickable.is-hovered {
+    background: var(--afs-secondary-selected)
+}
+
+.afs-workspace-card.is-clickable:hover .afs-workspace-card__title,.afs-workspace-card.is-clickable.is-hovered .afs-workspace-card__title,.afs-workspace-card.is-clickable:hover .afs-workspace-card__description,.afs-workspace-card.is-clickable.is-hovered .afs-workspace-card__description {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-workspace-card .afs-workspace-card {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-workspace-card .afs-workspace-card__icon {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-workspace-card .afs-workspace-card__title {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-workspace-card .afs-workspace-card__description {
+    color: var(--afs-text-icon-hint)
+}

@@ -1,0 +1,36 @@
+
+.lib-tab {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    overflow: hidden;
+    padding: .32rem .5rem;
+    border-radius: .5rem;
+    font-family: inherit;
+    color: var(--color-button-primary);
+    border: 1px solid var(--border-color-tab-secondary);
+    background: var(--background-tab-secondary);
+    transition: background-color var(--transition-duration-default)
+}
+
+.lib-tab__text {
+    display: block;
+    font-size: .75rem;
+    line-height: .75rem
+}
+
+.lib-tab:not(:disabled):not([disabled]):not(.is-disabled):focus {
+    box-shadow: 0 0 6px 0 var(--afs-additional-black)
+}
+
+.lib-tab:disabled,.lib-tab[disabled],.lib-tab.is-disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none
+}
+
+.lib-tab.is-active {
+    background: var(--background-tab-secondary_selected)
+}

@@ -1,0 +1,22 @@
+
+.form__section[data-v-0f40e223] {
+    display: flex;
+    padding: .5rem 1rem
+}
+
+.form__section[data-v-0f40e223]:not(:last-child) {
+    border-bottom: 1px solid var(--border-primary)
+}
+
+.form__input[data-v-0f40e223] {
+    flex: 1 1 auto
+}
+
+.form__btn[data-v-0f40e223] {
+    flex: 0 0 auto;
+    margin-left: .25rem
+}
+
+.form__icon-search[data-v-0f40e223] {
+    color: var(--afs-text-on-accent)
+}

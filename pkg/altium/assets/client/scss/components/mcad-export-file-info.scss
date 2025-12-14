@@ -1,0 +1,22 @@
+
+.mcad-export-file-info {
+    margin: 1rem
+}
+
+.mcad-export-file-info__info {
+    display: flex;
+    margin-bottom: 1rem
+}
+
+.mcad-export-file-info__icon {
+    margin-right: 1rem;
+    font-size: 2rem
+}
+
+.mcad-export-file-info__timestamp {
+    color: var(--afs-text-icon-hint)
+}
+
+.mcad-export-file-info__button {
+    width: 100%
+}

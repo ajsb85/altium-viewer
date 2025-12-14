@@ -1,0 +1,49 @@
+
+.afs-search-input[data-v-31f23291] {
+    width: calc(100% - 40px);
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.afs-search {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    position: relative
+}
+
+.afs-search__icon {
+    position: absolute;
+    top: 0;
+    left: 6px
+}
+
+.afs-search__remove-icon {
+    position: absolute;
+    top: 0;
+    right: 6px
+}
+
+.afs-search__toggle-btn:hover {
+    background-color: var(--tool-button-background-hover)
+}
+
+.afs-search:disabled,.afs-search[disabled],.afs-search.is-disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none;
+    user-select: none
+}
+
+.afs-search .afs-search__control {
+    padding: 0 38px;
+    background-color: var(--afs-field-bg);
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-search .afs-search__control_hide-right-icon {
+    padding: 0 38px 0 16px
+}

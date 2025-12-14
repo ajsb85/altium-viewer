@@ -1,0 +1,146 @@
+
+.app {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: var(--afs-viewer)
+}
+
+.app__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden
+}
+
+.app__back-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: var(--afs-text);
+    background: none;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    transition: color .25s
+}
+
+.app__back-btn-icon {
+    margin-right: .5rem;
+    flex: 0 0 auto;
+    font-size: .63rem
+}
+
+.app__back-btn-text {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.app__inner {
+    padding: 48px
+}
+
+.app__header {
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 32px
+}
+
+.app__header::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--border-primary)
+}
+
+.app__views {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: 100%
+}
+
+.app__view {
+    flex: 1 1 100%;
+    overflow: hidden;
+    height: 100%
+}
+
+.app__alert-text {
+    font-size: 1rem;
+    font-weight: 500
+}
+
+.app__view_LSMView {
+    --width-scrollbar: 6px;
+    --border-radius-scrollbar: 4px;
+    --color-scrollbar: var(--color-scrollbar_24)
+}
+
+.app__view_LSMView::-webkit-scrollbar {
+    width: var(--width-scrollbar);
+    height: var(--width-scrollbar)
+}
+
+.app__view_LSMView::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar);
+    border-radius: var(--border-radius-scrollbar)
+}
+
+.app__view_PDFView {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    box-sizing: border-box;
+    padding: 35px;
+    --width-scrollbar: 10px;
+    --border-radius-scrollbar: 6px;
+    --color-scrollbar: var(--color-scrollbar_24)
+}
+
+.app__view_PDFView::-webkit-scrollbar {
+    width: var(--width-scrollbar);
+    height: var(--width-scrollbar)
+}
+
+.app__view_PDFView::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar);
+    border-radius: var(--border-radius-scrollbar)
+}
+
+.app__view_CadexView {
+    padding-top: 2rem
+}
+
+.app__view_BOMView {
+    padding-top: 2rem;
+    background: var(--background-views_bom)
+}
+
+.app__view_TABLE_COMPARE_LEFT,.app__view_TABLE_COMPARE_RIGHT,.app__view_TABLE_COMPARE_DIFF {
+    padding-top: 2rem
+}
+
+.app__view_TABLE_COMPARE_LEFT,.app__view_TABLE_COMPARE_RIGHT,.app__view_TABLE_COMPARE_DIFF {
+    padding-top: 2rem
+}
+
+.app__view_FBOM {
+    padding-top: 2rem;
+    background: var(--background-views_fbom)
+}

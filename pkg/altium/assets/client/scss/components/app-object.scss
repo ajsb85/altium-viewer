@@ -1,0 +1,106 @@
+
+.app-object-panel__btn[data-v-3cee8e5a] {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2px 17px 2px 32px;
+    background-color: rgba(0,0,0,0);
+    color: var(--general-text);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    min-height: 24px
+}
+
+.app-object-panel__btn-disable .app-object-panel__btn-picture[data-v-3cee8e5a],.app-object-panel__btn-disable .app-object-panel__object-name[data-v-3cee8e5a] {
+    opacity: .48
+}
+
+.app-object-panel__btn-disable .app-object-panel__btn-icon[data-v-3cee8e5a] {
+    visibility: visible
+}
+
+.app-object-panel__btn-picture[data-v-3cee8e5a],.app-object-panel__btn-icon[data-v-3cee8e5a] {
+    flex-shrink: 0;
+    font-size: 16px;
+    width: 16px;
+    height: 16px
+}
+
+.app-object-panel__btn-icon[data-v-3cee8e5a] {
+    visibility: hidden;
+    color: var(--comment-text-reply)
+}
+
+.app-object-panel__btn-only[data-v-3cee8e5a] {
+    visibility: hidden;
+    padding-right: 8px;
+    color: var(--comment-text-reply)
+}
+
+.app-object-panel__btn-visibility[data-v-3cee8e5a] {
+    display: flex;
+    align-items: center
+}
+
+.app-object-panel__object-name[data-v-3cee8e5a] {
+    width: 100%;
+    padding: 0 8px;
+    text-align: left
+}
+
+.app-object-panel__list[data-v-b0d4e50c] {
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto
+}
+
+.app-object-panel__group-title[data-v-b0d4e50c] {
+    font-weight: 500
+}
+
+.app-object-panel__btn-visibility[data-v-b0d4e50c] {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    visibility: hidden;
+    height: 100%
+}
+
+.app-object-panel__btn-icon[data-v-b0d4e50c] {
+    flex-shrink: 0;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: var(--comment-text-reply)
+}
+
+.app-object-panel__acc[data-v-b0d4e50c] .afs-accordion__header {
+    padding: 0 16px;
+    min-height: 24px;
+    color: var(--general-text)
+}
+
+.app-object-panel__acc[data-v-b0d4e50c] .afs-accordion__body {
+    margin-top: 0
+}
+
+.app-object-panel__acc.is-disable .app-object-panel__group-title[data-v-b0d4e50c] {
+    color: var(--general-text)
+}
+
+.app-object-panel__acc.is-disable .app-object-panel__btn-visibility[data-v-b0d4e50c] {
+    visibility: visible
+}
+
+.app-object-panel[data-v-6fe87c76] {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    position: relative;
+    height: 100%
+}

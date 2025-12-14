@@ -1,0 +1,72 @@
+
+.component-details-supply-row__options-title[data-v-622bb6dc] {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.component-details-supply-row__change[data-v-622bb6dc] {
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 400
+}
+
+.component-details-supply-row[data-v-622bb6dc] {
+    display: flex;
+    gap: 16px
+}
+
+.component-details-supply-row__package[data-v-622bb6dc] {
+    color: var(--afs-text-icon-secondary)
+}
+
+.component-details-supply-row__package.error[data-v-622bb6dc] * {
+    color: var(--afs-additional-red)
+}
+
+.component-details-supply-row__price[data-v-622bb6dc] {
+    color: var(--afs-text-icon-secondary)
+}
+
+.component-details-supply-row__toggle[data-v-622bb6dc] {
+    display: flex;
+    cursor: pointer;
+    margin-left: auto
+}
+
+.component-details-supply-row__toggle[data-v-622bb6dc]:empty {
+    display: none
+}
+
+.component-details-supply-row__change[data-v-622bb6dc] {
+    color: var(--afs-text-icon-link);
+    margin-left: 2px
+}
+
+.component-details-supply-row__text[data-v-622bb6dc] {
+    display: flex;
+    flex-direction: row
+}
+
+.component-details-supply-row__status-offset[data-v-622bb6dc] {
+    margin-right: 8px
+}
+
+.component-details-supply-row__options-title[data-v-622bb6dc] {
+    padding: 12px 16px 0;
+    display: flex;
+    align-items: center;
+    color: var(--afs-text-icon-hint);
+    text-transform: uppercase
+}
+
+.component-details-supply-row__options-tooltip[data-v-622bb6dc] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px
+}
+
+.component-details-supply-row__options-tooltip[data-v-622bb6dc]:hover {
+    color: var(--afs-text-icon-primary)
+}

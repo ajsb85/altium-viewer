@@ -1,0 +1,36 @@
+
+.entity-picker-breadcrumbs__link[data-v-25b7d380] {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.entity-picker-breadcrumbs[data-v-25b7d380] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    row-gap: 2px
+}
+
+.entity-picker-breadcrumbs__item[data-v-25b7d380] {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px
+}
+
+.entity-picker-breadcrumbs__arrow[data-v-25b7d380] {
+    font-size: 8px;
+    color: var(--afs-text-icon-hint)
+}
+
+.entity-picker-breadcrumbs__link[data-v-25b7d380] {
+    text-decoration: none;
+    color: var(--afs-text-primary);
+    cursor: pointer
+}
+
+.entity-picker-breadcrumbs__link.disabled[data-v-25b7d380] {
+    color: var(--afs-text-icon-link-secondary);
+    cursor: default
+}

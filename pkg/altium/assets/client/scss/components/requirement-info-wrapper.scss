@@ -1,0 +1,21 @@
+
+.requirement-info-wrapper {
+    min-height: 80px;
+    text-align: left;
+    background-color: var(--background-button-secondary);
+    padding: 16px;
+    color: var(--afs-text-secondary);
+    border-bottom: 1px solid var(--modal-border-color)
+}
+
+.requirement-info-wrapper .afs-loader {
+    margin: 10px calc(50% - 8px)
+}
+
+.requirement-info-wrapper+.reply-item .comment-form__assigned {
+    display: none
+}
+
+.requirement-info-wrapper+.reply-item+.edit-comment__reply-block .comment-form__assigned {
+    display: none
+}

@@ -1,0 +1,28 @@
+
+.afs-badge {
+    position: relative;
+    padding: 7px 9px;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: .08em;
+    display: inline-block;
+    vertical-align: top;
+    background: var(--afs-secondary-selected);
+    color: var(--afs-text-icon-over-background)
+}
+
+.afs-badge.afs-badge_radius-tl {
+    border-top-left-radius: 2px
+}
+
+.afs-badge.afs-badge_radius-tr {
+    border-top-right-radius: 2px
+}
+
+.afs-badge.afs-badge_radius-bl {
+    border-bottom-left-radius: 2px
+}
+
+.afs-badge.afs-badge_radius-br {
+    border-bottom-right-radius: 2px
+}

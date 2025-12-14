@@ -1,0 +1,25 @@
+
+.reviewer-status[data-v-d40cad54] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    height: 24px;
+    width: 100%;
+    max-width: 48px;
+    border-radius: 12px;
+    cursor: default
+}
+
+.reviewer-status.is-pending[data-v-d40cad54] {
+    background-color: var(--afs-data-gray-background-tertiary)
+}
+
+.reviewer-status.is-accepted[data-v-d40cad54] {
+    background-color: var(--afs-dr-reviewer-accepted-bg)
+}
+
+.reviewer-status.is-rejected[data-v-d40cad54] {
+    background-color: var(--afs-dr-reviewer-rejected-bg)
+}

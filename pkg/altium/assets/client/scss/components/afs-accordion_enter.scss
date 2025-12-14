@@ -1,0 +1,9 @@
+
+.afs-accordion_enter-active,.afs-accordion_leave-active {
+    transition: height .25s ease-in-out;
+    overflow: hidden
+}
+
+.afs-accordion_enter,.afs-accordion_leave-to {
+    height: 0
+}

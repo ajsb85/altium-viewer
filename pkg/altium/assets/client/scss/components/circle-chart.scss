@@ -1,0 +1,39 @@
+
+.circle-chart[data-v-647a9ded] {
+    display: block;
+    height: 24px;
+    width: 24px
+}
+
+.circle-chart__background[data-v-647a9ded] {
+    fill: none;
+    stroke: var(--afs-data-gray-border);
+    stroke-width: 3.8
+}
+
+.circle-chart__circle[data-v-647a9ded] {
+    fill: none;
+    stroke-width: 3.8;
+    stroke-linecap: round
+}
+
+.circle-chart__circle_warning[data-v-647a9ded] {
+    stroke: var(--afs-warning)
+}
+
+.circle-chart__circle_success[data-v-647a9ded] {
+    stroke: var(--afs-success)
+}
+
+.circle-chart__circle_error[data-v-647a9ded] {
+    stroke: var(--afs-error)
+}
+
+.circle-chart__circle_empty[data-v-647a9ded] {
+    stroke: var(--afs-data-gray-border)
+}
+
+.circle-chart__percentage[data-v-647a9ded] {
+    fill: var(--afs-text-primary);
+    text-anchor: middle
+}

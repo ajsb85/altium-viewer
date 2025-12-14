@@ -1,0 +1,20 @@
+
+.header-application[data-v-b7b98241] {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 8px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px
+}
+
+.header-application__title[data-v-b7b98241] {
+    color: var(--afs-text-primary)
+}
+
+.header-application__sub-title[data-v-b7b98241] {
+    color: var(--afs-hint-info);
+    text-decoration: none
+}

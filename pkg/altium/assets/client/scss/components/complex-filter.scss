@@ -1,0 +1,37 @@
+
+.complex-filter[data-v-8986dfd8] .complex-filter__accordion {
+    padding: 16px;
+    border-bottom: 1px solid var(--global-border-base-primary)
+}
+
+.complex-filter[data-v-8986dfd8] .complex-filter__accordion.is-opened,.complex-filter[data-v-8986dfd8] .complex-filter__accordion.is-opened .afs-accordion__header {
+    padding-bottom: 8px
+}
+
+.complex-filter[data-v-8986dfd8] .afs-accordion__body {
+    margin-top: 8px
+}
+
+.complex-filter[data-v-8986dfd8] .values-filter,.complex-filter[data-v-8986dfd8] .range-filter {
+    padding: 0;
+    margin-bottom: 8px;
+    color: var(--global-text-base-secondary)
+}
+
+.complex-filter__selection-indicator[data-v-8986dfd8] {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.complex-filter__selection-indicator[data-v-8986dfd8]:before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--afs-data-cyan-background-primary);
+    border-radius: 50%
+}

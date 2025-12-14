@@ -1,0 +1,32 @@
+
+.app-board-control[data-v-ee46f088] {
+    position: relative
+}
+
+.app-board-control__controls[data-v-ee46f088] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    min-height: 56px;
+    border-bottom: 1px solid var(--border-color-modal);
+    padding: 0 16px
+}
+
+.app-board-control__controls-btn[data-v-ee46f088] .afs-tabs__item {
+    background-color: var(--background-button-secondary);
+    border: 1px solid var(--border-color-modal);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-weight: 500;
+    min-height: 24px;
+    line-height: 18px
+}
+
+.app-board-control__controls-btn[data-v-ee46f088] .afs-tabs__item:not(:last-child) {
+    margin-right: 8px
+}
+
+.app-board-control__controls-btn[data-v-ee46f088] .is-active {
+    background-color: var(--background-button-secondary_selected)
+}

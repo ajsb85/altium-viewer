@@ -1,0 +1,32 @@
+
+.note-info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem
+}
+
+.note-info__text {
+    color: var(--afs-text)
+}
+
+.note-info__icon {
+    font-size: 16px
+}
+
+.note-info__img-icon {
+    width: 16px;
+    height: 16px
+}
+
+.note-info__img {
+    width: 100%;
+    max-width: 289px
+}
+
+.note-info__footer-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer
+}

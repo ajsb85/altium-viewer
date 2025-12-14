@@ -1,0 +1,46 @@
+
+.component-details-model-row-select__select[data-v-4a29298e] .afs-select__button {
+    padding: 8px 32px 8px 1px
+}
+
+.component-details-model-row-select__select[data-v-4a29298e] .afs-select__button.is-open {
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0)
+}
+
+.component-details-model-row-select__selected[data-v-4a29298e] {
+    background-color: rgba(0,0,0,0);
+    color: var(--afs-text-icon-secondary)
+}
+
+.component-details-model-row-select__single[data-v-4a29298e] {
+    background-color: rgba(0,0,0,0);
+    color: var(--afs-text-icon-secondary);
+    padding-top: 8px;
+    padding-bottom: 8px
+}
+
+.component-details-model-row-select__option[data-v-4a29298e] {
+    color: var(--afs-text-icon-secondary)
+}
+
+.component-details-model-row-select__option[data-v-4a29298e] .row-item__icon {
+    max-width: 48px
+}
+
+.component-details-model-row-select__option .checkmark-icon[data-v-4a29298e] {
+    font-size: 8px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 5px;
+    margin-right: 8px
+}
+
+.component-details-model-row-select__option .checkmark-icon+div[data-v-4a29298e] {
+    display: inline-block
+}
+
+.component-details-model-row-select__option .distance-separator+div[data-v-4a29298e] {
+    display: inline-block;
+    margin-left: 19px
+}

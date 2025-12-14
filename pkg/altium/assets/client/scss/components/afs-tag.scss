@@ -1,0 +1,110 @@
+
+.afs-tag__sm .afs-tag__text[data-v-bd2c459f] {
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 400
+}
+
+.afs-tag[data-v-bd2c459f] {
+    position: relative;
+    display: inline-flex;
+    column-gap: 8px;
+    flex-direction: row;
+    flex: 0 0 auto;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 2px;
+    padding: 4px 8px;
+    margin: 0;
+    min-height: 24px;
+    cursor: default;
+    max-width: 100%;
+    border-color: var(--afs-border);
+    transition: color .25s,background-color .25s
+}
+
+.afs-tag__text[data-v-bd2c459f] {
+    font-weight: 500;
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-tag__text_uppercase[data-v-bd2c459f] {
+    text-transform: uppercase
+}
+
+.afs-tag__clickable[data-v-bd2c459f] {
+    cursor: pointer
+}
+
+.afs-tag__no-border[data-v-bd2c459f] {
+    border-radius: 2px;
+    border: none
+}
+
+.afs-tag__sm[data-v-bd2c459f] {
+    column-gap: 4px;
+    min-height: 16px;
+    padding: 0 4px
+}
+
+.afs-tag__sm .afs-tag__icon[data-v-bd2c459f] {
+    width: 16px;
+    height: 16px
+}
+
+.afs-tag__xl[data-v-bd2c459f] {
+    padding: 4px 8px
+}
+
+.afs-tag__icon[data-v-bd2c459f] {
+    color: var(--afs-text-icon-primary);
+    flex-shrink: 0
+}
+
+.afs-tag__remove-icon[data-v-bd2c459f] {
+    cursor: pointer;
+    color: var(--afs-text-icon-primary);
+    font-size: 8px
+}
+
+.afs-tag__default[data-v-bd2c459f],.is-no-touch .afs-tag__default[data-v-bd2c459f]:hover,.is-no-touch .afs-tag__default.is-hovered[data-v-bd2c459f],.afs-tag__default[data-v-bd2c459f]:hover,.afs-tag__default.is-hovered[data-v-bd2c459f] {
+    background: var(--afs-secondary-default)
+}
+
+.afs-tag__green[data-v-bd2c459f] {
+    background: var(--afs-additional-green);
+    border-color: var(--afs-border)
+}
+
+.afs-tag__green .afs-tag__text[data-v-bd2c459f] {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-tag__warning[data-v-bd2c459f],.is-no-touch .afs-tag__warning[data-v-bd2c459f]:hover,.is-no-touch .afs-tag__warning.is-hovered[data-v-bd2c459f],.afs-tag__warning[data-v-bd2c459f]:hover,.afs-tag__warning.is-hovered[data-v-bd2c459f] {
+    background: var(--afs-warning)
+}
+
+.afs-tag__error[data-v-bd2c459f],.is-no-touch .afs-tag__error[data-v-bd2c459f]:hover,.is-no-touch .afs-tag__error.is-hovered[data-v-bd2c459f],.afs-tag__error[data-v-bd2c459f]:hover,.afs-tag__error.is-hovered[data-v-bd2c459f] {
+    background: var(--afs-error)
+}
+
+.afs-tag__design[data-v-bd2c459f],.is-no-touch .afs-tag__design[data-v-bd2c459f]:hover,.is-no-touch .afs-tag__design.is-hovered[data-v-bd2c459f],.afs-tag__design[data-v-bd2c459f]:hover,.afs-tag__design.is-hovered[data-v-bd2c459f] {
+    background: var(--afs-additional-indigo)
+}
+
+.afs-tag__purple[data-v-bd2c459f],.is-no-touch .afs-tag__purple[data-v-bd2c459f]:hover,.is-no-touch .afs-tag__purple.is-hovered[data-v-bd2c459f],.afs-tag__purple[data-v-bd2c459f]:hover,.afs-tag__purple.is-hovered[data-v-bd2c459f] {
+    background: var(--afs-additional-purple)
+}
+
+.afs-tag__disabled[data-v-bd2c459f] {
+    opacity: .48;
+    pointer-events: none
+}
+
+.afs-tag[data-v-bd2c459f]:not(.afs-tag__disabled):focus,.afs-tag:not(.afs-tag__disabled).is-focused[data-v-bd2c459f] {
+    border-color: var(--afs-focus)
+}
+
+.afs-tag[data-v-bd2c459f]:not(.afs-tag__disabled):focus-within,.afs-tag:not(.afs-tag__disabled).is-focus-withined[data-v-bd2c459f] {
+    border-color: var(--afs-focus)
+}

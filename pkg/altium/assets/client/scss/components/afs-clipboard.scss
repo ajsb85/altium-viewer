@@ -1,0 +1,19 @@
+
+.afs-clipboard {
+    position: relative
+}
+
+.afs-clipboard.open .afs-clipboard_context {
+    display: block
+}
+
+.afs-clipboard.open .afs-clipboard_note {
+    background: #eee;
+    padding: 5px;
+    border: 1px solid #222;
+    box-shadow: 0 4px 8px rgba(0,0,0,.1607843137);
+    border-radius: 1px;
+    font-size: 11px;
+    line-height: 11px;
+    color: var(--afs-text-on-light)
+}

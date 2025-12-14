@@ -1,0 +1,32 @@
+
+.compare-change-details-section[data-v-858336bc] {
+    display: flex;
+    width: 100%;
+    padding: 16px;
+    border-top: 1px solid var(--global-border-base-primary)
+}
+
+.compare-change-details-section__content[data-v-858336bc] {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px
+}
+
+.compare-change-details-section[data-v-858336bc] .afs-accordion {
+    overflow: hidden;
+    width: 100%
+}
+
+.compare-change-details-section[data-v-858336bc] .afs-accordion__main-header {
+    font-size: 12px;
+    line-height: 16px
+}
+
+.compare-change-details-section[data-v-858336bc] .afs-accordion__body {
+    margin-top: 0
+}
+
+.compare-change-details-section[data-v-858336bc] .afs-accordion__body .compare-change-details-section__content {
+    padding-top: 8px
+}

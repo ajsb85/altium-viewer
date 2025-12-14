@@ -1,0 +1,30 @@
+
+.entity-picker-table-row__cell[data-v-c06fef87] {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+    vertical-align: middle;
+    overflow: hidden;
+    max-width: 0
+}
+
+.entity-picker-table-row__cell-inner[data-v-c06fef87] {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden
+}
+
+.entity-picker-table-row__cell-toggle[data-v-c06fef87] {
+    flex: 0 0 auto;
+    width: 16px;
+    align-items: center
+}
+
+.entity-picker-table-row[data-v-c06fef87]:focus {
+    outline: unset
+}
+
+.entity-picker-table-row.active[data-v-c06fef87] {
+    background-color: var(--afs-primary-overlay-5)
+}

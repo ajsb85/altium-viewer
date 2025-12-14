@@ -1,0 +1,211 @@
+
+.content[data-v-18cee9ad] {
+    display: flex;
+    flex-direction: column
+}
+
+.content__table[data-v-18cee9ad] {
+    flex: 0 1 auto;
+    height: 100%
+}
+
+.content__link[data-v-18cee9ad] {
+    display: inline-block;
+    vertical-align: top
+}
+
+.content__link[data-v-18cee9ad]:not(:last-child) {
+    margin-right: .25rem
+}
+
+.content__link[data-v-18cee9ad]:not(:last-child):after {
+    content: ","
+}
+
+.content__number[data-v-18cee9ad] {
+    color: var(--color-bom-text-secondary)
+}
+
+.content__ellipsis[data-v-18cee9ad] {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.content strong[data-v-18cee9ad] {
+    font-weight: 600
+}
+
+.content__not-found[data-v-18cee9ad] {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem
+}
+
+.content__not-found-container[data-v-18cee9ad] {
+    padding: .38rem 1rem;
+    width: 100%;
+    max-width: 13.75rem;
+    color: var(--color-secondary);
+    background: var(--background-secondary);
+    font-size: .75rem;
+    line-height: 1.34;
+    text-align: center
+}
+
+.content[data-v-9eb80730] {
+    display: flex;
+    flex-direction: column
+}
+
+.content__table[data-v-9eb80730] {
+    --banner-height: 0px;
+    --search-height: 0px;
+    flex: 0 1 auto;
+    height: calc(100% - var(--banner-height) - var(--search-height))
+}
+
+.content__table_with-banner[data-v-9eb80730] {
+    --banner-height: 104px
+}
+
+.content__table_with-search[data-v-9eb80730] {
+    --search-height: 64px
+}
+
+.content__not-found[data-v-9eb80730] {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem
+}
+
+.content__not-found-container[data-v-9eb80730] {
+    padding: .38rem 1rem;
+    width: 100%;
+    text-align: center
+}
+
+.content__empty-table-placeholder[data-v-9eb80730] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px
+}
+
+.content[data-v-9b269832] {
+    display: flex;
+    flex-direction: column
+}
+
+.content__table[data-v-9b269832] {
+    --banner-height: 0px;
+    --search-height: 0px;
+    flex: 0 1 auto;
+    height: calc(100% - var(--banner-height) - var(--search-height))
+}
+
+.content__table_with-banner[data-v-9b269832] {
+    --banner-height: 104px
+}
+
+.content__table_with-search[data-v-9b269832] {
+    --search-height: 64px
+}
+
+.content__not-found[data-v-9b269832] {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem
+}
+
+.content__not-found-container[data-v-9b269832] {
+    padding: .38rem 1rem;
+    width: 100%;
+    text-align: center
+}
+
+.content__empty-table-placeholder[data-v-9b269832] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px
+}
+
+.content[data-v-44e2ef9a] {
+    display: flex;
+    flex-direction: column
+}
+
+.content__table[data-v-44e2ef9a] {
+    --banner-height: 0px;
+    --search-height: 0px;
+    flex: 0 1 auto;
+    height: calc(100% - var(--banner-height) - var(--search-height))
+}
+
+.content__table_with-banner[data-v-44e2ef9a] {
+    --banner-height: 104px
+}
+
+.content__table_with-search[data-v-44e2ef9a] {
+    --search-height: 64px
+}
+
+.content__link[data-v-44e2ef9a] {
+    display: inline-block
+}
+
+.content__link[data-v-44e2ef9a]:not(:last-child) {
+    margin-right: .25rem
+}
+
+.content__link[data-v-44e2ef9a]:not(:last-child):after {
+    content: ","
+}
+
+.content__link[data-v-44e2ef9a]:not(:last-child):before {
+    width: calc(100% - 3px)
+}
+
+.content__num[data-v-44e2ef9a] {
+    color: var(--color-bom-text-secondary);
+    position: absolute;
+    margin-left: 32px
+}
+
+.content__clip[data-v-44e2ef9a] {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.content strong[data-v-44e2ef9a] {
+    font-weight: 500
+}
+
+.content__not-found[data-v-44e2ef9a] {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem
+}
+
+.content__not-found-container[data-v-44e2ef9a] {
+    padding: .38rem 1rem;
+    width: 100%;
+    text-align: center
+}

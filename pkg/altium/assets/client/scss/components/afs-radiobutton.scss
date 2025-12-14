@@ -1,0 +1,120 @@
+
+.afs-radiobutton {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline
+}
+
+.afs-radiobutton {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: flex-start;
+    color: var(--afs-text-icon-secondary);
+    cursor: pointer;
+    user-select: none
+}
+
+.afs-radiobutton:disabled,.afs-radiobutton[disabled],.afs-radiobutton.is-disabled {
+    opacity: .48;
+    cursor: not-allowed
+}
+
+.afs-radiobutton:checked .afs-radiobutton__figure:before,.afs-radiobutton:checked .afs-radiobutton__figure-square,.afs-radiobutton[checked] .afs-radiobutton__figure:before,.afs-radiobutton[checked] .afs-radiobutton__figure-square,.afs-radiobutton.is-checked .afs-radiobutton__figure:before,.afs-radiobutton.is-checked .afs-radiobutton__figure-square {
+    opacity: 1
+}
+
+.afs-radiobutton__input {
+    display: none
+}
+
+.afs-radiobutton__figure {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    transition: border-color .25s,background-color .25s,box-shadow .25s
+}
+
+.afs-radiobutton__figure:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .25s
+}
+
+.afs-radiobutton__text {
+    flex: 1 1 auto;
+    align-self: center;
+    padding-left: 8px;
+    max-width: 99%
+}
+
+.afs-radiobutton:disabled.is-warning .afs-radiobutton__figure,.afs-radiobutton[disabled].is-warning .afs-radiobutton__figure,.afs-radiobutton.is-disabled.is-warning .afs-radiobutton__figure {
+    border-color: var(--afs-warning)
+}
+
+.afs-radiobutton:disabled.is-error .afs-radiobutton__figure,.afs-radiobutton[disabled].is-error .afs-radiobutton__figure,.afs-radiobutton.is-disabled.is-error .afs-radiobutton__figure {
+    border-color: var(--afs-error)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-warning .afs-radiobutton__figure {
+    border-color: var(--afs-warning)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-error .afs-radiobutton__figure {
+    border-color: var(--afs-error)
+}
+
+.afs-radiobutton .afs-radiobutton__figure {
+    border-color: var(--afs-secondary-border);
+    box-shadow: var(--afs-white-inner-shadow-small)
+}
+
+.afs-radiobutton .afs-radiobutton__figure:before {
+    background-color: var(--afs-radio-button-inner-bg)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):focus .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-focused .afs-radiobutton__figure {
+    border-color: var(--afs-focus)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):focus-within .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-focus-withined .afs-radiobutton__figure {
+    border-color: var(--afs-focus)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):active .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-active .afs-radiobutton__figure {
+    box-shadow: var(--afs-black-inner-shadow)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked) .afs-radiobutton__figure {
+    background: var(--afs-secondary-default)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked):hover .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked).is-hovered .afs-radiobutton__figure {
+    background: var(--afs-group)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked):active .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):not(:checked):not([checked]):not(.is-checked).is-active .afs-radiobutton__figure {
+    background: var(--afs-secondary-down)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):checked:hover .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):checked.is-hovered .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled)[checked]:hover .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled)[checked].is-hovered .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-checked:hover .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-checked.is-hovered .afs-radiobutton__figure {
+    background: var(--afs-primary-hover)
+}
+
+.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):checked:active .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled):checked.is-active .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled)[checked]:active .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled)[checked].is-active .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-checked:active .afs-radiobutton__figure,.afs-radiobutton:not(:disabled):not([disabled]):not(.is-disabled).is-checked.is-active .afs-radiobutton__figure {
+    background: var(--afs-primary-down)
+}
+
+.afs-radiobutton:checked .afs-radiobutton__figure,.afs-radiobutton[checked] .afs-radiobutton__figure,.afs-radiobutton.is-checked .afs-radiobutton__figure {
+    border-color: var(--afs-primary-border);
+    background: var(--afs-primary-selected)
+}

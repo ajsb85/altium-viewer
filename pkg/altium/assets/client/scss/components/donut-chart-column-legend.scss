@@ -1,0 +1,61 @@
+
+.donut-chart-column-legend .legend-header[data-v-72ed9d06] {
+    font-size: 10px;
+    line-height: 16px;
+    font-weight: 500;
+    text-transform: uppercase
+}
+
+.donut-chart-column-legend .legend-items[data-v-72ed9d06] {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.donut-chart-column-legend[data-v-72ed9d06] {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    color: var(--afs-text-secondary)
+}
+
+.donut-chart-column-legend .legend-header[data-v-72ed9d06] {
+    margin-bottom: 4px
+}
+
+.donut-chart-column-legend .legend-items[data-v-72ed9d06] {
+    overflow-x: hidden;
+    overflow-y: auto;
+    line-height: 24px
+}
+
+.donut-chart-column-legend .legend-item[data-v-72ed9d06] {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 8px;
+    color: var(--afs-text-primary)
+}
+
+.donut-chart-column-legend .legend-item__point[data-v-72ed9d06] {
+    flex: 0 0 var(--5d3dddeb);
+    width: var(--5d3dddeb);
+    height: var(--5d3dddeb);
+    border-radius: 50%
+}
+
+.donut-chart-column-legend .legend-item__title[data-v-72ed9d06] {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.donut-chart-column-legend .legend-item__value[data-v-72ed9d06] {
+    color: var(--afs-text-secondary);
+    margin-left: auto
+}
+
+.donut-chart-column-legend.is-clickable .legend-item[data-v-72ed9d06] {
+    cursor: pointer
+}

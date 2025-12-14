@@ -1,0 +1,41 @@
+
+.requirement-item[data-v-97574872] {
+    display: flex;
+    align-items: center
+}
+
+.requirement-item__checkmark[data-v-97574872] {
+    width: 32px;
+    flex: 0
+}
+
+.requirement-item__tile[data-v-97574872] {
+    margin-bottom: 0
+}
+
+.requirement-item .is-resolved[data-v-97574872] {
+    color: var(--comment-resolved)
+}
+
+.requirement-item .not-available[data-v-97574872] {
+    cursor: not-allowed;
+    pointer-events: auto
+}
+
+.requirement-item+.requirement-item[data-v-97574872] {
+    position: relative
+}
+
+.requirement-item+.requirement-item[data-v-97574872]:before {
+    content: "";
+    display: block;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    position: absolute
+}
+
+.requirement-item[data-v-97574872]:last-of-type {
+    margin-bottom: 60px
+}

@@ -1,0 +1,16 @@
+
+.lib-accordion__header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none
+}
+
+.lib-accordion__header-inner {
+    padding: .38rem .25rem
+}
+
+.lib-accordion.is-opened .lib-accordion__header:before {
+    transform: rotate(90deg) translateX(-50%)
+}

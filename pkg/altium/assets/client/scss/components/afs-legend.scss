@@ -1,0 +1,47 @@
+
+.afs-legend-item,.afs-legend-item__container {
+    display: inline-flex;
+    align-items: center
+}
+
+.afs-legend-item__icon {
+    position: relative;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%
+}
+
+.afs-legend-item__number:not(:first-child),.afs-legend-item__number-link:not(:first-child) {
+    margin-left: 8px
+}
+
+.afs-legend-item .afs-legend-item__number {
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-legend-item_healthy .afs-legend-item__icon {
+    background-color: var(--afs-additional-green)
+}
+
+.afs-legend-item_issues .afs-legend-item__icon {
+    overflow: hidden;
+    transform: rotate(-45deg)
+}
+
+.afs-legend-item_issues .afs-legend-item__icon:before,.afs-legend-item_issues .afs-legend-item__icon:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 50%
+}
+
+.afs-legend-item_issues .afs-legend-item__icon:before {
+    top: 0;
+    background-color: var(--afs-additional-orange)
+}
+
+.afs-legend-item_issues .afs-legend-item__icon:after {
+    bottom: 0;
+    background-color: var(--afs-error)
+}

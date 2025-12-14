@@ -1,0 +1,83 @@
+
+.search-filters__reset-all-link[data-v-2227bac6] {
+    margin-left: 16px
+}
+
+.search-filters__tags[data-v-2227bac6] {
+    height: 24px;
+    margin-left: 8px;
+    border: none
+}
+
+.search-filters__loader[data-v-2227bac6] {
+    margin-left: 16px
+}
+
+.search-filters__filters[data-v-2227bac6] {
+    display: flex;
+    overflow-x: auto;
+    column-gap: 16px;
+    padding-bottom: 8px
+}
+
+.search-filters__filter[data-v-2227bac6] {
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column
+}
+
+.search-filters__filter .multiselect[data-v-2227bac6] {
+    flex: 1 1 160px
+}
+
+.search-filters__label[data-v-2227bac6] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px
+}
+
+.search-filters__filter-min-max[data-v-2227bac6] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 8px;
+    margin-bottom: 8px
+}
+
+.search-filters__filter-min-max .search-filters__input[data-v-2227bac6] {
+    position: relative
+}
+
+.search-filters__filter-min-max .search-filters__input_unit[data-v-2227bac6] .afs-btn {
+    min-width: unset;
+    width: min-content
+}
+
+.search-filters__filter-min-max .search-filters__input_number[data-v-2227bac6] {
+    padding: 0 16px;
+    -moz-appearance: textfield
+}
+
+.search-filters__filter-min-max .search-filters__input_number[data-v-2227bac6]::-webkit-outer-spin-button,.search-filters__filter-min-max .search-filters__input_number[data-v-2227bac6]::-webkit-inner-spin-button {
+    -webkit-appearance: none
+}
+
+.search-filters__filter-min-max .search-filters__input[data-v-2227bac6] .afs-label {
+    margin: 0
+}
+
+.search-filters__show-more[data-v-2227bac6] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    border: 1px dashed var(--afs-text-icon-link);
+    border-radius: 4px;
+    margin-top: 24px;
+    width: 200px
+}
+
+.search-filters__show-more[data-v-2227bac6]:hover {
+    border: 1px dashed var(--afs-text-icon-link-hover)
+}

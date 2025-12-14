@@ -1,0 +1,22 @@
+
+.project-requirements-mapping[data-v-fba73377] {
+    display: flex;
+    align-items: center;
+    flex-grow: 1
+}
+
+.project-requirements-mapping.is-disabled[data-v-fba73377] {
+    opacity: .48;
+    cursor: not-allowed
+}
+
+.project-requirements-mapping__separator[data-v-fba73377] {
+    margin: 0 4px 0 0
+}
+
+.project-requirements-mapping__project[data-v-fba73377],.project-requirements-mapping__block[data-v-fba73377] {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    gap: 8px
+}

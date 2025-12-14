@@ -1,0 +1,10 @@
+
+.afs-clipboard_context {
+    display: none;
+    position: absolute;
+    will-change: transform;
+    top: 0;
+    right: 0;
+    transform: translate3d(0, 20px, 0);
+    z-index: 1001
+}

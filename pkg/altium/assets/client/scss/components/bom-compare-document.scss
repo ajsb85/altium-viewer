@@ -1,0 +1,31 @@
+
+.bom-compare-document[data-v-2cc6ebc1] {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%
+}
+
+.bom-compare-document__content[data-v-2cc6ebc1] {
+    flex: 1 1 auto;
+    padding: 0 16px;
+    border-top: 1px solid var(--border-primary)
+}
+
+.bom-compare-document__content-no-data[data-v-2cc6ebc1] {
+    padding: 16px;
+    text-align: center
+}
+
+.bom-compare-document__space[data-v-2cc6ebc1] {
+    display: flex;
+    flex-grow: 1
+}
+
+.bom-compare-document__compare-legend[data-v-2cc6ebc1] {
+    margin-top: 12px;
+    padding: 16px 10px;
+    z-index: 10;
+    background: var(--afs-sidebar)
+}

@@ -1,0 +1,58 @@
+
+.combo-box__label[data-v-ca9991f8] {
+    color: var(--afs-text-icon-secondary)
+}
+
+.combo-box__readonly[data-v-ca9991f8] {
+    color: var(--afs-hint-icons);
+    font-style: italic
+}
+
+.combo-box[data-v-ca9991f8] .select-autocomplete__trigger {
+    height: 29px
+}
+
+.combo-box__select-wrapper[data-v-ca9991f8] {
+    display: grid;
+    grid-template-columns: 1fr 8px 1fr 16px 1fr;
+    grid-template-areas: "select select select"
+}
+
+.combo-box__select[data-v-ca9991f8] {
+    grid-area: select
+}
+
+.combo-box__select-loader[data-v-ca9991f8] {
+    padding: 0 12px 12px
+}
+
+.combo-box__select__dropdown[data-v-ca9991f8] {
+    padding: 4px 0
+}
+
+.combo-box__select-avatar[data-v-ca9991f8] {
+    margin-left: 16px
+}
+
+.combo-box__remove[data-v-ca9991f8] {
+    margin-left: 8px
+}
+
+.combo-box__value[data-v-ca9991f8] {
+    padding: 6px 15px;
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out
+}
+
+.combo-box__value[data-v-ca9991f8]:hover {
+    background-color: var(--afs-secondary-selected);
+    color: var(--afs-text-icon-primary)
+}
+
+.combo-box__item[data-v-ca9991f8] {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}

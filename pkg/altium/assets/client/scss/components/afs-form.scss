@@ -1,0 +1,22 @@
+
+.afs-form-field__header {
+    margin-bottom: 8px
+}
+
+.afs-form-field__label {
+    transition: color .25s
+}
+
+.afs-form-field__icon {
+    margin: -2px -2px -2px 4px;
+    font-size: 16px;
+    transition: color .25s
+}
+
+.afs-form-field .afs-form-field__label {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-form-field .afs-form-field__icon {
+    color: var(--afs-text-icon-hint)
+}

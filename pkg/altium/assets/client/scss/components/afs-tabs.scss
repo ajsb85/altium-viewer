@@ -1,0 +1,25 @@
+
+.afs-tabs {
+    display: inline-flex
+}
+
+.afs-tabs__item {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: -2px;
+    padding: 7px 0;
+    color: var(--afs-text-icon-secondary);
+    border-bottom: 2px solid rgba(0,0,0,0)
+}
+
+.afs-tabs__item:not(:last-child) {
+    margin-right: 32px
+}
+
+.afs-tabs.condensed-x .afs-tabs__item:not(:last-child) {
+    margin-right: 16px
+}
+
+.afs-tabs.condensed-y .afs-tabs__item {
+    padding: 0
+}

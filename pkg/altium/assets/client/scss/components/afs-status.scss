@@ -1,0 +1,77 @@
+
+.afs-status-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none
+}
+
+.afs-status-list {
+    margin: -4px;
+    transition: color .25s;
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-status-list_2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start
+}
+
+.afs-status-list_2 .afs-status-list__item {
+    width: 50%
+}
+
+.afs-status-list__item {
+    position: relative;
+    display: flex;
+    padding: 4px
+}
+
+.afs-status-list__item.is-active .afs-status-list__icon {
+    opacity: 1
+}
+
+.afs-status-list__item.is-active .afs-status-list__placeholder {
+    opacity: 0
+}
+
+.afs-status-list__icon,.afs-status-list__placeholder {
+    flex: 0 0 auto;
+    margin-right: 8px;
+    transition: opacity .25s
+}
+
+.afs-status-list__icon {
+    opacity: 0;
+    font-size: 16px
+}
+
+.afs-status-list__placeholder {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px
+}
+
+.afs-status-list__placeholder:before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%
+}
+
+.afs-status-list__text {
+    flex: 1 1 auto;
+    padding: 2px 0;
+    font-size: 12px;
+    line-height: 1
+}
+
+.afs-status-list .afs-status-list__placeholder:before {
+    background: var(--afs-secondary-default)
+}

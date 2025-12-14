@@ -1,0 +1,45 @@
+
+.edit-comment-standalone[data-v-b28e2536] {
+    margin: -24px -16px 0
+}
+
+.edit-comment-standalone .is-resolved[data-v-b28e2536] {
+    color: var(--comment-resolved) !important
+}
+
+.edit-comment-standalone .afs-mention__input[data-v-b28e2536] {
+    cursor: auto
+}
+
+.edit-comment-standalone__body[data-v-b28e2536] {
+    padding: 0
+}
+
+.edit-comment-standalone__body-wrapper[data-v-b28e2536] {
+    max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse
+}
+
+.edit-comment-standalone__body .link[data-v-b28e2536] {
+    color: var(--comment-text-user)
+}
+
+.edit-comment-standalone__reply-block[data-v-b28e2536] {
+    padding: 0 16px
+}
+
+.edit-comment-standalone__separator[data-v-b28e2536] {
+    border-bottom: 1px solid var(--background-black);
+    padding: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--color-link)
+}
+
+.edit-comment-standalone__separator-text[data-v-b28e2536] {
+    display: inline-block;
+    cursor: pointer
+}

@@ -1,0 +1,13 @@
+
+.app-lsm-properties {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: auto
+}
+
+.app-lsm-properties__content {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 0 1rem
+}

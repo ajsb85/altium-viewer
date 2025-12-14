@@ -1,0 +1,21 @@
+
+.revision-block[data-v-b5b1da07] {
+    width: 100%;
+    display: flex;
+    line-height: 16px;
+    justify-content: space-between;
+    align-items: center
+}
+
+.revision-block__revision[data-v-b5b1da07] {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: inline-block
+}
+
+.revision-block__issues[data-v-b5b1da07] {
+    margin-left: 12px;
+    flex: 0 0 auto;
+    min-width: 0;
+    display: inline-block
+}

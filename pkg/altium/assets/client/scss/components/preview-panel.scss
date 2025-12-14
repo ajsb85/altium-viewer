@@ -1,0 +1,32 @@
+
+.preview-panel[data-v-728b82ac] {
+    flex: 1 1 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 1rem
+}
+
+.preview-panel[data-v-728b82ac]::-webkit-scrollbar {
+    width: .5rem;
+    height: .5rem
+}
+
+.preview-panel[data-v-728b82ac]::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    border: .13rem solid rgba(0,0,0,0);
+    background-clip: padding-box
+}
+
+.preview-panel__group-title[data-v-728b82ac] {
+    padding: .5rem 0rem;
+    color: var(--color-primary);
+    line-height: 1.17
+}
+
+.preview-panel__item[data-v-728b82ac]:not(:last-child) {
+    margin-bottom: 1rem
+}
+
+.preview-panel__item+.preview-panel__group-title[data-v-728b82ac] {
+    margin-top: .5rem
+}

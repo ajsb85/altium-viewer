@@ -1,0 +1,24 @@
+
+.mx-time-option {
+    cursor: pointer;
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 20px
+}
+
+.mx-time-option:hover {
+    color: #73879c;
+    background-color: #f3f9fe
+}
+
+.mx-time-option.active {
+    color: #1284e7;
+    background-color: rgba(0,0,0,0);
+    font-weight: 700
+}
+
+.mx-time-option.disabled {
+    cursor: not-allowed;
+    color: #ccc;
+    background-color: #f3f3f3
+}

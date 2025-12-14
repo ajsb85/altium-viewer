@@ -1,0 +1,107 @@
+
+.modal-compare__body[data-v-fd80ca7c] {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 0 16px;
+    border-bottom: 1px solid var(--afs-border);
+    margin-bottom: 16px
+}
+
+.modal-compare__uploader[data-v-fd80ca7c] {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 32px
+}
+
+.modal-compare__upload-area[data-v-fd80ca7c] {
+    height: 176px;
+    border: 1px dotted var(--afs-primary-selected);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.modal-compare__upload-area[data-v-fd80ca7c] .icon {
+    color: var(--afs-text-icon-secondary)
+}
+
+.modal-compare__loader[data-v-fd80ca7c] {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.modal-compare__intro[data-v-fd80ca7c] {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    gap: 16px
+}
+
+.modal-compare__label[data-v-fd80ca7c] {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center
+}
+
+.modal-compare__search[data-v-fd80ca7c] {
+    flex: 0 0 192px
+}
+
+.modal-compare__table[data-v-fd80ca7c] {
+    height: 128px;
+    overflow-x: hidden
+}
+
+.modal-compare__row[data-v-fd80ca7c] {
+    cursor: pointer
+}
+
+.modal-compare__row-selected[data-v-fd80ca7c] {
+    background: var(--afs-primary-selected)
+}
+
+.modal-compare__cell[data-v-fd80ca7c] {
+    height: 24px;
+    line-height: 24px;
+    padding: 4px 8px;
+    vertical-align: middle;
+    overflow: hidden;
+    max-width: 310px
+}
+
+.modal-compare__cell[data-v-fd80ca7c]:first-child {
+    padding: 4px 16px
+}
+
+.modal-compare__cell-inner[data-v-fd80ca7c] {
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+.modal-compare__empty[data-v-fd80ca7c] {
+    width: 100%;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--afs-text-icon-hint)
+}
+
+.modal-compare__empty-icon[data-v-fd80ca7c] {
+    margin-right: 8px
+}
+
+.modal-compare__icon[data-v-fd80ca7c] {
+    flex: 0 0 16px;
+    height: 16px;
+    width: 16px
+}
+
+.modal-compare__formats[data-v-fd80ca7c] {
+    color: var(--afs-text-secondary)
+}

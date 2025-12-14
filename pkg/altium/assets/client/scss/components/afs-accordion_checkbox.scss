@@ -1,0 +1,22 @@
+
+.afs-accordion_checkbox .afs-accordion__checkbox {
+    margin-right: 8px;
+    font-size: 12px
+}
+
+.afs-accordion_checkbox .afs-accordion__main-header {
+    position: relative;
+    padding-left: 0;
+    padding-right: 10px;
+    width: auto;
+    font-size: 12px;
+    display: inline-flex
+}
+
+.afs-accordion_checkbox .afs-accordion__main-chevron {
+    margin-left: 8px
+}
+
+.afs-accordion_checkbox .afs-accordion__main-chevron,.afs-accordion_checkbox .afs-accordion__main-header,.afs-accordion_checkbox .afs-accordion__main-header-icon {
+    color: var(--afs-focus)
+}

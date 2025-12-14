@@ -1,0 +1,21 @@
+
+.harness-details-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%
+}
+
+.harness-details-panel__header {
+    height: 36px
+}
+
+.harness-details-panel__controls {
+    display: flex;
+    flex: 0 0 auto
+}
+
+.harness-details-panel__content {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto
+}

@@ -1,0 +1,42 @@
+
+.register[data-v-fcbf2359] {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    align-items: center
+}
+
+.register[data-v-fcbf2359]:not(.is-bg-hide):before {
+    position: absolute;
+    content: "";
+    top: -16px;
+    left: -16px;
+    right: -16px;
+    bottom: -16px;
+    z-index: -1;
+    background-color: var(--afs-group)
+}
+
+.register__wrap[data-v-fcbf2359] {
+    display: flex;
+    align-items: center;
+    color: var(--comment-text)
+}
+
+.register__logo[data-v-fcbf2359] {
+    margin-right: 17px;
+    flex-shrink: 0;
+    font-size: 32px
+}
+
+.register__btn[data-v-fcbf2359] {
+    margin-left: 7px
+}
+
+.register.is-vertical[data-v-fcbf2359] {
+    display: block
+}
+
+.register.is-vertical .register__btn[data-v-fcbf2359] {
+    margin: 16px 0 0
+}

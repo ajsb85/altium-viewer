@@ -1,0 +1,90 @@
+
+.cell-dropdown-menu[data-v-0c64f274] {
+    display: flex;
+    column-gap: 4px;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden
+}
+
+.cell-dropdown-menu__button-container[data-v-0c64f274] {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    overflow: hidden
+}
+
+.cell-dropdown-menu__doc-icon[data-v-0c64f274] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0
+}
+
+.cell-dropdown-menu__cell-link[data-v-0c64f274] {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    min-width: 0
+}
+
+.cell-dropdown-menu__cell-link[data-v-0c64f274]:focus {
+    outline: none
+}
+
+.cell-dropdown-menu__cell-link_width-limited[data-v-0c64f274] {
+    max-width: 60%
+}
+
+.cell-dropdown-menu__cell-label[data-v-0c64f274] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: var(--afs-link-background-default);
+    border-radius: 2px;
+    padding-left: 4px;
+    padding-right: 4px
+}
+
+.cell-dropdown-menu__cell-label.cell-dropdown-menu__cell-label-big[data-v-0c64f274] {
+    padding: 2px 4px
+}
+
+.cell-dropdown-menu__preview-item-hint[data-v-0c64f274] {
+    background: var(--afs-secondary-default);
+    color: var(--afs-text-icon-primary);
+    padding: 4px 8px
+}
+
+.cell-dropdown-menu__preview-item-hint[data-v-0c64f274] .afs-context-menu__inner {
+    padding: 0
+}
+
+.cell-dropdown-menu__cell-button[data-v-0c64f274] {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.cell-dropdown-menu__cell-button_no-pointer-events[data-v-0c64f274] {
+    pointer-events: none
+}
+
+.cell-dropdown-menu__link-icon[data-v-0c64f274] {
+    visibility: hidden;
+    width: 14px;
+    height: 14px
+}
+
+.cell-dropdown-menu__dropdown-item[data-v-0c64f274] {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1px;
+    padding-bottom: 1px
+}
+
+.cell-dropdown-menu__dropdown-item:hover .cell-dropdown-menu__link-icon[data-v-0c64f274],.cell-dropdown-menu__dropdown-item:focus .cell-dropdown-menu__link-icon[data-v-0c64f274] {
+    visibility: visible
+}

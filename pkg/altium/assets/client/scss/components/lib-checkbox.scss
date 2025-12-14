@@ -1,0 +1,56 @@
+
+.lib-checkbox {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: flex-start;
+    color: inherit;
+    cursor: pointer;
+    user-select: none
+}
+
+.lib-checkbox:disabled,.lib-checkbox[disabled],.lib-checkbox.is-disabled {
+    opacity: .48;
+    cursor: not-allowed
+}
+
+.lib-checkbox:checked .lib-checkbox__figure,.lib-checkbox[checked] .lib-checkbox__figure,.lib-checkbox.is-checked .lib-checkbox__figure {
+    background: var(--background-checkbox-secondary_checked)
+}
+
+.lib-checkbox:checked .lib-checkbox__figure-icon,.lib-checkbox[checked] .lib-checkbox__figure-icon,.lib-checkbox.is-checked .lib-checkbox__figure-icon {
+    opacity: 1
+}
+
+.lib-checkbox__input {
+    display: none
+}
+
+.lib-checkbox__figure {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    background: var(--background-checkbox-secondary);
+    border: 1px solid var(--border-color-checkbox);
+    border-radius: 2px;
+    box-shadow: inset 0px 1px 0px var(--box-shadow-checkbox);
+    width: 1rem;
+    height: 1rem;
+    transition: background-color var(--transition-duration-default)
+}
+
+.lib-checkbox__figure-icon {
+    opacity: 0;
+    font-size: .38rem;
+    width: .5rem;
+    transition: opacity var(--transition-duration-default)
+}
+
+.lib-checkbox__text {
+    flex: 1 1 auto;
+    align-self: center;
+    padding-left: .5rem;
+    font-size: .75rem;
+    line-height: .75rem
+}

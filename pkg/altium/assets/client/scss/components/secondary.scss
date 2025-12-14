@@ -1,0 +1,14 @@
+
+.secondary[data-v-c1238175] {
+    background-color: var(--button-secondary-background-default);
+    border-color: var(--button-secondary-border-default);
+    color: var(--afs-text-primary)
+}
+
+.secondary[data-v-c1238175]:hover,.secondary.hover[data-v-c1238175] {
+    background-color: var(--button-secondary-background-hover)
+}
+
+.secondary[data-v-c1238175]:active,.secondary.pressed[data-v-c1238175] {
+    background-color: var(--button-secondary-background-pressed)
+}

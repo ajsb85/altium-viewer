@@ -1,0 +1,63 @@
+
+.afs-accordion__header {
+    display: flex;
+    gap: 16px
+}
+
+.afs-accordion:disabled,.afs-accordion[disabled],.afs-accordion.is-disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    pointer-events: none
+}
+
+.afs-accordion__main-chevron,.afs-accordion__main-header,.afs-accordion__main-header-icon {
+    transition: color .25s
+}
+
+.afs-accordion__main-chevron {
+    color: var(--afs-text-icon-secondary);
+    margin-right: 8px;
+    font-size: 8px;
+    width: 8px;
+    height: 8px
+}
+
+.afs-accordion__main-header {
+    flex: 0 0 auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    width: 100%;
+    max-width: 100%;
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-accordion__main-header-container {
+    flex: 1 1 auto;
+    position: relative;
+    display: flex;
+    max-width: 100%
+}
+
+.afs-accordion__main-header-icon {
+    color: var(--afs-text-icon-secondary);
+    margin-right: 8px;
+    font-size: 16px;
+    width: 16px;
+    height: 16px
+}
+
+.afs-accordion__main-header-count {
+    color: var(--afs-text-icon-hint);
+    margin-left: 4px
+}
+
+.afs-accordion__additional-header {
+    flex: 0 1 auto;
+    min-width: 0
+}
+
+.afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header:hover .afs-accordion__main-chevron,.afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header:hover .afs-accordion__main-header,.afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header:hover .afs-accordion__main-header-icon,.afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header.is-hovered .afs-accordion__main-chevron,.afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header.is-hovered .afs-accordion__main-header,.afs-accordion:not(:disabled):not([disabled]):not(.is-disabled):not(.afs-accordion_checkbox) .afs-accordion__header.is-hovered .afs-accordion__main-header-icon {
+    color: var(--afs-text-icon-primary)
+}

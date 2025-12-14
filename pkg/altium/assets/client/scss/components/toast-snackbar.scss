@@ -1,0 +1,14 @@
+
+.toast-snackbar .afs-snackbar {
+    margin: auto;
+    width: fit-content
+}
+
+.toast-snackbar .toast-snackbar__button {
+    background: rgba(0,0,0,0);
+    border-color: hsla(0,0%,100%,.2392156863)
+}
+
+.toast-snackbar .toast-snackbar__button:hover {
+    border-color: var(--global-text-static-white-primary)
+}

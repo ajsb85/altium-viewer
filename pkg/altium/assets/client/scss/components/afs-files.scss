@@ -1,0 +1,38 @@
+
+.afs-files-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none
+}
+
+.afs-files-list {
+    transition: color .25s;
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-files-list__item {
+    display: flex
+}
+
+.afs-files-list__item:not(:last-child) {
+    margin-bottom: 8px
+}
+
+.afs-files-list__icon {
+    flex: 0 0 auto;
+    margin-right: 8px;
+    font-size: 16px
+}
+
+.afs-files-list__text {
+    flex: 1 1 auto;
+    padding: 2px 0;
+    font-size: 12px;
+    line-height: 1
+}
+
+.afs-files-list__text_ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}

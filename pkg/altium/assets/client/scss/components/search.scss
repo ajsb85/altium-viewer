@@ -1,0 +1,24 @@
+
+.search[data-v-568efaa4] {
+    padding: .5rem 1rem
+}
+
+.search[data-v-43369818] {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    max-height: 100%
+}
+
+.search__header[data-v-43369818]:not(:last-child) {
+    border-bottom: 1px solid var(--border-primary)
+}
+
+.search__header[data-v-43369818],.search__footer[data-v-43369818] {
+    flex: 0 0 auto
+}
+
+.search__body[data-v-43369818] {
+    flex: 1 1 auto;
+    overflow: auto
+}

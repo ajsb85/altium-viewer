@@ -1,0 +1,16 @@
+
+.lib-link {
+    color: var(--color-link-secondary);
+    transition: color var(--transition-duration-default);
+    cursor: pointer
+}
+
+.lib-link.is-focused {
+    color: var(--color-link-primary_hover)
+}
+
+.lib-link:disabled,.lib-link[disabled],.lib-link.is-disabled {
+    color: var(--color-link_disabled);
+    opacity: .48;
+    pointer-events: none
+}

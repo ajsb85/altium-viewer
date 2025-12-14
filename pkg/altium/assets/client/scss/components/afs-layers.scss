@@ -1,0 +1,111 @@
+
+.afs-layers-accordion-enter-active[data-v-2f55a3c6],.afs-layers-accordion-leave-active[data-v-2f55a3c6] {
+    transition: height .3s ease-in-out;
+    overflow: hidden
+}
+
+.afs-layers-accordion-enter[data-v-2f55a3c6],.afs-layers-accordion-leave-to[data-v-2f55a3c6] {
+    height: 0
+}
+
+.afs-layers-section {
+    color: var(--afs-text-icon-secondary)
+}
+
+.afs-layers-section__title {
+    margin: 4px 16px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-layers-section__acc {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 16px;
+    cursor: pointer
+}
+
+.afs-layers-section__acc.is-selected {
+    background: var(--background-item_active);
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-layers-section__acc-icon {
+    flex: 0 0 auto;
+    font-size: 8px;
+    margin-right: 10px
+}
+
+.afs-layers-section__acc-icon.is-opened {
+    transform: rotate(90deg)
+}
+
+.afs-layers-section__acc-icon-second {
+    flex: 0 0 auto;
+    font-size: 12px;
+    margin-right: 8px
+}
+
+.afs-layers-section__acc-icon-second:first-child {
+    margin-left: 18px
+}
+
+.afs-layers-section__acc-number {
+    opacity: .6
+}
+
+.afs-layers-section__item,.afs-layers-section__layer {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    padding-left: 52px;
+    padding-right: 14px;
+    cursor: pointer
+}
+
+.afs-layers-section__item:not(.is-selected):hover,.afs-layers-section__layer:not(.is-selected):hover {
+    background: var(--afs-group);
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-layers-section__item.is-selected,.afs-layers-section__layer.is-selected {
+    background: var(--afs-selected-item-background);
+    color: var(--afs-text-icon-primary)
+}
+
+.afs-layers-section__title-color {
+    display: inline-block;
+    margin-right: 8px;
+    border: 12px solid rgba(0,0,0,0);
+    border-radius: 2px
+}
+
+.afs-layers-section__item-color {
+    display: inline-block;
+    min-height: 12px;
+    min-width: 12px;
+    border-radius: 8px;
+    margin-right: 8px
+}
+
+.afs-layers-section__item-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 12px;
+    color: var(--afs-text-icon-primary);
+    height: 16px;
+    min-width: 16px;
+    margin-right: 8px;
+    padding: 4px;
+    background: var(--afs-additional-blue);
+    border-radius: 8px
+}
+
+.afs-layers-section__layer {
+    padding-left: 16px
+}

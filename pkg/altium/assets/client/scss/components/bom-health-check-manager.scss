@@ -1,0 +1,93 @@
+
+.bom-health-check-manager .health-check-row[data-v-7019abbf],.bom-health-check-manager .header[data-v-7019abbf] {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400
+}
+
+.bom-health-check-manager[data-v-7019abbf] {
+    display: flex;
+    flex-direction: column
+}
+
+.bom-health-check-manager .header[data-v-7019abbf] {
+    flex-grow: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--afs-text-primary);
+    margin-bottom: 16px
+}
+
+.bom-health-check-manager .health-check-table[data-v-7019abbf] {
+    flex-grow: 1
+}
+
+.bom-health-check-manager .health-check-table[data-v-7019abbf] table {
+    table-layout: fixed
+}
+
+.bom-health-check-manager .health-check-row[data-v-7019abbf] {
+    color: var(--afs-text-primary)
+}
+
+.bom-health-check-manager .health-check-row>td[data-v-7019abbf] {
+    position: relative;
+    border-bottom: 1px solid var(--afs-group);
+    padding: 0 8px;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: middle
+}
+
+.bom-health-check-manager .health-check-row .expander-btn[data-v-7019abbf] {
+    padding: 4px;
+    display: flex;
+    cursor: pointer
+}
+
+.bom-health-check-manager .health-check-row .expander-btn[data-v-7019abbf] .icon {
+    width: 8px;
+    height: 8px
+}
+
+.bom-health-check-manager .health-check-row .check-title-container[data-v-7019abbf] {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px
+}
+
+.bom-health-check-manager .health-check-row .check-title-container__expander[data-v-7019abbf] {
+    flex: 0 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.bom-health-check-manager .health-check-row .check-title-container__nested[data-v-7019abbf] {
+    flex: 0 0 8px
+}
+
+.bom-health-check-manager .health-check-row .check-title-container__title[data-v-7019abbf] {
+    max-width: 95%;
+    flex: 1 1 auto;
+    padding: 4px 0;
+    line-height: 16px;
+    display: flex;
+    align-items: center
+}
+
+.bom-health-check-manager .health-check-row .check-title-container__title>*[data-v-7019abbf] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.bom-health-check-manager .health-check-row .report-level-cell[data-v-7019abbf] {
+    border-left: 1px solid var(--afs-group)
+}
+
+.bom-health-check-manager .health-check-row:last-child>td[data-v-7019abbf] {
+    border-bottom: none
+}
