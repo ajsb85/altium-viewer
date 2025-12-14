@@ -27,7 +27,7 @@ type Server struct {
 
 // NewServer creates and starts a new local server
 func NewServer(designId, filename string) (*Server, error) {
-	lis, err := net.Listen("tcp", "127.0.0.1:0")
+	lis, err := net.Listen("tcp", "127.0.0.1:8080")
 	if err != nil {
 		return nil, err
 	}
