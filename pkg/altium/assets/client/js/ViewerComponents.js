@@ -153,6 +153,110 @@ var ViewerComponents = (function (exports) {
     ]);
 
     // ============================================================================
+    // TYPOGRAPHY COMPONENT (from module 77453)
+    // ============================================================================
+
+    var TEXT_TYPES = [
+        "large title", "medium title", "title", "paragraph",
+        "single line", "hint", "tooltip", "group", "sticker", "text"
+    ];
+
+    /**
+     * AfsText - Typography component
+     * Replaces module 77453 export 'A'
+     */
+    var AfsText = {
+        name: "AfsText",
+        props: {
+            type: {
+                type: String,
+                default: "paragraph",
+                validator: function (v) { return TEXT_TYPES.includes(v); }
+            },
+            inline: { type: Boolean, default: false },
+            ellipsis: { type: Boolean, default: false },
+            tag: { type: String, default: "" }
+        },
+        computed: {
+            checkType: function () {
+                return {
+                    isLargeTitle: this.type === "large title",
+                    isMediumTitle: this.type === "medium title",
+                    isTitle: this.type === "title",
+                    isParagraph: this.type === "paragraph",
+                    isSingleLine: this.type === "single line",
+                    isHint: this.type === "hint",
+                    isTooltip: this.type === "tooltip",
+                    isGroup: this.type === "group",
+                    isSticker: this.type === "sticker",
+                    isText: this.type === "text"
+                };
+            },
+            textEllipsisClass: function () {
+                return {
+                    "afs-typography_ellipsis": this.checkType.isSingleLine || this.ellipsis
+                };
+            },
+            typeClass: function () {
+                var e = this.checkType;
+                var t = "afs-typography_";
+                return e.isLargeTitle ? t + "large-title"
+                    : e.isMediumTitle ? t + "medium-title"
+                        : e.isTitle ? t + "title"
+                            : e.isSingleLine ? t + "single-line"
+                                : e.isHint || e.isTooltip ? t + "hint-tooltip"
+                                    : e.isGroup ? t + "group"
+                                        : e.isSticker ? t + "sticker"
+                                            : e.isText ? t + "text"
+                                                : t + "paragraph";
+            },
+            componentType: function () {
+                return this.tag ? this.tag : this.inline ? "span" : "div";
+            }
+        },
+        methods: {
+            getBEMClass: function (e) {
+                return getBEMClass("afs-typography", e);
+            }
+        }
+    };
+
+    /**
+     * AfsText render function
+     */
+    function renderAfsText(ctx, cache, props, setup, data, options) {
+        return (
+            Vue.openBlock(),
+            Vue.createBlock(
+                Vue.resolveDynamicComponent(options.componentType),
+                {
+                    class: Vue.normalizeClass([
+                        [options.typeClass, options.textEllipsisClass],
+                        "afs-typography"
+                    ])
+                },
+                {
+                    default: Vue.withCtx(function () {
+                        return [
+                            Vue.renderSlot(ctx.$slots, "default", {
+                                getBEMClass: options.getBEMClass
+                            })
+                        ];
+                    }),
+                    _: 3
+                },
+                8,
+                ["class"]
+            )
+        );
+    }
+
+    // Wrap AfsText with its render function
+    var WrappedAfsText = wrapComponent(AfsText, [
+        ["render", renderAfsText]
+    ]);
+
+    // ============================================================================
     // SIDEBAR COMPONENTS
     // ============================================================================
 
@@ -431,6 +535,10 @@ var ViewerComponents = (function (exports) {
     // Grid components
     exports.GridContainer = GridContainer;
     exports.WrappedGridContainer = WrappedGridContainer;
+
+    // Typography
+    exports.AfsText = AfsText;
+    exports.WrappedAfsText = WrappedAfsText;
 
     // Sidebar components
     exports.AfsSidebar = AfsSidebar;
