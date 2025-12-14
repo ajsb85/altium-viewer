@@ -2286,59 +2286,24 @@
               return ViewerAppMethods.filterViewByStr(e, t);
             },
             setInitialView: function () {
-              try {
-                var e,
-                  t,
-                  n =
-                    null === (e = this.coreInitialData) ||
-                      void 0 === e ||
-                      null === (t = e.attributes) ||
-                      void 0 === t
-                      ? void 0
-                      : t["data-active-view"];
-                if (!n) return this.setDefaultView();
-                var r = this.filterViewsByStr(this.views, n).find(
-                  function (e) {
-                    return !e.hidden || (e.hidden && e.isHiddenByDefault);
-                  },
-                );
-                if (!r) return this.setDefaultView();
-                (window.__APP__.analytics.sendViewInitEvent(
-                  null == r ? void 0 : r.text,
-                ),
-                  this.changeView(r, !0));
-              } catch (e) {
-                this.setDefaultView();
-              }
+              return ViewerViewManager.setInitialView(this, Ne.Z);
             },
             setDefaultView: function () {
-              var e = this.views.find(function (e) {
-                return !e.hidden;
-              });
-              return (
-                window.__APP__.analytics.sendViewInitEvent(
-                  null == e ? void 0 : e.text,
-                ),
-                this.changeView(e, !0)
-              );
+              return ViewerViewManager.setDefaultView(this, Ne.Z);
             },
             setFilteredView: function (e) {
-              var t,
-                n,
-                r =
-                  null === (t = this.coreInitialData) ||
-                    void 0 === t ||
-                    null === (n = t.attributes) ||
-                    void 0 === n
-                    ? void 0
-                    : n["data-enabled-views"];
-              if (this.filterViewByStr(e, r))
-                return (
-                  this.setView(e),
-                  this.views.find(function (t) {
-                    return t.id === e.metaInfo.name;
-                  })
-                );
+              return ViewerViewManager.setFilteredView(this, e);
+            },
+            // ... (onDesignProcessing, etc.) ...
+            changeView: function (e, t, n) {
+              return ViewerViewManager.changeView(this, e, t, n, Ne.Z);
+            },
+            initOnDocumentShown: function (e) {
+              return ViewerViewManager.initOnDocumentShown(this, e, Ne.Z.bus);
+            },
+            // ...
+            initViewsListeners: function () {
+              ViewerViewManager.initViewsListeners(this, Ne.Z.bus, Ne.Z);
             },
             onDesignProcessing: function (e, t) {
               ((this.isDesignProcessed = !1), this.setLoaderMessage(e, t));
@@ -2490,55 +2455,9 @@
                   e.isLogoVisible = !1;
                 }));
             },
+
             initViewsListeners: function () {
-              var e = this;
-              (Ne.Z.bus.on("View:set", function (t) {
-                return e.changeView(
-                  e.views.find(function (e) {
-                    return e.id === t;
-                  }),
-                );
-              }),
-                Ne.Z.bus.on("Views:updatePadding", function () {
-                  var t =
-                    arguments.length > 0 && void 0 !== arguments[0]
-                      ? arguments[0]
-                      : {},
-                    n = t.left,
-                    r = t.right;
-                  (isFinite(n) && (e.viewsPadding.left = n),
-                    isFinite(r) && (e.viewsPadding.right = r));
-                }),
-                Ne.Z.bus.on(
-                  "Views:disable",
-                  this.toggleModulesDisableState({
-                    getItems: function () {
-                      return e.views;
-                    },
-                    disabled: !0,
-                    callback: function (t) {
-                      return e.updateViewInterface({
-                        view: t,
-                        data: { disabled: !0 },
-                      });
-                    },
-                  }),
-                ),
-                Ne.Z.bus.on(
-                  "Views:enable",
-                  this.toggleModulesDisableState({
-                    getItems: function () {
-                      return e.views;
-                    },
-                    disabled: !1,
-                    callback: function (t) {
-                      return e.updateViewInterface({
-                        view: t,
-                        data: { disabled: !1 },
-                      });
-                    },
-                  }),
-                ));
+              ViewerViewManager.initViewsListeners(this, Ne.Z.bus);
             },
             initPluginsListeners: function () {
               ViewerPluginManager.initPluginsListeners(this, Ne.Z.bus);
@@ -2549,60 +2468,11 @@
             addModalListeners: function (e) {
               ViewerPluginManager.addModalListeners(this, e, Ne.Z.bus);
             },
-            changeView: function (e) {
-              var t =
-                arguments.length > 1 &&
-                void 0 !== arguments[1] &&
-                arguments[1],
-                n =
-                  arguments.length > 2 &&
-                  void 0 !== arguments[2] &&
-                  arguments[2];
-              try {
-                var r;
-                (null == e ? void 0 : e.id) !==
-                  (null === (r = this.activeView) || void 0 === r
-                    ? void 0
-                    : r.id) &&
-                  (null == e ? void 0 : e.analyticsEventName) &&
-                  window.__APP__.analytics.dispatchViewEvent(
-                    e.analyticsEventName,
-                  );
-                var i = this.$refs[null == e ? void 0 : e.id];
-                if (null != e && e.hasNoView) {
-                  var o,
-                    a =
-                      null === Ne.Z ||
-                        void 0 === Ne.Z ||
-                        null === (o = Ne.Z.views) ||
-                        void 0 === o
-                        ? void 0
-                        : o[null == e ? void 0 : e.name];
-                  return void (null == a || a.activate(n));
-                }
-                (this.setActiveView({ view: e, el: i && i[0] }),
-                  t && this.initOnDocumentShown(e));
-              } catch (e) {
-                console.error(e);
-              }
+            changeView: function (e, t, n) {
+              return ViewerViewManager.changeView(this, e, t, n);
             },
             initOnDocumentShown: function (e) {
-              var t = this;
-              e &&
-                e.name &&
-                Ne.Z.bus.once("".concat(e.name, ":shown"), function () {
-                  try {
-                    (t.setInitialPlugin(),
-                      t.parentEvents.emit(
-                        ViewerAppConfig.PARENT_EVENTS.RENDER_COMPLETE,
-                        window.__APP__.analytics.getOpenPerformanceEventName(
-                          e.name,
-                        ),
-                      ));
-                  } catch (e) {
-                    console.error(e);
-                  }
-                });
+              return ViewerViewManager.initOnDocumentShown(this, e, Ne.Z.bus);
             },
             onViewChange: function (e) {
               this.changeView(e, !1, !0);

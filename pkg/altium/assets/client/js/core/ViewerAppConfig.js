@@ -252,6 +252,8 @@ var ViewerAppConfig = (function (exports) {
         VIEW_GET: 'View:get',
         VIEW_SET: 'View:set',
         VIEWS_UPDATE_PADDING: 'Views:updatePadding',
+        VIEWS_DISABLE: 'Views:disable',
+        VIEWS_ENABLE: 'Views:enable',
         
         // Layout events
         LAYOUT_UPDATE: 'Layout:update',
