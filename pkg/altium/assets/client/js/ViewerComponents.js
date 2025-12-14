@@ -847,6 +847,161 @@ var ViewerComponents = (function (exports) {
     ]);
 
     // ============================================================================
+    // WATERMARK COMPONENT (from ViewerApp.js line 1431)
+    // ============================================================================
+
+    /**
+     * AppWatermark - Altium Viewer watermark/branding overlay
+     */
+    var AppWatermark = {
+        name: "AppWatermark",
+        data: function () {
+            return { url: "http://altium.com/viewer" };
+        }
+    };
+
+    // Watermark template content
+    var WATERMARK_CONTENT = [
+        Vue.createElementVNode("span", { class: "app-watermark__image" })
+    ];
+    var WATERMARK_HREF = ["href"];
+
+    /**
+     * AppWatermark render function
+     */
+    function renderAppWatermark(ctx, cache, props, setup, data, options) {
+        return (
+            Vue.openBlock(),
+            Vue.createElementBlock(
+                "a",
+                { href: ctx.url, target: "_blank", class: "app-watermark" },
+                WATERMARK_CONTENT,
+                8,
+                WATERMARK_HREF
+            )
+        );
+    }
+
+    var WrappedAppWatermark = wrapComponent(AppWatermark, [
+        ["render", renderAppWatermark]
+    ]);
+
+    // ============================================================================
+    // SNACKBAR COMPONENT (from ViewerApp.js line 3995)
+    // ============================================================================
+
+    /**
+     * AppSnackbar - Toast notification wrapper
+     */
+    var AppSnackbar = {
+        name: "AppSnackbar",
+        components: {
+            // AfsSnackbar and Icon resolved at runtime
+        },
+        props: {
+            containerId: { type: String, default: "" }
+        },
+        data: function () {
+            return {
+                icon: "",
+                autoClose: false,
+                text: "Something wrong",
+                hideClose: true,
+                position: "top",
+                zIndex: 15,
+                primary: false,
+                type: "info",
+                iconSprite: "",
+                spriteFilled: false
+            };
+        },
+        computed: {
+            classes: function () {
+                var pos = this.position;
+                if (pos && ["top", "bottom"].includes(pos)) {
+                    return ["app-snackbar__" + pos];
+                }
+                return ["app-snackbar__top"];
+            }
+        },
+        setup: function () {
+            return {
+                setData: function (key, value) {
+                    this[key] = value;
+                },
+                open: function () {
+                    this.$refs.appSnackbar.open();
+                },
+                close: function () {
+                    this.$refs.appSnackbar.close();
+                }
+            };
+        },
+        methods: {
+            handleClosed: function () {
+                this.restoreDefaults();
+            },
+            restoreDefaults: function () {
+                this.type = "info";
+                this.zIndex = 2;
+                this.icon = "";
+                this.primary = false;
+                this.spriteFilled = false;
+                this.iconSprite = "";
+            }
+        }
+    };
+
+    // ============================================================================
+    // HEADER PLUGIN COMPONENT (from ViewerApp.js line 1094)
+    // ============================================================================
+
+    /**
+     * AppHeaderPlugin - Header plugin buttons
+     */
+    var AppHeaderPlugin = {
+        name: "AppHeaderPlugin",
+        components: {
+            // AfsIcon, AfsContextMenu, AfsText resolved at runtime
+        },
+        directives: {
+            // hint and modal directives resolved at runtime
+        },
+        props: {
+            items: {
+                type: Array,
+                default: function () { return []; },
+                validator: function (arr) {
+                    return !arr.length || arr.every(function (e) {
+                        return (e.text !== undefined || e.icon !== undefined) && e.id !== undefined;
+                    });
+                }
+            },
+            isGlobal: { type: Boolean, default: false },
+            isPrimary: { type: Boolean, default: false }
+        },
+        emits: ["click"],
+        data: function () {
+            return { hintText: null };
+        },
+        computed: {
+            filteredItems: function () {
+                return this.items.filter(function (e) {
+                    return e.hasButton;
+                });
+            }
+        },
+        methods: {
+            onClick: function (item) {
+                this.$emit("click", item);
+            },
+            hasSlot: function (name) {
+                return !!this.$slots[name];
+            }
+        }
+    };
+
+    // ============================================================================
     // EXPORTS
     // ============================================================================
 
@@ -886,6 +1041,16 @@ var ViewerComponents = (function (exports) {
     exports.WrappedAppAlert = WrappedAppAlert;
     exports.AppLoader = AppLoader;
     exports.WrappedAppLoader = WrappedAppLoader;
+
+    // Watermark
+    exports.AppWatermark = AppWatermark;
+    exports.WrappedAppWatermark = WrappedAppWatermark;
+
+    // Snackbar (toast notifications)
+    exports.AppSnackbar = AppSnackbar;
+
+    // Header plugin
+    exports.AppHeaderPlugin = AppHeaderPlugin;
 
     return exports;
 }({}));
