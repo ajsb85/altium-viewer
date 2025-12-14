@@ -32,6 +32,127 @@ var ViewerComponents = (function (exports) {
     }
 
     // ============================================================================
+    // BEM HELPERS (from module 29786)
+    // ============================================================================
+
+    /**
+     * Creates a BEM element class name
+     * Replaces module 29786 export 'g'
+     * @param {string} block - Block name
+     * @param {string} element - Element name
+     * @returns {string} BEM class like "block__element"
+     */
+    function getBEMClass(block, element) {
+        return block + "__" + element;
+    }
+
+    /**
+     * Creates radius classes for corners
+     * Replaces module 29786 export 'a'
+     */
+    function getRadiusClasses(block, corners) {
+        var result = {};
+        result[block + "_radius-tl"] = corners.indexOf("tl") !== -1;
+        result[block + "_radius-tr"] = corners.indexOf("tr") !== -1;
+        result[block + "_radius-bl"] = corners.indexOf("bl") !== -1;
+        result[block + "_radius-br"] = corners.indexOf("br") !== -1;
+        return result;
+    }
+
+    // ============================================================================
+    // GRID CONTAINER (from module 48226)
+    // ============================================================================
+
+    /**
+     * Joins modifiers into a class string
+     */
+    function joinModifiers(modifiers, prefix) {
+        return modifiers.join(" " + prefix + "_").replace(/^\s+|\s+$/g, "");
+    }
+
+    /**
+     * AfsGridContainer - Flexible grid container component
+     * Replaces module 48226 export 'G'
+     */
+    var GridContainer = {
+        name: "AfsGridContainer",
+        inheritAttrs: false,
+        props: {
+            dataLocator: { type: String, default: "grid-container" },
+            tag: { type: String, default: "div" },
+            type: {
+                type: String,
+                default: "",
+                validator: function (v) { return !v.length || ["sidebar"].includes(v); }
+            },
+            size: {
+                type: String,
+                default: "",
+                validator: function (v) { return !v.length || ["auto", "fullscreen", "remain"].includes(v); }
+            },
+            direction: {
+                type: String,
+                default: "row",
+                validator: function (v) { return ["row", "row-reverse", "column", "column-reverse"].includes(v); }
+            },
+            modifiers: { type: String, default: "" },
+            centerContent: { type: Boolean, default: false },
+            searchData: { type: String, default: "" }
+        },
+        computed: {
+            classes: function () {
+                return [
+                    this.computedModifiers,
+                    this.size.length ? "afs-grid-container_" + this.size : null,
+                    this.type.length ? "afs-grid-container_" + this.type : null,
+                    { "afs-grid-container_center-content": this.centerContent },
+                    "afs-grid-container_direction-" + this.direction
+                ];
+            },
+            computedModifiers: function () {
+                var mods = this.modifiers;
+                if (!mods) return "";
+                if (Array.isArray(mods) && mods.length) {
+                    return joinModifiers([""].concat(mods), "afs-grid-container");
+                }
+                if (typeof mods === "string" && mods.length) {
+                    return joinModifiers([""].concat(mods.split(" ")), "afs-grid-container");
+                }
+                return "";
+            }
+        }
+    };
+
+    /**
+     * GridContainer render function
+     */
+    function renderGridContainer(ctx, cache, props, setup, data, options) {
+        return (
+            Vue.openBlock(),
+            Vue.createBlock(
+                Vue.resolveDynamicComponent(props.tag),
+                Vue.mergeProps(ctx.$attrs, {
+                    class: ["afs-grid-container", options.classes],
+                    "data-locator": props.dataLocator
+                }),
+                {
+                    default: Vue.withCtx(function () {
+                        return [Vue.renderSlot(ctx.$slots, "default")];
+                    }),
+                    _: 3
+                },
+                16,
+                ["class", "data-locator"]
+            )
+        );
+    }
+
+    // Wrap GridContainer with its render function
+    var WrappedGridContainer = wrapComponent(GridContainer, [
+        ["render", renderGridContainer]
+    ]);
+
+    // ============================================================================
     // SIDEBAR COMPONENTS
     // ============================================================================
 
@@ -301,10 +422,22 @@ var ViewerComponents = (function (exports) {
     // EXPORTS
     // ============================================================================
 
+    // Utilities
     exports.wrapComponent = wrapComponent;
+    exports.getBEMClass = getBEMClass;
+    exports.getRadiusClasses = getRadiusClasses;
+    exports.joinModifiers = joinModifiers;
+
+    // Grid components
+    exports.GridContainer = GridContainer;
+    exports.WrappedGridContainer = WrappedGridContainer;
+
+    // Sidebar components
     exports.AfsSidebar = AfsSidebar;
     exports.WrappedAfsSidebar = WrappedAfsSidebar;
     exports.AppSidebar = AppSidebar;
+
+    // Loader components
     exports.AppAlert = AppAlert;
     exports.AppLoader = AppLoader;
 
