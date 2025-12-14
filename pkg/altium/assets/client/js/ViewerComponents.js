@@ -656,6 +656,143 @@ var ViewerComponents = (function (exports) {
         }
     };
 
+    // Template element constants for AppAlert
+    var APP_ALERT_ROOT = { class: "app-alert" };
+    var APP_ALERT_CONTAINER = { class: "app-alert__container" };
+    var APP_ALERT_FIGURE = { class: "app-alert__figure" };
+    var APP_ALERT_TEXT = { key: 0, class: "app-alert__text" };
+    var APP_ALERT_META = { key: 1, class: "app-alert__meta" };
+
+    /**
+     * AppAlert render function
+     */
+    function renderAppAlert(ctx, cache, props, setup, data, options) {
+        var AfsIcon = Vue.resolveComponent("AfsIcon");
+        return (
+            Vue.openBlock(),
+            Vue.createElementBlock("div", APP_ALERT_ROOT, [
+                Vue.createElementVNode("div", APP_ALERT_CONTAINER, [
+                    Vue.createElementVNode("div", APP_ALERT_FIGURE, [
+                        Vue.createVNode(
+                            AfsIcon,
+                            { filled: true, name: props.icon, class: "app-alert__icon" },
+                            null,
+                            8,
+                            ["name"]
+                        )
+                    ]),
+                    options.hasSlot("default")
+                        ? (Vue.openBlock(),
+                            Vue.createElementBlock("div", APP_ALERT_TEXT, [
+                                Vue.renderSlot(ctx.$slots, "default", {}, void 0, true)
+                            ]))
+                        : Vue.createCommentVNode("v-if", true),
+                    options.hasSlot("meta")
+                        ? (Vue.openBlock(),
+                            Vue.createElementBlock("div", APP_ALERT_META, [
+                                Vue.renderSlot(ctx.$slots, "meta", {}, void 0, true)
+                            ]))
+                        : Vue.createCommentVNode("v-if", true)
+                ])
+            ])
+        );
+    }
+
+    // Wrap AppAlert with render function and scoped style
+    var WrappedAppAlert = wrapComponent(AppAlert, [
+        ["render", renderAppAlert],
+        ["__scopeId", "data-v-3abbf864"]
+    ]);
+
+    // Template element constants for AppLoader
+    var APP_LOADER_CONTAINER = { class: "app-loader__container" };
+    var APP_LOADER_FIGURE = { class: "app-loader__figure" };
+    var APP_LOADER_PROGRESS = { key: 0, class: "app-loader__progress" };
+    var APP_LOADER_META = { key: 1, class: "app-loader__meta" };
+
+    /**
+     * AppLoader render function (with transition)
+     */
+    function renderAppLoader(ctx, cache, props, setup, data, options) {
+        var AfsIcon = Vue.resolveComponent("AfsIcon");
+        return (
+            Vue.openBlock(),
+            Vue.createBlock(
+                Vue.Transition,
+                Vue.normalizeProps(Vue.guardReactiveProps(options.bindTransition)),
+                {
+                    default: Vue.withCtx(function () {
+                        return [
+                            Vue.createElementVNode(
+                                "div",
+                                {
+                                    class: Vue.normalizeClass(["app-loader", options.classes])
+                                },
+                                [
+                                    Vue.createElementVNode("div", APP_LOADER_CONTAINER, [
+                                        Vue.createElementVNode("div", APP_LOADER_FIGURE, [
+                                            props.hasError
+                                                ? Vue.createCommentVNode("v-if", true)
+                                                : (Vue.openBlock(), Vue.createElementBlock("div", APP_LOADER_PROGRESS)),
+                                            props.hasIcon
+                                                ? (Vue.openBlock(),
+                                                    Vue.createBlock(
+                                                        AfsIcon,
+                                                        {
+                                                            key: 1,
+                                                            filled: props.hasError,
+                                                            name: options.computedIcon,
+                                                            class: Vue.normalizeClass([
+                                                                "app-loader__icon",
+                                                                { "is-error": props.hasError }
+                                                            ])
+                                                        },
+                                                        null,
+                                                        8,
+                                                        ["filled", "name", "class"]
+                                                    ))
+                                                : Vue.createCommentVNode("v-if", true)
+                                        ]),
+                                        options.hasSlot("default")
+                                            ? (Vue.openBlock(),
+                                                Vue.createElementBlock(
+                                                    "div",
+                                                    {
+                                                        key: 0,
+                                                        class: Vue.normalizeClass([
+                                                            "app-loader__text",
+                                                            { "is-processing": !props.hasError }
+                                                        ])
+                                                    },
+                                                    [Vue.renderSlot(ctx.$slots, "default", {}, void 0, true)],
+                                                    2
+                                                ))
+                                            : Vue.createCommentVNode("v-if", true),
+                                        options.hasSlot("meta")
+                                            ? (Vue.openBlock(),
+                                                Vue.createElementBlock("div", APP_LOADER_META, [
+                                                    Vue.renderSlot(ctx.$slots, "meta", {}, void 0, true)
+                                                ]))
+                                            : Vue.createCommentVNode("v-if", true)
+                                    ])
+                                ],
+                                2
+                            )
+                        ];
+                    }),
+                    _: 3
+                },
+                16
+            )
+        );
+    }
+
+    // Wrap AppLoader with render function and scoped style
+    var WrappedAppLoader = wrapComponent(AppLoader, [
+        ["render", renderAppLoader],
+        ["__scopeId", "data-v-30d447e2"]
+    ]);
+
     // ============================================================================
     // EXPORTS
     // ============================================================================
@@ -691,7 +828,9 @@ var ViewerComponents = (function (exports) {
 
     // Loader components
     exports.AppAlert = AppAlert;
+    exports.WrappedAppAlert = WrappedAppAlert;
     exports.AppLoader = AppLoader;
+    exports.WrappedAppLoader = WrappedAppLoader;
 
     return exports;
 }({}));
