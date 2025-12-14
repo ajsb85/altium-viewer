@@ -16,7 +16,15 @@
 
   <!-- External Libraries (loaded before webpack chunks) -->
   <script defer="defer" src="js/ViewerUtils.js"></script> <!-- Shared utilities -->
-  <script defer="defer" src="js/ViewerComponents.js"></script> <!-- UI Components -->
+  <!-- ViewerComponents Module Files (must load in order) -->
+  <script defer="defer" src="js/components/ViewerCore.js"></script> <!-- Core utilities first -->
+  <script defer="defer" src="js/components/ViewerGrid.js"></script>
+  <script defer="defer" src="js/components/ViewerTypography.js"></script>
+  <script defer="defer" src="js/components/ViewerSidebar.js"></script>
+  <script defer="defer" src="js/components/ViewerLoader.js"></script>
+  <script defer="defer" src="js/components/ViewerHeader.js"></script>
+  <script defer="defer" src="js/components/ViewerMisc.js"></script>
+  <script defer="defer" src="js/ViewerComponents.js"></script> <!-- Barrel export last -->
   <script defer="defer" src="js/Logger.js"></script> <!-- Logger library -->
   <script defer="defer" src="js/ComponentFactory.js"></script> <!-- ComponentFactory library -->
 
