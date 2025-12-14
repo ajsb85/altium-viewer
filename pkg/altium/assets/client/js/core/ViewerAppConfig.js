@@ -264,7 +264,13 @@ var ViewerAppConfig = (function (exports) {
         LOGO_HIDE: 'Logo:hide',
         
         // Modal events
-        MODAL_PANEL_WIDTH: 'Modal:panelWidth'
+        MODAL_PANEL_WIDTH: 'Modal:panelWidth',
+        
+        // Plugin events
+        GLOBAL_PLUGINS_DISABLE: 'GlobalPlugins:disable',
+        GLOBAL_PLUGINS_ENABLE: 'GlobalPlugins:enable',
+        LOCAL_PLUGINS_DISABLE: 'LocalPlugins:disable',
+        LOCAL_PLUGINS_ENABLE: 'LocalPlugins:enable'
     };
 
     // ============================================================================

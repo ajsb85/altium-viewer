@@ -2495,18 +2495,7 @@
                   }));
             },
             setInitialPlugin: function () {
-              try {
-                var e,
-                  t,
-                  n =
-                    null === (e = this.coreInitialData) ||
-                      void 0 === e ||
-                      null === (t = e.attributes) ||
-                      void 0 === t
-                      ? void 0
-                      : t["data-active-plugin"];
-                n && Ne.Z.bus.emit("".concat(n, ":enable"));
-              } catch (e) { }
+              ViewerPluginManager.setInitialPlugin(this.coreInitialData, Ne.Z.bus);
             },
             onSetupComplete: function () {
               var e,
@@ -2612,79 +2601,13 @@
                 ));
             },
             initPluginsListeners: function () {
-              var e = this;
-              (Ne.Z.bus.on(
-                "GlobalPlugins:disable",
-                this.toggleModulesDisableState({
-                  getItems: function () {
-                    return e.globalPlugins;
-                  },
-                  disabled: !0,
-                  callback: function (t) {
-                    return e.updateGlobalPluginsInterface({
-                      plugin: t,
-                      data: { disabled: !0 },
-                    });
-                  },
-                }),
-              ),
-                Ne.Z.bus.on(
-                  "GlobalPlugins:enable",
-                  this.toggleModulesDisableState({
-                    getItems: function () {
-                      return e.globalPlugins;
-                    },
-                    disabled: !1,
-                    callback: function (t) {
-                      return e.updateGlobalPluginsInterface({
-                        plugin: t,
-                        data: { disabled: !1 },
-                      });
-                    },
-                  }),
-                ));
+              ViewerPluginManager.initPluginsListeners(this, Ne.Z.bus);
             },
             toggleModulesDisableState: function (e) {
-              var t = e.getItems,
-                n = e.callback,
-                r = e.disabled;
-              return function () {
-                var e = (
-                  arguments.length > 0 && void 0 !== arguments[0]
-                    ? arguments[0]
-                    : {}
-                ).exclude,
-                  i = void 0 === e ? null : e;
-                ("string" == typeof i && (i = [i]),
-                  Array.isArray(i) || (i = null),
-                  t().forEach(function (e) {
-                    (i && i.includes(e.id)) ||
-                      !!e.disabled == !!r ||
-                      e.hidden ||
-                      n(e);
-                  }));
-              };
+              return ViewerPluginManager.toggleModulesDisableState(e);
             },
             addModalListeners: function (e) {
-              var t = this;
-              (Ne.Z.bus.on(e.events.disable, function () {
-                (t.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.PLUGIN_EVENTS, {
-                  plugin: e.name,
-                  event: "disable",
-                }),
-                  t.$refs[e.name]
-                    ? t.$refs[e.name][0].close()
-                    : t.removeActivePlugin(e));
-              }),
-                Ne.Z.bus.on(e.events.enable, function () {
-                  (t.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.PLUGIN_EVENTS, {
-                    plugin: e.name,
-                    event: "enable",
-                  }),
-                    t.$refs[e.name]
-                      ? t.$refs[e.name][0].open()
-                      : t.setActivePlugin(e));
-                }));
+              ViewerPluginManager.addModalListeners(this, e, Ne.Z.bus);
             },
             changeView: function (e) {
               var t =
