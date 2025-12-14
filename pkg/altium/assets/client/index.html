@@ -16,12 +16,14 @@
 
   <!-- External Libraries (loaded before webpack chunks) -->
   <script defer="defer" src="js/ViewerUtils.js"></script> <!-- Shared utilities -->
+  <script defer="defer" src="js/ViewerComponents.js"></script> <!-- UI Components -->
   <script defer="defer" src="js/Logger.js"></script> <!-- Logger library -->
   <script defer="defer" src="js/ComponentFactory.js"></script> <!-- ComponentFactory library -->
 
 
   <!-- Webpack Bridge Chunks -->
   <script defer="defer" src="js/app/vue-bridge.js"></script> <!-- Vue bridge -->
+  <script defer="defer" src="js/app/ViewerComponents-bridge.js"></script> <!-- ViewerComponents bridge -->
   <script defer="defer" src="js/app/Logger-bridge.js"></script> <!-- Logger bridge -->
   <script defer="defer" src="js/app/ComponentFactory-bridge.js"></script> <!-- ComponentFactory bridge -->
 
