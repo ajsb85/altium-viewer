@@ -1580,46 +1580,10 @@
           );
           var e, t;
         })();
-      function Ue(e) {
-        return (
-          (Ue =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          Ue(e)
-        );
-      }
-      function Ge(e, t) {
-        for (var n = 0; n < t.length; n++) {
-          var r = t[n];
-          ((r.enumerable = r.enumerable || !1),
-            (r.configurable = !0),
-            "value" in r && (r.writable = !0),
-            Object.defineProperty(e, We(r.key), r));
-        }
-      }
-      function We(e) {
-        var t = (function (e, t) {
-          if ("object" != Ue(e) || !e) return e;
-          var n = e[Symbol.toPrimitive];
-          if (void 0 !== n) {
-            var r = n.call(e, "string");
-            if ("object" != Ue(r)) return r;
-            throw new TypeError("@@toPrimitive must return a primitive value.");
-          }
-          return String(e);
-        })(e);
-        return "symbol" == Ue(t) ? t : t + "";
-      }
+      // Use ViewerUtils helpers (replacing Ue, Ge, We duplicates)
+      var Ue = ViewerUtils.getType,
+        Ge = ViewerUtils.defineProperties,
+        We = ViewerUtils.toPropertyKey;
       var $e = (function () {
         return (
           (e = function e(t) {
@@ -1752,86 +1716,16 @@
         );
         var e, t;
       })();
-      function Ye(e) {
-        return (
-          (Ye =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          Ye(e)
-        );
-      }
+      // Use ViewerUtils helpers (replacing Ye, Xe, qe, Je duplicates)
+      var Ye = ViewerUtils.getType,
+        Xe = ViewerUtils.getOwnKeys,
+        qe = ViewerUtils.objectSpread,
+        Je = ViewerUtils.defineProperty;
+      // Ke is a unique array slice helper, keeping as-is
       function Ke(e, t) {
         (null == t || t > e.length) && (t = e.length);
         for (var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
         return r;
-      }
-      function Xe(e, t) {
-        var n = Object.keys(e);
-        if (Object.getOwnPropertySymbols) {
-          var r = Object.getOwnPropertySymbols(e);
-          (t &&
-            (r = r.filter(function (t) {
-              return Object.getOwnPropertyDescriptor(e, t).enumerable;
-            })),
-            n.push.apply(n, r));
-        }
-        return n;
-      }
-      function qe(e) {
-        for (var t = 1; t < arguments.length; t++) {
-          var n = null != arguments[t] ? arguments[t] : {};
-          t % 2
-            ? Xe(Object(n), !0).forEach(function (t) {
-              Je(e, t, n[t]);
-            })
-            : Object.getOwnPropertyDescriptors
-              ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-              : Xe(Object(n)).forEach(function (t) {
-                Object.defineProperty(
-                  e,
-                  t,
-                  Object.getOwnPropertyDescriptor(n, t),
-                );
-              });
-        }
-        return e;
-      }
-      function Je(e, t, n) {
-        return (
-          (t = (function (e) {
-            var t = (function (e, t) {
-              if ("object" != Ye(e) || !e) return e;
-              var n = e[Symbol.toPrimitive];
-              if (void 0 !== n) {
-                var r = n.call(e, "string");
-                if ("object" != Ye(r)) return r;
-                throw new TypeError(
-                  "@@toPrimitive must return a primitive value.",
-                );
-              }
-              return String(e);
-            })(e);
-            return "symbol" == Ye(t) ? t : t + "";
-          })(t)) in e
-            ? Object.defineProperty(e, t, {
-              value: n,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
-            })
-            : (e[t] = n),
-          e
-        );
       }
       const Qe = {
         name: "Viewer",
@@ -3625,46 +3519,10 @@
         ]);
       var tt = n(77826),
         nt = n(62091);
-      function rt(e) {
-        return (
-          (rt =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          rt(e)
-        );
-      }
-      function it(e, t) {
-        for (var n = 0; n < t.length; n++) {
-          var r = t[n];
-          ((r.enumerable = r.enumerable || !1),
-            (r.configurable = !0),
-            "value" in r && (r.writable = !0),
-            Object.defineProperty(e, ot(r.key), r));
-        }
-      }
-      function ot(e) {
-        var t = (function (e, t) {
-          if ("object" != rt(e) || !e) return e;
-          var n = e[Symbol.toPrimitive];
-          if (void 0 !== n) {
-            var r = n.call(e, "string");
-            if ("object" != rt(r)) return r;
-            throw new TypeError("@@toPrimitive must return a primitive value.");
-          }
-          return String(e);
-        })(e);
-        return "symbol" == rt(t) ? t : t + "";
-      }
+      // Use ViewerUtils helpers (replacing rt, it, ot duplicates)
+      var rt = ViewerUtils.getType,
+        it = ViewerUtils.defineProperties,
+        ot = ViewerUtils.toPropertyKey;
       var at = (function () {
         return (
           (e = function e() {
@@ -4302,82 +4160,11 @@
         Ot = (0, i.createTextVNode)("Send feedback "),
         Dt = n(69314),
         Lt = n(53103);
-      function Bt(e) {
-        return (
-          (Bt =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          Bt(e)
-        );
-      }
-      function xt(e, t) {
-        var n = Object.keys(e);
-        if (Object.getOwnPropertySymbols) {
-          var r = Object.getOwnPropertySymbols(e);
-          (t &&
-            (r = r.filter(function (t) {
-              return Object.getOwnPropertyDescriptor(e, t).enumerable;
-            })),
-            n.push.apply(n, r));
-        }
-        return n;
-      }
-      function At(e) {
-        for (var t = 1; t < arguments.length; t++) {
-          var n = null != arguments[t] ? arguments[t] : {};
-          t % 2
-            ? xt(Object(n), !0).forEach(function (t) {
-              Vt(e, t, n[t]);
-            })
-            : Object.getOwnPropertyDescriptors
-              ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-              : xt(Object(n)).forEach(function (t) {
-                Object.defineProperty(
-                  e,
-                  t,
-                  Object.getOwnPropertyDescriptor(n, t),
-                );
-              });
-        }
-        return e;
-      }
-      function Vt(e, t, n) {
-        return (
-          (t = (function (e) {
-            var t = (function (e, t) {
-              if ("object" != Bt(e) || !e) return e;
-              var n = e[Symbol.toPrimitive];
-              if (void 0 !== n) {
-                var r = n.call(e, "string");
-                if ("object" != Bt(r)) return r;
-                throw new TypeError(
-                  "@@toPrimitive must return a primitive value.",
-                );
-              }
-              return String(e);
-            })(e);
-            return "symbol" == Bt(t) ? t : t + "";
-          })(t)) in e
-            ? Object.defineProperty(e, t, {
-              value: n,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
-            })
-            : (e[t] = n),
-          e
-        );
-      }
+      // Use ViewerUtils helpers (replacing Bt, xt, At, Vt duplicates)
+      var Bt = ViewerUtils.getType,
+        xt = ViewerUtils.getOwnKeys,
+        At = ViewerUtils.objectSpread,
+        Vt = ViewerUtils.defineProperty;
       var Tt = window.__CORE__;
       const Nt = {
         name: "AppNotification",
@@ -5065,46 +4852,10 @@
           ],
           ["__scopeId", "data-v-012bf2a3"],
         ]);
-      function Kt(e) {
-        return (
-          (Kt =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          Kt(e)
-        );
-      }
-      function Xt(e, t) {
-        for (var n = 0; n < t.length; n++) {
-          var r = t[n];
-          ((r.enumerable = r.enumerable || !1),
-            (r.configurable = !0),
-            "value" in r && (r.writable = !0),
-            Object.defineProperty(e, qt(r.key), r));
-        }
-      }
-      function qt(e) {
-        var t = (function (e, t) {
-          if ("object" != Kt(e) || !e) return e;
-          var n = e[Symbol.toPrimitive];
-          if (void 0 !== n) {
-            var r = n.call(e, "string");
-            if ("object" != Kt(r)) return r;
-            throw new TypeError("@@toPrimitive must return a primitive value.");
-          }
-          return String(e);
-        })(e);
-        return "symbol" == Kt(t) ? t : t + "";
-      }
+      // Use ViewerUtils helpers (replacing Kt, Xt, qt duplicates)
+      var Kt = ViewerUtils.getType,
+        Xt = ViewerUtils.defineProperties,
+        qt = ViewerUtils.toPropertyKey;
       var Jt = (function () {
         return (
           (e = function e(t, n) {
@@ -5232,71 +4983,12 @@
         rn = n(85843),
         on = n(57455),
         an = n(89471);
-      function sn(e) {
-        return (
-          (sn =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          sn(e)
-        );
-      }
-      function cn(e, t) {
-        var n = Object.keys(e);
-        if (Object.getOwnPropertySymbols) {
-          var r = Object.getOwnPropertySymbols(e);
-          (t &&
-            (r = r.filter(function (t) {
-              return Object.getOwnPropertyDescriptor(e, t).enumerable;
-            })),
-            n.push.apply(n, r));
-        }
-        return n;
-      }
-      function ln(e, t, n) {
-        return (
-          (t = dn(t)) in e
-            ? Object.defineProperty(e, t, {
-              value: n,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
-            })
-            : (e[t] = n),
-          e
-        );
-      }
-      function un(e, t) {
-        for (var n = 0; n < t.length; n++) {
-          var r = t[n];
-          ((r.enumerable = r.enumerable || !1),
-            (r.configurable = !0),
-            "value" in r && (r.writable = !0),
-            Object.defineProperty(e, dn(r.key), r));
-        }
-      }
-      function dn(e) {
-        var t = (function (e, t) {
-          if ("object" != sn(e) || !e) return e;
-          var n = e[Symbol.toPrimitive];
-          if (void 0 !== n) {
-            var r = n.call(e, "string");
-            if ("object" != sn(r)) return r;
-            throw new TypeError("@@toPrimitive must return a primitive value.");
-          }
-          return String(e);
-        })(e);
-        return "symbol" == sn(t) ? t : t + "";
-      }
+      // Use ViewerUtils helpers (replacing sn, cn, ln, un, dn duplicates)
+      var sn = ViewerUtils.getType,
+        cn = ViewerUtils.getOwnKeys,
+        ln = ViewerUtils.defineProperty,
+        un = ViewerUtils.defineProperties,
+        dn = ViewerUtils.toPropertyKey;
       var pn = !1,
         fn = !1,
         mn = { production: !0, development: !0 },
@@ -5590,46 +5282,10 @@
           );
           var e, t;
         })();
-      function bn(e) {
-        return (
-          (bn =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          bn(e)
-        );
-      }
-      function wn(e, t) {
-        for (var n = 0; n < t.length; n++) {
-          var r = t[n];
-          ((r.enumerable = r.enumerable || !1),
-            (r.configurable = !0),
-            "value" in r && (r.writable = !0),
-            Object.defineProperty(e, kn(r.key), r));
-        }
-      }
-      function kn(e) {
-        var t = (function (e, t) {
-          if ("object" != bn(e) || !e) return e;
-          var n = e[Symbol.toPrimitive];
-          if (void 0 !== n) {
-            var r = n.call(e, "string");
-            if ("object" != bn(r)) return r;
-            throw new TypeError("@@toPrimitive must return a primitive value.");
-          }
-          return String(e);
-        })(e);
-        return "symbol" == bn(t) ? t : t + "";
-      }
+      // Use ViewerUtils helpers (replacing bn, wn, kn duplicates)
+      var bn = ViewerUtils.getType,
+        wn = ViewerUtils.defineProperties,
+        kn = ViewerUtils.toPropertyKey;
       var Cn = (function () {
         return (
           (e = function e() {
@@ -5701,46 +5357,10 @@
         );
         var e, t;
       })();
-      function _n(e) {
-        return (
-          (_n =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          _n(e)
-        );
-      }
-      function Pn(e, t) {
-        for (var n = 0; n < t.length; n++) {
-          var r = t[n];
-          ((r.enumerable = r.enumerable || !1),
-            (r.configurable = !0),
-            "value" in r && (r.writable = !0),
-            Object.defineProperty(e, Sn(r.key), r));
-        }
-      }
-      function Sn(e) {
-        var t = (function (e, t) {
-          if ("object" != _n(e) || !e) return e;
-          var n = e[Symbol.toPrimitive];
-          if (void 0 !== n) {
-            var r = n.call(e, "string");
-            if ("object" != _n(r)) return r;
-            throw new TypeError("@@toPrimitive must return a primitive value.");
-          }
-          return String(e);
-        })(e);
-        return "symbol" == _n(t) ? t : t + "";
-      }
+      // Use ViewerUtils helpers (replacing _n, Pn, Sn duplicates)
+      var _n = ViewerUtils.getType,
+        Pn = ViewerUtils.defineProperties,
+        Sn = ViewerUtils.toPropertyKey;
       var En = (function () {
         return (
           (e = function e(t) {
@@ -5775,46 +5395,10 @@
         var e, t;
       })(),
         jn = n(66675);
-      function On(e) {
-        return (
-          (On =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          On(e)
-        );
-      }
-      function Dn(e, t) {
-        for (var n = 0; n < t.length; n++) {
-          var r = t[n];
-          ((r.enumerable = r.enumerable || !1),
-            (r.configurable = !0),
-            "value" in r && (r.writable = !0),
-            Object.defineProperty(e, Ln(r.key), r));
-        }
-      }
-      function Ln(e) {
-        var t = (function (e, t) {
-          if ("object" != On(e) || !e) return e;
-          var n = e[Symbol.toPrimitive];
-          if (void 0 !== n) {
-            var r = n.call(e, "string");
-            if ("object" != On(r)) return r;
-            throw new TypeError("@@toPrimitive must return a primitive value.");
-          }
-          return String(e);
-        })(e);
-        return "symbol" == On(t) ? t : t + "";
-      }
+      // Use ViewerUtils helpers (replacing On, Dn, Ln duplicates)
+      var On = ViewerUtils.getType,
+        Dn = ViewerUtils.defineProperties,
+        Ln = ViewerUtils.toPropertyKey;
       function Bn(e, t, n) {
         return (
           (t = An(t)),
