@@ -5,7 +5,7 @@
  * Replaces multiple vendor modules with shared implementations.
  */
 (self.webpackChunkaltium_web_viewer = self.webpackChunkaltium_web_viewer || []).push([
-    [46021, 93891, 29786, 48226, 20533, 77453, 55592, 23870], // Chunk IDs
+    [46021, 93891, 29786, 55592], // Chunk IDs
     {
         // Module 46021 - V.Z (exportComponent)
         46021: (e, t) => {
@@ -30,30 +30,6 @@
             });
         },
 
-        // Module 48226 - GridContainer (g.G)
-        48226: (e, t, n) => {
-            "use strict";
-            n.d(t, {
-                G: () => ViewerComponents.WrappedGridContainer
-            });
-        },
-
-        // Module 20533 - GridSection (g.G)
-        20533: (e, t, n) => {
-            "use strict";
-            n.d(t, {
-                G: () => ViewerComponents.WrappedGridSection
-            });
-        },
-
-        // Module 77453 - AfsText (y.A)
-        77453: (e, t, n) => {
-            "use strict";
-            n.d(t, {
-                A: () => ViewerComponents.WrappedAfsText
-            });
-        },
-
         // Module 55592 - Constants (r.r, r.a, r.i, r.c)
         55592: (e, t, n) => {
             "use strict";
@@ -62,14 +38,6 @@
                 r: () => ViewerComponents.CornerRadius,
                 i: () => ViewerComponents.isFunction,
                 c: () => ViewerComponents.ComponentRegistry
-            });
-        },
-
-        // Module 23870 - AfsBadge (ge.B)
-        23870: (e, t, n) => {
-            "use strict";
-            n.d(t, {
-                B: () => ViewerComponents.WrappedAfsBadge
             });
         }
     }

@@ -321,6 +321,28 @@ var ViewerUtils = (function (exports) {
     }
 
     // ============================================================================
+    // Unique ID Helper
+    // ============================================================================
+
+    /**
+     * Generates a unique ID (UUID v4 style).
+     * @returns {string} Unique ID
+     */
+    function getUniqueId() {
+        return ["", "", "-", "-", "-", "-", "", "", ""].reduce(
+            function (e, t) {
+                return (
+                    e +
+                    Math.floor(65536 * (1 + Math.random()))
+                        .toString(16)
+                        .substring(1) +
+                    t
+                );
+            }
+        );
+    }
+
+    // ============================================================================
     // Exports
     // ============================================================================
 
@@ -341,6 +363,7 @@ var ViewerUtils = (function (exports) {
     exports.possibleConstructorReturn = possibleConstructorReturn;
     exports.assertThisInitialized = assertThisInitialized;
     exports.hasOwnProperty = hasOwnProperty;
+    exports.getUniqueId = getUniqueId;
 
     // Aliases matching Babel output naming
     exports._typeof = getType;

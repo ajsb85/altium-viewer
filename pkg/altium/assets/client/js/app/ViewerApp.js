@@ -32,337 +32,37 @@
         _ = ViewerUtils.defineProperties,
         P = ViewerUtils.toPropertyKey;
       
-      // ===== COMPONENT BRIDGES FROM ViewerComponents =====
-      // These aliases import extracted components to replace duplicate definitions
-      var _VC = ViewerComponents; // Shorthand
-      
-      // Sidebar components (replaces lines 76-350)
-      var AfsSidebar_Extracted = _VC.WrappedAfsSidebar;
-      var AppSidebar_Extracted = _VC.AppSidebar;
-      
-      // Loader components (replaces lines 393-605)
-      var AppAlert_Extracted = _VC.WrappedAppAlert;
-      var AppLoader_Extracted = _VC.WrappedAppLoader;
-      
-      // Header components (replaces lines 608-1430)
-      var AppMainTabs_Extracted = _VC.AppMainTabs;
-      var AppHeader_Extracted = _VC.AppHeader;
-      var AppHeaderPlugin_Extracted = _VC.AppHeaderPlugin;
-      
-      // Watermark (replaces lines 1431-1460)
-      var AppWatermark_Extracted = _VC.WrappedAppWatermark;
-      
-      // Other components (replaces lines 3648-4900)
-      var AppsLoader_Extracted = _VC.AppsLoader;
-      var AppSnackbar_Extracted = _VC.AppSnackbar;
-      var AppNotification_Extracted = _VC.AppNotification;
-      var TreeItem_Extracted = _VC.TreeItem;
-      var AppMenu_Extracted = _VC.AppMenu;
-      
-      // Layout helper
-      var LayoutUpdateNotifier_Extracted = _VC.LayoutUpdateNotifier;
-      
-      // Log bridge loading
-      console.log("[ViewerApp] Component bridges loaded from ViewerComponents");
-      // ===== END COMPONENT BRIDGES =====
+      // ===== COMPONENT FACTORIES ENABLED =====
+      console.log("[ViewerApp] Initializing factories from ViewerComponents...");
+      var Factories = ViewerComponents.Factories;
+
       
       // S (Memory) moved to ViewerAppMethods
 
       var E = { key: 0, class: "app-sidebar__sub-title-additional-text" },
         j = { class: "app-sidebar__content" },
         O = n(93891),
-        D = n(29786),
-        L = {
-          name: "AfsSidebar",
-          components: { GridContainer: g.G },
-          props: {
-            side: { type: String, default: "left" },
-            size: { type: String, default: "md" },
-            resizable: { type: Boolean, default: !1 },
-            minPanelWidth: { type: Number, default: null },
-            maxPanelWidth: { type: Number, default: null },
-            initialWidth: { type: Number, default: null },
-          },
-          emits: ["size-changed"],
-          data: function (e) {
-            return {
-              minWidth: e.minPanelWidth || 240,
-              maxWidth: e.maxPanelWidth || 640,
-              width: e.initialWidth,
-              isResizing: null,
-            };
-          },
-          computed: {
-            classes: function () {
-              return [
-                "afs-sidebar-container_".concat(this.side),
-                "afs-sidebar-container_".concat(this.size),
-              ].concat(
-                this.resizable ? ["afs-sidebar-container_resizable"] : [],
-              );
-            },
-          },
-          watch: {
-            isResizing: function (e) {
-              e
-                ? (document.addEventListener("mousemove", this.handleResize),
-                  document.addEventListener("mouseup", this.handleResizeEnd),
-                  document.addEventListener(
-                    "mouseout",
-                    this.handleMouseOutOfWindow,
-                  ),
-                  (document.body.style.pointerEvents = "none"),
-                  (document.querySelector(
-                    ".afs-sidebar-container__resizer",
-                  ).style.pointerEvents = "auto"))
-                : (document.removeEventListener("mousemove", this.handleResize),
-                  document.removeEventListener("mouseup", this.handleResizeEnd),
-                  document.removeEventListener(
-                    "mouseout",
-                    this.handleMouseOutOfWindow,
-                  ),
-                  (document.body.style.pointerEvents = "auto"));
-            },
-          },
-          methods: {
-            getBEMClass: function (e) {
-              return (0, D.g)("afs-sidebar-container", e);
-            },
-            handleResizeStart: function () {
-              this.isResizing = !0;
-            },
-            handleResizeEnd: function () {
-              ((this.isResizing = !1), this.$emit("size-changed", this.width));
-            },
-            handleResize: function (e) {
-              var t =
-                "right" === this.side ? window.innerWidth - e.pageX : e.pageX;
-              t >= this.minWidth && t <= this.maxWidth && (this.width = t + 2);
-            },
-            handleMouseOutOfWindow: function (e) {
-              null == e.toElement &&
-                null == e.relatedTarget &&
-                (this.isResizing = !1);
-            },
-            setWidth: function (e) {
-              var t = ("add" === e.type ? 1 : -1) * e.value + this.width;
-              (t < this.minWidth
-                ? (this.width = this.minWidth)
-                : t > this.maxWidth
-                  ? (this.width = this.maxWidth)
-                  : (this.width = t),
-                this.handleResizeEnd());
-            },
-          },
-        };
+        D = n(29786);
+       // AfsSidebar created via Factory
+      var L = Factories.createAfsSidebar({
+        Vue: i,
+        BEM: D,
+        GridContainer: g.G
+      });
       // Use ViewerUtils helpers (replacing B and x duplicates)
       var B = ViewerUtils.getType,
         x = ViewerUtils.defineProperty;
-      const A = {
-        name: "AppSidebar",
-        components: {
-          AfsSidebar: (0, O._)(L, [
-            [
-              "render",
-              function (e, t, n, r, o, a) {
-                var s = (0, i.resolveComponent)("GridContainer");
-                return (
-                  (0, i.openBlock)(),
-                  (0, i.createBlock)(
-                    s,
-                    {
-                      type: "sidebar",
-                      direction: "column",
-                      class: (0, i.normalizeClass)([
-                        "afs-sidebar-container",
-                        a.classes,
-                      ]),
-                      style: (0, i.normalizeStyle)({ width: e.width + "px" }),
-                    },
-                    {
-                      default: (0, i.withCtx)(function () {
-                        return [
-                          n.resizable && "right" === n.side
-                            ? ((0, i.openBlock)(),
-                              (0, i.createElementBlock)(
-                                "div",
-                                {
-                                  key: 0,
-                                  class: "afs-sidebar-container__resizer",
-                                  onMousedown:
-                                    t[0] ||
-                                    (t[0] = function (e) {
-                                      return a.handleResizeStart();
-                                    }),
-                                },
-                                null,
-                                32,
-                              ))
-                            : (0, i.createCommentVNode)("", !0),
-                          (0, i.renderSlot)(e.$slots, "default"),
-                          n.resizable && "left" === n.side
-                            ? ((0, i.openBlock)(),
-                              (0, i.createElementBlock)(
-                                "div",
-                                {
-                                  key: 1,
-                                  class: "afs-sidebar-container__resizer",
-                                  onMousedown:
-                                    t[1] ||
-                                    (t[1] = function (e) {
-                                      return a.handleResizeStart();
-                                    }),
-                                },
-                                null,
-                                32,
-                              ))
-                            : (0, i.createCommentVNode)("", !0),
-                        ];
-                      }),
-                      _: 3,
-                    },
-                    8,
-                    ["class", "style"],
-                  )
-                );
-              },
-            ],
-          ]),
-          AfsText: y.A,
-        },
-        props: {
-          metaInfo: {
-            type: Object,
-            default: function () {
-              return {};
-            },
-          },
-          size: { type: String, default: "sm" },
-          resizable: { type: Boolean, default: !1 },
-          flex: { type: Boolean, default: !1 },
-        },
-        computed: {
-          classes: function () {
-            return x(
-              x({}, "app-sidebar_".concat(this.size), this.size),
-              "is-flex",
-              this.flex,
-            );
-          },
-        },
-        methods: {
-          hasSlot: function (e) {
-            return !!this.$slots[e];
-          },
-        },
-      };
-      var V = n(46021);
-      const T = (0, V.Z)(A, [
-        [
-          "render",
-          function (e, t, n, r, o, a) {
-            var s = (0, i.resolveComponent)("AfsText"),
-              c = (0, i.resolveComponent)("AfsSidebar");
-            return (
-              (0, i.openBlock)(),
-              (0, i.createBlock)(
-                c,
-                {
-                  class: (0, i.normalizeClass)(["app-sidebar", a.classes]),
-                  size: n.size,
-                  resizable: n.resizable,
-                },
-                {
-                  default: (0, i.withCtx)(function () {
-                    return [
-                      a.hasSlot("title")
-                        ? ((0, i.openBlock)(),
-                          (0, i.createBlock)(
-                            s,
-                            { key: 0, class: "app-sidebar__title" },
-                            {
-                              default: (0, i.withCtx)(function () {
-                                return [
-                                  (0, i.renderSlot)(
-                                    e.$slots,
-                                    "title",
-                                    {},
-                                    void 0,
-                                    !0,
-                                  ),
-                                ];
-                              }),
-                              _: 3,
-                            },
-                          ))
-                        : (0, i.createCommentVNode)("v-if", !0),
-                      a.hasSlot("subTitle")
-                        ? ((0, i.openBlock)(),
-                          (0, i.createBlock)(
-                            s,
-                            { key: 1, class: "app-sidebar__sub-title" },
-                            {
-                              default: (0, i.withCtx)(function () {
-                                return [
-                                  (0, i.renderSlot)(
-                                    e.$slots,
-                                    "subTitle",
-                                    {},
-                                    void 0,
-                                    !0,
-                                  ),
-                                  n.metaInfo.subTitleAdditionalText
-                                    ? ((0, i.openBlock)(),
-                                      (0, i.createElementBlock)(
-                                        "span",
-                                        E,
-                                        (0, i.toDisplayString)(
-                                          n.metaInfo.subTitleAdditionalText,
-                                        ),
-                                        1,
-                                      ))
-                                    : (0, i.createCommentVNode)("v-if", !0),
-                                ];
-                              }),
-                              _: 3,
-                            },
-                          ))
-                        : (0, i.createCommentVNode)("v-if", !0),
-                      (0, i.createElementVNode)("div", j, [
-                        (0, i.renderSlot)(e.$slots, "default", {}, void 0, !0),
-                      ]),
-                    ];
-                  }),
-                  _: 3,
-                },
-                8,
-                ["size", "class", "resizable"],
-              )
-            );
-          },
-        ],
-        ["__scopeId", "data-v-56ae3e48"],
-      ]);
+      // AppSidebar created via Factory
+      var T = Factories.createAppSidebar({
+        Vue: i,
+        Utils: ViewerUtils,
+        AfsText: y.A,
+        AfsSidebar: L,
+        ViewerComponents: ViewerComponents
+      });
       var N = n(34313);
-      const M = {
-        mounted: function (e, t) {
-          var n = t.arg,
-            r = t.modifiers;
-          if (n) {
-            var i = r.open,
-              o = r.close;
-            ((e.dataset.viewerModalControl = n),
-              e.addEventListener(
-                "click",
-                function (e) {
-                  var t = N.Z.getItem(n);
-                  t && (i ? t.open() : o ? t.close() : t.toggle());
-                },
-                !1,
-              ));
-          }
-        },
-      };
+      // ModalDirective created via Factory
+      var M = Factories.createModalDirective({ ItemRegistry: N.Z });
       var I = n(38964),
         R = n(74839),
         F = n(38075);
@@ -380,207 +80,23 @@
         K = { class: "app-alert__figure" },
         X = { key: 0, class: "app-alert__text" },
         q = { key: 1, class: "app-alert__meta" };
-      const J = {
-        name: "AppAlert",
-        components: { AfsIcon: m._ },
-        props: { icon: { type: String, default: "error-64" } },
-        methods: {
-          hasSlot: function (e) {
-            return !!this.$slots[e];
-          },
-        },
-      },
-        Q = (0, V.Z)(J, [
-          [
-            "render",
-            function (e, t, n, r, o, a) {
-              var s = (0, i.resolveComponent)("AfsIcon");
-              return (
-                (0, i.openBlock)(),
-                (0, i.createElementBlock)("div", $, [
-                  (0, i.createElementVNode)("div", Y, [
-                    (0, i.createElementVNode)("div", K, [
-                      (0, i.createVNode)(
-                        s,
-                        { filled: !0, name: n.icon, class: "app-alert__icon" },
-                        null,
-                        8,
-                        ["name"],
-                      ),
-                    ]),
-                    a.hasSlot("default")
-                      ? ((0, i.openBlock)(),
-                        (0, i.createElementBlock)("div", X, [
-                          (0, i.renderSlot)(
-                            e.$slots,
-                            "default",
-                            {},
-                            void 0,
-                            !0,
-                          ),
-                        ]))
-                      : (0, i.createCommentVNode)("v-if", !0),
-                    a.hasSlot("meta")
-                      ? ((0, i.openBlock)(),
-                        (0, i.createElementBlock)("div", q, [
-                          (0, i.renderSlot)(e.$slots, "meta", {}, void 0, !0),
-                        ]))
-                      : (0, i.createCommentVNode)("v-if", !0),
-                  ]),
-                ])
-              );
-            },
-          ],
-          ["__scopeId", "data-v-3abbf864"],
-        ]);
+      // AppAlert created via Factory
+      var Q = Factories.createAppAlert({ 
+        Vue: i, 
+        AfsIcon: m._, 
+        ViewerComponents: ViewerComponents 
+      });
       var ee = { class: "app-loader__container" },
         te = { class: "app-loader__figure" },
         ne = { key: 0, class: "app-loader__progress" },
         re = { key: 1, class: "app-loader__meta" },
         ie = "file-upload-32";
-      const oe = {
-        name: "AppLoader",
-        components: { AfsIcon: m._ },
-        props: {
-          hasError: { type: Boolean, default: !1 },
-          hasIcon: { type: Boolean, default: !1 },
-          backgroundAlpha: { type: Boolean, default: !1 },
-          icon: { type: String, default: ie },
-          size: { type: String, default: "large" },
-          primary: { type: Boolean, default: !0 },
-        },
-        computed: {
-          bindTransition: function () {
-            return {
-              "enter-class": "app-loader_enter",
-              "enter-active-class": "app-loader_enter-active",
-              "enter-to-class": "app-loader_enter-to",
-              "leave-class": "app-loader_leave",
-              "leave-active-class": "app-loader_leave-active",
-              "leave-to-class": "app-loader_leave-to",
-            };
-          },
-          errorIcon: function () {
-            return this.icon && this.icon !== ie ? this.icon : "error-64";
-          },
-          computedIcon: function () {
-            return this.hasError ? this.errorIcon : this.icon;
-          },
-          classes: function () {
-            return [
-              {
-                "is-secondary": !this.primary,
-                "app-loader_background-alhpa": this.backgroundAlpha,
-              },
-              "app-loader_".concat(this.size),
-            ];
-          },
-        },
-        methods: {
-          hasSlot: function (e) {
-            return !!this.$slots[e];
-          },
-        },
-      },
-        ae = (0, V.Z)(oe, [
-          [
-            "render",
-            function (e, t, n, r, o, a) {
-              var s = (0, i.resolveComponent)("AfsIcon");
-              return (
-                (0, i.openBlock)(),
-                (0, i.createBlock)(
-                  i.Transition,
-                  (0, i.normalizeProps)(
-                    (0, i.guardReactiveProps)(a.bindTransition),
-                  ),
-                  {
-                    default: (0, i.withCtx)(function () {
-                      return [
-                        (0, i.createElementVNode)(
-                          "div",
-                          {
-                            class: (0, i.normalizeClass)([
-                              "app-loader",
-                              a.classes,
-                            ]),
-                          },
-                          [
-                            (0, i.createElementVNode)("div", ee, [
-                              (0, i.createElementVNode)("div", te, [
-                                n.hasError
-                                  ? (0, i.createCommentVNode)("v-if", !0)
-                                  : ((0, i.openBlock)(),
-                                    (0, i.createElementBlock)("div", ne)),
-                                n.hasIcon
-                                  ? ((0, i.openBlock)(),
-                                    (0, i.createBlock)(
-                                      s,
-                                      {
-                                        key: 1,
-                                        filled: n.hasError,
-                                        name: a.computedIcon,
-                                        class: (0, i.normalizeClass)([
-                                          "app-loader__icon",
-                                          { "is-error": n.hasError },
-                                        ]),
-                                      },
-                                      null,
-                                      8,
-                                      ["filled", "name", "class"],
-                                    ))
-                                  : (0, i.createCommentVNode)("v-if", !0),
-                              ]),
-                              a.hasSlot("default")
-                                ? ((0, i.openBlock)(),
-                                  (0, i.createElementBlock)(
-                                    "div",
-                                    {
-                                      key: 0,
-                                      class: (0, i.normalizeClass)([
-                                        "app-loader__text",
-                                        { "is-processing": !n.hasError },
-                                      ]),
-                                    },
-                                    [
-                                      (0, i.renderSlot)(
-                                        e.$slots,
-                                        "default",
-                                        {},
-                                        void 0,
-                                        !0,
-                                      ),
-                                    ],
-                                    2,
-                                  ))
-                                : (0, i.createCommentVNode)("v-if", !0),
-                              a.hasSlot("meta")
-                                ? ((0, i.openBlock)(),
-                                  (0, i.createElementBlock)("div", re, [
-                                    (0, i.renderSlot)(
-                                      e.$slots,
-                                      "meta",
-                                      {},
-                                      void 0,
-                                      !0,
-                                    ),
-                                  ]))
-                                : (0, i.createCommentVNode)("v-if", !0),
-                            ]),
-                          ],
-                          2,
-                        ),
-                      ];
-                    }),
-                    _: 3,
-                  },
-                  16,
-                )
-              );
-            },
-          ],
-          ["__scopeId", "data-v-30d447e2"],
-        ]);
+      // AppLoader created via Factory
+      var ae = Factories.createAppLoader({
+        Vue: i,
+        AfsIcon: m._,
+        ViewerComponents: ViewerComponents
+      });
       var se = { class: "app-header" },
         ce = { class: "app-header__col app-header__secondary-controls" },
         le = { class: "app-header__col app-header__view-controls" },
@@ -595,486 +111,18 @@
         ge = n(23870),
         be = n(65725),
         we = n(75419);
-      const ke = {
-        name: "AppMainTabs",
-        components: {
-          AfsText: y.A,
-          AfsIcon: m._,
-          AfsContextMenu: h.C,
-          AfsBadge: ge.B,
-        },
-        directives: { dropdown: be.d, hint: we.h },
-        props: {
-          items: {
-            type: Array,
-            default: function () {
-              return [];
-            },
-            validator: function (e) {
-              return (
-                !e.length ||
-                e.every(function (e) {
-                  return (
-                    (0, I.hasOwnProperty)(e, "text") &&
-                    (0, I.hasOwnProperty)(e, "id")
-                  );
-                })
-              );
-            },
-          },
-        },
-        data: function () {
-          return { isMenuOpened: !1, hintText: null };
-        },
-        computed: {
-          hasTabs: function () {
-            return this.items.length;
-          },
-          menuId: function () {
-            return "app-main-tabs__menu";
-          },
-          reducedItems: function () {
-            return this.items.reduce(
-              function (e, t) {
-                return (
-                  t.hidden ||
-                  (t.isActive ? (e.active = t) : e.nonActive.push(t),
-                    (e.mapped[t.id] = t)),
-                  e
-                );
-              },
-              { active: {}, nonActive: [], mapped: {} },
-            );
-          },
-          hintId: function () {
-            return (0, R.g)();
-          },
-          hintConfig: function () {
-            return {
-              type: "hint",
-              id: this.hintId,
-              modifiers: { y: "bottom", x: "center" },
-              offset: 8,
-            };
-          },
-          isWip: function () {
-            return !1;
-          },
-        },
-        methods: {
-          onClick: function (e) {
-            (this.$emit("change", e),
-              this.$refs[this.menuId] && this.$refs[this.menuId].close());
-          },
-          toggleIsOpened: function () {
-            this.isMenuOpened = !this.isMenuOpened;
-          },
-          onHintOpen: function (e) {
-            var t = this;
-            return function () {
-              t.hintText = t.reducedItems.mapped[e.id].hint;
-            };
-          },
-          onHintClose: function () {
-            var e = this;
-            return function () {
-              e.hintText = null;
-            };
-          },
-        },
-      },
-        Ce = (0, V.Z)(ke, [
-          [
-            "render",
-            function (e, t, n, r, o, a) {
-              var s = (0, i.resolveComponent)("AfsIcon"),
-                c = (0, i.resolveComponent)("AfsText"),
-                l = (0, i.resolveComponent)("AfsBadge"),
-                u = (0, i.resolveComponent)("AfsContextMenu"),
-                d = (0, i.resolveDirective)("hint"),
-                p = (0, i.resolveDirective)("dropdown");
-              return a.hasTabs
-                ? ((0, i.openBlock)(),
-                  (0, i.createElementBlock)("div", de, [
-                    ((0, i.openBlock)(!0),
-                      (0, i.createElementBlock)(
-                        i.Fragment,
-                        null,
-                        (0, i.renderList)(n.items, function (e) {
-                          return (0, i.withDirectives)(
-                            ((0, i.openBlock)(),
-                              (0, i.createElementBlock)(
-                                "button",
-                                {
-                                  key: e.id,
-                                  "data-locator": e.id,
-                                  type: "button",
-                                  class: (0, i.normalizeClass)([
-                                    "app-main-tabs__btn",
-                                    {
-                                      "is-selected":
-                                        e.isActive && !e.disableActiveBtnState,
-                                      "app-main-tabs__btn-icon": e.icon,
-                                    },
-                                  ]),
-                                  style: (0, i.normalizeStyle)({
-                                    minWidth: e.buttonMinWidth
-                                      ? "".concat(e.buttonMinWidth, "px")
-                                      : null,
-                                  }),
-                                  disabled: e.disabled,
-                                  onClick: (0, i.withModifiers)(
-                                    function (t) {
-                                      return a.onClick(e);
-                                    },
-                                    ["prevent"],
-                                  ),
-                                },
-                                [
-                                  e.displayItems
-                                    ? ((0, i.openBlock)(),
-                                      (0, i.createElementBlock)("div", fe, [
-                                        ((0, i.openBlock)(!0),
-                                          (0, i.createElementBlock)(
-                                            i.Fragment,
-                                            null,
-                                            (0, i.renderList)(
-                                              e.displayItems,
-                                              function (e, t) {
-                                                return (
-                                                  (0, i.openBlock)(),
-                                                  (0, i.createBlock)(
-                                                    c,
-                                                    {
-                                                      key: e.text + t,
-                                                      type: "title",
-                                                      class: "app-main-tabs__text",
-                                                    },
-                                                    {
-                                                      default: (0, i.withCtx)(
-                                                        function () {
-                                                          return [
-                                                            e.icon
-                                                              ? ((0, i.openBlock)(),
-                                                                (0, i.createBlock)(
-                                                                  s,
-                                                                  {
-                                                                    key: 0,
-                                                                    class:
-                                                                      "app-main-tabs__icon",
-                                                                    name: e.icon,
-                                                                    filled: !0,
-                                                                  },
-                                                                  null,
-                                                                  8,
-                                                                  ["name"],
-                                                                ))
-                                                              : (0,
-                                                                i.createCommentVNode)(
-                                                                  "v-if",
-                                                                  !0,
-                                                                ),
-                                                            (0, i.createElementVNode)(
-                                                              "span",
-                                                              null,
-                                                              (0, i.toDisplayString)(
-                                                                e.text,
-                                                              ),
-                                                              1,
-                                                            ),
-                                                          ];
-                                                        },
-                                                      ),
-                                                      _: 2,
-                                                    },
-                                                    1024,
-                                                  )
-                                                );
-                                              },
-                                            ),
-                                            128,
-                                          )),
-                                      ]))
-                                    : ((0, i.openBlock)(),
-                                      (0, i.createBlock)(
-                                        c,
-                                        {
-                                          key: 1,
-                                          type: "title",
-                                          class: "app-main-tabs__text",
-                                        },
-                                        {
-                                          default: (0, i.withCtx)(function () {
-                                            return [
-                                              e.icon
-                                                ? ((0, i.openBlock)(),
-                                                  (0, i.createBlock)(
-                                                    s,
-                                                    {
-                                                      key: 0,
-                                                      class: "app-main-tabs__icon",
-                                                      name: e.icon,
-                                                      filled: !0,
-                                                    },
-                                                    null,
-                                                    8,
-                                                    ["name"],
-                                                  ))
-                                                : (0, i.createCommentVNode)(
-                                                  "v-if",
-                                                  !0,
-                                                ),
-                                              (0, i.createElementVNode)(
-                                                "span",
-                                                me,
-                                                (0, i.toDisplayString)(e.text),
-                                                1,
-                                              ),
-                                            ];
-                                          }),
-                                          _: 2,
-                                        },
-                                        1024,
-                                      )),
-                                  ((0, i.openBlock)(!0),
-                                    (0, i.createElementBlock)(
-                                      i.Fragment,
-                                      null,
-                                      (0, i.renderList)(e.badges, function (e) {
-                                        return (
-                                          (0, i.openBlock)(),
-                                          (0, i.createBlock)(
-                                            l,
-                                            {
-                                              key: e.text,
-                                              size: e.size,
-                                              class: "app-main-tabs__badge",
-                                              type: e.type,
-                                              uppercase: e.uppercase,
-                                              style: {
-                                                "font-size": "11px",
-                                                "line-height": "12px",
-                                              },
-                                            },
-                                            {
-                                              default: (0, i.withCtx)(function () {
-                                                return [
-                                                  (0, i.createTextVNode)(
-                                                    (0, i.toDisplayString)(e.text),
-                                                    1,
-                                                  ),
-                                                ];
-                                              }),
-                                              _: 2,
-                                            },
-                                            1032,
-                                            ["size", "type", "uppercase"],
-                                          )
-                                        );
-                                      }),
-                                      128,
-                                    )),
-                                ],
-                                14,
-                                pe,
-                              )),
-                            [
-                              [i.vShow, !e.hidden],
-                              [
-                                d,
-                                e.hint && {
-                                  id: a.hintId,
-                                  delay: 100,
-                                  onOpen: a.onHintOpen(e),
-                                  onClose: a.onHintClose(),
-                                },
-                              ],
-                            ],
-                          );
-                        }),
-                        128,
-                      )),
-                    (0, i.withDirectives)(
-                      ((0, i.openBlock)(),
-                        (0, i.createElementBlock)("button", he, [
-                          (0, i.createVNode)(
-                            c,
-                            { type: "title", class: "app-main-tabs__text" },
-                            {
-                              default: (0, i.withCtx)(function () {
-                                return [
-                                  (0, i.createTextVNode)(
-                                    (0, i.toDisplayString)(
-                                      a.reducedItems.active.text,
-                                    ),
-                                    1,
-                                  ),
-                                ];
-                              }),
-                              _: 1,
-                            },
-                          ),
-                          (0, i.withDirectives)(
-                            (0, i.createVNode)(
-                              s,
-                              {
-                                name: "chevron-down-8",
-                                class: (0, i.normalizeClass)([
-                                  "app-main-tabs__dropdown-icon",
-                                  { "is-active": e.isMenuOpened },
-                                ]),
-                              },
-                              null,
-                              8,
-                              ["class"],
-                            ),
-                            [[i.vShow, a.reducedItems.nonActive.length]],
-                          ),
-                        ])),
-                      [[p, void 0, a.menuId]],
-                    ),
-                    (0, i.createVNode)(
-                      u,
-                      {
-                        id: a.menuId,
-                        ref: a.menuId,
-                        class: "app-main-tabs__menu",
-                        type: "dropdown",
-                        modifiers: { y: "bottom", x: "start" },
-                        onOpen:
-                          t[0] ||
-                          (t[0] = function (e) {
-                            return a.toggleIsOpened();
-                          }),
-                        onClose:
-                          t[1] ||
-                          (t[1] = function (e) {
-                            return a.toggleIsOpened();
-                          }),
-                      },
-                      {
-                        default: (0, i.withCtx)(function () {
-                          return [
-                            (0, i.createElementVNode)("div", ve, [
-                              ((0, i.openBlock)(!0),
-                                (0, i.createElementBlock)(
-                                  i.Fragment,
-                                  null,
-                                  (0, i.renderList)(
-                                    a.reducedItems.nonActive,
-                                    function (e) {
-                                      return (
-                                        (0, i.openBlock)(),
-                                        (0, i.createElementBlock)(
-                                          "button",
-                                          {
-                                            key: e.id,
-                                            class: "app-main-tabs__menu-item",
-                                            disabled: e.disabled,
-                                            onClick: (0, i.withModifiers)(
-                                              function (t) {
-                                                return a.onClick(e);
-                                              },
-                                              ["prevent"],
-                                            ),
-                                          },
-                                          [
-                                            (0, i.createVNode)(
-                                              c,
-                                              {
-                                                type: "title",
-                                                class: "app-main-tabs__text",
-                                              },
-                                              {
-                                                default: (0, i.withCtx)(
-                                                  function () {
-                                                    return [
-                                                      (0, i.createTextVNode)(
-                                                        (0, i.toDisplayString)(
-                                                          e.text,
-                                                        ),
-                                                        1,
-                                                      ),
-                                                    ];
-                                                  },
-                                                ),
-                                                _: 2,
-                                              },
-                                              1024,
-                                            ),
-                                          ],
-                                          8,
-                                          ye,
-                                        )
-                                      );
-                                    },
-                                  ),
-                                  128,
-                                )),
-                            ]),
-                          ];
-                        }),
-                        _: 1,
-                      },
-                      8,
-                      ["id"],
-                    ),
-                    (0, i.withDirectives)(
-                      (0, i.createVNode)(
-                        u,
-                        (0, i.normalizeProps)(
-                          (0, i.guardReactiveProps)(a.hintConfig),
-                        ),
-                        {
-                          default: (0, i.withCtx)(function () {
-                            return [
-                              e.hintText
-                                ? ((0, i.openBlock)(!0),
-                                  (0, i.createElementBlock)(
-                                    i.Fragment,
-                                    { key: 0 },
-                                    (0, i.renderList)(
-                                      e.hintText.split("\n"),
-                                      function (e, t) {
-                                        return (
-                                          (0, i.openBlock)(),
-                                          (0, i.createBlock)(
-                                            c,
-                                            { key: t, type: "tooltip" },
-                                            {
-                                              default: (0, i.withCtx)(
-                                                function () {
-                                                  return [
-                                                    (0, i.createTextVNode)(
-                                                      (0, i.toDisplayString)(e),
-                                                      1,
-                                                    ),
-                                                  ];
-                                                },
-                                              ),
-                                              _: 2,
-                                            },
-                                            1024,
-                                          )
-                                        );
-                                      },
-                                    ),
-                                    128,
-                                  ))
-                                : (0, i.createCommentVNode)("v-if", !0),
-                            ];
-                          }),
-                          _: 1,
-                        },
-                        16,
-                      ),
-                      [[i.vShow, e.hintText]],
-                    ),
-                  ]))
-                : (0, i.createCommentVNode)("v-if", !0);
-            },
-          ],
-        ]);
+      // AppMainTabs created via Factory
+      var Ce = Factories.createAppMainTabs({
+        Vue: i,
+        AfsText: y.A,
+        AfsIcon: m._,
+        AfsBadge: ge.B,
+        AfsContextMenu: h.C,
+        DropdownDirective: be.d,
+        HintDirective: we.h,
+        ViewerComponents: ViewerComponents,
+        Utils: ViewerUtils
+      });
       var _e = { class: "app-header-plugins" },
         Pe = ["id", "disabled", "onClick"];
       // Use ViewerUtils helpers (replacing Se, Ee, je, Oe duplicates)
@@ -1082,336 +130,25 @@
         Ee = ViewerUtils.getOwnKeys,
         je = ViewerUtils.objectSpread,
         Oe = ViewerUtils.defineProperty;
-      const De = {
-        name: "AppHeaderPlugin",
-        components: { AfsIcon: m._, AfsContextMenu: h.C, AfsText: y.A },
-        directives: { hint: we.h, modal: M },
-        props: {
-          items: {
-            type: Array,
-            default: function () {
-              return [];
-            },
-            validator: function (e) {
-              return (
-                !e.length ||
-                e.every(function (e) {
-                  return (
-                    ((0, I.hasOwnProperty)(e, "text") ||
-                      (0, I.hasOwnProperty)(e, "icon")) &&
-                    (0, I.hasOwnProperty)(e, "id")
-                  );
-                })
-              );
-            },
-          },
-          isGlobal: { type: Boolean, default: !1 },
-          isPrimary: { type: Boolean, default: !1 },
-        },
-        emits: ["click"],
-        data: function () {
-          return { hintText: null };
-        },
-        computed: {
-          filteredItems: function () {
-            return this.items.filter(function (e) {
-              return e.hasButton;
-            });
-          },
-          hintId: function () {
-            return (0, R.g)();
-          },
-          hintConfig: function () {
-            return {
-              type: "hint",
-              id: this.hintId,
-              modifiers: { y: "bottom", x: "center" },
-              offset: 8,
-            };
-          },
-          mappedItems: function () {
-            return this.filteredItems.reduce(function (e, t) {
-              return je(je({}, e), {}, Oe({}, t.id, t));
-            }, {});
-          },
-        },
-        methods: {
-          onHintOpen: function (e) {
-            var t = this;
-            return function () {
-              t.hintText = t.mappedItems[e.id].hint;
-            };
-          },
-          onHintClose: function (e) {
-            var t = this;
-            return function () {
-              t.hintText = null;
-            };
-          },
-          handleButtonClick: function (e, t) {
-            t.modalTarget || (e.preventDefault(), this.$emit("click", t));
-          },
-        },
-      },
-        Le = {
-          name: "AppHeader",
-          components: {
-            MainTabs: Ce,
-            HeaderPlugins: (0, V.Z)(De, [
-              [
-                "render",
-                function (e, t, n, r, o, a) {
-                  var s = (0, i.resolveComponent)("AfsIcon"),
-                    c = (0, i.resolveComponent)("AfsText"),
-                    l = (0, i.resolveComponent)("AfsContextMenu"),
-                    u = (0, i.resolveDirective)("hint"),
-                    d = (0, i.resolveDirective)("modal");
-                  return (
-                    (0, i.openBlock)(),
-                    (0, i.createElementBlock)("div", _e, [
-                      ((0, i.openBlock)(!0),
-                        (0, i.createElementBlock)(
-                          i.Fragment,
-                          null,
-                          (0, i.renderList)(a.filteredItems, function (e) {
-                            return (0, i.withDirectives)(
-                              ((0, i.openBlock)(),
-                                (0, i.createElementBlock)(
-                                  "button",
-                                  {
-                                    id: "".concat(e.id, "-control"),
-                                    key: e.id,
-                                    type: "button",
-                                    class: (0, i.normalizeClass)([
-                                      "app-header-plugins__btn",
-                                      {
-                                        "is-selected":
-                                          e.isActive && !e.disableActiveBtnState,
-                                        "app-header-plugins__btn_local":
-                                          !n.isGlobal && !n.isPrimary,
-                                        "prevent-modal-close": e.preventModalClose,
-                                      },
-                                    ]),
-                                    disabled: e.disabled,
-                                    onClick: function (t) {
-                                      return a.handleButtonClick(t, e);
-                                    },
-                                  },
-                                  [
-                                    e.icon
-                                      ? ((0, i.openBlock)(),
-                                        (0, i.createBlock)(
-                                          s,
-                                          {
-                                            key: 0,
-                                            name: e.icon,
-                                            filled: e.iconFilled,
-                                            class: "app-header-plugins__icon",
-                                          },
-                                          null,
-                                          8,
-                                          ["name", "filled"],
-                                        ))
-                                      : (0, i.createCommentVNode)("v-if", !0),
-                                    e.text
-                                      ? ((0, i.openBlock)(),
-                                        (0, i.createBlock)(
-                                          c,
-                                          {
-                                            key: 1,
-                                            class: "app-header-plugins__text",
-                                          },
-                                          {
-                                            default: (0, i.withCtx)(function () {
-                                              return [
-                                                (0, i.createTextVNode)(
-                                                  (0, i.toDisplayString)(e.text),
-                                                  1,
-                                                ),
-                                              ];
-                                            }),
-                                            _: 2,
-                                          },
-                                          1024,
-                                        ))
-                                      : (0, i.createCommentVNode)("v-if", !0),
-                                    e.dropdown
-                                      ? ((0, i.openBlock)(),
-                                        (0, i.createBlock)(
-                                          s,
-                                          {
-                                            key: 2,
-                                            name: "chevron-down-8",
-                                            class: (0, i.normalizeClass)([
-                                              "app-header-plugins__dropdown-icon",
-                                              { "is-active": e.isActive },
-                                            ]),
-                                          },
-                                          null,
-                                          8,
-                                          ["class"],
-                                        ))
-                                      : (0, i.createCommentVNode)("v-if", !0),
-                                  ],
-                                  10,
-                                  Pe,
-                                )),
-                              [
-                                [
-                                  u,
-                                  e.hint && {
-                                    id: a.hintId,
-                                    delay: 100,
-                                    onOpen: a.onHintOpen(e),
-                                    onClose: a.onHintClose(e),
-                                  },
-                                ],
-                                [d, void 0, e.modalTarget],
-                              ],
-                            );
-                          }),
-                          128,
-                        )),
-                      (0, i.createVNode)(
-                        l,
-                        (0, i.normalizeProps)(
-                          (0, i.guardReactiveProps)(a.hintConfig),
-                        ),
-                        {
-                          default: (0, i.withCtx)(function () {
-                            return [
-                              (0, i.createTextVNode)(
-                                (0, i.toDisplayString)(e.hintText),
-                                1,
-                              ),
-                            ];
-                          }),
-                          _: 1,
-                        },
-                        16,
-                      ),
-                    ])
-                  );
-                },
-              ],
-              ["__scopeId", "data-v-315549df"],
-            ]),
-          },
-          props: {
-            views: {
-              type: Array,
-              default: function () {
-                return [];
-              },
-            },
-            globalPlugins: {
-              type: Array,
-              default: function () {
-                return [];
-              },
-            },
-            localPlugins: {
-              type: Array,
-              default: function () {
-                return [];
-              },
-            },
-          },
-          computed: {
-            localPluginsByType: function () {
-              return this.localPlugins.reduce(
-                function (e, t) {
-                  return (
-                    "primary" === t.localType
-                      ? e.primary.push(t)
-                      : e.secondary.push(t),
-                    e
-                  );
-                },
-                { primary: [], secondary: [] },
-              );
-            },
-          },
-        },
-        Be = (0, V.Z)(Le, [
-          [
-            "render",
-            function (e, t, n, r, o, a) {
-              var s = (0, i.resolveComponent)("HeaderPlugins"),
-                c = (0, i.resolveComponent)("MainTabs");
-              return (
-                (0, i.openBlock)(),
-                (0, i.createElementBlock)("header", se, [
-                  (0, i.createElementVNode)("div", ce, [
-                    (0, i.createVNode)(
-                      s,
-                      {
-                        items: a.localPluginsByType.secondary,
-                        onClick:
-                          t[0] ||
-                          (t[0] = function (t) {
-                            return e.$emit("local-plugin:click", t);
-                          }),
-                      },
-                      null,
-                      8,
-                      ["items"],
-                    ),
-                  ]),
-                  (0, i.createElementVNode)("div", le, [
-                    (0, i.createVNode)(
-                      c,
-                      {
-                        items: n.views,
-                        onChange:
-                          t[1] ||
-                          (t[1] = function (t) {
-                            return e.$emit("view:change", t);
-                          }),
-                      },
-                      null,
-                      8,
-                      ["items"],
-                    ),
-                  ]),
-                  (0, i.createElementVNode)("div", ue, [
-                    (0, i.createVNode)(
-                      s,
-                      {
-                        items: a.localPluginsByType.primary,
-                        "is-primary": "",
-                        onClick:
-                          t[2] ||
-                          (t[2] = function (t) {
-                            return e.$emit("local-plugin:click", t);
-                          }),
-                      },
-                      null,
-                      8,
-                      ["items"],
-                    ),
-                    (0, i.createVNode)(
-                      s,
-                      {
-                        items: n.globalPlugins,
-                        "is-global": "",
-                        onClick:
-                          t[3] ||
-                          (t[3] = function (t) {
-                            return e.$emit("global-plugin:click", t);
-                          }),
-                      },
-                      null,
-                      8,
-                      ["items"],
-                    ),
-                  ]),
-                ])
-              );
-            },
-          ],
-          ["__scopeId", "data-v-4817c8b6"],
-        ]);
+      // AppHeaderPlugin created via Factory
+      var HeaderPlugins_Created = Factories.createAppHeaderPlugin({
+        Vue: i,
+        AfsText: y.A,
+        AfsIcon: m._,
+        AfsContextMenu: h.C,
+        HintDirective: we.h,
+        ModalDirective: M,
+        ViewerComponents: ViewerComponents,
+        Utils: ViewerUtils
+      });
+
+      // AppHeader created via Factory
+      var Be = Factories.createAppHeader({
+        Vue: i,
+        MainTabs: Ce,
+        HeaderPlugins: HeaderPlugins_Created,
+        ViewerComponents: ViewerComponents
+      });
       var xe = ["href"],
         Ae = [
           (0, i.createStaticVNode)(
@@ -1419,29 +156,11 @@
             1,
           ),
         ];
-      const Ve = {
-        name: "AppWatermark",
-        data: function () {
-          return { url: "http://altium.com/viewer" };
-        },
-      },
-        Te = (0, V.Z)(Ve, [
-          [
-            "render",
-            function (e, t, n, r, o, a) {
-              return (
-                (0, i.openBlock)(),
-                (0, i.createElementBlock)(
-                  "a",
-                  { href: e.url, target: "_blank", class: "app-watermark" },
-                  Ae,
-                  8,
-                  xe,
-                )
-              );
-            },
-          ],
-        ]);
+      // AppWatermark created via Factory
+      var Te = Factories.createAppWatermark({
+        Vue: i,
+        ViewerComponents: ViewerComponents
+      });
       var Ne = n(23864),
         Me = n(19577);
       // Use ViewerUtils helpers (replacing Ie, Re, Fe, He duplicates)
@@ -2187,7 +906,7 @@
           },
         ),
       },
-        et = (0, V.Z)(Qe, [
+        et = (0, ViewerComponents.wrapComponent)(Qe, [
           [
             "render",
             function (e, t, n, r, o, m) {
@@ -2944,7 +1663,7 @@
           },
         },
       },
-        ht = (0, V.Z)(mt, [
+        ht = (0, ViewerComponents.wrapComponent)(mt, [
           [
             "render",
             function (e, t, n, r, o, a) {
@@ -3294,7 +2013,7 @@
             },
           },
         },
-        _t = (0, V.Z)(Ct, [
+        _t = (0, ViewerComponents.wrapComponent)(Ct, [
           [
             "render",
             function (e, t, n, r, o, a) {
@@ -3487,7 +2206,7 @@
           },
         },
       },
-        Mt = (0, V.Z)(Nt, [
+        Mt = (0, ViewerComponents.wrapComponent)(Nt, [
           [
             "render",
             function (e, t, n, r, o, a) {
@@ -3847,7 +2566,7 @@
           },
         },
       },
-        Wt = (0, V.Z)(Gt, [
+        Wt = (0, ViewerComponents.wrapComponent)(Gt, [
           [
             "render",
             function (e, t, n, r, o, a) {
@@ -4028,7 +2747,7 @@
             },
           },
         },
-        Yt = (0, V.Z)($t, [
+        Yt = (0, ViewerComponents.wrapComponent)($t, [
           [
             "render",
             function (e, t, n, r, o, a) {
