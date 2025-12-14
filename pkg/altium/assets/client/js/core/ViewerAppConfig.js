@@ -218,6 +218,56 @@ var ViewerAppConfig = (function (exports) {
     };
 
     // ============================================================================
+    // CORE BUS EVENTS (Ne.Z.bus events)
+    // ============================================================================
+
+    /**
+     * Internal bus event names used by Ne.Z.bus
+     */
+    var CORE_BUS_EVENTS = {
+        // Storage and metadata
+        STORAGE_RESOLVE_COMPLETE: 'storageResolveComplete',
+        METADATA_RESOLVE_COMPLETE: 'metadataResolveComplete',
+        
+        // Design resolution
+        DESIGN_RESOLVE_FIRST_STATUS: 'designResolveFirstStatus',
+        DESIGN_ID: 'designId',
+        PROGRESS: 'progress',
+        ERROR: 'error',
+        COMPLETE: 'complete',
+        UNAUTHORIZED: 'unAuthorized',
+        
+        // Module setup
+        MODULE_SETUP_COMPLETED: 'moduleSetupCompleted',
+        VIEW: 'view',
+        
+        // Document events
+        DOCUMENT_OPEN_ERROR: 'Document:open-error',
+        
+        // Design version
+        NEW_DESIGN_VERSION_READY: 'newDesignVersionReady',
+        NEW_DESIGN_VERSION_ERROR: 'newDesignVersionError',
+        
+        // View events
+        VIEW_GET: 'View:get',
+        VIEW_SET: 'View:set',
+        VIEWS_UPDATE_PADDING: 'Views:updatePadding',
+        
+        // Layout events
+        LAYOUT_UPDATE: 'Layout:update',
+        
+        // Scene events
+        SCENE_INTERACTED: 'sceneInteracted',
+        
+        // Logo events
+        LOGO_SHOW: 'Logo:show',
+        LOGO_HIDE: 'Logo:hide',
+        
+        // Modal events
+        MODAL_PANEL_WIDTH: 'Modal:panelWidth'
+    };
+
+    // ============================================================================
     // APP DATA DEFAULTS
     // ============================================================================
 
@@ -302,6 +352,7 @@ var ViewerAppConfig = (function (exports) {
     // Event names and i18n keys
     exports.PARENT_EVENTS = PARENT_EVENTS;
     exports.I18N_KEYS = I18N_KEYS;
+    exports.CORE_BUS_EVENTS = CORE_BUS_EVENTS;
 
     console.log('[ViewerAppConfig] Loaded with', Object.keys(MODULES_TO_URLS).length, 'plugin URLs');
 
