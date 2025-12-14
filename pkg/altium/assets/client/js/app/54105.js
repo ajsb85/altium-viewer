@@ -1,181 +1,209 @@
-(self.webpackChunkaltium_web_viewer = self.webpackChunkaltium_web_viewer || []).push([
+(self.webpackChunkaltium_web_viewer =
+  self.webpackChunkaltium_web_viewer || []).push([
     [54105],
     {
-54105: (e, t, n) => {
-        var r = n(49041),
-          i = n(17232);
-        const o = {
-          logger: { transports: new Map([["Console", { level: 0 }]]) },
+      54105: (module, exports, require) => {
+        var LogLevelModule = require(49041);
+        var LoggerCore = require(17232);
+
+        const config = {
+          logger: {
+            transports: new Map([["Console", { level: 0 }]]),
+          },
         };
-        function a(e) {
-          return (
-            (a =
-              "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-                ? function (e) {
-                  return typeof e;
-                }
-                : function (e) {
-                  return e &&
-                    "function" == typeof Symbol &&
-                    e.constructor === Symbol &&
-                    e !== Symbol.prototype
-                    ? "symbol"
-                    : typeof e;
-                }),
-            a(e)
-          );
+
+        function _typeof(obj) {
+          return (_typeof =
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              ? function (obj) {
+                return typeof obj;
+              }
+              : function (obj) {
+                return obj &&
+                  "function" == typeof Symbol &&
+                  obj.constructor === Symbol &&
+                  obj !== Symbol.prototype
+                  ? "symbol"
+                  : typeof obj;
+              })(obj);
         }
-        function s(e, t) {
-          for (var n = 0; n < t.length; n++) {
-            var r = t[n];
-            ((r.enumerable = r.enumerable || !1),
-              (r.configurable = !0),
-              "value" in r && (r.writable = !0),
-              Object.defineProperty(e, c(r.key), r));
+
+        function _defineProperties(target, props) {
+          for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];
+            descriptor.enumerable = descriptor.enumerable || false;
+            descriptor.configurable = true;
+            if ("value" in descriptor) descriptor.writable = true;
+            Object.defineProperty(
+              target,
+              _toPropertyKey(descriptor.key),
+              descriptor
+            );
           }
         }
-        function c(e) {
-          var t = (function (e, t) {
-            if ("object" != a(e) || !e) return e;
-            var n = e[Symbol.toPrimitive];
-            if (void 0 !== n) {
-              var r = n.call(e, "string");
-              if ("object" != a(r)) return r;
+
+        function _createClass(Constructor, protoProps, staticProps) {
+          if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+          if (staticProps) _defineProperties(Constructor, staticProps);
+          Object.defineProperty(Constructor, "prototype", { writable: false });
+          return Constructor;
+        }
+
+        function _toPropertyKey(arg) {
+          var key = (function (arg) {
+            if ("object" != _typeof(arg) || !arg) return arg;
+            var prim = arg[Symbol.toPrimitive];
+            if (void 0 !== prim) {
+              var res = prim.call(arg, "string");
+              if ("object" != _typeof(res)) return res;
               throw new TypeError("@@toPrimitive must return a primitive value.");
             }
-            return String(e);
-          })(e);
-          return "symbol" == a(t) ? t : t + "";
+            return String(arg);
+          })(arg);
+          return "symbol" == _typeof(key) ? key : key + "";
         }
-        var l = (function () {
-          function e(t) {
-            (!(function (e, t) {
-              if (!(e instanceof t))
+
+        var ConsoleTransport = (function () {
+          function ConsoleTransport(options) {
+            (function (instance, Constructor) {
+              if (!(instance instanceof Constructor)) {
                 throw new TypeError("Cannot call a class as a function");
-            })(this, e),
-              (this.DEFAULT_COLOR = "default"),
-              (this.async = !1),
-              (this.level = t.level),
-              (this.color = this.DEFAULT_COLOR));
+              }
+            })(this, ConsoleTransport);
+
+            this.DEFAULT_COLOR = "default";
+            this.async = false;
+            this.level = options.level;
+            this.color = this.DEFAULT_COLOR;
           }
-          return (
-            (t = e),
-            (i = [
-              {
-                key: "getFormattedDate",
-                value: function (e) {
-                  var t = new Date(e);
-                  return ""
-                    .concat(t.getFullYear(), "-")
-                    .concat(t.getMonth() + 1, "-")
-                    .concat(t.getDate(), " ")
-                    .concat(t.getHours(), ":")
-                    .concat(t.getMinutes(), ":")
-                    .concat(t.getSeconds(), ".")
-                    .concat(t.getMilliseconds());
-                },
-              },
-            ]),
-            (n = [
+
+          return _createClass(
+            ConsoleTransport,
+            [
               {
                 key: "log",
-                value: function (t) {
-                  var n,
-                    i,
-                    o,
-                    a,
-                    s,
-                    c,
-                    l = "%c"
-                      .concat(t.name.padEnd(20, " "), "%c | ")
-                      .concat(e.getFormattedDate(t.timestamp), " | %c")
-                      .concat(t.level.padEnd(8, " "), "%c |"),
-                    u = "";
-                  t.error &&
-                    (u = " | Error: "
-                      .concat(t.error.message, " Stack: ")
-                      .concat(t.error.stack));
-                  var d = [
-                    l,
+                value: function (entry) {
+                  var traceConsole,
+                    debugConsole,
+                    infoConsole,
+                    warnConsole,
+                    errorConsole,
+                    criticalConsole;
+
+                  var logMessage = "%c"
+                    .concat(entry.name.padEnd(20, " "), "%c | ")
+                    .concat(
+                      ConsoleTransport.getFormattedDate(entry.timestamp),
+                      " | %c"
+                    )
+                    .concat(entry.level.padEnd(8, " "), "%c |");
+
+                  var errorMessage = "";
+                  if (entry.error) {
+                    errorMessage = " | Error: "
+                      .concat(entry.error.message, " Stack: ")
+                      .concat(entry.error.stack);
+                  }
+
+                  var styles = [
+                    logMessage,
                     "color:".concat(this.color, ";"),
                     "color:".concat(this.DEFAULT_COLOR, ";"),
-                  ],
-                    p = [
-                      "color:".concat(this.DEFAULT_COLOR, ";"),
-                      t.message,
-                      u,
-                    ];
-                  switch (t.level) {
-                    case r.i[r.i.Trace]:
-                      (n = console).log.apply(
-                        n,
-                        d.concat(
+                  ];
+
+                  var content = [
+                    "color:".concat(this.DEFAULT_COLOR, ";"),
+                    entry.message,
+                    errorMessage,
+                  ];
+
+                  switch (entry.level) {
+                    case LogLevelModule.i[LogLevelModule.i.Trace]:
+                      (traceConsole = console).log.apply(
+                        traceConsole,
+                        styles.concat(
                           [
                             "padding:2px;color:".concat(
                               this.DEFAULT_COLOR,
-                              ";",
+                              ";"
                             ),
                           ],
-                          p,
-                        ),
+                          content
+                        )
                       );
                       break;
-                    case r.i[r.i.Debug]:
-                      (i = console).log.apply(
-                        i,
-                        d.concat(
+                    case LogLevelModule.i[LogLevelModule.i.Debug]:
+                      (debugConsole = console).log.apply(
+                        debugConsole,
+                        styles.concat(
                           ["padding:2px;background:blue;color:white;"],
-                          p,
-                        ),
+                          content
+                        )
                       );
                       break;
-                    case r.i[r.i.Info]:
-                      (o = console).log.apply(
-                        o,
-                        d.concat(
+                    case LogLevelModule.i[LogLevelModule.i.Info]:
+                      (infoConsole = console).log.apply(
+                        infoConsole,
+                        styles.concat(
                           ["padding:2px;background:green;color:white;"],
-                          p,
-                        ),
+                          content
+                        )
                       );
                       break;
-                    case r.i[r.i.Warn]:
-                      (a = console).log.apply(
-                        a,
-                        d.concat(
+                    case LogLevelModule.i[LogLevelModule.i.Warn]:
+                      (warnConsole = console).log.apply(
+                        warnConsole,
+                        styles.concat(
                           ["padding:2px;background:orange;color:black;"],
-                          p,
-                        ),
+                          content
+                        )
                       );
                       break;
-                    case r.i[r.i.Error]:
-                      (s = console).log.apply(
-                        s,
-                        d.concat(
+                    case LogLevelModule.i[LogLevelModule.i.Error]:
+                      (errorConsole = console).log.apply(
+                        errorConsole,
+                        styles.concat(
                           ["padding:2px;background:red;color:white;"],
-                          p,
-                        ),
+                          content
+                        )
                       );
                       break;
-                    case r.i[r.i.Critical]:
-                      (c = console).log.apply(
-                        c,
-                        d.concat(
+                    case LogLevelModule.i[LogLevelModule.i.Critical]:
+                      (criticalConsole = console).log.apply(
+                        criticalConsole,
+                        styles.concat(
                           ["padding:2px;background:Maroon;color:white;"],
-                          p,
-                        ),
+                          content
+                        )
                       );
+                      break;
                   }
                 },
               },
-            ]) && s(t.prototype, n),
-            i && s(t, i),
-            Object.defineProperty(t, "prototype", { writable: !1 }),
-            t
+            ],
+            [
+              {
+                key: "getFormattedDate",
+                value: function (timestamp) {
+                  var date = new Date(timestamp);
+                  return ""
+                    .concat(date.getFullYear(), "-")
+                    .concat(date.getMonth() + 1, "-")
+                    .concat(date.getDate(), " ")
+                    .concat(date.getHours(), ":")
+                    .concat(date.getMinutes(), ":")
+                    .concat(date.getSeconds(), ".")
+                    .concat(date.getMilliseconds());
+                },
+              },
+            ]
           );
-          var t, n, i;
-        })(),
-          u = o.logger.transports.get("Console");
-        u && i.oR.registerTransport(new l(u));
-      }
-    }
-]);
+        })();
+
+        var consoleConfig = config.logger.transports.get("Console");
+        if (consoleConfig) {
+          LoggerCore.oR.registerTransport(new ConsoleTransport(consoleConfig));
+        }
+      },
+    },
+  ]);

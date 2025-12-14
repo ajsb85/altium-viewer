@@ -34,6 +34,4 @@
             return window.FabricationView.create(d);
         },
     });
-
-    console.log("[FabricationView] Plugin registered via addModule - 6 modules");
 })();
