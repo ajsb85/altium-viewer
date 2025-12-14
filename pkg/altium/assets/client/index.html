@@ -16,6 +16,15 @@
 
   <!-- External Libraries (loaded before webpack chunks) -->
   <script defer="defer" src="js/ViewerUtils.js"></script> <!-- Shared utilities -->
+  
+  <!-- Core Modules (must load in order before components) -->
+  <script defer="defer" src="js/core/ViewerEventBus.js"></script> <!-- EventBus first -->
+  <script defer="defer" src="js/core/ViewerStore.js"></script>
+  <script defer="defer" src="js/core/ViewerViewManager.js"></script>
+  <script defer="defer" src="js/core/ViewerPluginManager.js"></script>
+  <script defer="defer" src="js/core/ViewerWASM.js"></script>
+  <script defer="defer" src="js/core/ViewerCoreBundle.js"></script> <!-- Core barrel -->
+  
   <!-- ViewerComponents Module Files (must load in order) -->
   <script defer="defer" src="js/components/ViewerCore.js"></script> <!-- Core utilities first -->
   <script defer="defer" src="js/components/ViewerGrid.js"></script>
