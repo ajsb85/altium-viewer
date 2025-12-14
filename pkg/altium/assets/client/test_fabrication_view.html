@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FabricationView Plugin Test</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background: #1a1a2e;
+            color: #eee;
+        }
+
+        .test {
+            margin: 10px 0;
+            padding: 10px;
+            background: #16213e;
+            border-radius: 8px;
+        }
+
+        .pass {
+            border-left: 4px solid #4caf50;
+        }
+
+        .fail {
+            border-left: 4px solid #f44336;
+        }
+
+        .pending {
+            border-left: 4px solid #ff9800;
+        }
+
+        h1 {
+            color: #e94560;
+        }
+
+        #output {
+            font-family: monospace;
+            white-space: pre-wrap;
+            background: #0f0f23;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>FabricationView Modular Plugin Test</h1>
+    <div id="tests"></div>
+    <h2>Console Output</h2>
+    <div id="output"></div>
+
+    <script>
+        var testsDiv = document.getElementById('tests');
+        var outputDiv = document.getElementById('output');
+
+        function log(msg) {
+            outputDiv.textContent += msg + '\n';
+            console.log(msg);
+        }
+
+        function addTest(name, status, details) {
+            var div = document.createElement('div');
+            div.className = 'test ' + status;
+            div.innerHTML = '<strong>' + name + '</strong>: ' + (details || status);
+            testsDiv.appendChild(div);
+        }
+
+        // Mock window.__CORE__ and window.__APP__ for standalone testing
+        window.__CORE__ = {
+            bus: {
+                on: function (event, cb) { log('bus.on: ' + event); },
+                emit: function (event, data) { log('bus.emit: ' + event); },
+                once: function (event, cb) { log('bus.once: ' + event); }
+            },
+            engines: {
+                Fabrication: {
+                    allDocuments: [{ id: 1, type: 'Gerber' }, { id: 2, type: 'OdbPlusPlus' }],
+                    activeDocument: { type: 'Gerber' },
+                    activeDocumentIndex: 0,
+                    show: function (div) { log('engine.show called'); return Promise.resolve(); },
+                    hide: function () { log('engine.hide called'); }
+                }
+            },
+            createLogger: function (name) {
+                return {
+                    LogDebug: function (msg) { log('[DEBUG] ' + name + ': ' + msg); },
+                    LogError: function (msg, err) { log('[ERROR] ' + name + ': ' + msg); }
+                };
+            }
+        };
+
+        window.__APP__ = {
+            library: {
+                i18n: {
+                    t: function (key) { return key; }
+                }
+            },
+            analytics: {
+                dispatchViewEvent: function (name) { log('analytics: ' + name); },
+                dispatchCustomErrorEvent: function (name) { log('analytics error: ' + name); }
+            },
+            loader: function (div, opts) {
+                log('loader created: ' + JSON.stringify(opts));
+                return { destroy: function () { log('loader destroyed'); } };
+            },
+            preview: function (div, url) {
+                log('preview created: ' + url);
+                return { destroy: function () { log('preview destroyed'); } };
+            }
+        };
+    </script>
+
+    <!-- Load modular FabricationView plugin -->
+    <script src="/js/plugins/FabricationView/events.js"></script>
+    <script src="/js/plugins/FabricationView/meta.js"></script>
+    <script src="/js/plugins/FabricationView/documentHandler.js"></script>
+    <script src="/js/plugins/FabricationView/loaderPreview.js"></script>
+    <script src="/js/plugins/FabricationView/presenter.js"></script>
+    <script src="/js/plugins/FabricationView/index.js"></script>
+
+    <script>
+        log('=== Running FabricationView Tests ===\n');
+
+        // Test 1: Namespace exists
+        try {
+            if (window.FabricationView) {
+                addTest('Namespace', 'pass', 'window.FabricationView exists');
+            } else {
+                addTest('Namespace', 'fail', 'window.FabricationView is undefined');
+            }
+        } catch (e) {
+            addTest('Namespace', 'fail', e.message);
+        }
+
+        // Test 2: Events module
+        try {
+            var events = FabricationView.events;
+            if (events && events.shown && events.hidden) {
+                addTest('Events Module', 'pass', Object.keys(events).length + ' events defined');
+            } else {
+                addTest('Events Module', 'fail', 'events not properly loaded');
+            }
+        } catch (e) {
+            addTest('Events Module', 'fail', e.message);
+        }
+
+        // Test 3: Meta module
+        try {
+            if (FabricationView.controls && FabricationView.controls.length === 4) {
+                addTest('Meta Module', 'pass', FabricationView.controls.length + ' controls defined');
+            } else {
+                addTest('Meta Module', 'fail', 'controls not properly loaded');
+            }
+        } catch (e) {
+            addTest('Meta Module', 'fail', e.message);
+        }
+
+        // Test 4: DocumentHandler module
+        try {
+            if (typeof FabricationView.createDocumentHandler === 'function') {
+                addTest('DocumentHandler Module', 'pass', 'createDocumentHandler exists');
+            } else {
+                addTest('DocumentHandler Module', 'fail', 'createDocumentHandler not a function');
+            }
+        } catch (e) {
+            addTest('DocumentHandler Module', 'fail', e.message);
+        }
+
+        // Test 5: LoaderPreview module
+        try {
+            if (typeof FabricationView.updateLoader === 'function' &&
+                typeof FabricationView.updatePreview === 'function') {
+                addTest('LoaderPreview Module', 'pass', 'updateLoader and updatePreview exist');
+            } else {
+                addTest('LoaderPreview Module', 'fail', 'functions missing');
+            }
+        } catch (e) {
+            addTest('LoaderPreview Module', 'fail', e.message);
+        }
+
+        // Test 6: Presenter class
+        try {
+            if (typeof FabricationView.Presenter === 'function') {
+                addTest('Presenter Class', 'pass', 'Presenter constructor exists');
+            } else {
+                addTest('Presenter Class', 'fail', 'Presenter not a function');
+            }
+        } catch (e) {
+            addTest('Presenter Class', 'fail', e.message);
+        }
+
+        // Test 7: Create presenter instance
+        try {
+            var presenter = FabricationView.create(true);
+            if (presenter && presenter.metaInfo && presenter.metaInfo.name === 'FabricationView') {
+                addTest('Create Presenter', 'pass', 'presenter.metaInfo.name = ' + presenter.metaInfo.name);
+            } else {
+                addTest('Create Presenter', 'fail', 'metaInfo not correct');
+            }
+        } catch (e) {
+            addTest('Create Presenter', 'fail', e.message);
+        }
+
+        // Test 8: Presenter setup
+        try {
+            var presenter = FabricationView.create(true);
+            presenter.setup(window.__CORE__).then(function () {
+                addTest('Presenter Setup', 'pass', 'setup() completed');
+                log('\n=== Setup Complete ===');
+            }).catch(function (e) {
+                addTest('Presenter Setup', 'fail', e.message);
+            });
+        } catch (e) {
+            addTest('Presenter Setup', 'fail', e.message);
+        }
+
+        // Test 9: Presenter activate
+        try {
+            var presenter = FabricationView.create(true);
+            var testDiv = document.createElement('div');
+            presenter.setup(window.__CORE__).then(function () {
+                return presenter.activate(testDiv);
+            }).then(function () {
+                addTest('Presenter Activate', 'pass', 'activate() completed');
+                log('\n=== Activate Complete ===');
+
+                // Deactivate
+                presenter.deactivate();
+                addTest('Presenter Deactivate', 'pass', 'deactivate() called');
+            }).catch(function (e) {
+                addTest('Presenter Activate', 'fail', e.message);
+            });
+        } catch (e) {
+            addTest('Presenter Activate', 'fail', e.message);
+        }
+
+        // Test 10: Modules list
+        try {
+            if (FabricationView.modules && FabricationView.modules.length === 6) {
+                addTest('Modules List', 'pass', FabricationView.modules.join(', '));
+            } else {
+                addTest('Modules List', 'fail', 'Expected 6 modules');
+            }
+        } catch (e) {
+            addTest('Modules List', 'fail', e.message);
+        }
+
+        log('\n=== Tests Complete ===');
+    </script>
+</body>
+
+</html>

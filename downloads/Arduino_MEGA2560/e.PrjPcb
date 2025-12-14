@@ -1,0 +1,105 @@
+{
+  "version": "1.0.0.6",
+  "camtastic": [
+    {
+      "fileName": "Sources__copper_top_Gerber274XDocument.cam",
+      "originalFileName": "Sources__copper_top_Gerber274XDocument",
+      "layers": [
+        {
+          "id": 1,
+          "name": "copper_top.gbr",
+          "originalName": "copper_top.gbr",
+          "color": "#FF0000",
+          "kind": 1,
+          "subKind": 0,
+          "details": "Signal"
+        },
+        {
+          "id": 2,
+          "name": "copper_bottom.gbr",
+          "originalName": "copper_bottom.gbr",
+          "color": "#00FF00",
+          "kind": 1,
+          "subKind": 2,
+          "details": "Signal"
+        },
+        {
+          "id": 7,
+          "name": "profile.gbr",
+          "originalName": "profile.gbr",
+          "color": "#C0C0C0",
+          "kind": 4,
+          "subKind": 7
+        },
+        {
+          "id": 4,
+          "name": "soldermask_top.gbr",
+          "originalName": "soldermask_top.gbr",
+          "color": "#0000FF",
+          "kind": 5,
+          "subKind": 0,
+          "indexFrom": 1
+        },
+        {
+          "id": 5,
+          "name": "soldermask_bottom.gbr",
+          "originalName": "soldermask_bottom.gbr",
+          "color": "#FF00FF",
+          "kind": 5,
+          "subKind": 2,
+          "indexFrom": 1
+        },
+        {
+          "id": 3,
+          "name": "silkscreen_top.gbr",
+          "originalName": "silkscreen_top.gbr",
+          "color": "#00FFFF",
+          "kind": 6,
+          "subKind": 0,
+          "indexFrom": 1
+        },
+        {
+          "id": 6,
+          "name": "silkscreen_bottom.gbr",
+          "originalName": "silkscreen_bottom.gbr",
+          "color": "#FFFF00",
+          "kind": 6,
+          "subKind": 2,
+          "indexFrom": 1
+        },
+        {
+          "id": 8,
+          "name": "solderpaste_top.gbr",
+          "originalName": "solderpaste_top.gbr",
+          "color": "#800000",
+          "kind": 7,
+          "subKind": 0
+        },
+        {
+          "id": 9,
+          "name": "solderpaste_bottom.gbr",
+          "originalName": "solderpaste_bottom.gbr",
+          "color": "#008000",
+          "kind": 7,
+          "subKind": 2
+        },
+        {
+          "id": 10,
+          "name": "drill_1_16.xln",
+          "originalName": "drill_1_16.xln",
+          "color": "#008080",
+          "kind": 25,
+          "details": "drill_1_16"
+        }
+      ],
+      "units": 0,
+      "sourceKind": "Gerber"
+    }
+  ],
+  "draftsman": 0,
+  "pcbProjectsCount": 0,
+  "mbdProjectsCount": 0,
+  "projectTypeName": "Camtastic",
+  "mbsDocuments": [],
+  "mbaDocuments": []
+}

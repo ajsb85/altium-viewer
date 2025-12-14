@@ -307,7 +307,7 @@ func (s *Server) proxyHandler(w http.ResponseWriter, r *http.Request) {
 
                                 if _, err := os.Stat(localPath); err == nil {
                                     // Exists -> Serve directly
-                                    newUrl := fmt.Sprintf("%s/downloads/%s", s.BaseURL, localFilename)
+                                    newUrl := fmt.Sprintf("%s/downloads/Arduino_MEGA2560/%s", s.BaseURL, localFilename)
                                     f["dataFileUrl"] = newUrl
                                     log.Printf("File exists. Rewriting to: %s", newUrl)
                                 } else {

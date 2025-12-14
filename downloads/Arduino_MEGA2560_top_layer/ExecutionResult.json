@@ -22,11 +22,11 @@
                     "Message": null,
                     "SourceFiles": [
                         {
-                            "FilePath": "Sources__copper_top_Gerber274XDocument.cam",
+                            "FilePath": "Sources__pic_programmer-F_Courtyard_Gerber274XDocument.cam",
                             "Outputs": [
                                 {
                                     "Kind": 0,
-                                    "FilePath": "Sources__copper_top_Gerber274XDocument.cam.graphite",
+                                    "FilePath": "Sources__pic_programmer-F_Courtyard_Gerber274XDocument.cam.graphite",
                                     "Success": true,
                                     "Message": null,
                                     "Regenerated": true
@@ -60,11 +60,11 @@
                     "SourceFiles": [
                         {
                             "DocKind": "CAMTASTIC",
-                            "FilePath": "Sources__copper_top_Gerber274XDocument.cam",
+                            "FilePath": "Sources__pic_programmer-F_Courtyard_Gerber274XDocument.cam",
                             "Outputs": [
                                 {
                                     "Kind": 0,
-                                    "FilePath": "Sources__copper_top_Gerber274XDocument_cam_Small.png",
+                                    "FilePath": "Sources__pic_programmer-F_Courtyard_Gerber274XDocument_cam_Small.png",
                                     "Success": true,
                                     "Message": "",
                                     "Regenerated": true
