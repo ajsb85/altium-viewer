@@ -92,7 +92,81 @@ var ViewerAppMethods = (function (exports) {
     ];
 
     // ============================================================================
-    // HELPER FUNCTIONS (can be used standalone)
+    // HELPER FUNCTIONS (Internal)
+    // ============================================================================
+
+    /**
+     * Safe JSON parse helper (replaces F from webpack)
+     * @param {string} str - String to parse
+     * @returns {Object|null} Parsed object or null
+     */
+    function safeJsonParse(str) {
+        try {
+            return JSON.parse(str);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    /**
+     * Generate UUID helper (replaces R from webpack)
+     * @returns {string} UUID
+     */
+    function generateUuid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    // ============================================================================
+    // HELPER FUNCTIONS (Exported)
+    // ============================================================================
+
+    /**
+     * Parse loader message string (replaces G from webpack)
+     * @param {string} msg - Message string, potentially containing JSON
+     * @returns {Array|string} Parsed message structure
+     */
+    function parseLoaderMessage(msg) {
+        if (!msg) return "";
+        var parts = msg.split("%");
+        if (parts.length <= 1) return msg;
+
+        return parts.map(function(part) {
+            return part.startsWith("{")
+                ? Object.assign({}, safeJsonParse(part), { id: generateUuid() })
+                : { id: generateUuid(), text: part };
+        });
+    }
+
+    /**
+     * Get WebGL Debug Info (replaces k from webpack)
+     * @returns {Object|null} WebGL info
+     */
+    function getWebGlInfo() {
+        var canvas = document.createElement("canvas");
+        var gl = canvas.getContext("webgl");
+        if (gl) {
+            var debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
+            return {
+                vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+                renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
+            };
+        }
+        return null;
+    }
+
+    /**
+     * Get Memory Usage Info (replaces S from webpack)
+     * @returns {Object|null} Memory info
+     */
+    function getMemoryInfo() {
+        return (window.performance && window.performance.memory) || null;
+    }
+
+    // ============================================================================
+    // METHODS
     // ============================================================================
 
     /**
@@ -231,6 +305,112 @@ var ViewerAppMethods = (function (exports) {
         };
     }
 
+    /**
+     * Set loader state
+     * @param {Object} app - Vue instance
+     * @param {string} status - 'error' or other status
+     * @param {string} messageId - I18n key or message
+     * @param {string} icon - Icon name
+     * @param {string} meta - Metadata string
+     */
+    function setLoader(app, status, messageId, icon, meta) {
+        app.isLoadingFailed = "error" === status;
+        var parsedMsg = parseLoaderMessage(messageId);
+        
+        app.loaderMessage = parsedMsg || app.$t(ViewerAppConfig.I18N_KEYS.INITIALIZING);
+        app.loaderMeta = meta;
+        app.loaderIcon = icon;
+    }
+
+    /**
+     * Set loader message with optional timeout
+     * @param {Object} app - Vue instance
+     * @param {string} message - Message text
+     * @param {boolean} isError - Is error state
+     * @param {string} icon - Icon name
+     */
+    function setLoaderMessage(app, message, isError, icon) {
+        icon = (arguments.length > 3 && void 0 !== arguments[3]) ? arguments[3] : "";
+        
+        var mainMessage = (app.isCompare && !isError) ? "Comparison in progress" : message;
+        var metaMessage = (app.isAfsCompare && !isError)
+            ? "You can wait or close the page. We will email you when completed."
+            : (app.isCompare && !isError)
+                ? "It will take a few moments"
+                : "";
+        
+        if (app.isCompare && !app.isAfsCompare && !isError) {
+            setTimeout(function() {
+                app.loaderMessage = "Comparison is still in progress";
+                app.loaderMeta = "It will take longer than expected";
+                app.isLoaderPrimary = false;
+            }, 30000);
+        }
+        
+        app.hasLoaderIcon = !app.isCompare || (app.isCompare && isError);
+        app.isLoading = true;
+        app.isLoadingFailed = isError;
+        
+        var parsedMain = parseLoaderMessage(mainMessage);
+        
+        app.loaderMessage = parsedMain || app.$t(ViewerAppConfig.I18N_KEYS.INITIALIZING);
+        app.loaderMeta = metaMessage;
+        app.loaderIcon = icon;
+    }
+
+    /**
+     * Capture error and report to analytics
+     * @param {Object} app - Vue instance
+     * @param {Object|string} error - Error object or message
+     * @param {string} location - Error location/context
+     * @param {boolean} force - Force report
+     */
+    function captureError(app, error, location, force) {
+        location = (arguments.length > 2 && void 0 !== arguments[2]) ? arguments[2] : "";
+        force = (arguments.length > 3 && void 0 !== arguments[3]) && arguments[3];
+        
+        var details = getErrorDetails(error);
+        
+        if (!details.skipMonitoring) {
+            if (window.__APP__ && window.__APP__.appMonitoring) {
+                var content = getErrorContent(error);
+                var tags = {
+                    analytics_error: window.__APP__.analytics.getErrorEventName(location),
+                    unload_page_signal: app.unloadPageSignal,
+                };
+                
+                if ((error && error.sendDetails) || force) {
+                    var webglInfo = getWebGlInfo();
+                    var memoryInfo = getMemoryInfo();
+                    
+                    Object.assign(tags, {
+                        webgl_vendor: webglInfo ? webglInfo.vendor : undefined,
+                        webgl_renderer: webglInfo ? webglInfo.renderer : undefined,
+                        document_size: error ? error.dataSize : undefined,
+                    });
+                    
+                    if (memoryInfo) {
+                        Object.assign(tags, {
+                            js_heap_size_limit: memoryInfo.jsHeapSizeLimit,
+                            total_js_heap_size: memoryInfo.totalJSHeapSize,
+                            used_js_heap_size: memoryInfo.usedJSHeapSize,
+                        });
+                    }
+                }
+                
+                if (details.isManaged) {
+                    tags.is_managed_error = true;
+                }
+                
+                window.__APP__.appMonitoring.capture(content, { tags: tags });
+            }
+            
+            if (!app.unloadPageSignal && !details.isManaged && window.__APP__.analytics) {
+                window.__APP__.analytics.dispatchErrorEvent(location);
+            }
+        }
+    }
+
     // ============================================================================
     // EXPORTS
     // ============================================================================
@@ -246,6 +426,14 @@ var ViewerAppMethods = (function (exports) {
     exports.createToggleModulesDisableState = createToggleModulesDisableState;
     exports.checkWebGl2Support = checkWebGl2Support;
     exports.formatKeyEvent = formatKeyEvent;
+
+    // Phase 2 Exports (Tier 3 Methods)
+    exports.parseLoaderMessage = parseLoaderMessage;
+    exports.getWebGlInfo = getWebGlInfo;
+    exports.getMemoryInfo = getMemoryInfo;
+    exports.setLoader = setLoader;
+    exports.setLoaderMessage = setLoaderMessage;
+    exports.captureError = captureError;
 
     console.log('[ViewerAppMethods] Loaded with', METHOD_NAMES.length, 'method references');
 

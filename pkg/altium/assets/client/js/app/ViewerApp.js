@@ -27,17 +27,6 @@
             withCredentials: !1,
           });
         };
-      const k = function () {
-        var e = document.createElement("canvas").getContext("webgl");
-        if (e) {
-          var t = e.getExtension("WEBGL_debug_renderer_info");
-          return {
-            vendor: e.getParameter(t.UNMASKED_VENDOR_WEBGL),
-            renderer: e.getParameter(t.UNMASKED_RENDERER_WEBGL),
-          };
-        }
-        return null;
-      };
       // Use ViewerUtils helpers instead of duplicating them
       var C = ViewerUtils.getType,
         _ = ViewerUtils.defineProperties,
@@ -76,33 +65,9 @@
       // Log bridge loading
       console.log("[ViewerApp] Component bridges loaded from ViewerComponents");
       // ===== END COMPONENT BRIDGES =====
-      const S = new ((function () {
-        return (
-          (e = function e(t) {
-            (!(function (e, t) {
-              if (!(e instanceof t))
-                throw new TypeError("Cannot call a class as a function");
-            })(this, e),
-              (this.performance = t));
-          }),
-          (t = [
-            {
-              key: "getMemoryUsageDetails",
-              value: function () {
-                var e;
-                return (
-                  (null === (e = this.performance) || void 0 === e
-                    ? void 0
-                    : e.memory) || null
-                );
-              },
-            },
-          ]) && _(e.prototype, t),
-          Object.defineProperty(e, "prototype", { writable: !1 }),
-          e
-        );
-        var e, t;
-      })())(window.performance);
+      
+      // S (Memory) moved to ViewerAppMethods
+
       var E = { key: 0, class: "app-sidebar__sub-title-additional-text" },
         j = { class: "app-sidebar__content" },
         O = n(93891),
@@ -406,17 +371,9 @@
         z = ViewerUtils.getOwnKeys,
         Z = ViewerUtils.objectSpread,
         U = ViewerUtils.defineProperty;
-      const G = function (e) {
-        if (!e) return "";
-        var t = e.split("%");
-        return t.length <= 1
-          ? e
-          : t.map(function (e) {
-            return e.startsWith("{")
-              ? Z(Z({}, (0, F.Z)(e)), {}, { id: (0, R.c)() })
-              : { id: (0, R.c)(), text: e };
-          });
-      };
+      
+      // G (loader message) moved to ViewerAppMethods
+      
       var W = n(67674),
         $ = { class: "app-alert" },
         Y = { class: "app-alert__container" },
@@ -424,7 +381,7 @@
         X = { key: 0, class: "app-alert__text" },
         q = { key: 1, class: "app-alert__meta" };
       const J = {
-        name: "AppLoader",
+        name: "AppAlert",
         components: { AfsIcon: m._ },
         props: { icon: { type: String, default: "error-64" } },
         methods: {
@@ -2333,7 +2290,7 @@
                   !this.isCompare || (this.isCompare && t)),
                 (this.isLoading = !0),
                 (this.isLoadingFailed = t));
-              var a = G(i);
+              var a = ViewerAppMethods.parseLoaderMessage(i);
               ((this.loaderMessage =
                 a || this.$t(ViewerAppConfig.I18N_KEYS.INITIALIZING)),
                 (this.loaderMeta = o),
@@ -2611,12 +2568,17 @@
               window.__APP__.analytics.dispatchAnalyticsEvent("WebGL2", status);
             },
             setLoader: function (e, t, n, r, i) {
-              this.isLoadingFailed = "error" === e;
-              var o = G(t);
-              ((this.loaderMessage =
-                o || this.$t(ViewerAppConfig.I18N_KEYS.INITIALIZING)),
-                (this.loaderMeta = i),
-                (this.loaderIcon = n));
+              ViewerAppMethods.setLoader(this, e, t, n, i);
+            },
+            setLoaderMessage: function (e, t, n, r) {
+              var args = [this, e, t, n];
+              if (arguments.length > 3) args.push(r);
+              ViewerAppMethods.setLoaderMessage.apply(null, args);
+            },
+            captureError: function (e, t, n) {
+              var args = [this, e, t];
+              if (arguments.length > 2) args.push(n);
+              ViewerAppMethods.captureError.apply(null, args);
             },
           },
         ),
@@ -3353,7 +3315,7 @@
               this.type = this.typesArray.includes(e) ? e : pt.large;
             },
             setMessage: function (e) {
-              this.message = G(e);
+              this.message = ViewerAppMethods.parseLoaderMessage(e);
             },
             onLinkClick: function (e, t) {
               t.eventName && (e.preventDefault(), ft.bus.emit(t.eventName));
