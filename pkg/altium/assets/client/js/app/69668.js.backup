@@ -38,10 +38,46 @@
         }
         return null;
       };
-      // Use ViewerUtils helpers instead of duplicating them
-      var C = ViewerUtils.getType,
-        _ = ViewerUtils.defineProperties,
-        P = ViewerUtils.toPropertyKey;
+      function C(e) {
+        return (
+          (C =
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              ? function (e) {
+                return typeof e;
+              }
+              : function (e) {
+                return e &&
+                  "function" == typeof Symbol &&
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
+                  ? "symbol"
+                  : typeof e;
+              }),
+          C(e)
+        );
+      }
+      function _(e, t) {
+        for (var n = 0; n < t.length; n++) {
+          var r = t[n];
+          ((r.enumerable = r.enumerable || !1),
+            (r.configurable = !0),
+            "value" in r && (r.writable = !0),
+            Object.defineProperty(e, P(r.key), r));
+        }
+      }
+      function P(e) {
+        var t = (function (e, t) {
+          if ("object" != C(e) || !e) return e;
+          var n = e[Symbol.toPrimitive];
+          if (void 0 !== n) {
+            var r = n.call(e, "string");
+            if ("object" != C(r)) return r;
+            throw new TypeError("@@toPrimitive must return a primitive value.");
+          }
+          return String(e);
+        })(e);
+        return "symbol" == C(t) ? t : t + "";
+      }
       const S = new ((function () {
         return (
           (e = function e(t) {
@@ -156,9 +192,51 @@
             },
           },
         };
-      // Use ViewerUtils helpers (replacing B and x duplicates)
-      var B = ViewerUtils.getType,
-        x = ViewerUtils.defineProperty;
+      function B(e) {
+        return (
+          (B =
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              ? function (e) {
+                return typeof e;
+              }
+              : function (e) {
+                return e &&
+                  "function" == typeof Symbol &&
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
+                  ? "symbol"
+                  : typeof e;
+              }),
+          B(e)
+        );
+      }
+      function x(e, t, n) {
+        return (
+          (t = (function (e) {
+            var t = (function (e, t) {
+              if ("object" != B(e) || !e) return e;
+              var n = e[Symbol.toPrimitive];
+              if (void 0 !== n) {
+                var r = n.call(e, "string");
+                if ("object" != B(r)) return r;
+                throw new TypeError(
+                  "@@toPrimitive must return a primitive value.",
+                );
+              }
+              return String(e);
+            })(e);
+            return "symbol" == B(t) ? t : t + "";
+          })(t)) in e
+            ? Object.defineProperty(e, t, {
+              value: n,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0,
+            })
+            : (e[t] = n),
+          e
+        );
+      }
       const A = {
         name: "AppSidebar",
         components: {
@@ -367,11 +445,82 @@
       var I = n(38964),
         R = n(74839),
         F = n(38075);
-      // Use ViewerUtils helpers (replacing H, z, Z, U duplicates)
-      var H = ViewerUtils.getType,
-        z = ViewerUtils.getOwnKeys,
-        Z = ViewerUtils.objectSpread,
-        U = ViewerUtils.defineProperty;
+      function H(e) {
+        return (
+          (H =
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              ? function (e) {
+                return typeof e;
+              }
+              : function (e) {
+                return e &&
+                  "function" == typeof Symbol &&
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
+                  ? "symbol"
+                  : typeof e;
+              }),
+          H(e)
+        );
+      }
+      function z(e, t) {
+        var n = Object.keys(e);
+        if (Object.getOwnPropertySymbols) {
+          var r = Object.getOwnPropertySymbols(e);
+          (t &&
+            (r = r.filter(function (t) {
+              return Object.getOwnPropertyDescriptor(e, t).enumerable;
+            })),
+            n.push.apply(n, r));
+        }
+        return n;
+      }
+      function Z(e) {
+        for (var t = 1; t < arguments.length; t++) {
+          var n = null != arguments[t] ? arguments[t] : {};
+          t % 2
+            ? z(Object(n), !0).forEach(function (t) {
+              U(e, t, n[t]);
+            })
+            : Object.getOwnPropertyDescriptors
+              ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
+              : z(Object(n)).forEach(function (t) {
+                Object.defineProperty(
+                  e,
+                  t,
+                  Object.getOwnPropertyDescriptor(n, t),
+                );
+              });
+        }
+        return e;
+      }
+      function U(e, t, n) {
+        return (
+          (t = (function (e) {
+            var t = (function (e, t) {
+              if ("object" != H(e) || !e) return e;
+              var n = e[Symbol.toPrimitive];
+              if (void 0 !== n) {
+                var r = n.call(e, "string");
+                if ("object" != H(r)) return r;
+                throw new TypeError(
+                  "@@toPrimitive must return a primitive value.",
+                );
+              }
+              return String(e);
+            })(e);
+            return "symbol" == H(t) ? t : t + "";
+          })(t)) in e
+            ? Object.defineProperty(e, t, {
+              value: n,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0,
+            })
+            : (e[t] = n),
+          e
+        );
+      }
       const G = function (e) {
         if (!e) return "";
         var t = e.split("%");
@@ -1086,11 +1235,82 @@
         ]);
       var _e = { class: "app-header-plugins" },
         Pe = ["id", "disabled", "onClick"];
-      // Use ViewerUtils helpers (replacing Se, Ee, je, Oe duplicates)
-      var Se = ViewerUtils.getType,
-        Ee = ViewerUtils.getOwnKeys,
-        je = ViewerUtils.objectSpread,
-        Oe = ViewerUtils.defineProperty;
+      function Se(e) {
+        return (
+          (Se =
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              ? function (e) {
+                return typeof e;
+              }
+              : function (e) {
+                return e &&
+                  "function" == typeof Symbol &&
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
+                  ? "symbol"
+                  : typeof e;
+              }),
+          Se(e)
+        );
+      }
+      function Ee(e, t) {
+        var n = Object.keys(e);
+        if (Object.getOwnPropertySymbols) {
+          var r = Object.getOwnPropertySymbols(e);
+          (t &&
+            (r = r.filter(function (t) {
+              return Object.getOwnPropertyDescriptor(e, t).enumerable;
+            })),
+            n.push.apply(n, r));
+        }
+        return n;
+      }
+      function je(e) {
+        for (var t = 1; t < arguments.length; t++) {
+          var n = null != arguments[t] ? arguments[t] : {};
+          t % 2
+            ? Ee(Object(n), !0).forEach(function (t) {
+              Oe(e, t, n[t]);
+            })
+            : Object.getOwnPropertyDescriptors
+              ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
+              : Ee(Object(n)).forEach(function (t) {
+                Object.defineProperty(
+                  e,
+                  t,
+                  Object.getOwnPropertyDescriptor(n, t),
+                );
+              });
+        }
+        return e;
+      }
+      function Oe(e, t, n) {
+        return (
+          (t = (function (e) {
+            var t = (function (e, t) {
+              if ("object" != Se(e) || !e) return e;
+              var n = e[Symbol.toPrimitive];
+              if (void 0 !== n) {
+                var r = n.call(e, "string");
+                if ("object" != Se(r)) return r;
+                throw new TypeError(
+                  "@@toPrimitive must return a primitive value.",
+                );
+              }
+              return String(e);
+            })(e);
+            return "symbol" == Se(t) ? t : t + "";
+          })(t)) in e
+            ? Object.defineProperty(e, t, {
+              value: n,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0,
+            })
+            : (e[t] = n),
+          e
+        );
+      }
       const De = {
         name: "AppHeaderPlugin",
         components: { AfsIcon: m._, AfsContextMenu: h.C, AfsText: y.A },
@@ -1453,11 +1673,59 @@
         ]);
       var Ne = n(23864),
         Me = n(19577);
-      // Use ViewerUtils helpers (replacing Ie, Re, Fe, He duplicates)
-      var Ie = ViewerUtils.getType,
-        Re = ViewerUtils.defineProperties,
-        Fe = ViewerUtils.defineProperty,
-        He = ViewerUtils.toPropertyKey;
+      function Ie(e) {
+        return (
+          (Ie =
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              ? function (e) {
+                return typeof e;
+              }
+              : function (e) {
+                return e &&
+                  "function" == typeof Symbol &&
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
+                  ? "symbol"
+                  : typeof e;
+              }),
+          Ie(e)
+        );
+      }
+      function Re(e, t) {
+        for (var n = 0; n < t.length; n++) {
+          var r = t[n];
+          ((r.enumerable = r.enumerable || !1),
+            (r.configurable = !0),
+            "value" in r && (r.writable = !0),
+            Object.defineProperty(e, He(r.key), r));
+        }
+      }
+      function Fe(e, t, n) {
+        return (
+          (t = He(t)) in e
+            ? Object.defineProperty(e, t, {
+              value: n,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0,
+            })
+            : (e[t] = n),
+          e
+        );
+      }
+      function He(e) {
+        var t = (function (e, t) {
+          if ("object" != Ie(e) || !e) return e;
+          var n = e[Symbol.toPrimitive];
+          if (void 0 !== n) {
+            var r = n.call(e, "string");
+            if ("object" != Ie(r)) return r;
+            throw new TypeError("@@toPrimitive must return a primitive value.");
+          }
+          return String(e);
+        })(e);
+        return "symbol" == Ie(t) ? t : t + "";
+      }
       var ze = {
         2: "PCB.2D",
         3: "PCB.3D",
