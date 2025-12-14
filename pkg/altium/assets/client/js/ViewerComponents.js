@@ -1197,6 +1197,167 @@ var ViewerComponents = (function (exports) {
     };
 
     // ============================================================================
+    // MAIN TABS COMPONENT (from ViewerApp.js line 607)
+    // ============================================================================
+
+    /**
+     * AppMainTabs - Header tab navigation
+     */
+    var AppMainTabs = {
+        name: "AppMainTabs",
+        components: {
+            // AfsText, AfsIcon, AfsContextMenu, AfsBadge resolved at runtime
+        },
+        directives: {
+            // dropdown, hint directives resolved at runtime
+        },
+        props: {
+            items: {
+                type: Array,
+                default: function () { return []; },
+                validator: function (arr) {
+                    return !arr.length || arr.every(function (e) {
+                        return e.text !== undefined && e.id !== undefined;
+                    });
+                }
+            }
+        },
+        data: function () {
+            return { isMenuOpened: false, hintText: null };
+        },
+        computed: {
+            hasTabs: function () {
+                return this.items.length;
+            },
+            menuId: function () {
+                return "app-main-tabs__menu";
+            },
+            reducedItems: function () {
+                return this.items.reduce(function (acc, item) {
+                    if (!item.hidden) {
+                        if (item.isActive) {
+                            acc.active = item;
+                        } else {
+                            acc.nonActive.push(item);
+                        }
+                        acc.mapped[item.id] = item;
+                    }
+                    return acc;
+                }, { active: {}, nonActive: [], mapped: {} });
+            },
+            isWip: function () {
+                return false;
+            }
+        },
+        methods: {
+            onClick: function (item) {
+                this.$emit("change", item);
+                if (this.$refs[this.menuId]) {
+                    this.$refs[this.menuId].close();
+                }
+            },
+            toggleIsOpened: function () {
+                this.isMenuOpened = !this.isMenuOpened;
+            },
+            onHintOpen: function (item) {
+                var self = this;
+                return function () {
+                    self.hintText = self.reducedItems.mapped[item.id].hint;
+                };
+            },
+            onHintClose: function () {
+                var self = this;
+                return function () {
+                    self.hintText = null;
+                };
+            }
+        }
+    };
+
+    // ============================================================================
+    // APP HEADER COMPONENT (from ViewerApp.js line 1165)
+    // ============================================================================
+
+    /**
+     * AppHeader - Main application header
+     */
+    var AppHeader = {
+        name: "AppHeader",
+        components: {
+            // MainTabs, HeaderPlugins resolved at runtime
+        },
+        props: {
+            tabs: { type: Array, default: function () { return []; } },
+            primaryPlugins: { type: Array, default: function () { return []; } },
+            secondaryPlugins: { type: Array, default: function () { return []; } },
+            viewPlugins: { type: Array, default: function () { return []; } }
+        },
+        emits: ["tab-change", "plugin-click"],
+        methods: {
+            onTabChange: function (tab) {
+                this.$emit("tab-change", tab);
+            },
+            onPluginClick: function (plugin) {
+                this.$emit("plugin-click", plugin);
+            }
+        }
+    };
+
+    // ============================================================================
+    // APP MENU COMPONENT (from ViewerApp.js line 4742)
+    // ============================================================================
+
+    /**
+     * AppMenu - Context menu with tree items
+     */
+    var AppMenu = {
+        name: "AppMenu",
+        components: {
+            // ContextMenu, TreeItem resolved at runtime
+        },
+        inject: [],
+        data: function () {
+            return { selectedItem: "" };
+        },
+        computed: {
+            startPadding: function () {
+                var items = this.items;
+                if (items && items.every(function (e) {
+                    return !e.child || e.child.length === 0;
+                })) {
+                    return 8;
+                }
+                return 32;
+            }
+        },
+        methods: {
+            setData: function (key, value) {
+                this[key] = value;
+            },
+            open: function (pos) {
+                this.$refs.contextMenu.open(document.body, {
+                    clientX: pos ? pos.x : undefined,
+                    clientY: pos ? pos.y : undefined
+                });
+            },
+            close: function () {
+                var refs = this.$refs;
+                if (refs && refs.contextMenu) {
+                    refs.contextMenu.close();
+                } else {
+                    this.onClose();
+                }
+            },
+            onClick: function (item) {
+                this.$root.$emit("item-click", item);
+            },
+            onClose: function () {
+                this.$root.$emit("close");
+            }
+        }
+    };
+
+    // ============================================================================
     // EXPORTS
     // ============================================================================
 
@@ -1255,6 +1416,11 @@ var ViewerComponents = (function (exports) {
 
     // Apps loader (full page)
     exports.AppsLoader = AppsLoader;
+
+    // Header/tabs
+    exports.AppMainTabs = AppMainTabs;
+    exports.AppHeader = AppHeader;
+    exports.AppMenu = AppMenu;
 
     return exports;
 }({}));
