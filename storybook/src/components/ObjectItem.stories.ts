@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { expect, within, userEvent } from 'storybook/test';
+import { userEvent } from 'storybook/test';
 import { ref } from 'vue';
 import ObjectItem from './ObjectItem.vue';
 import SvgSprite from './SvgSprite.vue';

@@ -5,7 +5,7 @@
     viewBox="0 0 16 16"
     aria-hidden="true"
   >
-    <use :href="`/assets/icons/icons.svg#${name}`" />
+    <use :href="`#svg-sprite--${name}`" />
   </svg>
 </template>
 

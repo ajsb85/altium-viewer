@@ -5,6 +5,18 @@ import '../src/styles/dark-theme.scss';
 import '../src/styles/global.scss';
 import '../../pkg/altium/assets/client/styles/appStyles.css';
 
+// Import SVG sprite as raw text and inject into DOM
+import iconsSvg from '../src/assets/icons.svg?raw';
+
+// Inject SVG sprite into document on load
+if (typeof document !== 'undefined' && !document.getElementById('svg-sprite-container')) {
+  const container = document.createElement('div');
+  container.id = 'svg-sprite-container';
+  container.style.display = 'none';
+  container.innerHTML = iconsSvg;
+  document.body.insertBefore(container, document.body.firstChild);
+}
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -43,4 +55,3 @@ const preview: Preview = {
 };
 
 export default preview;
-
