@@ -1,29 +1,70 @@
 /**
- * Global SCSS for Storybook
- * Imports Altium Viewer theme styles and provides base reset
+ * Global Storybook styles
+ * Uses dark theme variables from dark-theme.scss
  */
 
-// Base reset
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+// Root element styling
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--afs-font-family, Inter, Helvetica, Arial, sans-serif);
+  background-color: var(--afs-background, #1c1c1e);
+  color: var(--afs-text-icon-primary, #ffffff);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Dark theme class (always applied in Storybook)
+.is-dark-theme {
+  background-color: var(--afs-background, #1c1c1e);
+  color: var(--afs-text-icon-primary, #ffffff);
 }
 
 // Storybook wrapper
 .storybook-wrapper {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 14px;
+  font-family: var(--afs-font-family, Inter, Helvetica, Arial, sans-serif);
   line-height: 1.5;
-  color: #1a1a2e;
-  padding: 20px;
+  min-height: 100%;
+  
+  &.is-dark-theme {
+    background-color: transparent;
+  }
 }
 
-// Dark theme variant
-[data-theme='dark'] .storybook-wrapper {
-  background-color: #1a1a2e;
-  color: #e4e4e7;
+// Common link styles
+a {
+  color: var(--afs-text-icon-link, #64d2ff);
+  text-decoration: none;
+  
+  &:hover {
+    color: var(--afs-text-icon-link-hover, #8be0ff);
+  }
 }
+
+// Button reset
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+// Input reset
+input, textarea, select {
+  font-family: inherit;
+  color: inherit;
+}
+
+// SVG icon base
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
 
 // BEM State Classes (from ViewerCore.js)
 .is-notouch,
@@ -32,7 +73,8 @@
 .is-active,
 .is-selected,
 .is-error {
-  // State markers - styles defined per component
+  /* State markers - styles defined per component */
+  transition: all var(--afs-transition-duration, 150ms);
 }
 
 // Typography base

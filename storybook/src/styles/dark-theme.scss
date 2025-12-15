@@ -1,0 +1,256 @@
+/**
+ * Altium 365 Viewer - Dark Theme Variables
+ * Extracted from production appStyles.css
+ */
+
+:root,
+html.is-dark-theme {
+    /* ============================================
+     * Core Colors
+     * ============================================ */
+    --afs-background: #1c1c1e;
+    --afs-panel: #2c2c2e;
+    --afs-popup: #3a3a3c;
+    --afs-group: #48484a;
+    --afs-sidebar: #2c2c2e;
+    --afs-viewer: #1c1c1e;
+    --afs-toolbar: #2c2c2e;
+    --afs-topbar: #1c1c1e;
+    --afs-titlebar: #1c1c1e;
+    --afs-field: #3a3a3c;
+    --afs-field-bg: #2c2c2e;
+    --afs-inverted: #ffffff;
+
+    /* ============================================
+     * Text & Icon Colors
+     * ============================================ */
+    --afs-text-icon-primary: #ffffff;
+    --afs-text-icon-secondary: #ebebf5a6;
+    --afs-text-icon-hint: #ebebf54d;
+    --afs-text-icon-inverted: #000000;
+    --afs-text-icon-over-background: #ffffff;
+    --afs-text-icon-on-accent: #ffffff;
+    --afs-text-on-accent: #ffffff;
+    --afs-text-on-light: #000000;
+
+    /* Text semantic colors */
+    --afs-text-primary: #ebebf5a6;
+    --afs-text-secondary: #ebebf54d;
+    --afs-text-positive: #30d158;
+    --afs-text-negative: #ff453a;
+    --afs-text-warning: #ffd60a;
+    --afs-text-caution: #ff9f0a;
+
+    /* Link colors */
+    --afs-text-icon-link: #64d2ff;
+    --afs-text-icon-link-hover: #8be0ff;
+    --afs-text-icon-link-secondary: #64d2ff;
+    --afs-text-icon-link-accent: #0a84ff;
+    --afs-text-icon-link-accent-border: #0a84ff33;
+    --afs-link-background-default: #64d2ff1a;
+
+    /* ============================================
+     * Border Colors
+     * ============================================ */
+    --afs-border: #38383a;
+    --afs-border-focus: #0a84ff;
+    --afs-border-inverted: #ffffff33;
+    --afs-border-on-accent: #ffffff33;
+
+    /* ============================================
+     * Button Colors - Primary
+     * ============================================ */
+    --afs-primary-default: #0a84ff;
+    --afs-primary-hover: #409cff;
+    --afs-primary-down: #0066cc;
+    --afs-primary-selected: #0a84ff;
+    --afs-primary-border: #0a84ff;
+    --afs-primary-combined-border: #0a84ff33;
+    --afs-primary-overlay: #0a84ff33;
+    --afs-primary-overlay-20: #0a84ff33;
+
+    /* ============================================
+     * Button Colors - Secondary
+     * ============================================ */
+    --afs-secondary-default: #636366;
+    --afs-secondary-hover: #787880;
+    --afs-secondary-down: #48484a;
+    --afs-secondary-selected: #48484a;
+    --afs-secondary-selected-hover: #636366;
+    --afs-secondary-border: #636366;
+    --afs-secondary-combined-border: #63636633;
+
+    /* ============================================
+     * Semantic Colors
+     * ============================================ */
+    --afs-success: #30d158;
+    --afs-error: #ff453a;
+    --afs-warning: #ffd60a;
+    --afs-focus: #64d2ff;
+    --afs-hint-info: #5ac8fa;
+    --afs-hint-icons: #8e8e93;
+    --afs-icons: #8e8e93;
+
+    /* Status colors */
+    --afs-bg-legend-healthy: #30d158;
+    --afs-overlay-info: #5ac8fa33;
+
+    /* ============================================
+     * Table Colors
+     * ============================================ */
+    --afs-table-background: #2c2c2e;
+    --afs-table-header: #3a3a3c;
+    --afs-table-header-selected-background: #48484a;
+    --afs-table-cell-border: #38383a;
+    --afs-selected-item-background: #0a84ff33;
+
+    /* ============================================
+     * Additional Colors (Palette)
+     * ============================================ */
+    --afs-additional-white: #ffffff;
+    --afs-additional-black: #000000;
+    --afs-additional-gray: #8e8e93;
+    --afs-additional-red: #ff453a;
+    --afs-additional-orange: #ff9f0a;
+    --afs-additional-yellow: #ffd60a;
+    --afs-additional-green: #30d158;
+    --afs-additional-teal: #64d2ff;
+    --afs-additional-blue: #0a84ff;
+    --afs-additional-blue-light: #64d2ff;
+    --afs-additional-indigo: #5e5ce6;
+    --afs-additional-purple: #bf5af2;
+    --afs-additional-pink: #ff375f;
+
+    /* ============================================
+     * Shadows
+     * ============================================ */
+    --afs-black-drop-shadow-small: 0px 2px 4px rgba(0, 0, 0, 0.24);
+    --afs-black-drop-shadow-medium: 0px 4px 16px rgba(0, 0, 0, 0.32);
+    --afs-black-drop-shadow-large: 0px 8px 32px rgba(0, 0, 0, 0.48);
+    --afs-black-inner-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.16);
+    --afs-black-inner-shadow-md: inset 0px 2px 8px rgba(0, 0, 0, 0.24);
+    --afs-black-inner-shadow-lg: inset 0px 4px 16px rgba(0, 0, 0, 0.32);
+    --afs-white-inner-shadow-small: inset 0px 1px 2px rgba(255, 255, 255, 0.08);
+    --afs-white-inner-shadow-large: inset 0px 2px 4px rgba(255, 255, 255, 0.08);
+
+    /* ============================================
+     * Scrollbar
+     * ============================================ */
+    --afs-bg-scrollbar: #48484a;
+
+    /* ============================================
+     * Typography
+     * ============================================ */
+    --afs-font-family: Inter, Helvetica, Arial, sans-serif;
+
+    /* ============================================
+     * Animation
+     * ============================================ */
+    --afs-transition-duration: 150ms;
+
+    /* ============================================
+     * Data Visualization Colors
+     * ============================================ */
+    --afs-data-cyan-background-primary: #5ac8fa33;
+    --afs-data-cyan-background-secondary: #5ac8fa1a;
+    --afs-data-indigo-background-primary: #5e5ce633;
+    --afs-data-indigo-background-secondary: #5e5ce61a;
+    --afs-data-teal-background-primary: #64d2ff33;
+    --afs-data-gray-background-tertiary: #8e8e9333;
+    --afs-data-gray-border: #8e8e93;
+    --afs-data-green-text: #30d158;
+
+    /* Text data colors */
+    --afs-text-data-blue-primary: #0a84ff;
+    --afs-text-data-cyan-primary: #5ac8fa;
+    --afs-text-data-gray-primary: #8e8e93;
+    --afs-text-data-green-primary: #30d158;
+    --afs-text-data-indigo-primary: #5e5ce6;
+    --afs-text-data-orange-primary: #ff9f0a;
+    --afs-text-data-pink-primary: #ff375f;
+    --afs-text-data-purple-primary: #bf5af2;
+    --afs-text-data-red-primary: #ff453a;
+    --afs-text-data-teal-primary: #64d2ff;
+    --afs-text-data-yellow-primary: #ffd60a;
+
+    /* Background data colors */
+    --afs-background-data-blue-primary: #0a84ff33;
+    --afs-background-data-cyan-primary: #5ac8fa33;
+    --afs-background-data-gray-primary: #8e8e9333;
+    --afs-background-data-green-primary: #30d15833;
+    --afs-background-data-indigo-primary: #5e5ce633;
+    --afs-background-data-orange-primary: #ff9f0a33;
+    --afs-background-data-pink-primary: #ff375f33;
+    --afs-background-data-purple-primary: #bf5af233;
+    --afs-background-data-red-primary: #ff453a33;
+    --afs-background-data-teal-primary: #64d2ff33;
+    --afs-background-data-yellow-primary: #ffd60a33;
+
+    /* Border data colors */
+    --afs-border-data-blue-primary: #0a84ff;
+    --afs-border-data-cyan-primary: #5ac8fa;
+    --afs-border-data-gray-primary: #8e8e93;
+    --afs-border-data-green-primary: #30d158;
+    --afs-border-data-indigo-primary: #5e5ce6;
+    --afs-border-data-orange-primary: #ff9f0a;
+    --afs-border-data-pink-primary: #ff375f;
+    --afs-border-data-purple-primary: #bf5af2;
+    --afs-border-data-red-primary: #ff453a;
+    --afs-border-data-teal-primary: #64d2ff;
+    --afs-border-data-yellow-primary: #ffd60a;
+
+    /* ============================================
+     * History/Version Control Colors
+     * ============================================ */
+    --afs-history-accepted-default: #30d158;
+    --afs-history-accepted-active: #30d15866;
+    --afs-history-accepted-default-on-bg: #30d15833;
+    --afs-history-clone-default: #bf5af2;
+    --afs-history-clone-active: #bf5af266;
+    --afs-history-commit-default: #0a84ff;
+    --afs-history-commit-active: #0a84ff66;
+    --afs-history-local-changes-default: #ff9f0a;
+    --afs-history-release-default: #5e5ce6;
+    --afs-history-release-active: #5e5ce666;
+    --afs-history-suggested-default: #5ac8fa;
+    --afs-history-suggested-active: #5ac8fa66;
+
+    /* ============================================
+     * Design Review Colors
+     * ============================================ */
+    --afs-dr-reviewer-accepted-bg: #30d15833;
+    --afs-dr-reviewer-pending-sticker-bg: #8e8e9333;
+    --afs-dr-reviewer-rejected-bg: #ff453a33;
+
+    /* ============================================
+     * Misc
+     * ============================================ */
+    --afs-highlight-bg: #ffd60a33;
+    --afs-filed-highlighted: #ffd60a1a;
+    --afs-bar-general: #48484a;
+    --afs-progress-bar-bg: #38383a;
+    --afs-progress-glow: #0a84ff66;
+    --afs-page-loader-main: #0a84ff;
+    --afs-page-loader-part: #0a84ff66;
+    --afs-page-loader-subtext: #ebebf54d;
+    --afs-plot-line-bg: #48484a;
+    --afs-radio-button-inner-bg: #0a84ff;
+    --afs-revision-select-item-bg-hover: #48484a;
+    --afs-card-package-background-default: #3a3a3c;
+    --afs-skeleton-glow-background-primary: #48484a;
+    --afs-skeleton-glow-background-secondary: #636366;
+    --afs-text-release-tile: #ebebf5a6;
+    --afs-title-active: #ffffff;
+    --afs-color-primary: #ffffff;
+}
+
+/* Force dark theme globally */
+html {
+    color-scheme: dark;
+}
+
+body {
+    font-family: var(--afs-font-family);
+    background-color: var(--afs-background);
+    color: var(--afs-text-icon-primary);
+}

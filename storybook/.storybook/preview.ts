@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/vue3-vite';
 
 // Import global styles
+import '../src/styles/dark-theme.scss';
 import '../src/styles/global.scss';
 import '../../pkg/altium/assets/client/styles/appStyles.css';
 
@@ -13,10 +14,11 @@ const preview: Preview = {
       },
     },
     backgrounds: {
+      default: 'dark',
       options: {
         light: { name: 'light', value: '#ffffff' },
-        dark: { name: 'dark', value: '#1a1a2e' },
-        altium: { name: 'altium', value: '#2d2d3a' }
+        dark: { name: 'dark', value: '#1c1c1e' },
+        altium: { name: 'altium', value: '#2c2c2e' }
       }
     },
     viewport: {
@@ -31,15 +33,16 @@ const preview: Preview = {
   decorators: [
     (story) => ({
       components: { story },
-      template: '<div class="storybook-wrapper"><story /></div>',
+      template: '<div class="storybook-wrapper is-dark-theme"><story /></div>',
     }),
   ],
 
   initialGlobals: {
     backgrounds: {
-      value: 'light'
+      value: 'dark'
     }
   }
 };
 
 export default preview;
+

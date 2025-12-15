@@ -1,76 +1,43 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { ref } from 'vue';
 import LibModal from './LibModal.vue';
 
 const meta: Meta<typeof LibModal> = {
-  title: 'Overlay/LibModal',
+  title: 'Layout/LibModal',
   component: LibModal,
   tags: ['autodocs'],
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'fullscreen' },
+  decorators: [(story) => ({
+    components: { story },
+    template: '<div style="position: relative; height: 400px; background: var(--afs-background);"><story /></div>',
+  })],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/** Default modal with trigger */
 export const Default: Story = {
-  render: () => ({
+  args: { title: 'Panel Title' },
+  render: (args) => ({
     components: { LibModal },
-    setup() {
-      const isOpen = ref(false);
-      return { isOpen };
-    },
-    template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px;">Open Modal</button>
-        <LibModal v-model="isOpen" title="Modal Title">
-          <p>This is the modal content.</p>
-        </LibModal>
-      </div>
-    `,
+    setup() { return { args }; },
+    template: '<LibModal v-bind="args"><p style="padding: 16px; color: var(--afs-text-icon-secondary);">Panel content goes here</p></LibModal>',
   }),
 };
 
-/** With footer actions */
-export const WithFooter: Story = {
-  render: () => ({
+export const Left: Story = {
+  args: { title: 'Layers', position: 'left' },
+  render: (args) => ({
     components: { LibModal },
-    setup() {
-      const isOpen = ref(false);
-      return { isOpen };
-    },
-    template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px;">Open Modal</button>
-        <LibModal v-model="isOpen" title="Confirm Action">
-          <p>Are you sure you want to proceed?</p>
-          <template #footer>
-            <button @click="isOpen = false" style="padding: 8px 16px;">Cancel</button>
-            <button @click="isOpen = false" style="padding: 8px 16px; background: #3b82f6; color: white; border: none; border-radius: 4px;">Confirm</button>
-          </template>
-        </LibModal>
-      </div>
-    `,
+    setup() { return { args }; },
+    template: '<LibModal v-bind="args"><p style="padding: 16px; color: var(--afs-text-icon-secondary);">Left panel content</p></LibModal>',
   }),
 };
 
-/** No header */
 export const NoHeader: Story = {
-  render: () => ({
+  args: { showHeader: false },
+  render: (args) => ({
     components: { LibModal },
-    setup() {
-      const isOpen = ref(false);
-      return { isOpen };
-    },
-    template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px;">Open Modal</button>
-        <LibModal v-model="isOpen" :show-header="false">
-          <p style="text-align: center;">Minimal modal content</p>
-        </LibModal>
-      </div>
-    `,
+    setup() { return { args }; },
+    template: '<LibModal v-bind="args"><p style="padding: 16px; color: var(--afs-text-icon-secondary);">Panel without header</p></LibModal>',
   }),
 };

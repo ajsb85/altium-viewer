@@ -1,171 +1,170 @@
 <template>
-  <Teleport to="body">
-    <Transition name="modal">
-      <div v-if="modelValue" class="lib-modal" @click.self="handleBackdropClick">
-        <div class="lib-modal__container" :style="containerStyle">
-          <div v-if="showHeader" class="lib-modal__header">
-            <h2 class="lib-modal__title">{{ title }}</h2>
-            <button
-              v-if="showClose"
-              type="button"
-              class="lib-modal__close"
-              @click="close"
-            >
-              <AfsIcon name="close-16" />
-            </button>
-          </div>
-          <div class="lib-modal__body">
-            <slot />
-          </div>
-          <div v-if="$slots.footer" class="lib-modal__footer">
-            <slot name="footer" />
+  <div
+    class="lib-modal"
+    :class="[
+      `lib-modal_type-aside-${position}`,
+      `lib-modal_type-aside`,
+      { 'lib-modal_resizable': resizable },
+      { 'lib-modal_size-fullheight': fullHeight },
+      { 'lib-modal_left-border': position === 'right' },
+      { 'lib-modal_right-border': position === 'left' }
+    ]"
+    :style="{ width: `${width}px`, top: `${offsetTop}px`, zIndex }"
+    v-show="visible"
+  >
+    <div v-if="resizable" class="lib-modal__resizer" @mousedown="startResize" />
+    <div class="lib-modal__container afs-box afs-box_border">
+      <div v-if="showHeader" class="afs-subheader">
+        <button
+          class="afs-subheader__icon afs-btn-icon afs-btn-icon_transparent afs-btn-icon_md"
+          type="button"
+          @click="$emit('close')"
+        >
+          <AfsIcon name="cross-16" />
+        </button>
+        <div class="afs-typography_title afs-typography afs-subheader__title">
+          <div class="lib-modal__header">
+            <div class="lib-modal__header-content">{{ title }}</div>
+            <div class="lib-modal__header-slot">
+              <slot name="header" />
+            </div>
           </div>
         </div>
       </div>
-    </Transition>
-  </Teleport>
+      <button
+        v-else
+        class="lib-modal__close afs-btn-icon afs-btn-icon_transparent afs-btn-icon_md"
+        type="button"
+        @click="$emit('close')"
+      >
+        <AfsIcon name="cross-16" />
+      </button>
+      <div class="lib-modal__body">
+        <slot />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { ref } from 'vue';
 import AfsIcon from './AfsIcon.vue';
 
 /**
- * LibModal - Modal dialog component
- * 
- * @see vendors.js LibModal component
+ * LibModal - Aside modal panel (slide-in from left or right)
+ * @see production example.html
  */
 defineOptions({ name: 'LibModal' });
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
-    /** Modal visibility (v-model) */
-    modelValue: boolean;
-    /** Modal title */
+    visible?: boolean;
     title?: string;
-    /** Show header section */
+    position?: 'left' | 'right';
+    width?: number;
+    offsetTop?: number;
+    resizable?: boolean;
+    fullHeight?: boolean;
     showHeader?: boolean;
-    /** Show close button */
-    showClose?: boolean;
-    /** Close on backdrop click */
-    closeOnBackdrop?: boolean;
-    /** Modal width */
-    width?: string;
-    /** Modal max-height */
-    maxHeight?: string;
+    zIndex?: number;
   }>(),
   {
+    visible: true,
     title: '',
+    position: 'right',
+    width: 240,
+    offsetTop: 32,
+    resizable: true,
+    fullHeight: true,
     showHeader: true,
-    showClose: true,
-    closeOnBackdrop: true,
-    width: '480px',
-    maxHeight: '80vh',
+    zIndex: 100,
   }
 );
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void;
+defineEmits<{
   (e: 'close'): void;
+  (e: 'resize', width: number): void;
 }>();
 
-const containerStyle = computed(() => ({
-  width: props.width,
-  maxHeight: props.maxHeight,
-}));
+const isResizing = ref(false);
 
-function close() {
-  emit('update:modelValue', false);
-  emit('close');
-}
-
-function handleBackdropClick() {
-  if (props.closeOnBackdrop) {
-    close();
-  }
+function startResize() {
+  isResizing.value = true;
+  // Resize logic handled by parent
 }
 </script>
 
 <style lang="scss">
 .lib-modal {
   position: fixed;
-  inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  flex-direction: column;
+  background: var(--afs-panel, #2c2c2e);
+  box-shadow: var(--afs-black-drop-shadow-large);
+  
+  &_type-aside-left { left: 0; }
+  &_type-aside-right { right: 0; }
+  &_size-fullheight { height: calc(100% - 32px); }
+  
+  &_left-border { border-left: 1px solid var(--afs-border, #38383a); }
+  &_right-border { border-right: 1px solid var(--afs-border, #38383a); }
+  
+  &__resizer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    cursor: ew-resize;
+    z-index: 10;
+    
+    .lib-modal_type-aside-left & { right: 0; }
+    .lib-modal_type-aside-right & { left: 0; }
+  }
   
   &__container {
     display: flex;
     flex-direction: column;
-    background: var(--afs-sidebar, #fff);
-    border-radius: 8px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    height: 100%;
+    background: var(--afs-panel, #2c2c2e);
+  }
+  
+  &__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 5;
   }
   
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--afs-border, #e5e7eb);
+    width: 100%;
   }
   
-  &__title {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--afs-text-icon-primary, #111827);
-  }
-  
-  &__close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    color: var(--afs-text-icon-secondary, #6b7280);
-    transition: all 0.15s;
-    
-    &:hover {
-      background: var(--afs-secondary-selected, #f3f4f6);
-      color: var(--afs-text-icon-primary, #111827);
-    }
+  &__header-content {
+    flex: 1;
   }
   
   &__body {
     flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-  }
-  
-  &__footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    padding: 16px 20px;
-    border-top: 1px solid var(--afs-border, #e5e7eb);
+    overflow: auto;
   }
 }
 
-.modal-enter-active,
-.modal-leave-active {
-  transition: all 0.2s ease;
-}
-
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
+.afs-subheader {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid var(--afs-border, #38383a);
   
-  .lib-modal__container {
-    transform: scale(0.95);
+  &__icon { margin-right: 8px; }
+  
+  &__title {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--afs-text-icon-primary, #fff);
   }
 }
 </style>
