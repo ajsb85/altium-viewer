@@ -1,8 +1,26 @@
+// ============================================================================
+// VIEWERAPP.JS - Main Application Module
+// ============================================================================
+// This file is organized into 8 semantic sections:
+//   1. Webpack Module Header (L1-10)
+//   2. Imports & Factories (L10-185)
+//   3. Vue Component: Viewer (L185-1850)
+//   4. Tree Components (L1850-1980)
+//   5. Manager Classes (L1980-2280)
+//   6. Async Generators (L2280-2800)
+//   7. App Initialization (L2800-3500)
+//   8. App Execution (L3500-end)
+// See ViewerApp.sections.md for detailed documentation.
+// ============================================================================
+
+// ============= SECTION 1: WEBPACK MODULE HEADER =============
 (self.webpackChunkaltium_web_viewer = self.webpackChunkaltium_web_viewer || []).push([
   [69668],
   {
     69668: (e, t, n) => {
       console.log("69668: Starting execution");
+
+      // ============= SECTION 2: IMPORTS & FACTORIES =============
       var r = n(90450),
         i = n(10311),
         o = n(25979),
@@ -192,6 +210,7 @@
         for (var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
         return r;
       }
+      // ============= SECTION 3: VUE COMPONENT - VIEWER =============
       const Qe = {
         name: "Viewer",
         components: {
@@ -1843,6 +1862,7 @@
       var Kt = ViewerUtils.getType,
         Xt = ViewerUtils.defineProperties,
         qt = ViewerUtils.toPropertyKey;
+      // ============= SECTION 4: TREE COMPONENTS & MENU MANAGER =============
       var Jt = (function () {
         return (
           (e = function e(t, n) {
@@ -2305,6 +2325,7 @@
           $n(e)
         );
       }
+      // ============= SECTION 6: ASYNC GENERATOR RUNTIME =============
       function Yn() {
         Yn = function () {
           return t;
@@ -2917,6 +2938,7 @@
           },
         },
       };
+      // ============= SECTION 7: APP INITIALIZATION =============
       var nr = window.__CORE__.createLogger("Index"),
         rr = (function () {
           var e = Qn(
@@ -3444,193 +3466,294 @@
           t
         );
       }
-      function cr(e, t, n, r, i, o, a) {
+      // ============= SECTION 8: APP EXECUTION (DEOBFUSCATED) =============
+      
+      /**
+       * Async generator step executor
+       * Handles stepping through async generator with proper promise resolution
+       * @param {Generator} generator - The generator instance
+       * @param {Function} resolve - Promise resolve callback
+       * @param {Function} reject - Promise reject callback
+       * @param {Function} handleNext - Next value handler
+       * @param {Function} handleThrow - Throw handler
+       * @param {string} method - Either "next" or "throw"
+       * @param {*} value - Value to pass to generator
+       */
+      function asyncGeneratorStep(generator, resolve, reject, handleNext, handleThrow, method, value) {
         try {
-          var s = e[o](a),
-            c = s.value;
-        } catch (e) {
-          return void n(e);
+          var result = generator[method](value);
+          var resultValue = result.value;
+        } catch (error) {
+          reject(error);
+          return;
         }
-        s.done ? t(c) : Promise.resolve(c).then(r, i);
+        if (result.done) {
+          resolve(resultValue);
+        } else {
+          Promise.resolve(resultValue).then(handleNext, handleThrow);
+        }
       }
-      function lr(e) {
-        return function () {
-          var t = this,
-            n = arguments;
-          return new Promise(function (r, i) {
-            var o = e.apply(t, n);
-            function a(e) {
-              cr(o, r, i, a, s, "next", e);
+
+      /**
+       * Convert async generator function to promise-returning function
+       * (Babel async-to-generator runtime helper)
+       * @param {GeneratorFunction} generatorFn - The generator function
+       * @returns {Function} Function that returns a Promise
+       */
+      function asyncToPromise(generatorFn) {
+        return function() {
+          var self = this;
+          var args = arguments;
+          return new Promise(function(resolve, reject) {
+            var generator = generatorFn.apply(self, args);
+            
+            function handleNext(value) {
+              asyncGeneratorStep(generator, resolve, reject, handleNext, handleThrow, "next", value);
             }
-            function s(e) {
-              cr(o, r, i, a, s, "throw", e);
+            
+            function handleThrow(error) {
+              asyncGeneratorStep(generator, resolve, reject, handleNext, handleThrow, "throw", error);
             }
-            a(void 0);
+            
+            handleNext(undefined);
           });
         };
       }
-      function ur() {
-        return (ur = lr(
-          sr().mark(function e() {
-            var t, n, r, i, o, a, s, c, l, u, d, p;
-            return sr().wrap(
-              function (e) {
-                for (; ;)
-                  switch ((e.prev = e.next)) {
-                    case 0:
-                      if (!(t = window.location.search)) {
-                        e.next = 30;
-                        break;
-                      }
-                      if (
-                        ((n = new URLSearchParams(t)),
-                          (r = n.get("feature")),
-                          (i = "embed" === r),
-                          "oembed" !== r && !i)
-                      ) {
-                        e.next = 30;
-                        break;
-                      }
-                      return (
-                        (a = document.referrer),
-                        (s = {}),
-                        (c =
-                          null !== (o = n.get("source")) && void 0 !== o
-                            ? o
-                            : ""),
-                        (l = n.get("activeView")),
-                        (s.domainOrigin = a),
-                        (s["data-project-src"] = c),
-                        (s["data-comment-panel-hide"] = "true"),
-                        l && (s["data-active-view"] = l),
-                        (e.prev = 15),
-                        (e.next = 18),
-                        w().get("embed/settings")
-                      );
-                    case 18:
-                      ((u = e.sent),
-                        (d = u.data),
-                        (s["data-register-url"] = d.a365SignUpUrl),
-                        (e.next = 26));
-                      break;
-                    case 23:
-                      ((e.prev = 23),
-                        (e.t0 = e.catch(15)),
-                        nr.LogError("Get embedded viewer sign up url.", e.t0));
-                    case 26:
-                      return (
-                        (p = {
-                          id: window.__APP__.utils.generateGUID(),
-                          src: s,
-                        }),
-                        (e.next = 29),
-                        dr(p)
-                      );
-                    case 29:
-                      return e.abrupt("return", !0);
-                    case 30:
-                      return e.abrupt("return", !1);
-                    case 31:
-                    case "end":
-                      return e.stop();
-                  }
-              },
-              e,
-              null,
-              [[15, 23]],
-            );
-          }),
-        )).apply(this, arguments);
+
+      /**
+       * Check if running in embed/oembed mode and initialize accordingly
+       * Parses URL parameters to detect embed mode and configures the viewer
+       * @returns {Promise<boolean>} True if embed mode was detected and initialized
+       */
+      function checkEmbedModeAndInitialize() {
+        return checkEmbedModeAndInitializeAsync.apply(this, arguments);
       }
-      function dr(e) {
-        return pr.apply(this, arguments);
-      }
-      function pr() {
-        return (pr = lr(
-          sr().mark(function e(t) {
-            var n, i;
-            return sr().wrap(function (e) {
-              for (; ;)
-                switch ((e.prev = e.next)) {
+      
+      function checkEmbedModeAndInitializeAsync() {
+        return (checkEmbedModeAndInitializeAsync = asyncToPromise(
+          sr().mark(function embedModeCheck() {
+            var queryString, urlParams, featureParam, isEmbedMode;
+            var referrerUrl, embedConfig, sourceUrl, activeView;
+            var settingsResponse, settingsData, appConfig;
+            
+            return sr().wrap(function(context) {
+              for (;;)
+                switch ((context.prev = context.next)) {
                   case 0:
-                    if (
-                      (nr.LogInfo("Run application"),
-                        (window.currentHttpScheme = t.scheme || "https"),
-                        !window.__iframeId)
-                    ) {
-                      e.next = 4;
+                    // Check if URL has query string
+                    queryString = window.location.search;
+                    if (!queryString) {
+                      context.next = 30;
                       break;
                     }
-                    return e.abrupt("return");
-                  case 4:
-                    return (
-                      (window.__iframeId = t.id),
-                      (e.next = 7),
-                      rr({
-                        designUrl: t.src["data-project-src"],
-                        attributes: t.src,
-                      })
-                    );
-                  case 7:
-                    ((i = e.sent),
-                      window.__APP__.appPerformanceReporter.setInitialDuration(
-                        null !== (n = t.duration) && void 0 !== n ? n : 0,
-                      ),
-                      (window.__APP__.appMonitoring = new r.KX({
-                        app: i,
-                        url: t.src["data-monitoring-url"] || "",
-                        env: t.src["data-monitoring-env"] || "",
-                        isEnabled:
-                          "true" === t.src["data-monitoring-enabled"] &&
-                          "true" === t.src["data-is-ccv"],
-                        customTransport: ir,
-                        tags: {
-                          tenantId: t.src["data-workspace-id"] || "",
-                          entityId: t.src["data-project-src"],
-                          appName: "Standalone Viewer",
-                        },
-                        userId: t.src["data-user-id"] || "",
-                        beforeBreadcrumb: function (e) {
-                          var t;
-                          if ("console" !== e.category) return e;
-                          if (
-                            (e.message && (e.message = (0, or.T)(e.message)),
-                              null !== (t = e.data) &&
-                              void 0 !== t &&
-                              t.arguments &&
-                              e.data.arguments.length)
-                          ) {
-                            var n = e.data.arguments.filter(function (e) {
-                              return "object" === ar(e);
-                            });
-                            n.length
-                              ? (e.data = { arguments: n })
-                              : (e.data = void 0);
-                          }
-                          return e;
-                        },
-                      })));
-                  case 10:
+                    
+                    // Parse URL parameters
+                    urlParams = new URLSearchParams(queryString);
+                    featureParam = urlParams.get("feature");
+                    isEmbedMode = "embed" === featureParam;
+                    
+                    // Only proceed if oembed or embed mode
+                    if ("oembed" !== featureParam && !isEmbedMode) {
+                      context.next = 30;
+                      break;
+                    }
+                    
+                    // Build embed configuration
+                    referrerUrl = document.referrer;
+                    embedConfig = {};
+                    sourceUrl = urlParams.get("source") || "";
+                    activeView = urlParams.get("activeView");
+                    
+                    embedConfig.domainOrigin = referrerUrl;
+                    embedConfig["data-project-src"] = sourceUrl;
+                    embedConfig["data-comment-panel-hide"] = "true";
+                    
+                    if (activeView) {
+                      embedConfig["data-active-view"] = activeView;
+                    }
+                    
+                    // Fetch embed settings
+                    context.prev = 15;
+                    context.next = 18;
+                    return w().get("embed/settings");
+                    
+                  case 18:
+                    settingsResponse = context.sent;
+                    settingsData = settingsResponse.data;
+                    embedConfig["data-register-url"] = settingsData.a365SignUpUrl;
+                    context.next = 26;
+                    break;
+                    
+                  case 23:
+                    context.prev = 23;
+                    context.t0 = context.catch(15);
+                    appLogger.LogError("Get embedded viewer sign up url.", context.t0);
+                    
+                  case 26:
+                    // Build app config and load application
+                    appConfig = {
+                      id: window.__APP__.utils.generateGUID(),
+                      src: embedConfig
+                    };
+                    context.next = 29;
+                    return loadApplication(appConfig);
+                    
+                  case 29:
+                    return context.abrupt("return", true);
+                    
+                  case 30:
+                    return context.abrupt("return", false);
+                    
+                  case 31:
                   case "end":
-                    return e.stop();
+                    return context.stop();
                 }
-            }, e);
-          }),
+            }, embedModeCheck, null, [[15, 23]]);
+          })
         )).apply(this, arguments);
       }
-      (function () {
-        return ur.apply(this, arguments);
+
+      /**
+       * Load and initialize the viewer application
+       * @param {Object} config - Application configuration
+       * @param {string} config.id - Unique iframe/instance ID
+       * @param {Object} config.src - Data attributes for the viewer
+       * @param {string} [config.scheme] - HTTP scheme (defaults to "https")
+       * @param {number} [config.duration] - Initial duration for performance reporting
+       */
+      function loadApplication(config) {
+        return loadApplicationAsync.apply(this, arguments);
+      }
+      
+      function loadApplicationAsync() {
+        return (loadApplicationAsync = asyncToPromise(
+          sr().mark(function loadApp(config) {
+            var initialDuration, vueAppInstance;
+            
+            return sr().wrap(function(context) {
+              for (;;)
+                switch ((context.prev = context.next)) {
+                  case 0:
+                    appLogger.LogInfo("Run application");
+                    
+                    // Set HTTP scheme
+                    window.currentHttpScheme = config.scheme || "https";
+                    
+                    // Prevent duplicate initialization
+                    if (!window.__iframeId) {
+                      context.next = 4;
+                      break;
+                    }
+                    return context.abrupt("return");
+                    
+                  case 4:
+                    // Store iframe ID
+                    window.__iframeId = config.id;
+                    
+                    // Create and mount Vue application
+                    context.next = 7;
+                    return rr({
+                      designUrl: config.src["data-project-src"],
+                      attributes: config.src
+                    });
+                    
+                  case 7:
+                    vueAppInstance = context.sent;
+                    
+                    // Set initial performance duration
+                    initialDuration = config.duration !== null && config.duration !== undefined 
+                      ? config.duration 
+                      : 0;
+                    window.__APP__.appPerformanceReporter.setInitialDuration(initialDuration);
+                    
+                    // Initialize monitoring service
+                    window.__APP__.appMonitoring = new r.KX({
+                      app: vueAppInstance,
+                      url: config.src["data-monitoring-url"] || "",
+                      env: config.src["data-monitoring-env"] || "",
+                      isEnabled: 
+                        "true" === config.src["data-monitoring-enabled"] &&
+                        "true" === config.src["data-is-ccv"],
+                      customTransport: customMonitoringTransport,
+                      tags: {
+                        tenantId: config.src["data-workspace-id"] || "",
+                        entityId: config.src["data-project-src"],
+                        appName: "Standalone Viewer"
+                      },
+                      userId: config.src["data-user-id"] || "",
+                      
+                      /**
+                       * Filter breadcrumb data before sending
+                       * Strips non-object console arguments and sanitizes messages
+                       */
+                      beforeBreadcrumb: function(breadcrumb) {
+                        // Skip non-console breadcrumbs
+                        if ("console" !== breadcrumb.category) {
+                          return breadcrumb;
+                        }
+                        
+                        // Sanitize message content
+                        if (breadcrumb.message) {
+                          breadcrumb.message = (0, or.T)(breadcrumb.message);
+                        }
+                        
+                        // Filter to only object arguments
+                        if (
+                          breadcrumb.data !== null &&
+                          breadcrumb.data !== undefined &&
+                          breadcrumb.data.arguments &&
+                          breadcrumb.data.arguments.length
+                        ) {
+                          var objectArgs = breadcrumb.data.arguments.filter(function(arg) {
+                            return "object" === ar(arg);
+                          });
+                          
+                          if (objectArgs.length) {
+                            breadcrumb.data = { arguments: objectArgs };
+                          } else {
+                            breadcrumb.data = undefined;
+                          }
+                        }
+                        
+                        return breadcrumb;
+                      }
+                    });
+                    
+                  case 10:
+                  case "end":
+                    return context.stop();
+                }
+            }, loadApp);
+          })
+        )).apply(this, arguments);
+      }
+
+      // Alias for backward compatibility
+      var appLogger = nr;
+      var customMonitoringTransport = ir;
+
+      // ============= APPLICATION ENTRY POINT =============
+      /**
+       * Main application initialization
+       * 1. Check if running in embed mode
+       * 2. If not embed mode, listen for 'app:load' event from parent
+       */
+      (function initializeApplication() {
+        return checkEmbedModeAndInitialize();
       })()
-        .then(function (e) {
-          console.log("App: Registering app:load listener. e =", e);
-          e ||
-            window.__APP__.parentEvents.on("app:load", function (p) {
-              console.log("App: Event received", p);
-              dr(p);
+        .then(function(wasEmbedMode) {
+          console.log("App: Registering app:load listener. wasEmbedMode =", wasEmbedMode);
+          
+          // If not embed mode, wait for parent to send load event
+          if (!wasEmbedMode) {
+            window.__APP__.parentEvents.on("app:load", function(loadConfig) {
+              console.log("App: Event received", loadConfig);
+              loadApplication(loadConfig);
             });
+          }
         })
-        .catch(function (e) {
-          return nr.LogError("Run application error.", e);
+        .catch(function(error) {
+          return appLogger.LogError("Run application error.", error);
         });
     }
   }
