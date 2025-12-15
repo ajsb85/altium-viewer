@@ -19,4 +19,6 @@ export const Default: Story = { args: {} };
 
 export const TopLeft: Story = { args: { position: 'top-left' } };
 
-export const Custom: Story = { args: { text: 'My Company' } };
+export const BottomLeft: Story = { args: { position: 'bottom-left' } };
+
+export const TopRight: Story = { args: { position: 'top-right' } };
