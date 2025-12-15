@@ -51,7 +51,7 @@ Use these features from NEWS.md:
 
 Reference the component being worked on:
 
-```
+```txt
 feat(AfsBadge): add size variants
 fix(SearchPanel): correct input focus behavior
 ```

@@ -113,21 +113,21 @@ Imported from external modules:
 
 ### BOM Plugin
 
-- [ ] **BOMView** - BOM list view
+- [x] **BOMView** - BOM list view
 - [ ] **BOMViewOnPremise** - On-premise BOM view
 
 ### Preview Panel
 
 - [ ] **Item** - Preview item component
-- [ ] **PreviewPanel** - Main preview panel
+- [x] **PreviewPanel** - Main preview panel
 
 ### Select Plugin
 
-- [ ] **Select** - Selection tool component
+- [x] **Select** - Selection tool component
 
 ### Snapping Plugin
 
-- [ ] **Snapping** - Snap points display
+- [x] **Snapping** - Snap points display
 
 ### Variants Plugin
 

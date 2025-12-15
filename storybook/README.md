@@ -63,7 +63,7 @@ Use `--legacy-peer-deps` for npm install due to `@storybook/blocks` v8/v10 peer 
 
 ## Project Structure
 
-```
+```txt
 src/components/   # Vue components + stories
 .storybook/       # Storybook configuration
 vue-components.md # Component checklist
