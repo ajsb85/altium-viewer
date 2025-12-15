@@ -16,9 +16,7 @@ const preview: Preview = {
     backgrounds: {
       default: 'dark',
       options: {
-        light: { name: 'light', value: '#ffffff' },
-        dark: { name: 'dark', value: '#1c1c1e' },
-        altium: { name: 'altium', value: '#2c2c2e' }
+        dark: { name: 'dark', value: '#1c1c1e' }
       }
     },
     viewport: {
