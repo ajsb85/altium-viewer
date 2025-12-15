@@ -1745,7 +1745,12 @@
           ],
           ["__scopeId", "data-v-b85329d6"],
         ]),
-        $t = {
+        /**
+         * AppMenu Vue Component Definition
+         * A context menu component with tree item support
+         * @type {Object}
+         */
+        AppMenuOptions = {
           name: "AppMenu",
           components: { ContextMenu: h.C, TreeItem: Wt },
           inject: [],
@@ -1753,6 +1758,10 @@
             return { selectedItem: "" };
           },
           computed: {
+            /**
+             * Calculate start padding based on whether items have children
+             * @returns {number} Padding value (8 or 32)
+             */
             startPadding: function () {
               return this.items &&
                 this.items.every(function (e) {
@@ -1763,49 +1772,75 @@
             },
           },
           methods: {
-            setData: function (e, t) {
-              this[e] = t;
+            /**
+             * Set data property dynamically
+             * @param {string} key - Property name
+             * @param {*} value - Property value
+             */
+            setData: function (key, value) {
+              this[key] = value;
             },
-            open: function (e) {
+            /**
+             * Open the context menu at specified position
+             * @param {Object} position - {x, y} coordinates
+             */
+            open: function (position) {
               this.$refs.contextMenu.open(document.body, {
-                clientX: null == e ? void 0 : e.x,
-                clientY: null == e ? void 0 : e.y,
+                clientX: null == position ? void 0 : position.x,
+                clientY: null == position ? void 0 : position.y,
               });
             },
+            /**
+             * Close the context menu
+             */
             close: function () {
-              var e;
-              null !== (e = this.$refs) && void 0 !== e && e.contextMenu
+              var refs;
+              null !== (refs = this.$refs) && void 0 !== refs && refs.contextMenu
                 ? this.$refs.contextMenu.close()
                 : this.onClose();
             },
-            onClick: function (e) {
-              this.$root.$emit("item-click", e);
+            /**
+             * Handle item click, emit event to root
+             * @param {Object} item - Clicked item
+             */
+            onClick: function (item) {
+              this.$root.$emit("item-click", item);
             },
+            /**
+             * Handle menu close, emit event to root
+             */
             onClose: function () {
               this.$root.$emit("close");
             },
           },
-        },
-        Yt = (0, ViewerComponents.wrapComponent)($t, [
+        };
+      // Backward compatibility alias
+      var $t = AppMenuOptions;
+      
+      /**
+       * Wrapped AppMenu component with render function
+       * @type {Object}
+       */
+      var AppMenuComponent = (0, ViewerComponents.wrapComponent)(AppMenuOptions, [
           [
             "render",
-            function (e, t, n, r, o, a) {
-              var s = (0, i.resolveComponent)("TreeItem"),
-                c = (0, i.resolveComponent)("ContextMenu");
+            function (instance, cache, props, setupState, data, ctx) {
+              var TreeItemComponent = (0, i.resolveComponent)("TreeItem"),
+                ContextMenuComponent = (0, i.resolveComponent)("ContextMenu");
               return (
                 (0, i.openBlock)(),
                 (0, i.createElementBlock)("div", zt, [
                   (0, i.createVNode)(
-                    c,
+                    ContextMenuComponent,
                     {
                       id: "dropdown",
                       ref: "contextMenu",
                       type: "dropdown",
                       class: "app-menu__inner",
                       onClose:
-                        t[0] ||
-                        (t[0] = function (e) {
-                          return a.onClose();
+                        cache[0] ||
+                        (cache[0] = function (e) {
+                          return ctx.onClose();
                         }),
                       offset: 6,
                       "init-width": 400,
@@ -1817,21 +1852,21 @@
                     {
                       default: (0, i.withCtx)(function () {
                         return [
-                          ((0, i.openBlock)(!0),
+                          ((0, i.openBlock)(true),
                             (0, i.createElementBlock)(
                               i.Fragment,
                               null,
-                              (0, i.renderList)(e.items, function (t) {
+                              (0, i.renderList)(instance.items, function (item) {
                                 return (
                                   (0, i.openBlock)(),
                                   (0, i.createBlock)(
-                                    s,
+                                    TreeItemComponent,
                                     {
-                                      key: t.name,
-                                      item: t,
-                                      "selected-item": e.selectedItem,
-                                      startPadding: a.startPadding,
-                                      onItemClick: a.onClick,
+                                      key: item.name,
+                                      item: item,
+                                      "selected-item": instance.selectedItem,
+                                      startPadding: ctx.startPadding,
+                                      onItemClick: ctx.onClick,
                                     },
                                     null,
                                     8,
@@ -1858,131 +1893,195 @@
           ],
           ["__scopeId", "data-v-012bf2a3"],
         ]);
-      // Use ViewerUtils helpers (replacing Kt, Xt, qt duplicates)
+      // Backward compatibility alias
+      var Yt = AppMenuComponent;
+      
+      // ViewerUtils helpers (aliased for minified code compatibility)
       var Kt = ViewerUtils.getType,
         Xt = ViewerUtils.defineProperties,
         qt = ViewerUtils.toPropertyKey;
+        
       // ============= SECTION 4: TREE COMPONENTS & MENU MANAGER =============
-      var Jt = (function () {
-        return (
-          (e = function e(t, n) {
-            (!(function (e, t) {
-              if (!(e instanceof t))
-                throw new TypeError("Cannot call a class as a function");
-            })(this, e),
-              (this.data = n),
-              (this.closeCallbacks = new Array()),
-              (this.itemClickCallbacks = new Array()),
-              (this.active = !1),
-              (this.container = (null != t ? t : document.body).appendChild(
-                document.createElement("div"),
-              )));
-          }),
-          (t = [
-            {
-              key: "open",
-              value: function (e, t) {
-                var n = this;
-                return (
-                  this.vueApp ||
-                  ((this.vueApp = (0, i.createApp)(Yt, {
-                    onClose: function () {
-                      return n.invokeOnClose(!!t);
-                    },
-                    onItemClick: function (e) {
-                      return n.itemClickCallbacks.forEach(function (t) {
-                        return t(e);
-                      });
-                    },
-                  })),
-                    (this.vueAppInstance = this.vueApp.mount(
-                      this.container,
-                    ))),
-                  this.vueAppInstance &&
-                  (this.data &&
-                    this.updateVueAppData(this.vueAppInstance, this.data),
-                    this.vueAppInstance.open(e),
-                    (this.active = !0)),
-                  this
-                );
-              },
+      /**
+       * AppMenuManager Class
+       * Manages the lifecycle of a dynamically created AppMenu Vue component
+       * Creates, opens, updates, and destroys context menus
+       * @class
+       */
+      var AppMenuManager = (function() {
+        /**
+         * Constructor
+         * @param {HTMLElement|null} parentElement - Container element (defaults to document.body)
+         * @param {Object} menuData - Initial menu data (items, selectedItem)
+         */
+        function AppMenuManager(parentElement, menuData) {
+          // Class instance check
+          if (!(this instanceof AppMenuManager)) {
+            throw new TypeError("Cannot call a class as a function");
+          }
+          
+          this.data = menuData;
+          this.closeCallbacks = [];
+          this.itemClickCallbacks = [];
+          this.active = false;
+          this.container = (parentElement != null ? parentElement : document.body)
+            .appendChild(document.createElement("div"));
+        }
+        
+        // Class methods
+        var methods = [
+          {
+            key: "open",
+            /**
+             * Open the menu at specified position
+             * @param {Object} position - {x, y} coordinates
+             * @param {boolean} destroyOnClose - Whether to destroy on close
+             * @returns {AppMenuManager} this for chaining
+             */
+            value: function(position, destroyOnClose) {
+              var self = this;
+              
+              // Create Vue app if not exists
+              if (!this.vueApp) {
+                this.vueApp = (0, i.createApp)(AppMenuComponent, {
+                  onClose: function() {
+                    return self.invokeOnClose(!!destroyOnClose);
+                  },
+                  onItemClick: function(item) {
+                    return self.itemClickCallbacks.forEach(function(callback) {
+                      return callback(item);
+                    });
+                  },
+                });
+                this.vueAppInstance = this.vueApp.mount(this.container);
+              }
+              
+              // Open menu
+              if (this.vueAppInstance) {
+                if (this.data) {
+                  this.updateVueAppData(this.vueAppInstance, this.data);
+                }
+                this.vueAppInstance.open(position);
+                this.active = true;
+              }
+              
+              return this;
             },
-            {
-              key: "update",
-              value: function (e) {
-                return (
-                  (this.data = e),
-                  this.active &&
-                  this.vueAppInstance &&
-                  this.updateVueAppData(this.vueAppInstance, e),
-                  this
-                );
-              },
+          },
+          {
+            key: "update",
+            /**
+             * Update menu data
+             * @param {Object} newData - New menu data
+             * @returns {AppMenuManager} this for chaining
+             */
+            value: function(newData) {
+              this.data = newData;
+              if (this.active && this.vueAppInstance) {
+                this.updateVueAppData(this.vueAppInstance, newData);
+              }
+              return this;
             },
-            {
-              key: "close",
-              value: function () {
-                return (
-                  this.vueAppInstance && this.vueAppInstance.close(),
-                  this
-                );
-              },
+          },
+          {
+            key: "close",
+            /**
+             * Close the menu
+             * @returns {AppMenuManager} this for chaining
+             */
+            value: function() {
+              if (this.vueAppInstance) {
+                this.vueAppInstance.close();
+              }
+              return this;
             },
-            {
-              key: "onClose",
-              value: function (e) {
-                this.closeCallbacks.push(e);
-              },
+          },
+          {
+            key: "onClose",
+            /**
+             * Register a close callback
+             * @param {Function} callback - Function to call on close
+             */
+            value: function(callback) {
+              this.closeCallbacks.push(callback);
             },
-            {
-              key: "onItemClick",
-              value: function (e) {
-                this.itemClickCallbacks.push(e);
-              },
+          },
+          {
+            key: "onItemClick",
+            /**
+             * Register an item click callback
+             * @param {Function} callback - Function to call on item click
+             */
+            value: function(callback) {
+              this.itemClickCallbacks.push(callback);
             },
-            {
-              key: "clearSubscribtion",
-              value: function () {
-                ((this.closeCallbacks.length = 0),
-                  (this.itemClickCallbacks.length = 0));
-              },
+          },
+          {
+            key: "clearSubscribtion",
+            /**
+             * Clear all registered callbacks
+             */
+            value: function() {
+              this.closeCallbacks.length = 0;
+              this.itemClickCallbacks.length = 0;
             },
-            {
-              key: "updateVueAppData",
-              value: function (e, t) {
-                (void 0 !== t.items && e.setData("items", t.items),
-                  void 0 !== t.selectedItem &&
-                  e.setData("selectedItem", t.selectedItem));
-              },
+          },
+          {
+            key: "updateVueAppData",
+            /**
+             * Update Vue app instance data
+             * @param {Object} vueInstance - Vue component instance
+             * @param {Object} data - New data to set
+             */
+            value: function(vueInstance, data) {
+              if (void 0 !== data.items) {
+                vueInstance.setData("items", data.items);
+              }
+              if (void 0 !== data.selectedItem) {
+                vueInstance.setData("selectedItem", data.selectedItem);
+              }
             },
-            {
-              key: "invokeOnClose",
-              value: function (e) {
-                var t = this;
-                ((this.active = !1),
-                  e &&
-                  (0, i.nextTick)(function () {
-                    if (t.vueApp)
-                      try {
-                        (t.clearSubscribtion(),
-                          t.vueApp.unmount(),
-                          t.container.remove());
-                      } finally {
-                        ((t.vueApp = void 0), (t.vueAppInstance = void 0));
-                      }
-                  }),
-                  this.closeCallbacks.forEach(function (e) {
-                    return e();
-                  }));
-              },
+          },
+          {
+            key: "invokeOnClose",
+            /**
+             * Internal: Handle close event
+             * @param {boolean} shouldDestroy - Whether to destroy the Vue app
+             */
+            value: function(shouldDestroy) {
+              var self = this;
+              this.active = false;
+              
+              if (shouldDestroy) {
+                (0, i.nextTick)(function() {
+                  if (self.vueApp) {
+                    try {
+                      self.clearSubscribtion();
+                      self.vueApp.unmount();
+                      self.container.remove();
+                    } finally {
+                      self.vueApp = undefined;
+                      self.vueAppInstance = undefined;
+                    }
+                  }
+                });
+              }
+              
+              this.closeCallbacks.forEach(function(callback) {
+                return callback();
+              });
             },
-          ]),
-          t && Xt(e.prototype, t),
-          Object.defineProperty(e, "prototype", { writable: !1 }),
-          e
-        );
-        var e, t;
-      })(),
+          },
+        ];
+        
+        // Add methods to prototype
+        Xt(AppMenuManager.prototype, methods);
+        Object.defineProperty(AppMenuManager, "prototype", { writable: false });
+        
+        return AppMenuManager;
+      })();
+      // Backward compatibility alias
+      var Jt = AppMenuManager;
         Qt = n(727),
         en = n(87785),
         tn = n(56357),
