@@ -1,185 +1,205 @@
 <template>
-  <aside class="afs-sidebar" :class="classes" :style="sidebarStyle">
-    <!-- Header slot -->
-    <div v-if="$slots.header" class="afs-sidebar__header">
-      <slot name="header" />
-    </div>
-
-    <!-- Main content -->
-    <div class="afs-sidebar__content">
-      <slot />
-    </div>
-
-    <!-- Footer slot -->
-    <div v-if="$slots.footer" class="afs-sidebar__footer">
-      <slot name="footer" />
-    </div>
+  <GridContainer
+    class="afs-sidebar-container"
+    :class="classes"
+    :style="sidebarStyle"
+  >
+    <!-- Default slot content -->
+    <slot />
 
     <!-- Resize handle -->
     <div
       v-if="resizable"
-      class="afs-sidebar__resize-handle"
-      :class="{ 'afs-sidebar__resize-handle--active': isResizing }"
+      class="afs-sidebar-container__resizer"
       @mousedown="handleResizeStart"
     />
-  </aside>
+  </GridContainer>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, onUnmounted } from 'vue';
+import { computed, ref, watch, onUnmounted } from 'vue';
+import GridContainer from './GridContainer.vue';
 
 /**
- * AfsSidebar - Base sidebar component
- * Provides a resizable sidebar panel with header/footer slots
+ * AfsSidebar - Base resizable sidebar container component
+ * 
+ * Provides a resizable panel with configurable min/max width constraints.
+ * Used as the foundation for AppSidebar and other panel components.
+ * 
+ * @see ViewerComponents.js createAfsSidebar (L110-201)
+ * @see scss/components/afs-sidebar.scss
  */
+defineOptions({ name: 'AfsSidebar' });
+
 const props = withDefaults(
   defineProps<{
-    /** Initial width in pixels */
-    width?: number;
-    /** Minimum width when resizing */
-    minWidth?: number;
-    /** Maximum width when resizing */
-    maxWidth?: number;
+    /** Side of the viewport: 'left' or 'right' */
+    side?: 'left' | 'right';
+    /** Size preset: 'sm' (280px), 'md' (default), 'lg' (360px) */
+    size?: 'sm' | 'md' | 'lg';
     /** Enable resize handle */
     resizable?: boolean;
-    /** Sidebar position */
-    position?: 'left' | 'right';
+    /** Minimum width in pixels (default: 240) */
+    minPanelWidth?: number | null;
+    /** Maximum width in pixels (default: 640) */
+    maxPanelWidth?: number | null;
+    /** Initial width in pixels */
+    initialWidth?: number | null;
   }>(),
   {
-    width: 280,
-    minWidth: 200,
-    maxWidth: 600,
-    resizable: true,
-    position: 'left',
+    side: 'left',
+    size: 'md',
+    resizable: false,
+    minPanelWidth: null,
+    maxPanelWidth: null,
+    initialWidth: null,
   }
 );
 
 const emit = defineEmits<{
-  (e: 'resize', width: number): void;
-  (e: 'resize-start'): void;
-  (e: 'resize-end'): void;
+  (e: 'size-changed', width: number): void;
 }>();
 
-const currentWidth = ref(props.width);
+// Internal state
+const minWidth = computed(() => props.minPanelWidth || 240);
+const maxWidth = computed(() => props.maxPanelWidth || 640);
+const width = ref<number | null>(props.initialWidth);
 const isResizing = ref(false);
-const startX = ref(0);
-const startWidth = ref(0);
 
-const sidebarStyle = computed(() => ({
-  width: `${currentWidth.value}px`,
-}));
+const sidebarStyle = computed(() => 
+  width.value ? { width: `${width.value}px` } : undefined
+);
 
-const classes = computed(() => ({
-  'afs-sidebar': true,
-  [`afs-sidebar--${props.position}`]: true,
-  'afs-sidebar--resizing': isResizing.value,
-}));
+const classes = computed(() => [
+  `afs-sidebar-container_${props.side}`,
+  `afs-sidebar-container_${props.size}`,
+  ...(props.resizable ? ['afs-sidebar-container_resizable'] : []),
+]);
 
-function handleResizeStart(event: MouseEvent) {
-  isResizing.value = true;
-  startX.value = event.clientX;
-  startWidth.value = currentWidth.value;
-  emit('resize-start');
+// Resize watcher - manages event listeners
+watch(isResizing, (newValue) => {
+  if (newValue) {
+    document.addEventListener('mousemove', handleResize);
+    document.addEventListener('mouseup', handleResizeEnd);
+    document.addEventListener('mouseout', handleMouseOutOfWindow);
+    document.body.style.pointerEvents = 'none';
+    const resizer = document.querySelector('.afs-sidebar-container__resizer') as HTMLElement;
+    if (resizer) resizer.style.pointerEvents = 'auto';
+  } else {
+    document.removeEventListener('mousemove', handleResize);
+    document.removeEventListener('mouseup', handleResizeEnd);
+    document.removeEventListener('mouseout', handleMouseOutOfWindow);
+    document.body.style.pointerEvents = 'auto';
+  }
+});
 
-  document.addEventListener('mousemove', handleResize);
-  document.addEventListener('mouseup', handleResizeEnd);
-  document.body.style.cursor = 'col-resize';
-  document.body.style.userSelect = 'none';
+function getBEMClass(element: string) {
+  return `afs-sidebar-container__${element}`;
 }
 
-function handleResize(event: MouseEvent) {
-  if (!isResizing.value) return;
-
-  const diff = props.position === 'left'
-    ? event.clientX - startX.value
-    : startX.value - event.clientX;
-
-  const newWidth = Math.max(
-    props.minWidth,
-    Math.min(props.maxWidth, startWidth.value + diff)
-  );
-
-  currentWidth.value = newWidth;
-  emit('resize', newWidth);
+function handleResizeStart() {
+  isResizing.value = true;
 }
 
 function handleResizeEnd() {
   isResizing.value = false;
-  emit('resize-end');
-
-  document.removeEventListener('mousemove', handleResize);
-  document.removeEventListener('mouseup', handleResizeEnd);
-  document.body.style.cursor = '';
-  document.body.style.userSelect = '';
+  if (width.value) {
+    emit('size-changed', width.value);
+  }
 }
 
+function handleResize(event: MouseEvent) {
+  const pageX = event.pageX;
+  const newWidth = props.side === 'right' 
+    ? window.innerWidth - pageX 
+    : pageX;
+  
+  if (newWidth >= minWidth.value && newWidth <= maxWidth.value) {
+    width.value = newWidth + 2;
+  }
+}
+
+function handleMouseOutOfWindow(event: MouseEvent) {
+  if (event.relatedTarget === null) {
+    isResizing.value = false;
+  }
+}
+
+function setWidth(action: { type: 'add' | 'subtract'; value: number }) {
+  const currentWidth = width.value || minWidth.value;
+  const delta = action.type === 'add' ? action.value : -action.value;
+  const newWidth = currentWidth + delta;
+  
+  if (newWidth < minWidth.value) {
+    width.value = minWidth.value;
+  } else if (newWidth > maxWidth.value) {
+    width.value = maxWidth.value;
+  } else {
+    width.value = newWidth;
+  }
+  handleResizeEnd();
+}
+
+// Cleanup on unmount
 onUnmounted(() => {
   document.removeEventListener('mousemove', handleResize);
   document.removeEventListener('mouseup', handleResizeEnd);
+  document.removeEventListener('mouseout', handleMouseOutOfWindow);
 });
+
+// Expose methods for parent components
+defineExpose({ setWidth, getBEMClass });
 </script>
 
-<style lang="scss" scoped>
-.afs-sidebar {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+<style lang="scss">
+/* 
+ * Styles from production: scss/components/afs-sidebar.scss
+ */
+.afs-sidebar-container {
   position: relative;
+  border-color: var(--afs-border, #e5e7eb);
+  background: var(--afs-sidebar, #ffffff);
+}
 
-  &--left {
-    border-right: 1px solid #e5e7eb;
-  }
+.afs-sidebar-container_sm {
+  width: 280px;
+}
 
-  &--right {
-    border-left: 1px solid #e5e7eb;
-  }
+.afs-sidebar-container_md {
+  width: 320px;
+}
 
-  &--resizing {
-    user-select: none;
-  }
+.afs-sidebar-container_lg {
+  width: 360px;
+}
 
-  &__header {
-    flex-shrink: 0;
-    padding: 16px;
-    border-bottom: 1px solid #e5e7eb;
-    font-weight: 600;
-  }
+.afs-sidebar-container_left {
+  border-right-width: 1px;
+  border-right-style: solid;
+}
 
-  &__content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 16px;
-  }
+.afs-sidebar-container_right {
+  border-left-width: 1px;
+  border-left-style: solid;
+}
 
-  &__footer {
-    flex-shrink: 0;
-    padding: 16px;
-    border-top: 1px solid #e5e7eb;
-  }
+.afs-sidebar-container_right .afs-sidebar-container__resizer {
+  right: auto;
+  left: 0;
+}
 
-  &__resize-handle {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    cursor: col-resize;
-    background: transparent;
-    transition: background 0.2s;
-
-    .afs-sidebar--left & {
-      right: -2px;
-    }
-
-    .afs-sidebar--right & {
-      left: -2px;
-    }
-
-    &:hover,
-    &--active {
-      background: #3b82f6;
-    }
+.afs-sidebar-container__resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  user-select: none;
+  cursor: col-resize;
+  z-index: 1;
+  
+  &:hover {
+    background: var(--afs-accent, #3b82f6);
   }
 }
 </style>

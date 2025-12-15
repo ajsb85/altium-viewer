@@ -1,103 +1,72 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { fn } from 'storybook/test';
 import AppLoader from './AppLoader.vue';
 
 /**
- * AppLoader displays loading states with optional progress indication.
- * Used throughout the Altium Viewer for async operations.
+ * AppLoader - Full-screen loading overlay with spinner
+ * 
+ * Shows animated progress spinner with optional icon and status text.
+ * Used during file loading, processing, and other async operations.
+ * 
+ * @see ViewerComponents.js createAppLoader (L401-553)
+ * @see scss/components/app-loader.scss
  */
 const meta: Meta<typeof AppLoader> = {
-  title: 'Core/AppLoader',
+  title: 'Feedback/AppLoader',
   component: AppLoader,
   tags: ['autodocs'],
   argTypes: {
-    progress: {
-      control: { type: 'range', min: 0, max: 100, step: 1 },
-      description: 'Progress percentage (0-100)',
-    },
     hasError: {
       control: 'boolean',
-      description: 'Whether an error occurred during loading',
+      description: 'Show error state (hides spinner, shows error icon)',
     },
-    text: {
-      control: 'text',
-      description: 'Status message to display',
-    },
-    overlay: {
+    hasIcon: {
       control: 'boolean',
-      description: 'Display as an overlay over content',
+      description: 'Show icon inside the loader figure',
+    },
+    backgroundAlpha: {
+      control: 'boolean',
+      description: 'Use semi-transparent background overlay',
+    },
+    icon: {
+      control: 'text',
+      description: 'Icon name (default: file-upload-32)',
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'Size of the loader figure',
+    },
+    primary: {
+      control: 'boolean',
+      description: 'Primary (blue) or secondary (pink) spinner color',
     },
   },
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'Full-screen loading overlay with animated spinner and optional status text.',
+      },
+    },
   },
+  decorators: [
+    (story) => ({
+      components: { story },
+      template: '<div style="position: relative; width: 100%; height: 400px; background: #f0f0f0;"><story /></div>',
+    }),
+  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/** Default spinner with no progress */
+/** Default loading spinner */
 export const Default: Story = {
-  args: {},
-};
-
-/** Indeterminate loading with status text */
-export const WithText: Story = {
   args: {
-    text: 'Loading design...',
-  },
-};
-
-/** Determinate progress at 50% */
-export const Loading: Story = {
-  args: {
-    progress: 50,
-    text: 'Processing PCB layers...',
-  },
-};
-
-/** Loading complete state */
-export const Complete: Story = {
-  args: {
-    progress: 100,
-    text: 'Design loaded successfully',
-  },
-};
-
-/** Error state display */
-export const Error: Story = {
-  args: {
-    hasError: true,
-    text: 'Failed to load design file',
-  },
-};
-
-/** Overlay mode for covering content */
-export const Overlay: Story = {
-  args: {
-    overlay: true,
-    progress: 30,
-    text: 'Loading...',
-  },
-  decorators: [
-    () => ({
-      template: `
-        <div style="position: relative; width: 300px; height: 200px; background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 8px;">
-          <div style="padding: 16px;">
-            <h3 style="margin: 0 0 8px;">PCB Design</h3>
-            <p style="margin: 0; color: #6b7280;">Content underneath the loader...</p>
-          </div>
-          <story />
-        </div>
-      `,
-    }),
-  ],
-};
-
-/** With custom slot content */
-export const WithSlot: Story = {
-  args: {
-    text: 'Processing...',
+    hasError: false,
+    hasIcon: false,
+    size: 'large',
+    primary: true,
   },
   render: (args) => ({
     components: { AppLoader },
@@ -106,7 +75,99 @@ export const WithSlot: Story = {
     },
     template: `
       <AppLoader v-bind="args">
-        <button style="padding: 8px 16px; cursor: pointer;">Cancel</button>
+        <p>Loading design...</p>
+      </AppLoader>
+    `,
+  }),
+};
+
+/** Loading with icon displayed */
+export const WithIcon: Story = {
+  args: {
+    hasError: false,
+    hasIcon: true,
+    icon: 'file-upload-32',
+    size: 'large',
+    primary: true,
+  },
+  render: (args) => ({
+    components: { AppLoader },
+    setup() {
+      return { args };
+    },
+    template: `
+      <AppLoader v-bind="args">
+        <p>Uploading file...</p>
+        <template #meta>
+          <span>15% complete</span>
+        </template>
+      </AppLoader>
+    `,
+  }),
+};
+
+/** Error state */
+export const Error: Story = {
+  args: {
+    hasError: true,
+    hasIcon: true,
+    icon: 'error-64',
+    size: 'large',
+    primary: true,
+  },
+  render: (args) => ({
+    components: { AppLoader },
+    setup() {
+      return { args };
+    },
+    template: `
+      <AppLoader v-bind="args">
+        <p>Failed to load design</p>
+        <template #meta>
+          <span>Please try again</span>
+        </template>
+      </AppLoader>
+    `,
+  }),
+};
+
+/** Secondary (pink) spinner color */
+export const Secondary: Story = {
+  args: {
+    hasError: false,
+    hasIcon: false,
+    size: 'large',
+    primary: false,
+  },
+  render: (args) => ({
+    components: { AppLoader },
+    setup() {
+      return { args };
+    },
+    template: `
+      <AppLoader v-bind="args">
+        <p>Processing...</p>
+      </AppLoader>
+    `,
+  }),
+};
+
+/** Small size variant */
+export const SmallSize: Story = {
+  args: {
+    hasError: false,
+    hasIcon: false,
+    size: 'small',
+    primary: true,
+  },
+  render: (args) => ({
+    components: { AppLoader },
+    setup() {
+      return { args };
+    },
+    template: `
+      <AppLoader v-bind="args">
+        <p>Loading...</p>
       </AppLoader>
     `,
   }),

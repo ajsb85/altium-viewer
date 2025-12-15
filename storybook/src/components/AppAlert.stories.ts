@@ -1,96 +1,48 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { fn } from 'storybook/test';
 import AppAlert from './AppAlert.vue';
 
 /**
- * AppAlert displays contextual feedback messages to users.
- * Supports info, success, warning, and error states.
+ * AppAlert - Full-screen alert/notification overlay component.
+ * 
+ * Displays centered error or status messages with an icon.
+ * Used for critical notifications that require user attention.
+ * 
+ * @see ViewerComponents.js createAppAlert (L337-399)
+ * @see scss/components/app-alert.scss
  */
 const meta: Meta<typeof AppAlert> = {
   title: 'Feedback/AppAlert',
   component: AppAlert,
   tags: ['autodocs'],
   argTypes: {
-    type: {
-      control: 'select',
-      options: ['info', 'success', 'warning', 'error'],
-      description: 'Visual type of the alert',
-    },
-    title: {
+    icon: {
       control: 'text',
-      description: 'Alert title',
+      description: 'Icon name from AfsIcon library (e.g., error-64, file-upload-32)',
     },
-    message: {
-      control: 'text',
-      description: 'Alert message body',
-    },
-    dismissible: {
-      control: 'boolean',
-      description: 'Show dismiss button',
-    },
-  },
-  args: {
-    onDismiss: fn(),
   },
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'Full-screen overlay alert for critical notifications. Uses AfsIcon for iconography.',
+      },
+    },
   },
+  decorators: [
+    (story) => ({
+      components: { story },
+      template: '<div style="position: relative; width: 100%; height: 400px; background: #f0f0f0;"><story /></div>',
+    }),
+  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/** Informational alert */
-export const Info: Story = {
+/** Default error alert with icon */
+export const Default: Story = {
   args: {
-    type: 'info',
-    title: 'Information',
-    message: 'This is an informational message about the current state.',
-  },
-};
-
-/** Success confirmation */
-export const Success: Story = {
-  args: {
-    type: 'success',
-    title: 'Success!',
-    message: 'The design was saved successfully.',
-  },
-};
-
-/** Warning notification */
-export const Warning: Story = {
-  args: {
-    type: 'warning',
-    title: 'Warning',
-    message: 'Some layers are not visible in the current view.',
-  },
-};
-
-/** Error message */
-export const Error: Story = {
-  args: {
-    type: 'error',
-    title: 'Error',
-    message: 'Failed to load the PCB design file.',
-  },
-};
-
-/** Dismissible alert */
-export const Dismissible: Story = {
-  args: {
-    type: 'info',
-    message: 'Click the X button to dismiss this alert.',
-    dismissible: true,
-  },
-};
-
-/** Alert with custom action buttons */
-export const WithActions: Story = {
-  args: {
-    type: 'warning',
-    title: 'Unsaved Changes',
-    message: 'You have unsaved changes that will be lost.',
+    icon: 'error-64',
   },
   render: (args) => ({
     components: { AppAlert },
@@ -99,13 +51,68 @@ export const WithActions: Story = {
     },
     template: `
       <AppAlert v-bind="args">
-        <template #actions>
-          <button style="padding: 6px 12px; background: #f59e0b; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Save
-          </button>
-          <button style="padding: 6px 12px; background: transparent; border: 1px solid currentColor; border-radius: 4px; cursor: pointer;">
-            Discard
-          </button>
+        <p>An error occurred while loading the design.</p>
+      </AppAlert>
+    `,
+  }),
+};
+
+/** Alert with custom text content */
+export const WithText: Story = {
+  args: {
+    icon: 'error-64',
+  },
+  render: (args) => ({
+    components: { AppAlert },
+    setup() {
+      return { args };
+    },
+    template: `
+      <AppAlert v-bind="args">
+        <p><strong>Failed to load PCB design</strong></p>
+        <p>Please check your network connection and try again.</p>
+      </AppAlert>
+    `,
+  }),
+};
+
+/** Alert with meta information slot */
+export const WithMeta: Story = {
+  args: {
+    icon: 'file-upload-32',
+  },
+  render: (args) => ({
+    components: { AppAlert },
+    setup() {
+      return { args };
+    },
+    template: `
+      <AppAlert v-bind="args">
+        <p>Processing your design file...</p>
+        <template #meta>
+          <span>Step 2 of 5 • Analyzing layers</span>
+        </template>
+      </AppAlert>
+    `,
+  }),
+};
+
+/** Alert with both text and meta slots */
+export const FullContent: Story = {
+  args: {
+    icon: 'error-64',
+  },
+  render: (args) => ({
+    components: { AppAlert },
+    setup() {
+      return { args };
+    },
+    template: `
+      <AppAlert v-bind="args">
+        <p><strong>Connection Lost</strong></p>
+        <p>Unable to reach the Altium 365 server.</p>
+        <template #meta>
+          <span>Error code: NET_ERR_CONNECTION_REFUSED</span>
         </template>
       </AppAlert>
     `,

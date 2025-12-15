@@ -2,42 +2,58 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import AfsSidebar from './AfsSidebar.vue';
 
 /**
- * AfsSidebar is the base sidebar component used throughout the Altium Viewer.
- * It provides a resizable panel with header and footer slots.
+ * AfsSidebar - Base resizable sidebar container component
+ * 
+ * Provides a resizable panel with configurable min/max width constraints.
+ * Foundation for AppSidebar and other panel components.
+ * 
+ * @see ViewerComponents.js createAfsSidebar (L110-201)
+ * @see scss/components/afs-sidebar.scss
  */
 const meta: Meta<typeof AfsSidebar> = {
   title: 'Layout/AfsSidebar',
   component: AfsSidebar,
   tags: ['autodocs'],
   argTypes: {
-    width: {
-      control: { type: 'range', min: 150, max: 500, step: 10 },
-      description: 'Initial sidebar width in pixels',
+    side: {
+      control: 'select',
+      options: ['left', 'right'],
+      description: 'Side of the viewport',
     },
-    minWidth: {
-      control: { type: 'number' },
-      description: 'Minimum width when resizing',
-    },
-    maxWidth: {
-      control: { type: 'number' },
-      description: 'Maximum width when resizing',
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size preset (sm: 280px, md: 320px, lg: 360px)',
     },
     resizable: {
       control: 'boolean',
-      description: 'Enable drag-to-resize handle',
+      description: 'Enable resize handle',
     },
-    position: {
-      control: 'select',
-      options: ['left', 'right'],
-      description: 'Sidebar position',
+    minPanelWidth: {
+      control: 'number',
+      description: 'Minimum width in pixels',
+    },
+    maxPanelWidth: {
+      control: 'number',
+      description: 'Maximum width in pixels',
+    },
+    initialWidth: {
+      control: 'number',
+      description: 'Initial width in pixels',
     },
   },
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'Base resizable sidebar container. Drag the edge to resize when resizable is enabled.',
+      },
+    },
   },
   decorators: [
-    () => ({
-      template: '<div style="height: 400px; display: flex;"><story /></div>',
+    (story) => ({
+      components: { story },
+      template: '<div style="display: flex; height: 400px; background: #f0f0f0;"><story /></div>',
     }),
   ],
 };
@@ -45,31 +61,11 @@ const meta: Meta<typeof AfsSidebar> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/** Basic sidebar with default configuration */
-export const Default: Story = {
+/** Left-side sidebar (default) */
+export const Left: Story = {
   args: {
-    width: 280,
-    resizable: true,
-    position: 'left',
-  },
-  render: (args) => ({
-    components: { AfsSidebar },
-    setup() {
-      return { args };
-    },
-    template: `
-      <AfsSidebar v-bind="args">
-        <p>Sidebar content goes here</p>
-        <p>Try dragging the right edge to resize!</p>
-      </AfsSidebar>
-    `,
-  }),
-};
-
-/** Sidebar with header and footer slots */
-export const WithSlots: Story = {
-  args: {
-    width: 300,
+    side: 'left',
+    size: 'md',
     resizable: true,
   },
   render: (args) => ({
@@ -79,55 +75,44 @@ export const WithSlots: Story = {
     },
     template: `
       <AfsSidebar v-bind="args">
-        <template #header>
-          <h3 style="margin: 0;">Layers Panel</h3>
-        </template>
-        
-        <ul style="list-style: none; padding: 0; margin: 0;">
-          <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">Copper Top</li>
-          <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">Copper Bottom</li>
-          <li style="padding: 8px 0; border-bottom: 1px solid #e5e7eb;">Silkscreen</li>
-          <li style="padding: 8px 0;">Solder Mask</li>
-        </ul>
-
-        <template #footer>
-          <button style="width: 100%; padding: 8px;">Apply Changes</button>
-        </template>
+        <div style="padding: 16px;">
+          <h3>Sidebar Content</h3>
+          <p>Drag the right edge to resize.</p>
+        </div>
       </AfsSidebar>
     `,
   }),
 };
 
-/** Right-positioned sidebar */
-export const RightPosition: Story = {
+/** Right-side sidebar */
+export const Right: Story = {
   args: {
-    width: 280,
+    side: 'right',
+    size: 'md',
     resizable: true,
-    position: 'right',
   },
-  decorators: [
-    () => ({
-      template: '<div style="height: 400px; display: flex; justify-content: flex-end;"><story /></div>',
-    }),
-  ],
   render: (args) => ({
     components: { AfsSidebar },
     setup() {
       return { args };
     },
     template: `
+      <div style="flex: 1;"></div>
       <AfsSidebar v-bind="args">
-        <template #header>Properties</template>
-        <p>Component properties panel</p>
+        <div style="padding: 16px;">
+          <h3>Right Sidebar</h3>
+          <p>Positioned on the right side.</p>
+        </div>
       </AfsSidebar>
     `,
   }),
 };
 
-/** Non-resizable fixed-width sidebar */
-export const FixedWidth: Story = {
+/** Small size preset (280px) */
+export const SmallSize: Story = {
   args: {
-    width: 250,
+    side: 'left',
+    size: 'sm',
     resizable: false,
   },
   render: (args) => ({
@@ -137,7 +122,33 @@ export const FixedWidth: Story = {
     },
     template: `
       <AfsSidebar v-bind="args">
-        <p>This sidebar cannot be resized.</p>
+        <div style="padding: 16px;">
+          <h3>Small Sidebar</h3>
+          <p>280px width.</p>
+        </div>
+      </AfsSidebar>
+    `,
+  }),
+};
+
+/** Large size preset (360px) */
+export const LargeSize: Story = {
+  args: {
+    side: 'left',
+    size: 'lg',
+    resizable: false,
+  },
+  render: (args) => ({
+    components: { AfsSidebar },
+    setup() {
+      return { args };
+    },
+    template: `
+      <AfsSidebar v-bind="args">
+        <div style="padding: 16px;">
+          <h3>Large Sidebar</h3>
+          <p>360px width.</p>
+        </div>
       </AfsSidebar>
     `,
   }),

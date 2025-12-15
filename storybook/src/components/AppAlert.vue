@@ -1,175 +1,110 @@
 <template>
-  <div class="app-alert" :class="classes" role="alert">
-    <!-- Icon -->
-    <div class="app-alert__icon">
-      <svg v-if="type === 'info'" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-      </svg>
-      <svg v-else-if="type === 'success'" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-      </svg>
-      <svg v-else-if="type === 'warning'" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
-      </svg>
-      <svg v-else-if="type === 'error'" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-      </svg>
-    </div>
-
-    <!-- Content -->
-    <div class="app-alert__content">
-      <div v-if="title" class="app-alert__title">{{ title }}</div>
-      <div v-if="message" class="app-alert__message">{{ message }}</div>
-      <div v-if="$slots.default" class="app-alert__slot">
+  <div class="app-alert" data-v-3abbf864>
+    <div class="app-alert__container" data-v-3abbf864>
+      <div class="app-alert__figure" data-v-3abbf864>
+        <AfsIcon 
+          :filled="true" 
+          :name="icon" 
+          class="app-alert__icon" 
+          data-v-3abbf864
+        />
+      </div>
+      <div v-if="$slots.default" class="app-alert__text" data-v-3abbf864>
         <slot />
       </div>
+      <div v-if="$slots.meta" class="app-alert__meta" data-v-3abbf864>
+        <slot name="meta" />
+      </div>
     </div>
-
-    <!-- Actions -->
-    <div v-if="$slots.actions" class="app-alert__actions">
-      <slot name="actions" />
-    </div>
-
-    <!-- Dismiss button -->
-    <button
-      v-if="dismissible"
-      class="app-alert__dismiss"
-      aria-label="Dismiss alert"
-      @click="handleDismiss"
-    >
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-      </svg>
-    </button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import AfsIcon from './AfsIcon.vue';
 
 /**
- * AppAlert - Alert/notification display component
- * Shows contextual feedback messages to users
+ * AppAlert - Full-screen alert/notification overlay component
+ * 
+ * Displays centered error or status messages with an icon.
+ * Used for critical notifications that require user attention.
+ * 
+ * @see ViewerComponents.js createAppAlert (L337-399)
  */
-const props = withDefaults(
+defineOptions({ name: 'AppAlert' });
+
+withDefaults(
   defineProps<{
-    /** Alert type determines styling */
-    type?: 'info' | 'success' | 'warning' | 'error';
-    /** Alert title (optional) */
-    title?: string;
-    /** Alert message body */
-    message?: string;
-    /** Allow user to dismiss the alert */
-    dismissible?: boolean;
+    /** Icon name to display (from AfsIcon library) */
+    icon?: string;
   }>(),
   {
-    type: 'info',
-    dismissible: false,
+    icon: 'error-64',
   }
 );
-
-const emit = defineEmits<{
-  (e: 'dismiss'): void;
-}>();
-
-const classes = computed(() => ({
-  'app-alert': true,
-  [`app-alert--${props.type}`]: true,
-}));
-
-function handleDismiss() {
-  emit('dismiss');
-}
 </script>
 
-<style lang="scss" scoped>
-.app-alert {
+<style lang="scss">
+/* 
+ * Styles from production: scss/components/app-alert.scss
+ * Uses scoped ID data-v-3abbf864 for specificity matching production
+ */
+.app-alert[data-v-3abbf864] {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 16px;
-  border-radius: 8px;
-  border: 1px solid;
-  
-  &--info {
-    background: #eff6ff;
-    border-color: #bfdbfe;
-    color: #1e40af;
-  }
-  
-  &--success {
-    background: #f0fdf4;
-    border-color: #bbf7d0;
-    color: #166534;
-  }
-  
-  &--warning {
-    background: #fffbeb;
-    border-color: #fde68a;
-    color: #92400e;
-  }
-  
-  &--error {
-    background: #fef2f2;
-    border-color: #fecaca;
-    color: #991b1b;
-  }
+  align-items: center;
+  justify-content: center;
+  background: var(--background-app-loader, rgba(0, 0, 0, 0.5));
+}
 
-  &__icon {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
+.app-alert__container[data-v-3abbf864] {
+  margin: auto;
+  padding: 3.38rem 2rem 1.5rem;
+  border-radius: 0.25rem;
+  width: 100%;
+  max-width: 18rem;
+  min-height: 13rem;
+  background: var(--background-app-loader-container, #fff);
+  box-shadow: var(--box-shadow-app-loader-container, 0 4px 20px rgba(0, 0, 0, 0.15));
+  text-align: center;
+}
 
-  &__content {
-    flex: 1;
-    min-width: 0;
-  }
+.app-alert__figure[data-v-3abbf864] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--afs-text-icon-primary, #dc2626);
+}
 
-  &__title {
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
+.app-alert__figure[data-v-3abbf864]:not(:last-child) {
+  margin-bottom: 1rem;
+}
 
-  &__message {
-    font-size: 14px;
-    opacity: 0.9;
-  }
+.app-alert__icon[data-v-3abbf864] {
+  font-size: 1em;
+}
 
-  &__slot {
-    margin-top: 8px;
-  }
+.app-alert__text[data-v-3abbf864],
+.app-alert__meta[data-v-3abbf864] {
+  font-size: 0.75rem;
+  line-height: 1.333;
+  min-width: 14rem;
+}
 
-  &__actions {
-    display: flex;
-    gap: 8px;
-    margin-left: auto;
-  }
+.app-alert__text[data-v-3abbf864]:not(:last-child),
+.app-alert__meta[data-v-3abbf864]:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
 
-  &__dismiss {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.2s;
-    
-    &:hover {
-      opacity: 1;
-    }
-    
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
+.app-alert__meta[data-v-3abbf864] {
+  color: var(--color-app-loader-meta, #6b7280);
 }
 </style>
