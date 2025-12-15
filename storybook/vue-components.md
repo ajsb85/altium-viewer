@@ -18,16 +18,17 @@ Comprehensive list of all Vue components used in the Altium Viewer project.
 
 Components created via the Factory pattern:
 
-- [ ] **AfsSidebar** - Base sidebar component
-- [ ] **AppSidebar** - Application sidebar with slots
-- [ ] **AppAlert** - Alert/notification display
-- [ ] **AppLoader** - Loading indicator with progress
-- [ ] **AppMainTabs** - View tabs in header
+- [x] **AfsSidebar** - Base sidebar component
+- [x] **AppSidebar** - Application sidebar with slots
+- [x] **AppAlert** - Alert/notification display
+- [x] **AppLoader** - Loading indicator with progress
+- [x] **AppMainTabs** - View tabs in header
 - [ ] **AppHeaderPlugin** - Plugin buttons in header
-- [ ] **AppHeader** - Main header bar
+- [x] **AppHeader** - Main header bar
 - [ ] **AppWatermark** - Branding watermark
 
 ### Directives
+
 - [ ] **ModalDirective** - Modal binding directive
 
 ---
@@ -36,32 +37,34 @@ Components created via the Factory pattern:
 
 Imported from external modules:
 
-- [ ] **AfsIcon** - Icon display component
-- [ ] **AfsText** - Styled text component
-- [ ] **AfsLink** - Link/anchor component
-- [ ] **AfsContextMenu** - Context menu dropdown
-- [ ] **AfsBadge** - Badge/chip component
-- [ ] **Accordion** - Collapsible accordion
-- [ ] **GridContainer** - Layout grid container
-- [ ] **LibModal** - Modal dialog
+- [x] **AfsIcon** - Icon display component
+- [x] **AfsText** - Styled text component
+- [x] **AfsLink** - Link/anchor component
+- [x] **AfsContextMenu** - Context menu dropdown
+- [x] **AfsBadge** - Badge/chip component
+- [x] **Accordion** - Collapsible accordion
+- [x] **GridContainer** - Layout grid container
+- [x] **LibModal** - Modal dialog
 
 ---
 
 ## Plugin Components
 
 ### BoardItemsVisibility (Layers Panel)
+
 - [ ] **AppLayersFooter** - Layers panel footer
 - [ ] **AppLayersContent** - Layers content area
-- [ ] **Layers** - Main layers component
+- [x] **Layers** - Main layers component
 - [ ] **AppObjectsButton** - Objects toggle button
 - [ ] **AppObjectsList** - Objects list display
-- [ ] **ObjectsPanel** - Objects panel container
-- [ ] **TabPanel** - Tab panel switcher
+- [x] **ObjectsPanel** - Objects panel container
+- [x] **TabPanel** - Tab panel switcher
 - [ ] **AppBoardControl** - Board controls
 - [ ] **AppBoardItemsVisibility** - Main panel component
-- [ ] **BoardItemsVisibility** - Plugin entry point
+- [x] **BoardItemsVisibility** - Plugin entry point
 
 ### Search Plugin
+
 - [ ] **BaseForm** - Search form input
 - [ ] **List** - Result list component
 - [ ] **Label** - Search label
@@ -70,29 +73,34 @@ Imported from external modules:
 - [ ] **BaseResult** - Single result item
 - [ ] **BaseFooter** - Search footer
 - [ ] **AppBaseHeader** - Search header
-- [ ] **Search** - Main search component
+- [x] **Search** - Main search component (SearchPanel)
 
 ### Measurement Plugin
+
 - [ ] **AppMeasurementItem** - Single measurement item
 - [ ] **MeasurementSection** - Measurements section
 - [ ] **AppMeasurementHistorySection** - History section
 - [ ] **AppModeSwitcher** - Mode switcher UI
-- [ ] **Measurements** - Main measurements panel
+- [x] **Measurements** - Main measurements panel (MeasurementDisplay)
 
 ### Download Plugin
-- [ ] **DownloadPanel** - Download options panel
+
+- [x] **DownloadPanel** - Download options panel
 - [ ] **Download** - Download component
 
 ### FullScreen Plugin
-- [ ] **FullScreen** - Fullscreen toggle component
+
+- [x] **FullScreen** - Fullscreen toggle component
 
 ### Compare Plugins
+
 - [ ] **SchCompare** - Schematic comparison component
 - [ ] **CompareDocument** - Document comparison
 - [ ] **CompareLayers** - Layer comparison
 - [ ] **ComparePanel** - Comparison panel
 
 ### View Engine Plugins
+
 - [ ] **PCBView** - PCB 2D view component
 - [ ] **PCBView3D** - PCB 3D view component
 - [ ] **SCHView** - Schematic view component
@@ -104,27 +112,34 @@ Imported from external modules:
 - [ ] **GraphiteEngineModule** - Graphite rendering engine
 
 ### BOM Plugin
+
 - [ ] **BOMView** - BOM list view
 - [ ] **BOMViewOnPremise** - On-premise BOM view
 
 ### Preview Panel
+
 - [ ] **Item** - Preview item component
 - [ ] **PreviewPanel** - Main preview panel
 
 ### Select Plugin
+
 - [ ] **Select** - Selection tool component
 
 ### Snapping Plugin
+
 - [ ] **Snapping** - Snap points display
 
 ### Variants Plugin
-- [ ] **Variants** - Design variants panel
+
+- [x] **Variants** - Design variants panel
 
 ### Support Library
+
 - [ ] **SupportLibrary** - Library support panel
 
 ### Help Panel
-- [ ] **HelpPanel** - Help/documentation panel
+
+- [x] **HelpPanel** - Help/documentation panel
 
 ---
 

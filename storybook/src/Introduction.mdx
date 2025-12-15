@@ -1,19 +1,40 @@
-import { Meta } from "@storybook/blocks";
+# Altium Viewer UI Component Library
 
-<Meta title="Introduction" />
+Vue 3 components for the Altium Web Viewer.
 
-# Altium Viewer Storybook
+---
 
-Welcome to the Storybook for the Altium Viewer Vue components.
+## Quick Start
+
+Browse components using the sidebar:
+- **Canvas** - Interactive preview
+- **Docs** - Auto-generated documentation  
+- **Controls** - Adjust props in real-time
 
 ## Components
 
-This Storybook documents the Vue components used in the Altium Viewer application, including:
+### Core UI
 
-- **Core Components**: AppSidebar, AppHeader, etc.
-- **UI Library**: AfsSidebar, AfsText, etc.
-- **Plugins**: Search, Layers, etc.
+- **AfsBadge** - Labels and status
+- **AfsLink** - Styled links
+- **AfsContextMenu** - Dropdowns
 
-## Testing
+### Layout
 
-These components are tested using **Vitest** via the Storybook test runner.
+- **AfsSidebar** - Resizable sidebar
+- **AppAlert** - Full-screen alerts
+- **AppLoader** - Loading overlay
+
+### Plugins
+
+- **BoardItemsVisibility** - Layer visibility
+- **SearchPanel** - Search interface
+- **DownloadPanel** - File downloads
+- **MeasurementDisplay** - Distance display
+
+## Development
+
+```bash
+npm run storybook      # Start dev
+npm run build-storybook # Build static
+```

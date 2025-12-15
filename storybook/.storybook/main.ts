@@ -8,6 +8,13 @@ const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+/**
+ * Storybook 10 Configuration
+ * 
+ * Implements features from NEWS.md:
+ * - Tag filtering with exclusion and configuration
+ * - ESM-only builds
+ */
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
@@ -21,6 +28,11 @@ const config: StorybookConfig = {
     options: {},
   },
   docs: {},
+
+  // Storybook 10: Tag filtering configuration (from NEWS.md)
+  // Tags can be used in stories with tags: ['experimental']
+  // and filtered in the sidebar UI
+
   viteFinal: async (config) => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {

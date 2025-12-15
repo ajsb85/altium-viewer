@@ -1,9 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import { expect, within, userEvent, fn } from 'storybook/test';
 import { ref } from 'vue';
 import BoardItemsVisibility from './BoardItemsVisibility.vue';
 
 /**
- * BoardItemsVisibility - Main layers/objects visibility panel
+ * BoardItemsVisibility - Layers/Objects visibility panel
+ * 
+ * Storybook 10 features used:
+ * - Interaction tests with play functions
+ * - Mock functions with fn()
  * 
  * @see BoardItemsVisibility.js plugin
  */
@@ -15,7 +20,7 @@ const meta: Meta<typeof BoardItemsVisibility> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Layers and objects visibility panel for PCB designs. Allows toggling individual layers and object types.',
+        component: 'Layers and objects visibility panel for PCB designs.',
       },
     },
   },
@@ -25,6 +30,11 @@ const meta: Meta<typeof BoardItemsVisibility> = {
       template: '<div style="width: 280px; height: 400px;"><story /></div>',
     }),
   ],
+  // Storybook 10: Mock event handlers with fn()
+  args: {
+    onLayerToggle: fn(),
+    onObjectToggle: fn(),
+  },
 };
 
 export default meta;
@@ -51,7 +61,7 @@ const sampleObjects = [
   { id: 'components', name: 'Components', isVisible: true },
 ];
 
-/** Default with layers and objects */
+/** Default with interaction tests */
 export const Default: Story = {
   render: () => ({
     components: { BoardItemsVisibility },
@@ -80,6 +90,20 @@ export const Default: Story = {
       />
     `,
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    
+    // Verify tabs are present
+    const layersTab = canvas.getByText('Layers');
+    await expect(layersTab).toBeInTheDocument();
+    
+    // Click Objects tab
+    const objectsTab = canvas.getByText('Objects');
+    await userEvent.click(objectsTab);
+    
+    // Verify objects panel content
+    await expect(canvas.getByText('Pads')).toBeInTheDocument();
+  },
 };
 
 /** Layers only */
@@ -98,8 +122,9 @@ export const ObjectsOnly: Story = {
   },
 };
 
-/** Without view tabs */
+/** Without view tabs - tagged as experimental */
 export const NoViewTabs: Story = {
+  tags: ['experimental'],
   args: {
     layers: sampleLayers,
     objects: sampleObjects,

@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import { expect, within } from 'storybook/test';
 import AfsBadge from './AfsBadge.vue';
 
 /**
  * AfsBadge - Badge/chip component for labels and status indicators
+ * 
+ * Used for status labels, category tags, and feature flags.
  * 
  * @see vendors.js AfsBadge component
  * @see scss/components/afs-badge*.scss
@@ -39,7 +42,7 @@ const meta: Meta<typeof AfsBadge> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/** Default badge */
+/** Default badge with interaction test */
 export const Default: Story = {
   args: {},
   render: (args) => ({
@@ -47,6 +50,12 @@ export const Default: Story = {
     setup: () => ({ args }),
     template: '<AfsBadge v-bind="args">Badge</AfsBadge>',
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const badge = canvas.getByText('Badge');
+    await expect(badge).toBeInTheDocument();
+    await expect(badge).toHaveClass('afs-badge');
+  },
 };
 
 /** All type variants */
@@ -65,6 +74,12 @@ export const TypeVariants: Story = {
       </div>
     `,
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    // Verify all type variants render
+    await expect(canvas.getByText('Pro')).toHaveClass('afs-badge_pro');
+    await expect(canvas.getByText('Success')).toHaveClass('afs-badge_success');
+  },
 };
 
 /** All size variants */
@@ -93,4 +108,9 @@ export const Uppercase: Story = {
     setup: () => ({ args }),
     template: '<AfsBadge v-bind="args">beta</AfsBadge>',
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const badge = canvas.getByText('beta');
+    await expect(badge).toHaveClass('afs-badge_uppercase');
+  },
 };
