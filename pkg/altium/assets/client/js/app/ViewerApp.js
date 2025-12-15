@@ -2393,214 +2393,311 @@
       }
       // Backward compatibility alias
       var Vn = setPrototypeOf;
-      var Tn = (function (e) {
-        function t() {
-          var e;
-          return (
-            (function (e, t) {
-              if (!(e instanceof t))
-                throw new TypeError("Cannot call a class as a function");
-            })(this, t),
-            ((e = Bn(this, t, arguments))._background =
-              e.extractRawBackgroundColor()),
-            e
-          );
+      /**
+       * ThemeManager Class
+       * 
+       * Manages application theming including color schemes, background colors,
+       * and theme change events. Extends EventEmitter for theme change notifications.
+       * 
+       * Features:
+       * - Supports 'light', 'dark', and 'dark-contrast' themes
+       * - Parses color strings (hex, rgba, named colors)
+       * - Extracts background color from CSS custom properties
+       * - Listens for parent window theme updates (embed mode)
+       * 
+       * @class ThemeManager
+       * @extends EventEmitter
+       */
+      var ThemeManager = (function(EventEmitterBase) {
+        /**
+         * Constructor - initializes background color
+         */
+        function ThemeManager() {
+          var instance;
+          // Class instance check
+          if (!(this instanceof ThemeManager)) {
+            throw new TypeError("Cannot call a class as a function");
+          }
+          // Call parent constructor and initialize background
+          instance = callSuperConstructor(this, ThemeManager, arguments);
+          instance._background = instance.extractRawBackgroundColor();
+          return instance;
         }
-        return (
-          (function (e, t) {
-            if ("function" != typeof t && null !== t)
-              throw new TypeError(
-                "Super expression must either be null or a function",
+        
+        // Set up inheritance from EventEmitter
+        (function(Derived, Base) {
+          if ("function" != typeof Base && null !== Base) {
+            throw new TypeError("Super expression must either be null or a function");
+          }
+          Derived.prototype = Object.create(Base && Base.prototype, {
+            constructor: { value: Derived, writable: true, configurable: true },
+          });
+          Object.defineProperty(Derived, "prototype", { writable: false });
+          if (Base) setPrototypeOf(Derived, Base);
+        })(ThemeManager, EventEmitterBase);
+        
+        // Class methods definition
+        var classDefinition = ThemeManager;
+        var methods = [
+          {
+            key: "defaultTheme",
+            /**
+             * Get the default theme setting
+             * @returns {string} Theme name ('light', 'dark', or 'dark-contrast')
+             */
+            get: function() {
+              return this._defaultTheme;
+            },
+          },
+          {
+            key: "theme",
+            /**
+             * Get current active theme
+             * @returns {string} Current theme name
+             */
+            get: function() {
+              return this.colorThemeService.theme;
+            },
+          },
+          {
+            key: "background",
+            /**
+             * Get background color object
+             * @returns {Object} Background color {css, number, array}
+             */
+            get: function() {
+              return this._background;
+            },
+          },
+          {
+            key: "start",
+            /**
+             * Initialize the theme manager
+             * @param {string} themeOverride - Theme override from config
+             * @param {string} fallbackTheme - Fallback if override invalid
+             * @param {Object} core - Core services object
+             */
+            value: function(themeOverride, fallbackTheme, core) {
+              var resolvedTheme;
+              var self = this;
+              
+              // Extract background color
+              this._background = this.extractRawBackgroundColor();
+              
+              // Determine default theme
+              this._defaultTheme = (resolvedTheme = this.getDefaultTheme(themeOverride)) !== null && 
+                resolvedTheme !== void 0 ? resolvedTheme : fallbackTheme;
+              
+              // Create color theme service
+              this.colorThemeService = new r.NA({
+                isAudioEnabled: false,
+                isThemeChangeEnabled: true,
+                defaultTheme: this.defaultTheme,
+                isDarkContrastEnabled: core.licensesService.hasLicense(
+                  "KillSwitch_ColorTheme_DarkContrast"
+                ),
+                url: window.location.href,
+              });
+              
+              // Apply theme
+              this.colorThemeService.theme = this.defaultTheme;
+              
+              // Listen for parent window theme updates
+              window.__APP__.parentEvents.on("update-color-theme", function(event) {
+                return self.updateTheme(event.data);
+              });
+              
+              // Bind theme change handler to core
+              core.onThemeChanged = this.onThemeChanged.bind(this);
+              core.utils.colorStringToRgba = this.colorStringToRgba.bind(this);
+            },
+          },
+          {
+            key: "colorStringToRgba",
+            /**
+             * Convert a color string to RGBA object
+             * @param {string} colorString - Color in hex, rgba, or name format
+             * @param {Object} defaultColor - Default if parsing fails
+             * @returns {Object} Color as {r, g, b, a}
+             */
+            value: function(colorString, defaultColor) {
+              return (
+                this.convertColorHexString(colorString) ||
+                this.convertColorRgbaString(colorString) ||
+                this.convertColorNameString(colorString) ||
+                defaultColor || { r: 0, g: 0, b: 0, a: 1 }
               );
-            ((e.prototype = Object.create(t && t.prototype, {
-              constructor: { value: e, writable: !0, configurable: !0 },
-            })),
-              Object.defineProperty(e, "prototype", { writable: !1 }),
-              t && Vn(e, t));
-          })(t, e),
-          (n = t),
-          (i = [
-            {
-              key: "defaultTheme",
-              get: function () {
-                return this._defaultTheme;
-              },
             },
-            {
-              key: "theme",
-              get: function () {
-                return this.colorThemeService.theme;
-              },
-            },
-            {
-              key: "background",
-              get: function () {
-                return this._background;
-              },
-            },
-            {
-              key: "start",
-              value: function (e, t, n) {
-                var i,
-                  o = this;
-                ((this._background = this.extractRawBackgroundColor()),
-                  (this._defaultTheme =
-                    null !== (i = this.getDefaultTheme(e)) && void 0 !== i
-                      ? i
-                      : t),
-                  (this.colorThemeService = new r.NA({
-                    isAudioEnabled: !1,
-                    isThemeChangeEnabled: !0,
-                    defaultTheme: this.defaultTheme,
-                    isDarkContrastEnabled: n.licensesService.hasLicense(
-                      "KillSwitch_ColorTheme_DarkContrast",
-                    ),
-                    url: window.location.href,
-                  })),
-                  (this.colorThemeService.theme = this.defaultTheme),
-                  window.__APP__.parentEvents.on(
-                    "update-color-theme",
-                    function (e) {
-                      return o.updateTheme(e.data);
-                    },
-                  ),
-                  (n.onThemeChanged = this.onThemeChanged.bind(this)),
-                  (n.utils.colorStringToRgba =
-                    this.colorStringToRgba.bind(this)));
-              },
-            },
-            {
-              key: "colorStringToRgba",
-              value: function (e, t) {
-                return (
-                  this.convertColorHexString(e) ||
-                  this.convertColorRgbaString(e) ||
-                  this.convertColorNameString(e) ||
-                  t || { r: 0, g: 0, b: 0, a: 1 }
-                );
-              },
-            },
-            {
-              key: "convertColorHexString",
-              value: function (e) {
-                if (e.startsWith("#")) {
-                  if (3 === (e = e.slice(1)).length)
-                    return {
-                      r: parseInt(e.slice(0, 1).concat(e.slice(0, 1)), 16),
-                      g: parseInt(e.slice(1, 2).concat(e.slice(1, 2)), 16),
-                      b: parseInt(e.slice(2, 3).concat(e.slice(2, 3)), 16),
-                      a: 1,
-                    };
-                  if (6 === e.length)
-                    return {
-                      r: parseInt(e.slice(0, 2), 16),
-                      g: parseInt(e.slice(2, 4), 16),
-                      b: parseInt(e.slice(4, 6), 16),
-                      a: 1,
-                    };
-                }
-              },
-            },
-            {
-              key: "convertColorRgbaString",
-              value: function (e) {
-                var t = e.match(
-                  /^rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*?(\d*\.?\d*)?\)/,
-                );
-                if (t)
+          },
+          {
+            key: "convertColorHexString",
+            /**
+             * Convert hex color string to RGBA
+             * @param {string} hexColor - Hex color (#RGB or #RRGGBB)
+             * @returns {Object|undefined} Color as {r, g, b, a} or undefined
+             */
+            value: function(hexColor) {
+              if (hexColor.startsWith("#")) {
+                // Remove # prefix
+                hexColor = hexColor.slice(1);
+                
+                // 3-digit hex (#RGB)
+                if (hexColor.length === 3) {
                   return {
-                    r: Number(t[1]),
-                    g: Number(t[2]),
-                    b: Number(t[3]),
-                    a: t[4] ? Number(t[4]) : 1,
-                  };
-              },
-            },
-            {
-              key: "convertColorNameString",
-              value: function (e) {
-                e = e.toLowerCase();
-                var t = window.__CORE__.colorNames[e];
-                return t ? this.convertColorHexString(t) : void 0;
-              },
-            },
-            {
-              key: "extractRawBackgroundColor",
-              value: function () {
-                var e = window
-                  .getComputedStyle(document.body)
-                  .getPropertyValue("--afs-viewer"),
-                  t = this.colorStringToRgba(e, {
-                    r: 200,
-                    g: 200,
-                    b: 200,
+                    r: parseInt(hexColor.slice(0, 1).concat(hexColor.slice(0, 1)), 16),
+                    g: parseInt(hexColor.slice(1, 2).concat(hexColor.slice(1, 2)), 16),
+                    b: parseInt(hexColor.slice(2, 3).concat(hexColor.slice(2, 3)), 16),
                     a: 1,
-                  }),
-                  n = t.r,
-                  r = t.g,
-                  i = t.b;
-                return {
-                  css: "#".concat(
-                    ((1 << 24) + (n << 16) + (r << 8) + i)
-                      .toString(16)
-                      .slice(1),
-                  ),
-                  number: (n << 16) + (r << 8) + i,
-                  array: [n, r, i],
-                };
-              },
-            },
-            {
-              key: "getDefaultTheme",
-              value: function (e) {
-                if (
-                  e &&
-                  ((e = e && e.trim().toLowerCase()),
-                    ["light", "dark", "dark-contrast"].includes(e))
-                )
-                  return e;
-              },
-            },
-            {
-              key: "updateTheme",
-              value: function (e) {
-                var t = e || this.defaultTheme,
-                  n = this.colorThemeService.theme;
-                ((this.colorThemeService.theme = t),
-                  n !== t && this.emit("changed"));
-              },
-            },
-            {
-              key: "onThemeChanged",
-              value: function (e) {
-                var t = this,
-                  n = function (n) {
-                    t._background = t.extractRawBackgroundColor();
-                    var r = t.background;
-                    try {
-                      r && (null == e || e.apply(t, [r, n]));
-                    } catch (e) {
-                      window.__CORE__
-                        .createLogger("ThemeManager")
-                        .LogError(
-                          "Update theme callback invocation error.",
-                          e,
-                        );
-                    }
                   };
-                (n(!0),
-                  this.on("changed", function () {
-                    return n(!1);
-                  }));
-              },
+                }
+                
+                // 6-digit hex (#RRGGBB)
+                if (hexColor.length === 6) {
+                  return {
+                    r: parseInt(hexColor.slice(0, 2), 16),
+                    g: parseInt(hexColor.slice(2, 4), 16),
+                    b: parseInt(hexColor.slice(4, 6), 16),
+                    a: 1,
+                  };
+                }
+              }
             },
-          ]),
-          i && Dn(n.prototype, i),
-          Object.defineProperty(n, "prototype", { writable: !1 }),
-          n
-        );
-        var n, i;
-      })(jn.Z),
+          },
+          {
+            key: "convertColorRgbaString",
+            /**
+             * Convert rgba() string to RGBA object
+             * @param {string} rgbaString - CSS rgba() or rgb() string
+             * @returns {Object|undefined} Color as {r, g, b, a} or undefined
+             */
+            value: function(rgbaString) {
+              var match = rgbaString.match(
+                /^rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*?(\d*\.?\d*)?\)/
+              );
+              if (match) {
+                return {
+                  r: Number(match[1]),
+                  g: Number(match[2]),
+                  b: Number(match[3]),
+                  a: match[4] ? Number(match[4]) : 1,
+                };
+              }
+            },
+          },
+          {
+            key: "convertColorNameString",
+            /**
+             * Convert named color to RGBA
+             * @param {string} colorName - CSS color name (e.g., 'red', 'blue')
+             * @returns {Object|undefined} Color as {r, g, b, a} or undefined
+             */
+            value: function(colorName) {
+              colorName = colorName.toLowerCase();
+              var hexValue = window.__CORE__.colorNames[colorName];
+              return hexValue ? this.convertColorHexString(hexValue) : void 0;
+            },
+          },
+          {
+            key: "extractRawBackgroundColor",
+            /**
+             * Extract background color from CSS custom property --afs-viewer
+             * @returns {Object} Background as {css, number, array}
+             */
+            value: function() {
+              var cssValue = window
+                .getComputedStyle(document.body)
+                .getPropertyValue("--afs-viewer");
+              
+              var rgba = this.colorStringToRgba(cssValue, { r: 200, g: 200, b: 200, a: 1 });
+              var red = rgba.r;
+              var green = rgba.g;
+              var blue = rgba.b;
+              
+              return {
+                css: "#".concat(
+                  ((1 << 24) + (red << 16) + (green << 8) + blue)
+                    .toString(16)
+                    .slice(1)
+                ),
+                number: (red << 16) + (green << 8) + blue,
+                array: [red, green, blue],
+              };
+            },
+          },
+          {
+            key: "getDefaultTheme",
+            /**
+             * Validate and return theme name
+             * @param {string} themeName - Theme to validate
+             * @returns {string|undefined} Valid theme name or undefined
+             */
+            value: function(themeName) {
+              if (
+                themeName &&
+                (themeName = themeName.trim().toLowerCase(),
+                  ["light", "dark", "dark-contrast"].includes(themeName))
+              ) {
+                return themeName;
+              }
+            },
+          },
+          {
+            key: "updateTheme",
+            /**
+             * Update the current theme
+             * @param {string} newTheme - New theme name
+             */
+            value: function(newTheme) {
+              var theme = newTheme || this.defaultTheme;
+              var previousTheme = this.colorThemeService.theme;
+              this.colorThemeService.theme = theme;
+              if (previousTheme !== theme) {
+                this.emit("changed");
+              }
+            },
+          },
+          {
+            key: "onThemeChanged",
+            /**
+             * Register a callback for theme changes
+             * @param {Function} callback - Called with (background, isInitial)
+             */
+            value: function(callback) {
+              var self = this;
+              
+              var handleThemeChange = function(isInitial) {
+                self._background = self.extractRawBackgroundColor();
+                var background = self.background;
+                try {
+                  if (background) {
+                    callback && callback.apply(self, [background, isInitial]);
+                  }
+                } catch (error) {
+                  window.__CORE__
+                    .createLogger("ThemeManager")
+                    .LogError("Update theme callback invocation error.", error);
+                }
+              };
+              
+              // Call immediately for initial state
+              handleThemeChange(true);
+              
+              // Listen for future changes
+              this.on("changed", function() {
+                return handleThemeChange(false);
+              });
+            },
+          },
+        ];
+        
+        // Add methods to prototype
+        Dn(classDefinition.prototype, methods);
+        Object.defineProperty(classDefinition, "prototype", { writable: false });
+        
+        return classDefinition;
+      })(jn.Z);
+      // Backward compatibility alias
+      var Tn = ThemeManager;
         Nn = n(25050),
         Mn = n(52017),
         In = n(37631),
