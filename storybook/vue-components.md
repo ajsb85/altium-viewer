@@ -52,7 +52,7 @@ Imported from external modules:
 
 ### BoardItemsVisibility (Layers Panel)
 
-- [ ] **AppLayersFooter** - Layers panel footer
+- [x] **AppLayersFooter** - Layers panel footer
 - [ ] **AppLayersContent** - Layers content area
 - [x] **Layers** - Main layers component
 - [ ] **AppObjectsButton** - Objects toggle button
@@ -65,22 +65,22 @@ Imported from external modules:
 
 ### Search Plugin
 
-- [ ] **BaseForm** - Search form input
+- [x] **BaseForm** - Search form input
 - [ ] **List** - Result list component
 - [ ] **Label** - Search label
-- [ ] **BaseRecentSearch** - Recent searches display
+- [x] **BaseRecentSearch** - Recent searches display
 - [ ] **ResultSection** - Search result section
-- [ ] **BaseResult** - Single result item
+- [x] **BaseResult** - Single result item
 - [ ] **BaseFooter** - Search footer
 - [ ] **AppBaseHeader** - Search header
 - [x] **Search** - Main search component (SearchPanel)
 
 ### Measurement Plugin
 
-- [ ] **AppMeasurementItem** - Single measurement item
+- [x] **AppMeasurementItem** - Single measurement item
 - [ ] **MeasurementSection** - Measurements section
 - [ ] **AppMeasurementHistorySection** - History section
-- [ ] **AppModeSwitcher** - Mode switcher UI
+- [x] **AppModeSwitcher** - Mode switcher UI
 - [x] **Measurements** - Main measurements panel (MeasurementDisplay)
 
 ### Download Plugin

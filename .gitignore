@@ -4,3 +4,4 @@ altium-viewer
 requests/
 viewer
 storybook/build-storybook.log
+storybook/example.html
