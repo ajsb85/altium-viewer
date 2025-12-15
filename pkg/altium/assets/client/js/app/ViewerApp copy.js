@@ -175,143 +175,127 @@
         Target: "GerberCompare.Target",
         Source: "GerberCompare.Source",
       },
-        Ze = window.FPSMonitor; // Extracted to external module FPSMonitor.js
+        Ze = (function () {
+          return (
+            (e = function e(t, n) {
+              var r = this;
+              (!(function (e, t) {
+                if (!(e instanceof t))
+                  throw new TypeError("Cannot call a class as a function");
+              })(this, e),
+                Fe(this, "onFpsChange", function (e, t) {
+                  r.sentReportTypes.includes(t) ||
+                    (r.addItemToArray(e, 2),
+                      r.averagePerformanceFps &&
+                      r.averagePerformanceFps < 15 &&
+                      r.sendReport(t));
+                }),
+                Fe(this, "onRenderTimeChange", function (e, t, n) {
+                  r.sentReportTypes.includes(n) ||
+                    ((r.docSize = t),
+                      r.addItemToArray(e, 1),
+                      r.averageRenderTime &&
+                      r.averageRenderTime > 200 &&
+                      r.sendReport(n));
+                }),
+                Fe(this, "addItemToArray", function (e, t) {
+                  var n = 1 === t ? r.renderTimeArray : r.performanceFpsArray;
+                  (n.push(e), n.length > 10 && n.shift());
+                }),
+                Fe(this, "logToConsole", function (e) {
+                  var t =
+                    arguments.length > 1 && void 0 !== arguments[1]
+                      ? arguments[1]
+                      : 15;
+                  if (!(e <= 0)) {
+                    for (var n = "", r = 0; r < e; r++) n += "-";
+                    n += e;
+                    var i = e <= t ? "red" : "green";
+                    console.log(
+                      "%c ".concat(n),
+                      "background: ".concat(i, "; color: black"),
+                    );
+                  }
+                }),
+                (this.appMonitoring = t),
+                (this.core = n),
+                (this.renderTimeArray = []),
+                (this.performanceFpsArray = []),
+                (this.sentReportTypes = []),
+                (this.docSize = null));
+            }),
+            (t = [
+              { key: "init", value: function () { } },
+              {
+                key: "averagePerformanceFps",
+                get: function () {
+                  return (
+                    10 === this.performanceFpsArray.length &&
+                    this.performanceFpsArray.reduce(function (e, t) {
+                      return e + t;
+                    }, 0) / this.performanceFpsArray.length
+                  );
+                },
+              },
+              {
+                key: "averageRenderTime",
+                get: function () {
+                  return (
+                    10 === this.renderTimeArray.length &&
+                    this.renderTimeArray.reduce(function (e, t) {
+                      return e + t;
+                    }, 0) / this.renderTimeArray.length
+                  );
+                },
+              },
+              {
+                key: "sendReport",
+                value: function (e) {
+                  var t = this;
+                  try {
+                    var n = ze[e] || "Gerber";
+                    if (this.appMonitoring.sentry) {
+                      var r = k(),
+                        i = r.vendor,
+                        o = r.renderer;
+                      this.appMonitoring.sentry.withScope(function (e) {
+                        (e.setLevel("info"),
+                          t.appMonitoring.capture(
+                            new Error(
+                              "Viewer.".concat(n, ".RenderSpeedDecrease"),
+                            ),
+                            {
+                              tags: {
+                                render_time: Math.round(t.averageRenderTime),
+                                fps: Math.round(t.averagePerformanceFps),
+                                webgl_vendor: i,
+                                webgl_renderer: o,
+                                document_size: t.docSize,
+                              },
+                            },
+                          ));
+                      });
+                    }
+                  } catch (e) {
+                    console.error(e);
+                  } finally {
+                    this.sentReportTypes.push(e);
+                  }
+                },
+              },
+            ]),
+            t && Re(e.prototype, t),
+            Object.defineProperty(e, "prototype", { writable: !1 }),
+            e
+          );
+          var e, t;
+        })();
       // Use ViewerUtils helpers (replacing Ue, Ge, We duplicates)
       var Ue = ViewerUtils.getType,
         Ge = ViewerUtils.defineProperties,
         We = ViewerUtils.toPropertyKey;
-      var $e = (function () {
-        return (
-          (e = function e(t) {
-            var n = this;
-            (!(function (e, t) {
-              if (!(e instanceof t))
-                throw new TypeError("Cannot call a class as a function");
-            })(this, e),
-              (this.bus = t),
-              (this.windowWidth = 0),
-              (this.windowHeight = 0),
-              (this.headerHeight = 0),
-              (this.sidebarWidth = 0),
-              (this.updated = !1),
-              (this.modals = new Map()),
-              (this.logger = window.__CORE__.createLogger(
-                "App:AppLayoutUpdateNotifier",
-              )),
-              (this.onWindowResize = function () {
-                ((n.windowWidth = window.innerWidth),
-                  (n.windowHeight = window.innerHeight),
-                  n.updateLayout());
-              }));
-          }),
-          (t = [
-            {
-              key: "initialize",
-              value: function () {
-                (window.addEventListener("resize", this.onWindowResize),
-                  this.onWindowResize());
-              },
-            },
-            {
-              key: "setHeaderHeight",
-              value: function (e) {
-                Number.isFinite(e) &&
-                  e !== this.headerHeight &&
-                  ((this.headerHeight = e), this.updateLayoutImmediate());
-              },
-            },
-            {
-              key: "setSideBarWidth",
-              value: function (e) {
-                Number.isFinite(e) &&
-                  e !== this.sidebarWidth &&
-                  ((window.__APP__.sidebarWidth = e),
-                    (this.sidebarWidth = e),
-                    this.updateLayoutImmediate());
-              },
-            },
-            {
-              key: "addModal",
-              value: function (e) {
-                (this.modals.set(e.id, Object.assign({}, e)),
-                  this.updateLayoutImmediate());
-              },
-            },
-            {
-              key: "removeModal",
-              value: function (e) {
-                this.modals.delete(e) && this.updateLayoutImmediate();
-              },
-            },
-            {
-              key: "updateModalWidth",
-              value: function (e, t) {
-                var n = this.modals.get(e);
-                n &&
-                  n.width !== t &&
-                  ((n.width = t), this.updateLayoutImmediate());
-              },
-            },
-            {
-              key: "updateLayoutImmediate",
-              value: function () {
-                try {
-                  var e = function (e, t, n) {
-                    return (n(t) && e.push({ id: t.id, offset: t.width }), e);
-                  },
-                    t = Array.from(this.modals.values()),
-                    n = t.reduce(function (t, n) {
-                      return e(t, n, function (e) {
-                        return e.isLeftModal;
-                      });
-                    }, new Array()),
-                    r = t.reduce(function (t, n) {
-                      return e(t, n, function (e) {
-                        return e.isRightModal;
-                      });
-                    }, new Array());
-                  if (n.length < 2 && r.length < 2) {
-                    this.sidebarWidth > 0 &&
-                      n.unshift({ id: "Sidebar", offset: this.sidebarWidth });
-                    var i = {
-                      width: this.windowWidth,
-                      height: this.windowHeight,
-                      left: n,
-                      right: r,
-                      top: this.headerHeight
-                        ? [{ id: "Header", offset: this.headerHeight }]
-                        : [],
-                      bottom: [],
-                    };
-                    this.bus.emit("Layout:update", i);
-                  }
-                  this.updated = !0;
-                } catch (e) {
-                  this.logger.LogError("Upadate layout changing error", e);
-                }
-              },
-            },
-            {
-              key: "updateLayout",
-              value: function () {
-                var e = this;
-                ((this.updated = !1),
-                  window.__APP__.utils.debounce(
-                    "app:layout:changed",
-                    function () {
-                      e.updated || e.updateLayoutImmediate();
-                    },
-                    20,
-                  ));
-              },
-            },
-          ]),
-          t && Ge(e.prototype, t),
-          Object.defineProperty(e, "prototype", { writable: !1 }),
-          e
-        );
-        var e, t;
-      })();
+      // AppLayoutUpdateNotifier moved to ViewerComponents.js
+      var $e = ViewerComponents.Factories.AppLayoutUpdateNotifier(window.__CORE__);
       // Use ViewerUtils helpers (replacing Ye, Xe, qe, Je duplicates)
       var Ye = ViewerUtils.getType,
         Xe = ViewerUtils.getOwnKeys,
@@ -323,1060 +307,152 @@
         for (var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
         return r;
       }
-      const Qe = {
-        name: "Viewer",
-        components: {
-          Header: Be,
-          Loader: ae,
-          Watermark: Te,
-          AfsIcon: m._,
-          AfsContextMenu: h.C,
-          AfsLink: v.A,
-          AfsText: y.A,
-          Alert: Q,
-          Sidebar: T,
-          GridContainer: g.G,
-        },
-        directives: { modal: M },
-        data: function () {
-          return {
-            isExpired: !1,
-            isLoading: !0,
-            isLoadingFailed: !1,
-            loaderMessage: "",
-            loaderMeta: "",
-            isLoaderPrimary: !0,
-            hasLoaderIcon: !0,
-            loaderIcon: "",
-            isLogoVisible: !0,
-            viewsPadding: { left: 0, right: 0 },
-            presentViews: [],
-            isDesignProcessed: !0,
-            unloadPageSignal: !1,
-            appLayoutUpdateNotifier: new $e(window.__CORE__.bus),
-            excludeViewsFromAnalytics: ViewerAppConfig.EXCLUDE_VIEWS_FROM_ANALYTICS,
-            layoutChanged: !1,
-            headerBottom: 0,
-          };
-        },
-        computed: qe(
-          qe(
-            qe(
-              {},
-              (0, o.rn)([
-                "views",
-                "globalPlugins",
-                "localPluginsDictionary",
-                "activeView",
-                "activePlugins",
-                "modals",
-                "sidebar",
-                "trimmedText",
-              ]),
-            ),
-            (0, o.Se)(["localPlugins", "globalPluginsList", "viewsList"]),
-          ),
-          {},
-          {
-            viewsStyles: function () {
-              return {
-                paddingLeft: "".concat(this.viewsPadding.left, "px"),
-                paddingRight: "".concat(this.viewsPadding.right, "px"),
-              };
-            },
-            modalsList: function () {
-              var e = this;
-              return (0, I.isEmptyObject)(this.modals)
-                ? []
-                : Object.values(this.modals).map(function (t) {
-                  return qe(
-                    qe({}, t),
-                    {},
-                    {
-                      listeners: ViewerPluginManager.createModalListeners(e, t, Ne.Z.bus),
-                    },
-                  );
-                });
-            },
-            trimmedTextMenuBind: function () {
-              return {
-                id: "app-trimmed-text-hint",
-                type: "hint",
-                modifiers: { y: "top", x: "center" },
-                offset: 8,
-              };
-            },
-            hasLogo: function () {
-              return (
-                this.isLogoVisible &&
-                !this.coreInitialData.attributes["data-logo-hidden"]
-              );
-            },
-            isAfsCompare: function () {
-              return !1;
-            },
-            isCompare: function () {
-              var e, t;
-              return null === (e = this.coreInitialData) ||
-                void 0 === e ||
-                null === (t = e.attributes) ||
-                void 0 === t
-                ? void 0
-                : t["data-comparison-source-id"];
-            },
-            token: function () {
-              var e, t;
-              return null === (e = this.coreInitialData) ||
-                void 0 === e ||
-                null === (t = e.attributes) ||
-                void 0 === t
-                ? void 0
-                : t["data-project-token"];
-            },
-            hiddenHeader: function () {
-              var e, t;
-              return null === (e = this.coreInitialData) ||
-                void 0 === e ||
-                null === (t = e.attributes) ||
-                void 0 === t
-                ? void 0
-                : t["data-hide-header"];
-            },
-            parentEvents: function () {
-              return window.__APP__.parentEvents;
-            },
-          },
-        ),
-        watch: {
-          viewsList: {
-            handler: function (e) {
-              ViewerPluginManager.handleViewsListChange(this, e, Ne.Z.bus);
-            },
-            deep: !0,
-          },
-          isLoading: {
-            handler: function (e) {
-              e || this.appLayoutUpdateNotifier.initialize();
-            },
-          },
-          layoutChanged: function (e) {
-            var t = this;
-            if (e) {
-              var n = document.querySelector(".app-header"),
-                r = n ? n.offsetHeight + n.offsetTop : 0;
-              ((this.headerBottom = r),
-                (0, i.nextTick)(function () {
-                  return (t.layoutChanged = !1);
-                }));
-            }
-          },
-        },
-        props: ["domain", "coreInitialData"],
-        created: function () {
-          var e = this;
-          (window.addEventListener("beforeunload", function (t) {
-            e.unloadPageSignal = !0;
-          }),
-            Object.defineProperty(window.__APP__, "isDesignProcessed", {
-              get: function () {
-                return e.isDesignProcessed;
-              },
-            }),
-            this.initCommon(),
-            this.initCore(),
-            this.initUnits(),
-            this.initOnSceneItnteracted(),
-            setTimeout(function () {
-              return e.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.VIEWER_INITED);
-            }, 200),
-            document.addEventListener("keyup", this.handleKey),
-            (this.loaderMessage = this.$t(
-              ViewerAppConfig.I18N_KEYS.INITIALIZING,
-            )),
-            this.parentEvents.on("app:view:activate", function (e) {
-              Ne.Z.bus.emit("View:set", e.id);
-            }));
-        },
-        mounted: function () {
-          this.layoutChanged = !0;
-        },
-        beforeUnmount: function () {
-          document.removeEventListener("keyup", this.handleKey);
-        },
-        methods: qe(
-          qe(
-            {},
-            (0, o.OI)([
-              "setView",
-              "setGlobalPlugin",
-              "setLocalPluginDictionary",
-              "setModal",
-              "setActiveView",
-              "setActivePlugin",
-              "removeActivePlugin",
-              "updateViewInterface",
-              "updateGlobalPluginsInterface",
-              "updateLocalPluginsInterface",
-            ]),
-          ),
-          {},
-          {
-            initCommon: function () {
-              ViewerAppMethods.initCommon(this, Ne.Z, ViewerAppConfig);
-            },
-            initUnits: function () {
-              ViewerAppMethods.initUnits(this, Ne.Z, Me.Z, ViewerAppConfig);
-            },
-            initCore: function () {
-              var e = this;
-                (ViewerAppMethods.initAppCore(this, Ne.Z, ViewerAppConfig),
-                this.parentEvents.on("app:layout:closePanels", function (t) {
-                  if (t.panelIds) {
-                    var n,
-                      r = (function (e, t) {
-                        var n =
-                          ("undefined" != typeof Symbol &&
-                            e[Symbol.iterator]) ||
-                          e["@@iterator"];
-                        if (!n) {
-                          if (
-                            Array.isArray(e) ||
-                            (n = (function (e, t) {
-                              if (e) {
-                                if ("string" == typeof e) return Ke(e, t);
-                                var n = {}.toString.call(e).slice(8, -1);
-                                return (
-                                  "Object" === n &&
-                                  e.constructor &&
-                                  (n = e.constructor.name),
-                                  "Map" === n || "Set" === n
-                                    ? Array.from(e)
-                                    : "Arguments" === n ||
-                                      /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(
-                                        n,
-                                      )
-                                      ? Ke(e, t)
-                                      : void 0
-                                );
-                              }
-                            })(e)) ||
-                            (t && e && "number" == typeof e.length)
-                          ) {
-                            n && (e = n);
-                            var r = 0,
-                              i = function () { };
-                            return {
-                              s: i,
-                              n: function () {
-                                return r >= e.length
-                                  ? { done: !0 }
-                                  : { done: !1, value: e[r++] };
-                              },
-                              e: function (e) {
-                                throw e;
-                              },
-                              f: i,
-                            };
-                          }
-                          throw new TypeError(
-                            "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.",
-                          );
-                        }
-                        var o,
-                          a = !0,
-                          s = !1;
-                        return {
-                          s: function () {
-                            n = n.call(e);
-                          },
-                          n: function () {
-                            var e = n.next();
-                            return ((a = e.done), e);
-                          },
-                          e: function (e) {
-                            ((s = !0), (o = e));
-                          },
-                          f: function () {
-                            try {
-                              a || null == n.return || n.return();
-                            } finally {
-                              if (s) throw o;
-                            }
-                          },
-                        };
-                      })(
-                        t.panelIds.filter(function (t) {
-                          return e.activePlugins.find(function (e) {
-                            return e.id === t;
-                          });
-                        }),
-                      );
-                    try {
-                      for (r.s(); !(n = r.n()).done;) {
-                        var i = n.value;
-                        Ne.Z.bus.emit("".concat(i, ":disable"));
-                      }
-                    } catch (e) {
-                      r.e(e);
-                    } finally {
-                      r.f();
-                    }
-                  }
-                }),
-                this.parentEvents.on("csrf-token:update", function (e) {
-                  (0, W.zX)("data-csrf-token", e.data);
-                }));
-              var t,
-                n =
-                  this.domain ||
-                  (this.coreInitialData &&
-                    this.coreInitialData.attributes &&
-                    this.coreInitialData.attributes.domain);
-              this.token
-                ? ((t = this.token),
-                  w()
-                    .get("token/resolve-token?token=".concat(t))
-                    .then(function (e) {
-                      var t;
-                      if (
-                        "Success" ===
-                        (null == e || null === (t = e.data) || void 0 === t
-                          ? void 0
-                          : t.status)
-                      )
-                        return e.data;
-                      throw Error("Resolve token error.");
-                    }))
-                  .then(function (t) {
-                    Ne.Z.setup(
-                      n,
-                      qe(
-                        qe({}, e.coreInitialData),
-                        {},
-                        {
-                          designUrl: null == t ? void 0 : t.designId,
-                          attributes: qe(
-                            qe({}, e.coreInitialData.attributes),
-                            {},
-                            {
-                              "data-project-src":
-                                null == t ? void 0 : t.designId,
-                            },
-                          ),
-                        },
-                      ),
-                    );
-                  })
-                  .catch(function () {
-                    e.isExpired = !0;
-                  })
-                : Ne.Z.setup(n, this.coreInitialData);
-            },
-            initOnSceneItnteracted: function () {
-              ViewerAppMethods.initOnSceneInteracted(this, Ne.Z, ViewerAppConfig);
-            },
-            filterViewsByStr: function (e, t) {
-              return ViewerAppMethods.filterViewsByStr(e, t);
-            },
-            filterViewByStr: function (e, t) {
-              return ViewerAppMethods.filterViewByStr(e, t);
-            },
-            setInitialView: function () {
-              return ViewerViewManager.setInitialView(this, Ne.Z);
-            },
-            setDefaultView: function () {
-              return ViewerViewManager.setDefaultView(this, Ne.Z);
-            },
-            setFilteredView: function (e) {
-              return ViewerViewManager.setFilteredView(this, e);
-            },
-            // ... (onDesignProcessing, etc.) ...
-            changeView: function (e, t, n) {
-              return ViewerViewManager.changeView(this, e, t, n, Ne.Z);
-            },
-            initOnDocumentShown: function (e) {
-              return ViewerViewManager.initOnDocumentShown(this, e, Ne.Z.bus);
-            },
-            // ...
-            initViewsListeners: function () {
-              ViewerViewManager.initViewsListeners(this, Ne.Z.bus, Ne.Z);
-            },
+      // Viewer component created via Factory
+      var et = Factories.createViewer({
+        Vue: i,
+        mapState: o.rn,
+        mapGetters: o.Se,
+        Header: Be,
+        Loader: ae,
+        Watermark: Te,
+        AfsIcon: m._,
+        AfsContextMenu: h.C,
+        AfsLink: v.A,
+        AfsText: y.A,
+        Alert: Q,
+        Sidebar: T,
+        GridContainer: g.G,
+        ModalDirective: M,
+        ViewerAppConfig: ViewerAppConfig,
+        Core: window.__CORE__,
+        ViewerAppMethods: ViewerAppMethods,
+        ViewerPluginManager: Ne.Z,
+        ViewerComponents: ViewerComponents,
+        AppLayoutUpdateNotifier: $e,
+        UnitsService: Me.Z
+      });
 
 
-
-
-
-            initPluginsListeners: function () {
-              ViewerPluginManager.initPluginsListeners(this, Ne.Z.bus);
-            },
-            toggleModulesDisableState: function (e) {
-              return ViewerPluginManager.toggleModulesDisableState(e);
-            },
-            addModalListeners: function (e) {
-              ViewerPluginManager.addModalListeners(this, e, Ne.Z.bus);
-            },
-            changeView: function (e, t, n) {
-              return ViewerViewManager.changeView(this, e, t, n);
-            },
-
-            onViewChange: function (e) {
-              this.changeView(e, !1, !0);
-            },
-            onPluginClick: function (e) {
-              ViewerPluginManager.handlePluginClick(this, e);
-            },
-            onBackButtonClick: function (e) {
-              Ne.Z.bus.emit(e.events.back);
-            },
-            initOnUpdateInterface: function () {
-              ViewerAppMethods.initOnUpdateInterface(this, Ne.Z);
-            },
-
-            handleKey: function (e) {
-              this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.VIEWER_KEY, ViewerAppMethods.formatKeyEvent(e));
-            },
-            onDocumentOpenError: function (e) {
-              try {
-                this.captureError(e.error, e.name, e.sendDetails);
-              } catch (e) { }
-            },
-            onDesignResolveComplete: function (e) {
-              e &&
-                e.activeVersion &&
-                this.parentEvents.emit(
-                  ViewerAppConfig.PARENT_EVENTS.GENERATING_NEW_VERSION,
-                  e.activeVersion,
-                );
-            },
-            onNewDesignReady: function () {
-              this.parentEvents.emit(ViewerAppConfig.PARENT_EVENTS.GENERATED_NEW_VERSION);
-            },
-            getErrorContent: function (e) {
-              return ViewerAppMethods.getErrorContent(e);
-            },
-            getErrorDetails: function (e) {
-              return ViewerAppMethods.getErrorDetails(e);
-            },
-            initAnalytics: function () {
-              (window.__APP__.analytics.initData(
-                this.coreInitialData.attributes,
-              ),
-                new Ze(window.__APP__.appMonitoring, Ne.Z).init());
-            },
-            onLinkClick: function(e, t) {
-                ViewerAppMethods.onLinkClick(this, e, t, Ne.Z);
-            },
-            onSidebarUpdated: function () {
-                ViewerAppMethods.onSidebarUpdated(this);
-            },
-            onHeaderUpdated: function () {
-                ViewerAppMethods.onHeaderUpdated(this);
-            },
-            checkWebGl2: function () {
-              var status = ViewerAppMethods.checkWebGl2Support();
-              window.__APP__.analytics.dispatchAnalyticsEvent("WebGL2", status);
-            },
-            setLoader: function (e, t, n, r, i) {
-              ViewerAppMethods.setLoader(this, e, t, n, i);
-            },
-            setLoaderMessage: function (e, t, n, r) {
-              var args = [this, e, t, n];
-              if (arguments.length > 3) args.push(r);
-              ViewerAppMethods.setLoaderMessage.apply(null, args);
-            },
-            captureError: function (e, t, n) {
-              var args = [this, e, t];
-              if (arguments.length > 2) args.push(n);
-              ViewerAppMethods.captureError.apply(null, args);
-            },
-          },
-        ),
-      },
-        et = (0, ViewerComponents.wrapComponent)(Qe, [
-          [
-            "render",
-            function (e, t, n, r, o, m) {
-              var h = (0, i.resolveComponent)("AfsLink"),
-                v = (0, i.resolveComponent)("Alert"),
-                y = (0, i.resolveComponent)("AfsText"),
-                g = (0, i.resolveComponent)("Loader"),
-                b = (0, i.resolveComponent)("Sidebar"),
-                w = (0, i.resolveComponent)("Header"),
-                k = (0, i.resolveComponent)("AfsIcon"),
-                C = (0, i.resolveComponent)("LibModal"),
-                _ = (0, i.resolveComponent)("Watermark"),
-                P = (0, i.resolveComponent)("GridContainer"),
-                S = (0, i.resolveComponent)("AfsContextMenu");
-              return (
-                (0, i.openBlock)(),
-                (0, i.createElementBlock)("div", a, [
-                  e.isExpired
-                    ? ((0, i.openBlock)(),
-                      (0, i.createBlock)(
-                        v,
-                        { key: 0, icon: "expired" },
-                        {
-                          default: (0, i.withCtx)(function () {
-                            return [
-                              (0, i.createElementVNode)(
-                                "span",
-                                s,
-                                (0, i.toDisplayString)(
-                                  e.$t("viewer.ui.App.expiredMessage"),
-                                ),
-                                1,
-                              ),
-                            ];
-                          }),
-                          meta: (0, i.withCtx)(function () {
-                            return [
-                              (0, i.createVNode)(
-                                h,
-                                {
-                                  href: "https://365.altium.com/signin",
-                                  target: "_blank",
-                                },
-                                {
-                                  default: (0, i.withCtx)(function () {
-                                    return [
-                                      (0, i.createTextVNode)(
-                                        (0, i.toDisplayString)(
-                                          e.$t("viewer.ui.App.goTo365"),
-                                        ),
-                                        1,
-                                      ),
-                                    ];
-                                  }),
-                                  _: 1,
-                                },
-                              ),
-                            ];
-                          }),
-                          _: 1,
-                        },
-                      ))
-                    : e.isLoading
-                      ? ((0, i.openBlock)(),
-                        (0, i.createBlock)(
-                          g,
-                          {
-                            key: 1,
-                            icon: e.loaderIcon,
-                            "has-icon": e.hasLoaderIcon,
-                            "has-error": e.isLoadingFailed,
-                            primary: e.isLoaderPrimary,
-                          },
-                          (0, i.createSlots)(
-                            {
-                              default: (0, i.withCtx)(function () {
-                                return [
-                                  Array.isArray(e.loaderMessage)
-                                    ? ((0, i.openBlock)(!0),
-                                      (0, i.createElementBlock)(
-                                        i.Fragment,
-                                        { key: 1 },
-                                        (0, i.renderList)(
-                                          e.loaderMessage,
-                                          function (e) {
-                                            return (
-                                              (0, i.openBlock)(),
-                                              (0, i.createElementBlock)(
-                                                "span",
-                                                { key: e.id },
-                                                [
-                                                  e.title
-                                                    ? ((0, i.openBlock)(),
-                                                      (0, i.createBlock)(
-                                                        y,
-                                                        {
-                                                          key: 0,
-                                                          class:
-                                                            "apps-loader__title",
-                                                          type: "large title",
-                                                        },
-                                                        {
-                                                          default: (0,
-                                                            i.withCtx)(
-                                                              function () {
-                                                                return [
-                                                                  (0,
-                                                                    i.createTextVNode)(
-                                                                      (0,
-                                                                        i.toDisplayString)(
-                                                                          e.title,
-                                                                        ),
-                                                                      1,
-                                                                    ),
-                                                                ];
-                                                              },
-                                                            ),
-                                                          _: 2,
-                                                        },
-                                                        1024,
-                                                      ))
-                                                    : (0, i.createCommentVNode)(
-                                                      "v-if",
-                                                      !0,
-                                                    ),
-                                                  e.text
-                                                    ? ((0, i.openBlock)(),
-                                                      (0, i.createElementBlock)(
-                                                        "span",
-                                                        c,
-                                                        (0, i.toDisplayString)(
-                                                          e.text,
-                                                        ),
-                                                        1,
-                                                      ))
-                                                    : (0, i.createCommentVNode)(
-                                                      "v-if",
-                                                      !0,
-                                                    ),
-                                                  e.link
-                                                    ? ((0, i.openBlock)(),
-                                                      (0, i.createBlock)(
-                                                        h,
-                                                        {
-                                                          key: 2,
-                                                          href: e.link,
-                                                          target: "_blank",
-                                                          onClick: function (
-                                                            t,
-                                                          ) {
-                                                            return m.onLinkClick(
-                                                              t,
-                                                              e,
-                                                            );
-                                                          },
-                                                        },
-                                                        {
-                                                          default: (0,
-                                                            i.withCtx)(
-                                                              function () {
-                                                                return [
-                                                                  (0,
-                                                                    i.createTextVNode)(
-                                                                      (0,
-                                                                        i.toDisplayString)(
-                                                                          e.name,
-                                                                        ),
-                                                                      1,
-                                                                    ),
-                                                                ];
-                                                              },
-                                                            ),
-                                                          _: 2,
-                                                        },
-                                                        1032,
-                                                        ["href", "onClick"],
-                                                      ))
-                                                    : (0, i.createCommentVNode)(
-                                                      "v-if",
-                                                      !0,
-                                                    ),
-                                                ],
-                                              )
-                                            );
-                                          },
-                                        ),
-                                        128,
-                                      ))
-                                    : ((0, i.openBlock)(),
-                                      (0, i.createElementBlock)(
-                                        i.Fragment,
-                                        { key: 0 },
-                                        [
-                                          (0, i.createTextVNode)(
-                                            (0, i.toDisplayString)(
-                                              e.loaderMessage,
-                                            ),
-                                            1,
-                                          ),
-                                        ],
-                                        2112,
-                                      )),
-                                ];
-                              }),
-                              _: 2,
-                            },
-                            [
-                              e.loaderMeta
-                                ? {
-                                  name: "meta",
-                                  fn: (0, i.withCtx)(function () {
-                                    return [
-                                      (0, i.createTextVNode)(
-                                        (0, i.toDisplayString)(e.loaderMeta),
-                                        1,
-                                      ),
-                                    ];
-                                  }),
-                                }
-                                : void 0,
-                            ],
-                          ),
-                          1032,
-                          ["icon", "has-icon", "has-error", "primary"],
-                        ))
-                      : ((0, i.openBlock)(),
-                        (0, i.createBlock)(
-                          P,
-                          { key: 2, size: "remain" },
-                          {
-                            default: (0, i.withCtx)(function () {
-                              return [
-                                e.sidebar && !e.sidebar.isHidden
-                                  ? ((0, i.openBlock)(),
-                                    (0, i.createBlock)(
-                                      b,
-                                      {
-                                        key: 0,
-                                        "meta-info": e.sidebar,
-                                        ref: e.sidebar.id,
-                                        size: e.sidebar.binds.size,
-                                        resizable: e.sidebar.binds.resizable,
-                                        flex: e.sidebar.binds.flex,
-                                        onVnodeMounted: m.onSidebarUpdated,
-                                        onVnodeUpdated: m.onSidebarUpdated,
-                                      },
-                                      (0, i.createSlots)(
-                                        {
-                                          default: (0, i.withCtx)(function () {
-                                            return [
-                                              (0, i.createElementVNode)(
-                                                "div",
-                                                { id: e.sidebar.binds.id },
-                                                null,
-                                                8,
-                                                l,
-                                              ),
-                                            ];
-                                          }),
-                                          _: 2,
-                                        },
-                                        [
-                                          e.sidebar.title
-                                            ? {
-                                              name: "title",
-                                              fn: (0, i.withCtx)(function () {
-                                                return [
-                                                  (0, i.createTextVNode)(
-                                                    (0, i.toDisplayString)(
-                                                      e.sidebar.title,
-                                                    ),
-                                                    1,
-                                                  ),
-                                                ];
-                                              }),
-                                            }
-                                            : void 0,
-                                          e.sidebar.subTitle
-                                            ? {
-                                              name: "subTitle",
-                                              fn: (0, i.withCtx)(function () {
-                                                return [
-                                                  (0, i.createTextVNode)(
-                                                    (0, i.toDisplayString)(
-                                                      e.sidebar.subTitle,
-                                                    ),
-                                                    1,
-                                                  ),
-                                                ];
-                                              }),
-                                            }
-                                            : void 0,
-                                        ],
-                                      ),
-                                      1032,
-                                      [
-                                        "meta-info",
-                                        "size",
-                                        "resizable",
-                                        "flex",
-                                        "onVnodeMounted",
-                                        "onVnodeUpdated",
-                                      ],
-                                    ))
-                                  : (0, i.createCommentVNode)("v-if", !0),
-                                (0, i.createVNode)(
-                                  P,
-                                  {
-                                    id: "viewer__container",
-                                    ref: "viewerContainer",
-                                    size: "remain",
-                                    class: "app__container",
-                                  },
-                                  {
-                                    default: (0, i.withCtx)(function () {
-                                      return [
-                                        m.hiddenHeader
-                                          ? (0, i.createCommentVNode)(
-                                            "v-if",
-                                            !0,
-                                          )
-                                          : ((0, i.openBlock)(),
-                                            (0, i.createBlock)(
-                                              w,
-                                              {
-                                                key: 0,
-                                                class: "app__header",
-                                                ref: "header",
-                                                views: e.viewsList,
-                                                "global-plugins":
-                                                  e.globalPluginsList,
-                                                "local-plugins": e.localPlugins,
-                                                "onView:change": m.onViewChange,
-                                                "onLocalPlugin:click":
-                                                  m.onPluginClick,
-                                                "onGlobalPlugin:click":
-                                                  m.onPluginClick,
-                                                onVnodeMounted:
-                                                  m.onHeaderUpdated,
-                                                onVnodeUpdated:
-                                                  m.onHeaderUpdated,
-                                              },
-                                              null,
-                                              8,
-                                              [
-                                                "views",
-                                                "global-plugins",
-                                                "local-plugins",
-                                                "onView:change",
-                                                "onLocalPlugin:click",
-                                                "onGlobalPlugin:click",
-                                                "onVnodeMounted",
-                                                "onVnodeUpdated",
-                                              ],
-                                            )),
-                                        ((0, i.openBlock)(!0),
-                                          (0, i.createElementBlock)(
-                                            i.Fragment,
-                                            null,
-                                            (0, i.renderList)(
-                                              m.modalsList,
-                                              function (t) {
-                                                return (
-                                                  (0, i.openBlock)(),
-                                                  (0, i.createBlock)(
-                                                    C,
-                                                    (0, i.mergeProps)(
-                                                      t.binds,
-                                                      {
-                                                        key: t.id,
-                                                        ref_for: !0,
-                                                        ref: t.id,
-                                                        "header-bottom":
-                                                          e.headerBottom,
-                                                      },
-                                                      (0, i.toHandlers)(
-                                                        t.listeners,
-                                                      ),
-                                                    ),
-                                                    (0, i.createSlots)(
-                                                      {
-                                                        default: (0, i.withCtx)(
-                                                          function () {
-                                                            return [
-                                                              (0,
-                                                                i.createElementVNode)(
-                                                                  "div",
-                                                                  {
-                                                                    id: t.binds.id,
-                                                                  },
-                                                                  null,
-                                                                  8,
-                                                                  p,
-                                                                ),
-                                                            ];
-                                                          },
-                                                        ),
-                                                        _: 2,
-                                                      },
-                                                      [
-                                                        t.header
-                                                          ? {
-                                                            name: "header",
-                                                            fn: (0, i.withCtx)(
-                                                              function () {
-                                                                return [
-                                                                  t.hasBackButton
-                                                                    ? ((0,
-                                                                      i.openBlock)(),
-                                                                      (0,
-                                                                        i.createElementBlock)(
-                                                                          "button",
-                                                                          {
-                                                                            key: 0,
-                                                                            type: "button",
-                                                                            class:
-                                                                              "app__back-btn",
-                                                                            onClick:
-                                                                              (0,
-                                                                                i.withModifiers)(
-                                                                                  function (
-                                                                                    e,
-                                                                                  ) {
-                                                                                    return m.onBackButtonClick(
-                                                                                      t,
-                                                                                    );
-                                                                                  },
-                                                                                  [
-                                                                                    "prevent",
-                                                                                  ],
-                                                                                ),
-                                                                          },
-                                                                          [
-                                                                            (0,
-                                                                              i.createVNode)(
-                                                                                k,
-                                                                                {
-                                                                                  name: "utility-chevron-left",
-                                                                                  class:
-                                                                                    "app__back-btn-icon",
-                                                                                },
-                                                                              ),
-                                                                            (0,
-                                                                              i.createElementVNode)(
-                                                                                "div",
-                                                                                d,
-                                                                                (0,
-                                                                                  i.toDisplayString)(
-                                                                                    t.header,
-                                                                                  ),
-                                                                                1,
-                                                                              ),
-                                                                          ],
-                                                                          8,
-                                                                          u,
-                                                                        ))
-                                                                    : ((0,
-                                                                      i.openBlock)(),
-                                                                      (0,
-                                                                        i.createElementBlock)(
-                                                                          i.Fragment,
-                                                                          {
-                                                                            key: 1,
-                                                                          },
-                                                                          [
-                                                                            (0,
-                                                                              i.createTextVNode)(
-                                                                                (0,
-                                                                                  i.toDisplayString)(
-                                                                                    t.header,
-                                                                                  ),
-                                                                                1,
-                                                                              ),
-                                                                          ],
-                                                                          2112,
-                                                                        )),
-                                                                ];
-                                                              },
-                                                            ),
-                                                          }
-                                                          : void 0,
-                                                      ],
-                                                    ),
-                                                    1040,
-                                                    ["header-bottom"],
-                                                  )
-                                                );
-                                              },
-                                            ),
-                                            128,
-                                          )),
-                                        (0, i.createElementVNode)(
-                                          "div",
-                                          {
-                                            class: "app__views",
-                                            onContextmenu:
-                                              t[0] ||
-                                              (t[0] = (0, i.withModifiers)(
-                                                function () { },
-                                                ["prevent"],
-                                              )),
-                                          },
-                                          [
-                                            ((0, i.openBlock)(!0),
-                                              (0, i.createElementBlock)(
-                                                i.Fragment,
-                                                null,
-                                                (0, i.renderList)(
-                                                  e.viewsList,
-                                                  function (e) {
-                                                    return (0, i.withDirectives)(
-                                                      ((0, i.openBlock)(),
-                                                        (0, i.createElementBlock)(
-                                                          "div",
-                                                          {
-                                                            key: e.id,
-                                                            ref_for: !0,
-                                                            ref: e.id,
-                                                            style: (0,
-                                                              i.normalizeStyle)(
-                                                                m.viewsStyles,
-                                                              ),
-                                                            class: (0,
-                                                              i.normalizeClass)([
-                                                                "app__view",
-                                                                "app__view_".concat(
-                                                                  e.id,
-                                                                ),
-                                                              ]),
-                                                            "data-view": e.id,
-                                                          },
-                                                          null,
-                                                          14,
-                                                          f,
-                                                        )),
-                                                      [[i.vShow, e.isActive]],
-                                                    );
-                                                  },
-                                                ),
-                                                128,
-                                              )),
-                                          ],
-                                          32,
-                                        ),
-                                        (0, i.withDirectives)(
-                                          (0, i.createVNode)(
-                                            _,
-                                            null,
-                                            null,
-                                            512,
-                                          ),
-                                          [[i.vShow, m.hasLogo]],
-                                        ),
-                                      ];
-                                    }),
-                                    _: 1,
-                                  },
-                                  512,
-                                ),
-                              ];
-                            }),
-                            _: 1,
-                          },
-                        )),
-                  (0, i.createVNode)(
-                    S,
-                    (0, i.normalizeProps)(
-                      (0, i.guardReactiveProps)(m.trimmedTextMenuBind),
-                    ),
-                    null,
-                    16,
-                  ),
-                ])
-              );
-            },
-          ],
-        ]);
       var tt = n(77826),
         nt = n(62091);
       // Use ViewerUtils helpers (replacing rt, it, ot duplicates)
       var rt = ViewerUtils.getType,
         it = ViewerUtils.defineProperties,
         ot = ViewerUtils.toPropertyKey;
-      var at = window.ParentEvents, // Extracted to external module ParentEvents.js
+      var at = (function () {
+        return (
+          (e = function e() {
+            var t = this;
+            (!(function (e, t) {
+              if (!(e instanceof t))
+                throw new TypeError("Cannot call a class as a function");
+            })(this, e),
+              (this.listeners = {}),
+              window.addEventListener("message", function (e) {
+                var n;
+                (null === (n = null == e ? void 0 : e.data) || void 0 === n
+                  ? void 0
+                  : n.message) &&
+                  t.listeners[e.data.message] &&
+                  t.listeners[e.data.message].forEach(function (t) {
+                    return t(e.data);
+                  });
+              }));
+          }),
+          (t = [
+            {
+              key: "logger",
+              get: function () {
+                return window.__CORE__.createLogger("App:ParentEvents");
+              },
+            },
+            {
+              key: "as",
+              value: function () {
+                return this;
+              },
+            },
+            {
+              key: "emit",
+              value: function (e) {
+                try {
+                  if (window.parent !== window) {
+                    for (
+                      var t = void 0,
+                      n = !1,
+                      r = function (e) {
+                        return "object" === rt(e)
+                          ? JSON.parse(JSON.stringify(e))
+                          : e;
+                      },
+                      i = arguments.length,
+                      o = new Array(i > 1 ? i - 1 : 0),
+                      a = 1;
+                      a < i;
+                      a++
+                    )
+                      o[a - 1] = arguments[a];
+                    1 === o.length
+                      ? (t = r(o[0]))
+                      : o.length > 1 &&
+                      ((n = !0),
+                        (t = o.map(function (e) {
+                          return r(e);
+                        })));
+                    var s = {
+                      message: e,
+                      data: t,
+                      id: window.__iframeId,
+                      packed: n,
+                    };
+                    window.parent.postMessage(s, "*");
+                  }
+                } catch (e) {
+                  this.logger.LogError("Emit event error.", e);
+                }
+                return this;
+              },
+            },
+            {
+              key: "once",
+              value: function (e, t) {
+                var n = this;
+                return (
+                  this.on(e, function r() {
+                    (t.apply(void 0, arguments), n.off(e, r));
+                  }),
+                  this
+                );
+              },
+            },
+            {
+              key: "on",
+              value: function (e, t) {
+                return (
+                  e in this.listeners
+                    ? this.listeners[e].push(t)
+                    : (this.listeners[e] = [t]),
+                  this
+                );
+              },
+            },
+            {
+              key: "off",
+              value: function (e, t) {
+                if (e in this.listeners) {
+                  var n = this.listeners[e].indexOf(t);
+                  n > -1 && this.listeners[e].splice(n, 1);
+                }
+                return this;
+              },
+            },
+          ]),
+          t && it(e.prototype, t),
+          Object.defineProperty(e, "prototype", { writable: !1 }),
+          e
+        );
+        var e, t;
+      })(),
         st = {},
         ct = n(48434),
         lt = { class: "apps-loader" },
@@ -2404,12 +1480,114 @@
       var bn = ViewerUtils.getType,
         wn = ViewerUtils.defineProperties,
         kn = ViewerUtils.toPropertyKey;
-      var Cn = window.PerformanceTimer; // Extracted to external module PerformanceTimer.js
+      var Cn = (function () {
+        return (
+          (e = function e() {
+            (!(function (e, t) {
+              if (!(e instanceof t))
+                throw new TypeError("Cannot call a class as a function");
+            })(this, e),
+              (this._duration = 0));
+          }),
+          (t = [
+            {
+              key: "setInitialDuration",
+              value: function (e) {
+                this._duration = e;
+              },
+            },
+            {
+              key: "measure",
+              value: function (e) {
+                var t = this;
+                if (performance && performance.measure)
+                  try {
+                    var n = performance.measure(e).duration;
+                    setTimeout(function () {
+                      t.print(e, n);
+                    });
+                  } catch (e) {
+                    window.__CORE__
+                      .createLogger("PERFORMANCE")
+                      .LogError("Measure performance error.", e);
+                  }
+              },
+            },
+            {
+              key: "format",
+              value: function (e, t) {
+                var n = new Date(e);
+                return t
+                  ? ""
+                    .concat(n.getUTCMinutes(), ":")
+                    .concat(n.getUTCSeconds(), ".")
+                    .concat(n.getUTCMilliseconds())
+                  : ""
+                    .concat(n.getFullYear(), "-")
+                    .concat(n.getMonth() + 1, "-")
+                    .concat(n.getDate(), " ")
+                    .concat(n.getHours(), ":")
+                    .concat(n.getMinutes(), ":")
+                    .concat(n.getSeconds(), ".")
+                    .concat(n.getMilliseconds());
+              },
+            },
+            {
+              key: "print",
+              value: function (e, t) {
+                var n = this.format(t, !0),
+                  r = this.format(t + this._duration, !0);
+                window.__CORE__
+                  .createLogger("PERFORMANCE")
+                  .LogTrace(
+                    "".concat(e, " at ").concat(n, " (").concat(r, ")"),
+                  );
+              },
+            },
+          ]),
+          t && wn(e.prototype, t),
+          Object.defineProperty(e, "prototype", { writable: !1 }),
+          e
+        );
+        var e, t;
+      })();
       // Use ViewerUtils helpers (replacing _n, Pn, Sn duplicates)
       var _n = ViewerUtils.getType,
         Pn = ViewerUtils.defineProperties,
         Sn = ViewerUtils.toPropertyKey;
-      var En = window.ViewActivator; // Extracted to external module ViewActivator.js,
+      var En = (function () {
+        return (
+          (e = function e(t) {
+            (!(function (e, t) {
+              if (!(e instanceof t))
+                throw new TypeError("Cannot call a class as a function");
+            })(this, e),
+              (this.store = t));
+          }),
+          (t = [
+            {
+              key: "onViewActivate",
+              value: function (e) {
+                if (e) {
+                  var t = window.__CORE__,
+                    n = this.store.state.activeView;
+                  (n &&
+                    setTimeout(function () {
+                      return e({ name: n.name, instance: t.views[n.name] });
+                    }),
+                    t.bus.on("View:activate", function (t) {
+                      return e(t);
+                    }));
+                }
+              },
+            },
+          ]),
+          t && Pn(e.prototype, t),
+          Object.defineProperty(e, "prototype", { writable: !1 }),
+          e
+        );
+        var e, t;
+      })(),
         jn = n(66675);
       // Use ViewerUtils helpers (replacing On, Dn, Ln duplicates)
       var On = ViewerUtils.getType,
