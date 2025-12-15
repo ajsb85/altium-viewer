@@ -1,219 +1,121 @@
 <template>
-  <div class="preview-panel">
-    <div class="preview-panel__header">
-      <h3 class="preview-panel__title">{{ title }}</h3>
-      <button
-        v-if="closable"
-        type="button"
-        class="preview-panel__close"
-        @click="$emit('close')"
-      >
-        <AfsIcon name="close-16" />
-      </button>
-    </div>
-    
-    <div class="preview-panel__content">
-      <!-- Preview image/canvas -->
-      <div class="preview-panel__preview">
-        <div v-if="loading" class="preview-panel__loading">
-          <div class="preview-panel__spinner" />
+  <div class="preview-panel" :id="panelId">
+    <div class="preview-panel__list">
+      <template v-for="item in items" :key="item.id">
+        <!-- Group title support -->
+        <div 
+          v-if="item.groupTitle" 
+          class="preview-panel__group-title afs-typography_paragraph afs-typography"
+        >
+          {{ item.groupTitle }}
         </div>
-        <img
-          v-else-if="imageUrl"
-          :src="imageUrl"
-          :alt="item?.name || 'Preview'"
-          class="preview-panel__image"
+        <PreviewItem
+          class="preview-panel__item"
+          :id="item.id"
+          :title="item.title"
+          :imageSrc="item.imageSrc"
+          :isSelected="item.id === selectedId"
+          @click="handleSelect(item.id)"
         />
-        <div v-else class="preview-panel__placeholder">
-          <AfsIcon name="image-24" />
-          <span>No preview</span>
-        </div>
-      </div>
-      
-      <!-- Item details -->
-      <div v-if="item" class="preview-panel__details">
-        <h4 class="preview-panel__item-name">{{ item.name }}</h4>
-        <p v-if="item.description" class="preview-panel__item-desc">
-          {{ item.description }}
-        </p>
-        
-        <dl v-if="item.properties" class="preview-panel__props">
-          <template v-for="(value, key) in item.properties" :key="key">
-            <dt class="preview-panel__prop-key">{{ key }}</dt>
-            <dd class="preview-panel__prop-value">{{ value }}</dd>
-          </template>
-        </dl>
-      </div>
-    </div>
-    
-    <div v-if="$slots.actions" class="preview-panel__actions">
-      <slot name="actions" />
+      </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import AfsIcon from './AfsIcon.vue';
+import PreviewItem from './PreviewItem.vue';
 
 /**
- * PreviewPanel - Component/item preview panel
+ * PreviewPanel - Scrollable list of preview items (schematic thumbnails)
  * 
- * @see PreviewPanel.js plugin
+ * Production structure (from PreviewPanel.js lines 193-194, 662, 685):
+ * ```html
+ * <div class="preview-panel">           <!-- scrolling container -->
+ *   <div class="preview-panel__list">   <!-- item wrapper -->
+ *     <div class="preview-panel__item">...</div>
+ *   </div>
+ * </div>
+ * ```
  */
 defineOptions({ name: 'PreviewPanel' });
 
-interface PreviewItem {
-  name: string;
-  description?: string;
-  properties?: Record<string, string | number>;
+export interface PreviewPanelItem {
+  id: string;
+  title: string;
+  imageSrc?: string;
+  groupTitle?: string;
 }
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
-    /** Panel title */
-    title?: string;
-    /** Preview image URL */
-    imageUrl?: string;
-    /** Item data */
-    item?: PreviewItem | null;
-    /** Show loading state */
-    loading?: boolean;
-    /** Show close button */
-    closable?: boolean;
+    /** Unique panel ID (for mounting point) */
+    panelId?: string;
+    /** Array of preview items */
+    items: PreviewPanelItem[];
+    /** Currently selected item ID */
+    selectedId?: string;
   }>(),
   {
-    title: 'Preview',
-    imageUrl: '',
-    item: null,
-    loading: false,
-    closable: true,
+    panelId: 'PreviewPanel',
+    items: () => [],
+    selectedId: '',
   }
 );
 
-defineEmits<{
-  (e: 'close'): void;
+const emit = defineEmits<{
+  (e: 'select', itemId: string): void;
 }>();
+
+function handleSelect(itemId: string) {
+  emit('select', itemId);
+}
 </script>
 
 <style lang="scss">
+/**
+ * Production CSS from production.css lines 36536-36566
+ */
 .preview-panel {
+  flex: 1 1 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 1rem;
+  
+  // Custom scrollbar styling
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    border: 0.13rem solid transparent;
+    background-clip: padding-box;
+    background-color: var(--afs-scrollbar-thumb, #48484a);
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+.preview-panel__list {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background: var(--afs-sidebar, #fff);
-  
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--afs-border, #e5e7eb);
-  }
-  
-  &__title {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--afs-text-icon-primary, #111827);
-  }
-  
-  &__close {
-    padding: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--afs-text-icon-secondary, #6b7280);
-    
-    &:hover {
-      color: var(--afs-text-icon-primary, #111827);
-    }
-  }
-  
-  &__content {
-    flex: 1;
-    overflow-y: auto;
-  }
-  
-  &__preview {
-    position: relative;
-    aspect-ratio: 4/3;
-    background: var(--afs-group, #f9fafb);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  &__loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  &__spinner {
-    width: 24px;
-    height: 24px;
-    border: 2px solid var(--afs-border, #e5e7eb);
-    border-top-color: var(--afs-accent, #3b82f6);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-  
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-  
-  &__image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  
-  &__placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: var(--afs-text-icon-hint, #9ca3af);
-    font-size: 13px;
-  }
-  
-  &__details {
-    padding: 16px;
-  }
-  
-  &__item-name {
-    margin: 0 0 4px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--afs-text-icon-primary, #111827);
-  }
-  
-  &__item-desc {
-    margin: 0 0 12px;
-    font-size: 13px;
-    color: var(--afs-text-icon-secondary, #6b7280);
-  }
-  
-  &__props {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 4px 12px;
-    margin: 0;
-    font-size: 12px;
-  }
-  
-  &__prop-key {
-    color: var(--afs-text-icon-hint, #9ca3af);
-  }
-  
-  &__prop-value {
-    margin: 0;
-    color: var(--afs-text-icon-primary, #111827);
-  }
-  
-  &__actions {
-    padding: 12px 16px;
-    border-top: 1px solid var(--afs-border, #e5e7eb);
-  }
+}
+
+.preview-panel__group-title {
+  padding: 0.5rem 0;
+  color: var(--color-primary, var(--afs-text-icon-primary));
+  line-height: 1.17;
+}
+
+.preview-panel__item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.preview-panel__item + .preview-panel__group-title {
+  margin-top: 0.5rem;
 }
 </style>

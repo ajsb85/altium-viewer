@@ -1,6 +1,6 @@
 <template>
   <div
-    class="preview-item"
+    class="preview-item preview-panel__item"
     :class="{ 'is-selected': isSelected }"
     @click="$emit('click')"
   >
@@ -8,9 +8,13 @@
       class="preview-item__img"
       :src="imageSrc"
       :alt="title"
+      :aspectRatio="68"
+      :dataLazyId="lazyId"
     />
     <div class="preview-item__title-wrapper">
-      <AfsIcon v-if="icon" :name="icon" class="preview-item__icon" />
+      <div v-if="icon" class="preview-item__icon-wrapper">
+        <AfsIcon :name="icon" class="preview-item__icon" />
+      </div>
       <div class="afs-typography_paragraph afs-typography_ellipsis afs-typography preview-item__text">
         {{ title }}
       </div>
@@ -19,71 +23,118 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import LibLazyImage from './LibLazyImage.vue';
 import AfsIcon from './AfsIcon.vue';
 
 /**
  * PreviewItem - Single item in preview panel list
- * @see production example.html preview-panel__item
+ * 
+ * Production CSS (production.css lines 36452-36516):
+ * - .preview-item: border-radius, background, cursor
+ * - .preview-item.is-selected: box-shadow for selection
+ * - .preview-item__img: border styles
+ * - .preview-item__title-wrapper: flex layout with padding
  */
 defineOptions({ name: 'PreviewItem' });
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
+    /** Display title text */
     title: string;
+    /** Image source URL */
     imageSrc?: string;
+    /** Optional icon name to show before title */
     icon?: string;
+    /** Whether this item is currently selected */
     isSelected?: boolean;
+    /** Unique ID for this preview item */
+    id?: string;
   }>(),
   {
     imageSrc: '',
     icon: '',
     isSelected: false,
+    id: '',
   }
 );
 
 defineEmits<{ (e: 'click'): void }>();
+
+// Generate lazy ID similar to production
+const lazyId = computed(() => 
+  props.id || `preview-${Math.random().toString(36).slice(2, 11)}`
+);
 </script>
 
 <style lang="scss">
+/**
+ * Production CSS from production.css lines 36452-36516
+ */
 .preview-item {
-  padding: 8px;
+  border-radius: 0.25rem;
+  background: var(--afs-group);
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.15s;
-  
-  &:hover {
-    background: var(--afs-secondary-hover, #787880);
-  }
-  
-  &.is-selected {
-    background: var(--afs-primary-overlay, #0a84ff33);
-  }
-  
-  &__img {
-    border-radius: 4px;
-    margin-bottom: 8px;
-  }
-  
-  &__title-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  
-  &__icon {
-    flex-shrink: 0;
-    font-size: 16px;
-    color: var(--afs-text-icon-secondary, #ebebf5a6);
-  }
-  
-  &__text {
-    font-size: 12px;
-    line-height: 16px;
-    color: var(--afs-text-icon-primary, #fff);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+}
+
+body:not(.is-touch) .preview-item:not(.is-selected):hover {
+  box-shadow: 0 0 0 1px var(--border-focused, var(--afs-primary-default));
+}
+
+.preview-item.is-selected {
+  box-shadow: 0 0 0 2px var(--border-focused, var(--afs-primary-default));
+}
+
+.preview-item__img {
+  border: 0.25rem solid var(--background-views, var(--afs-background));
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.preview-item__img_placeholder {
+  background-color: var(--background-views, var(--afs-background));
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--background-text, var(--afs-text-icon-hint));
+  border-color: var(--background-views, var(--afs-background));
+}
+
+.preview-item__title-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.13rem;
+}
+
+.preview-item__icon-wrapper {
+  display: flex;
+  margin-right: 0.63rem;
+}
+
+.preview-item__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.preview-item__text {
+  color: var(--color-primary, var(--afs-text-icon-primary));
+  line-height: 1.17;
+}
+
+// Compare mode states
+.preview-item .is-added {
+  color: var(--afs-text-positive);
+}
+
+.preview-item .is-removed {
+  color: var(--afs-text-negative);
+}
+
+.preview-item .is-updated {
+  color: var(--afs-text-caution);
+}
+
+.preview-item .is-unchanged {
+  color: var(--afs-text-icon-hint);
 }
 </style>
