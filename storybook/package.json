@@ -1,0 +1,28 @@
+{
+  "name": "altium-viewer-storybook",
+  "version": "1.0.0",
+  "description": "Storybook for Altium Viewer Vue components",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^10.1.8",
+    "@storybook/addon-links": "^10.1.8",
+    "@storybook/addon-vitest": "^10.1.8",
+    "@storybook/test-runner": "^0.24.2",
+    "@storybook/vue3": "^10.1.8",
+    "@storybook/vue3-vite": "^10.1.8",
+    "@vitejs/plugin-vue": "^6.0.3",
+    "@vitest/browser-playwright": "^4.0.15",
+    "@vitest/coverage-v8": "^4.0.15",
+    "playwright": "^1.57.0",
+    "sass": "^1.96.0",
+    "storybook": "^10.1.8",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.7",
+    "vitest": "^4.0.15",
+    "vue": "^3.5.25"
+  }
+}

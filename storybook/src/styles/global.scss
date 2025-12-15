@@ -1,0 +1,55 @@
+/**
+ * Global SCSS for Storybook
+ * Imports Altium Viewer theme styles and provides base reset
+ */
+
+// Base reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Storybook wrapper
+.storybook-wrapper {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a2e;
+  padding: 20px;
+}
+
+// Dark theme variant
+[data-theme='dark'] .storybook-wrapper {
+  background-color: #1a1a2e;
+  color: #e4e4e7;
+}
+
+// BEM State Classes (from ViewerCore.js)
+.is-notouch,
+.is-touch,
+.is-opened,
+.is-active,
+.is-selected,
+.is-error {
+  // State markers - styles defined per component
+}
+
+// Typography base
+.afs-text {
+  margin: 0;
+  padding: 0;
+  
+  &--heading {
+    font-weight: 600;
+  }
+  
+  &--body {
+    font-weight: 400;
+  }
+  
+  &--caption {
+    font-size: 12px;
+    color: #71717a;
+  }
+}
