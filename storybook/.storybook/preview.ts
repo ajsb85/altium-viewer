@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/vue3-vite';
 
 // Import global styles
 import '../src/styles/global.scss';
+import '../../pkg/altium/assets/client/styles/appStyles.css';
 
 const preview: Preview = {
   parameters: {

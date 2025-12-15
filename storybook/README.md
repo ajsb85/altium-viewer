@@ -51,6 +51,19 @@ npx vitest run --project=storybook
 - **Setup File**: `.storybook/vitest.setup.ts`
 - **Environment**: browser (via `@vitest/browser-playwright`)
 
+## Configuration Notes
+
+### Theming and Aliases
+
+Due to current versioning quirks in Storybook 10+, we use specific aliases in `.storybook/main.ts` to ensuring blocking dependencies like `@storybook/blocks` can access internal theming logic.
+**Do not remove these aliases or the `@storybook/theming` dependency** without verifying the build survives.
+
+We also use `createRequire` in `main.ts` to alias `use-sync-external-store/shim/index.js` to its absolute path via `require.resolve`, ensuring both Vite (dev) and Rollup (build) can resolve it correctly. We also include it in `optimizeDeps`.
+
+### Static Assets
+
+The project is configured to serve assets from `pkg/altium/assets/client` at the root. Be aware of this when referencing fonts or images in CSS/SCSS (e.g., path resolution).
+
 ## Project Structure
 
 - `src/components/`: Vue components and their corresponding stories (`*.stories.ts`).
