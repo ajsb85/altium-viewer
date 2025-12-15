@@ -21,30 +21,64 @@
       console.log("69668: Starting execution");
 
       // ============= SECTION 2: IMPORTS & FACTORIES =============
-      var r = n(90450),
-        i = n(10311),
-        o = n(25979),
-        a = { class: "app" },
+      /**
+       * WEBPACK MODULE IMPORTS
+       * 
+       * Core Libraries:
+       * @var {Object} r - ColorThemeService (n(90450)) - Theme management
+       * @var {Object} i - Vue.js (n(10311)) - Core Vue library
+       * @var {Object} o - Vuex (n(25979)) - State management
+       * 
+       * UI Components:
+       * @var {Object} m - AfsIcon (n(77337)) - Icon component
+       * @var {Object} h - AfsContextMenu (n(91261)) - Context menu component
+       * @var {Object} v - AfsLink (n(30171)) - Link component
+       * @var {Object} y - AfsText (n(77453)) - Text component
+       * @var {Object} g - GridContainer (n(48226)) - Layout grid
+       * @var {Object} b - HTTP utility (n(36480)) - API requests
+       * 
+       * CSS Class Constants:
+       * @const a - app container class
+       * @const s - app alert text class
+       * @const c-p - various element classes
+       */
+      
+      // === Core Library Imports ===
+      var r = n(90450),    // ColorThemeService
+        i = n(10311),      // Vue.js
+        o = n(25979);      // Vuex
+      
+      // === CSS Class Constants ===
+      var a = { class: "app" },
         s = { class: "app__alert-text" },
         c = { key: 1 },
         l = ["id"],
         u = ["onClick"],
         d = { class: "app__back-btn-text" },
         p = ["id"],
-        f = ["data-view"],
-        m = n(77337),
-        h = n(91261),
-        v = n(30171),
-        y = n(77453),
-        g = n(48226),
-        b = n(36480),
-        w = function () {
-          return (0, b.Z)({
-            baseURL: window.__VIEWER_DOMAIN__ + "/api/",
-            type: "json",
-            withCredentials: !1,
-          });
-        };
+        f = ["data-view"];
+      
+      // === UI Component Imports ===
+      var m = n(77337),    // AfsIcon
+        h = n(91261),      // AfsContextMenu
+        v = n(30171),      // AfsLink
+        y = n(77453),      // AfsText
+        g = n(48226),      // GridContainer
+        b = n(36480);      // HTTP utility
+      
+      /**
+       * Create HTTP client configured for the viewer API
+       * @returns {Object} Axios-like HTTP client instance
+       */
+      var createHttpClient = function() {
+        return (0, b.Z)({
+          baseURL: window.__VIEWER_DOMAIN__ + "/api/",
+          type: "json",
+          withCredentials: false,
+        });
+      };
+      // Backward compatibility alias
+      var w = createHttpClient;
       // Use ViewerUtils helpers instead of duplicating them
       var C = ViewerUtils.getType,
         _ = ViewerUtils.defineProperties,
