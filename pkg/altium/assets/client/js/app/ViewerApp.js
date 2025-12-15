@@ -1990,102 +1990,219 @@
         rn = n(85843),
         on = n(57455),
         an = n(89471);
-      // Use ViewerUtils helpers (replacing sn, cn, ln, un, dn duplicates)
+      // ============= SECTION 5: MANAGER CLASSES & CONFIGURATION =============
+      
+      // ViewerUtils helpers (aliased for minified code compatibility)
       var sn = ViewerUtils.getType,
         cn = ViewerUtils.getOwnKeys,
         ln = ViewerUtils.defineProperty,
         un = ViewerUtils.defineProperties,
         dn = ViewerUtils.toPropertyKey;
-      var pn = !1,
-        fn = !1,
-        mn = { production: !0, development: !0 },
-        hn = {
-          Project: "Viewer.WIP",
-          Release: "Release.DesignSnapshot",
-          MfgPackage: "MfgPackage",
-          Upload: "Upload",
-          Project_CM: "Project_CM",
-        },
-        vn = {
-          SCHView: "Schematic",
-          PCBView: "PCB",
-          PCBView3D: "PCB3D",
-          FabricationView: "Fabrication",
-          GerberCompareView: "GerberCompare",
-          CadexView: "MCAD",
-          SchematicCompareView: "SchematicCompare",
-        },
-        yn = window.__CORE__,
-        gn = window.AppMonitoring; // Extracted to external module AppMonitoring.js;
-      // Use ViewerUtils helpers (replacing bn, wn, kn duplicates)
+
+      // ============= CONFIGURATION FLAGS =============
+      
+      /**
+       * Flag: Production mode enabled
+       * @type {boolean}
+       */
+      var isProduction = false;
+      // Backward compatibility alias
+      var pn = isProduction;
+      
+      /**
+       * Flag: Debug mode enabled
+       * @type {boolean}
+       */
+      var isDebugMode = false;
+      // Backward compatibility alias
+      var fn = isDebugMode;
+      
+      /**
+       * Valid environment modes
+       * @type {Object.<string, boolean>}
+       */
+      var validEnvironments = { 
+        production: true, 
+        development: true 
+      };
+      // Backward compatibility alias
+      var mn = validEnvironments;
+      
+      /**
+       * Widget type identifiers mapped to their string values
+       * @type {Object.<string, string>}
+       */
+      var widgetTypes = {
+        Project: "Viewer.WIP",
+        Release: "Release.DesignSnapshot",
+        MfgPackage: "MfgPackage",
+        Upload: "Upload",
+        Project_CM: "Project_CM"
+      };
+      // Backward compatibility alias
+      var hn = widgetTypes;
+      
+      /**
+       * View type identifiers mapped to their display names
+       * @type {Object.<string, string>}
+       */
+      var viewTypeNames = {
+        SCHView: "Schematic",
+        PCBView: "PCB",
+        PCBView3D: "PCB3D",
+        FabricationView: "Fabrication",
+        GerberCompareView: "GerberCompare",
+        CadexView: "MCAD",
+        SchematicCompareView: "SchematicCompare"
+      };
+      // Backward compatibility alias
+      var vn = viewTypeNames;
+      
+      // ============= EXTERNAL MODULE REFERENCES =============
+      
+      /**
+       * Core services module
+       * @type {Object}
+       */
+      var coreServices = window.__CORE__;
+      // Backward compatibility alias
+      var yn = coreServices;
+      
+      /**
+       * AppMonitoring class (extracted to external module)
+       * @type {Function}
+       */
+      var AppMonitoringClass = window.AppMonitoring;
+      // Backward compatibility alias
+      var gn = AppMonitoringClass;
+      
+      // ViewerUtils helpers (aliased for minified code compatibility)
       var bn = ViewerUtils.getType,
         wn = ViewerUtils.defineProperties,
         kn = ViewerUtils.toPropertyKey;
-      var Cn = window.PerformanceTimer; // Extracted to external module PerformanceTimer.js
-      // Use ViewerUtils helpers (replacing _n, Pn, Sn duplicates)
+      
+      /**
+       * PerformanceTimer class (extracted to external module)
+       * @type {Function}
+       */
+      var PerformanceTimerClass = window.PerformanceTimer;
+      // Backward compatibility alias
+      var Cn = PerformanceTimerClass;
+      
+      // ViewerUtils helpers (aliased for minified code compatibility)
       var _n = ViewerUtils.getType,
         Pn = ViewerUtils.defineProperties,
         Sn = ViewerUtils.toPropertyKey;
-      var En = window.ViewActivator; // Extracted to external module ViewActivator.js,
-        jn = n(66675);
-      // Use ViewerUtils helpers (replacing On, Dn, Ln duplicates)
+      
+      /**
+       * ViewActivator class (extracted to external module)
+       * @type {Function}
+       */
+      var ViewActivatorClass = window.ViewActivator;
+      // Backward compatibility alias
+      var En = ViewActivatorClass;
+      
+      // EventEmitter base class
+      var jn = n(66675);
+      
+      // ViewerUtils helpers (aliased for minified code compatibility)
       var On = ViewerUtils.getType,
         Dn = ViewerUtils.defineProperties,
         Ln = ViewerUtils.toPropertyKey;
-      function Bn(e, t, n) {
+      // ============= ES5 CLASS INHERITANCE HELPERS =============
+      
+      /**
+       * Call the super constructor in ES5 class inheritance
+       * Babel helper for class inheritance
+       * @param {Object} instance - The derived class instance
+       * @param {Function} superConstructor - Parent constructor
+       * @param {Array} args - Arguments to pass to super
+       * @returns {Object} The initialized instance
+       */
+      function callSuperConstructor(instance, superConstructor, args) {
         return (
-          (t = An(t)),
-          (function (e, t) {
-            if (t && ("object" == On(t) || "function" == typeof t)) return t;
-            if (void 0 !== t)
+          (superConstructor = getPrototypeOf(superConstructor)),
+          (function(derived, constructResult) {
+            if (constructResult && ("object" == On(constructResult) || "function" == typeof constructResult)) {
+              return constructResult;
+            }
+            if (void 0 !== constructResult) {
               throw new TypeError(
-                "Derived constructors may only return object or undefined",
+                "Derived constructors may only return object or undefined"
               );
-            return (function (e) {
-              if (void 0 === e)
+            }
+            return (function(self) {
+              if (void 0 === self) {
                 throw new ReferenceError(
-                  "this hasn't been initialised - super() hasn't been called",
+                  "this hasn't been initialised - super() hasn't been called"
                 );
-              return e;
-            })(e);
+              }
+              return self;
+            })(derived);
           })(
-            e,
-            xn()
-              ? Reflect.construct(t, n || [], An(e).constructor)
-              : t.apply(e, n),
+            instance,
+            isReflectConstructSupported()
+              ? Reflect.construct(superConstructor, args || [], getPrototypeOf(instance).constructor)
+              : superConstructor.apply(instance, args)
           )
         );
       }
-      function xn() {
+      // Backward compatibility alias
+      var Bn = callSuperConstructor;
+
+      /**
+       * Check if Reflect.construct is supported for class inheritance
+       * @returns {boolean} True if Reflect.construct works correctly
+       */
+      function isReflectConstructSupported() {
         try {
-          var e = !Boolean.prototype.valueOf.call(
-            Reflect.construct(Boolean, [], function () { }),
+          var result = !Boolean.prototype.valueOf.call(
+            Reflect.construct(Boolean, [], function() {})
           );
-        } catch (e) { }
-        return (xn = function () {
-          return !!e;
+        } catch (e) {}
+        return (isReflectConstructSupported = function() {
+          return !!result;
         })();
       }
-      function An(e) {
+      // Backward compatibility alias
+      var xn = isReflectConstructSupported;
+
+      /**
+       * Get the prototype of an object (ES5 compatible)
+       * @param {Object} obj - Object to get prototype of
+       * @returns {Object|null} The prototype
+       */
+      function getPrototypeOf(obj) {
         return (
-          (An = Object.setPrototypeOf
+          (getPrototypeOf = Object.setPrototypeOf
             ? Object.getPrototypeOf.bind()
-            : function (e) {
-              return e.__proto__ || Object.getPrototypeOf(e);
-            }),
-          An(e)
+            : function(o) {
+                return o.__proto__ || Object.getPrototypeOf(o);
+              }),
+          getPrototypeOf(obj)
         );
       }
-      function Vn(e, t) {
+      // Backward compatibility alias
+      var An = getPrototypeOf;
+
+      /**
+       * Set the prototype of an object (ES5 compatible)
+       * @param {Object} obj - Object to set prototype on
+       * @param {Object} proto - New prototype
+       * @returns {Object} The object with new prototype
+       */
+      function setPrototypeOf(obj, proto) {
         return (
-          (Vn = Object.setPrototypeOf
+          (setPrototypeOf = Object.setPrototypeOf
             ? Object.setPrototypeOf.bind()
-            : function (e, t) {
-              return ((e.__proto__ = t), e);
-            }),
-          Vn(e, t)
+            : function(o, p) {
+                return ((o.__proto__ = p), o);
+              }),
+          setPrototypeOf(obj, proto)
         );
       }
+      // Backward compatibility alias
+      var Vn = setPrototypeOf;
       var Tn = (function (e) {
         function t() {
           var e;
