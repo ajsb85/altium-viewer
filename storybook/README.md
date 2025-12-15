@@ -57,6 +57,11 @@ Output: `storybook-static/`
 
 Assets served from `pkg/altium/assets/client` at root path.
 
+**Font CDN** (for missing fonts):
+```txt
+https://d3l9fju211jpzs.cloudfront.net/148/client/assets/fonts/
+```
+
 ### Dependencies
 
 Use `--legacy-peer-deps` for npm install due to `@storybook/blocks` v8/v10 peer conflicts.

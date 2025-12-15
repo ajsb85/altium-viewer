@@ -9,8 +9,8 @@ Comprehensive list of all Vue components used in the Altium Viewer project.
 ### ViewerApp.js (Main Application)
 
 - [ ] **Viewer** - Main application container (`ViewerComponentOptions`)
-- [ ] **TreeItem** - Recursive tree item component (`TreeItemOptions`)
-- [ ] **AppMenu** - Context menu wrapper (`AppMenuOptions`)
+- [x] **TreeItem** - Recursive tree item component (`TreeItemOptions`)
+- [x] **AppMenu** - Context menu wrapper (`AppMenuOptions`)
 
 ---
 
@@ -23,9 +23,9 @@ Components created via the Factory pattern:
 - [x] **AppAlert** - Alert/notification display
 - [x] **AppLoader** - Loading indicator with progress
 - [x] **AppMainTabs** - View tabs in header
-- [ ] **AppHeaderPlugin** - Plugin buttons in header
+- [x] **AppHeaderPlugin** - Plugin buttons in header
 - [x] **AppHeader** - Main header bar
-- [ ] **AppWatermark** - Branding watermark
+- [x] **AppWatermark** - Branding watermark
 
 ### Directives
 
@@ -96,16 +96,16 @@ Imported from external modules:
 
 - [ ] **SchCompare** - Schematic comparison component
 - [ ] **CompareDocument** - Document comparison
-- [ ] **CompareLayers** - Layer comparison
-- [ ] **ComparePanel** - Comparison panel
+- [x] **CompareLayers** - Layer comparison
+- [x] **ComparePanel** - Comparison panel
 
 ### View Engine Plugins
 
-- [ ] **PCBView** - PCB 2D view component
+- [x] **PCBView** - PCB 2D view component
 - [ ] **PCBView3D** - PCB 3D view component
-- [ ] **SCHView** - Schematic view component
+- [x] **SCHView** - Schematic view component
 - [ ] **SCHViewModule** - Schematic module
-- [ ] **FabricationView** - Fabrication view component
+- [x] **FabricationView** - Fabrication view component
 - [ ] **Fabrication** - Fabrication data view
 - [ ] **GerberEngine** - Gerber rendering engine
 - [ ] **GerberCompareView** - Gerber comparison view

@@ -1,45 +1,54 @@
 <template>
-  <div class="app-watermark">
-    <div class="app-watermark__logo">
-      <!-- Placeholder SVG for Altium Logo -->
-      <svg width="100" height="20" viewBox="0 0 100 20" fill="currentColor">
-        <text x="0" y="15" font-family="Arial" font-weight="bold" font-size="14">ALTIUM</text>
-      </svg>
-    </div>
-    <div v-if="text" class="app-watermark__text">
-      {{ text }}
-    </div>
+  <div class="app-watermark" :class="[`app-watermark--${position}`]">
+    <img v-if="logoUrl" :src="logoUrl" :alt="text" class="app-watermark__logo" />
+    <span v-else class="app-watermark__text">{{ text }}</span>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
-  text: {
-    type: String,
-    default: '',
-  },
-});
+/**
+ * AppWatermark - Branding watermark
+ * 
+ * @see ViewerComponents.js
+ */
+defineOptions({ name: 'AppWatermark' });
+
+withDefaults(
+  defineProps<{
+    text?: string;
+    logoUrl?: string;
+    position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  }>(),
+  {
+    text: 'Altium Viewer',
+    logoUrl: '',
+    position: 'bottom-right',
+  }
+);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app-watermark {
   position: absolute;
-  bottom: 24px;
-  right: 24px;
-  opacity: 0.1;
+  padding: 8px 12px;
+  opacity: 0.5;
   pointer-events: none;
   z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  
+  &--top-left { top: 16px; left: 16px; }
+  &--top-right { top: 16px; right: 16px; }
+  &--bottom-left { bottom: 16px; left: 16px; }
+  &--bottom-right { bottom: 16px; right: 16px; }
   
   &__logo {
-     color: #000;
+    height: 24px;
+    width: auto;
   }
   
   &__text {
-      font-size: 12px;
-      margin-top: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--afs-text-icon-hint, #9ca3af);
   }
 }
 </style>
