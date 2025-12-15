@@ -91,10 +91,12 @@
       
       // S (Memory) moved to ViewerAppMethods
 
-      var E = { key: 0, class: "app-sidebar__sub-title-additional-text" },
-        j = { class: "app-sidebar__content" },
-        O = n(93891),
-        D = n(29786);
+      // === CSS Class Constants: Sidebar Component ===
+      var E = { key: 0, class: "app-sidebar__sub-title-additional-text" }, // Sidebar subtitle extra text
+        j = { class: "app-sidebar__content" };                              // Sidebar content container
+      
+      var O = n(93891),   // Additional module
+        D = n(29786);     // BEM utilities
        // AfsSidebar created via Factory
       var L = Factories.createAfsSidebar({
         Vue: i,
@@ -126,40 +128,46 @@
       
       // G (loader message) moved to ViewerAppMethods
       
-      var W = n(67674),
-        $ = { class: "app-alert" },
-        Y = { class: "app-alert__container" },
-        K = { class: "app-alert__figure" },
-        X = { key: 0, class: "app-alert__text" },
-        q = { key: 1, class: "app-alert__meta" };
+      var W = n(67674);   // Widget utilities
+      
+      // === CSS Class Constants: Alert Component ===
+      var $ = { class: "app-alert" },                  // Alert container
+        Y = { class: "app-alert__container" },         // Alert inner container
+        K = { class: "app-alert__figure" },            // Alert icon container
+        X = { key: 0, class: "app-alert__text" },      // Alert text (conditional)
+        q = { key: 1, class: "app-alert__meta" };      // Alert meta info (conditional)
       // AppAlert created via Factory
       var Q = Factories.createAppAlert({ 
         Vue: i, 
         AfsIcon: m._, 
         ViewerComponents: ViewerComponents 
       });
-      var ee = { class: "app-loader__container" },
-        te = { class: "app-loader__figure" },
-        ne = { key: 0, class: "app-loader__progress" },
-        re = { key: 1, class: "app-loader__meta" },
-        ie = "file-upload-32";
+      // === CSS Class Constants: Loader Component ===
+      var ee = { class: "app-loader__container" },     // Loader container
+        te = { class: "app-loader__figure" },          // Loader icon container
+        ne = { key: 0, class: "app-loader__progress" }, // Progress bar (conditional)
+        re = { key: 1, class: "app-loader__meta" },     // Loader meta text (conditional)
+        ie = "file-upload-32";                          // Default loader icon name
       // AppLoader created via Factory
       var ae = Factories.createAppLoader({
         Vue: i,
         AfsIcon: m._,
         ViewerComponents: ViewerComponents
       });
-      var se = { class: "app-header" },
-        ce = { class: "app-header__col app-header__secondary-controls" },
-        le = { class: "app-header__col app-header__view-controls" },
-        ue = { class: "app-header__col app-header__primary-controls" },
-        de = { key: 0, class: "app-main-tabs" },
-        pe = ["data-locator", "disabled", "onClick"],
-        fe = { key: 0, class: "app-main-tabs__display-items" },
-        me = { class: "app-main-tabs__name" },
-        he = { class: "app-main-tabs__dropdown" },
-        ve = { class: "app-main-tabs__menu-container" },
-        ye = ["disabled", "onClick"],
+      // === CSS Class Constants: Header Component ===
+      var se = { class: "app-header" },                              // Main header container
+        ce = { class: "app-header__col app-header__secondary-controls" }, // Secondary controls column
+        le = { class: "app-header__col app-header__view-controls" },      // View controls column
+        ue = { class: "app-header__col app-header__primary-controls" };   // Primary controls column
+      
+      // === CSS Class Constants: Main Tabs Component ===
+      var de = { key: 0, class: "app-main-tabs" },          // Tabs container (conditional)
+        pe = ["data-locator", "disabled", "onClick"],       // Tab button attribute bindings
+        fe = { key: 0, class: "app-main-tabs__display-items" }, // Display items (conditional)
+        me = { class: "app-main-tabs__name" },              // Tab name container
+        he = { class: "app-main-tabs__dropdown" },          // Dropdown container
+        ve = { class: "app-main-tabs__menu-container" },    // Menu container
+        ye = ["disabled", "onClick"];                        // Menu item attribute bindings
         ge = n(23870),
         be = n(65725),
         we = n(75419);
@@ -175,8 +183,9 @@
         ViewerComponents: ViewerComponents,
         Utils: ViewerUtils
       });
-      var _e = { class: "app-header-plugins" },
-        Pe = ["id", "disabled", "onClick"];
+      // === CSS Class Constants: Header Plugins ===
+      var _e = { class: "app-header-plugins" },  // Plugins container
+        Pe = ["id", "disabled", "onClick"];       // Plugin button attribute bindings
       // Use ViewerUtils helpers (replacing Se, Ee, je, Oe duplicates)
       var Se = ViewerUtils.getType,
         Ee = ViewerUtils.getOwnKeys,
@@ -201,13 +210,15 @@
         HeaderPlugins: HeaderPlugins_Created,
         ViewerComponents: ViewerComponents
       });
-      var xe = ["href"],
-        Ae = [
-          (0, i.createStaticVNode)(
-            '<svg class="app-watermark__icon" viewBox="0 0 120 44" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>',
-            1,
-          ),
-        ];
+      // === CSS Class Constants: Watermark Component ===
+      var xe = ["href"];   // Link attribute binding
+      var Ae = [
+        // Static SVG VNode for watermark icon (empty placeholder)
+        (0, i.createStaticVNode)(
+          '<svg class="app-watermark__icon" viewBox="0 0 120 44" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>',
+          1
+        ),
+      ];
       // AppWatermark created via Factory
       var Te = Factories.createAppWatermark({
         Vue: i,
@@ -220,13 +231,20 @@
         Re = ViewerUtils.defineProperties,
         Fe = ViewerUtils.defineProperty,
         He = ViewerUtils.toPropertyKey;
-      var ze = {
-        2: "PCB.2D",
-        3: "PCB.3D",
-        Difference: "GerberCompare.Compare",
-        Target: "GerberCompare.Target",
-        Source: "GerberCompare.Source",
-      },
+      /**
+       * View Mode to Analytics Event Mapping
+       * Maps view mode IDs to analytics event names
+       * @type {Object.<string|number, string>}
+       */
+      var viewModeToAnalyticsEvent = {
+        2: "PCB.2D",                        // 2D PCB view
+        3: "PCB.3D",                        // 3D PCB view
+        Difference: "GerberCompare.Compare", // Gerber comparison diff view
+        Target: "GerberCompare.Target",      // Gerber comparison target
+        Source: "GerberCompare.Source",      // Gerber comparison source
+      };
+      // Backward compatibility alias
+      var ze = viewModeToAnalyticsEvent,
         Ze = window.FPSMonitor; // Extracted to external module FPSMonitor.js
       // Use ViewerUtils helpers (replacing Ue, Ge, We duplicates)
       var Ue = ViewerUtils.getType,
