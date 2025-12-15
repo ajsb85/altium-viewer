@@ -211,8 +211,35 @@
         return r;
       }
       // ============= SECTION 3: VUE COMPONENT - VIEWER =============
-      const Qe = {
+      
+      /**
+       * Main Viewer Vue Component Options
+       * 
+       * This is the primary component that renders the Altium Viewer application.
+       * It manages:
+       * - Loading state and error handling
+       * - View lifecycle (schematic, PCB, 3D, etc.)
+       * - Plugin management (global and local plugins)
+       * - Modal dialogs
+       * - Sidebar and header layout
+       * - Parent window communication (embed mode events)
+       * 
+       * @type {Object} Vue Component Options
+       * @property {string} name - Component name "Viewer"
+       * @property {Object} components - Registered child components
+       * @property {Function} data - Reactive data properties
+       * @property {Object} computed - Computed properties (includes Vuex mapGetters)
+       * @property {Object} watch - Watch handlers for reactive updates
+       * @property {Array} props - Component props: domain, coreInitialData
+       * @property {Function} created - Lifecycle hook: init core, units, event handlers
+       * @property {Function} mounted - Lifecycle hook: trigger layout update
+       * @property {Function} beforeUnmount - Cleanup event handlers
+       * @property {Object} methods - Component methods (includes Vuex mapActions)
+       */
+      const ViewerComponentOptions = {
         name: "Viewer",
+        
+        // Registered child components
         components: {
           Header: Be,
           Loader: ae,
@@ -225,7 +252,14 @@
           Sidebar: T,
           GridContainer: g.G,
         },
+        
+        // Custom directives
         directives: { modal: M },
+        
+        /**
+         * Component reactive data
+         * @returns {Object} Initial state
+         */
         data: function () {
           return {
             isExpired: !1,
@@ -679,11 +713,31 @@
             },
           },
         ),
-      },
-        et = (0, ViewerComponents.wrapComponent)(Qe, [
+      };
+      // Backward compatibility alias
+      var Qe = ViewerComponentOptions;
+
+      /**
+       * Wrapped Viewer Component with render function
+       * This is the compiled Vue component ready for use with createApp/mount
+       * @type {Object}
+       */
+      var ViewerComponent = (0, ViewerComponents.wrapComponent)(ViewerComponentOptions, [
           [
             "render",
-            function (e, t, n, r, o, m) {
+            /**
+             * Vue 3 render function
+             * @param {Object} e - Component instance (this)
+             * @param {Array} t - Render cache
+             * @param {Object} n - Component props
+             * @param {Object} r - Setup state (Composition API)
+             * @param {Object} o - Component data
+             * @param {Object} m - Context (methods, computed)
+             */
+            function(e, t, n, r, o, m) {
+              // Resolve child components
+              // h=AfsLink, v=Alert, y=AfsText, g=Loader, b=Sidebar
+              // w=Header, k=AfsIcon, C=LibModal, _=Watermark, P=GridContainer, S=AfsContextMenu
               var h = (0, i.resolveComponent)("AfsLink"),
                 v = (0, i.resolveComponent)("Alert"),
                 y = (0, i.resolveComponent)("AfsText"),
@@ -1520,9 +1574,12 @@
             onFeedback: function (e) {
               e && !s.includes(e) && s.push(e);
             },
-          }
+        }
         );
       };
+      // Backward compatibility alias
+      var et = ViewerComponent;
+      
       var zt = { class: "app-menu" },
         Zt = n(12561),
         Ut = n(25668);
