@@ -1617,14 +1617,44 @@
       var zt = { class: "app-menu" },
         Zt = n(12561),
         Ut = n(25668);
-      const Gt = {
+      /**
+       * TreeItem Vue Component Options
+       * 
+       * A recursive tree item component used in context menus and hierarchical lists.
+       * Supports nested children with accordion-style expansion.
+       * 
+       * Features:
+       * - Recursive rendering for nested items
+       * - Selection state tracking
+       * - Accordion expansion for child items
+       * - Customizable padding based on nesting level
+       * 
+       * @type {Object} Vue Component Options
+       */
+      const TreeItemOptions = {
         name: "TreeItem",
-        components: { AfsText: y.A, AfsIcon: m._, Accordion: Ut.U },
+        
+        // Child components
+        components: { 
+          AfsText: y.A, 
+          AfsIcon: m._, 
+          Accordion: Ut.U 
+        },
+        
+        // Directives
         directives: { trim: Zt.t },
+        
+        /**
+         * Component props
+         * @property {Object} item - Tree item data (name, id, icon, child[], selected)
+         * @property {number} level - Nesting level (0 = root)
+         * @property {string|number} startPadding - Base padding in pixels
+         * @property {string|number} selectedItem - Currently selected item name/id
+         */
         props: {
           item: {
             type: Object,
-            default: function () {
+            default: function() {
               return {};
             },
           },
@@ -1632,70 +1662,130 @@
           startPadding: { type: [String, Number], default: 32 },
           selectedItem: { type: [String, Number], default: "" },
         },
-        data: function () {
-          return { refPrefix: "group-", isOpened: !1 };
+        
+        /**
+         * Component reactive data
+         * @returns {Object} { refPrefix, isOpened }
+         */
+        data: function() {
+          return { 
+            refPrefix: "group-", 
+            isOpened: false 
+          };
         },
+        
         computed: {
-          paddingLeft: function () {
+          /**
+           * Calculate left padding based on nesting level
+           * Each level adds 24px to the base padding
+           * @returns {string} CSS padding value
+           */
+          paddingLeft: function() {
             return "".concat(+this.startPadding + 24 * +this.level, "px");
           },
-          childrenLevel: function () {
+          
+          /**
+           * Get the level for child items
+           * @returns {number} Current level + 1
+           */
+          childrenLevel: function() {
             return +this.level + 1;
           },
-          isSelected: function () {
+          
+          /**
+           * Check if this item is currently selected
+           * @returns {boolean} True if selected
+           */
+          isSelected: function() {
             return (
               this.item.selected ||
               this.item.name === this.selectedItem ||
               this.item.id === this.selectedItem
             );
           },
-          isIconFilled: function () {
+          
+          /**
+           * Check if icon should be filled
+           * @returns {boolean} True if filled (default true)
+           */
+          isIconFilled: function() {
             return !("iconFilled" in this.item) || this.item.iconFilled;
           },
         },
+        
         watch: {
+          /**
+           * Watch for item changes to auto-expand when selected
+           */
           item: {
-            deep: !0,
-            handler: function (e) {
-              e.selected && this.openTree();
+            deep: true,
+            handler: function(newItem) {
+              if (newItem.selected) {
+                this.openTree();
+              }
             },
           },
         },
-        mounted: function () {
-          this.isSelected && this.openTree();
+        
+        /**
+         * Mounted lifecycle hook
+         * Auto-opens tree if this item is selected
+         */
+        mounted: function() {
+          if (this.isSelected) {
+            this.openTree();
+          }
         },
+        
         methods: {
-          onItemClick: function (e, t) {
-            (null == t || t.target.dispatchEvent(new Event("mouseleave")),
-              this.$emit("item-click", e));
+          /**
+           * Handle item click event
+           * Dispatches mouseleave to hide tooltips and emits item-click
+           * @param {Object} item - Clicked item data
+           * @param {Event} event - Click event
+           */
+          onItemClick: function(item, event) {
+            if (event) {
+              event.target.dispatchEvent(new Event("mouseleave"));
+            }
+            this.$emit("item-click", item);
           },
-          onOpenChange: function () {
-            var e, t, n, r;
-            (this.isOpened
-              ? null === (e = this.$refs) ||
-              void 0 === e ||
-              null === (t = e.container) ||
-              void 0 === t ||
-              t.close()
-              : null === (n = this.$refs) ||
-              void 0 === n ||
-              null === (r = n.container) ||
-              void 0 === r ||
-              r.open(),
-              (this.isOpened = !this.isOpened));
+          
+          /**
+           * Toggle accordion open/close state
+           */
+          onOpenChange: function() {
+            var refs = this.$refs;
+            var container = refs && refs.container;
+            
+            if (this.isOpened) {
+              container && container.close();
+            } else {
+              container && container.open();
+            }
+            this.isOpened = !this.isOpened;
           },
-          openTree: function () {
-            var e, t;
-            (null === (e = this.$refs) ||
-              void 0 === e ||
-              null === (t = e.container) ||
-              void 0 === t ||
-              t.open(),
-              (this.isOpened = !0),
-              this.level && this.$emit("open-parent"));
+          
+          /**
+           * Open the tree item and notify parent
+           * Used for expanding to show selected items
+           */
+          openTree: function() {
+            var refs = this.$refs;
+            var container = refs && refs.container;
+            
+            container && container.open();
+            this.isOpened = true;
+            
+            // Notify parent to expand
+            if (this.level) {
+              this.$emit("open-parent");
+            }
           },
         },
-      },
+      };
+      // Backward compatibility alias
+      var Gt = TreeItemOptions;
         Wt = (0, ViewerComponents.wrapComponent)(Gt, [
           [
             "render",
