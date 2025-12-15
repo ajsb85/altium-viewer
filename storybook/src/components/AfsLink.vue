@@ -1,89 +1,111 @@
 <template>
-  <a 
-    class="afs-link" 
-    :class="classes"
+  <component
+    :is="href ? 'a' : 'button'"
+    class="afs-link"
+    :class="[
+      `is-${variant}`,
+      { 'prevent-blur': preventBlur }
+    ]"
     :href="href"
-    :target="external ? '_blank' : undefined"
-    :rel="external ? 'noopener noreferrer' : undefined"
+    :target="href && external ? '_blank' : undefined"
+    :type="href ? undefined : 'button'"
+    @click="handleClick"
   >
     <slot />
-  </a>
+  </component>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-
 /**
- * AfsLink - Styled link/anchor component
+ * AfsLink - Production Link Component
  * 
- * Provides consistent link styling with optional external link handling.
- * 
- * @see vendors.js AfsLink component
+ * Production CSS from production.css:12787-12830
+ * Styled link with primary, accent, and secondary variants.
  */
+
 defineOptions({ name: 'AfsLink' });
 
-const props = defineProps({
-  href: { type: String, default: '#' },
-  external: { type: Boolean, default: false },
-  size: { 
-    type: String, 
-    default: 'md',
-    validator: (v: string) => ['sm', 'md', 'lg'].includes(v)
-  },
-  underline: { type: Boolean, default: true },
-});
-
-const classes = computed(() => [
-  `afs-link_${props.size}`,
+const props = withDefaults(
+  defineProps<{
+    href?: string;
+    variant?: 'primary' | 'accent' | 'secondary' | 'regular-text';
+    external?: boolean;
+    preventBlur?: boolean;
+  }>(),
   {
-    'afs-link_external': props.external,
-    'afs-link_no-underline': !props.underline,
+    variant: 'primary',
+    external: true,
+    preventBlur: false,
   }
-]);
+);
+
+const emit = defineEmits<{
+  (e: 'click', event: MouseEvent): void;
+}>();
+
+function handleClick(event: MouseEvent) {
+  emit('click', event);
+}
 </script>
 
 <style lang="scss">
+/**
+ * Production CSS from production.css:12787-12830
+ */
+.afs-link,
+.afs-link:hover {
+  text-decoration: none;
+}
+
 .afs-link {
-  color: var(--afs-accent, #3b82f6);
-  text-decoration: underline;
+  background: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  transition: color 0.25s, border-bottom 0.25s;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  transition: color 0.2s, opacity 0.2s;
-  
-  &:hover {
-    color: var(--afs-accent-hover, #2563eb);
-    opacity: 0.9;
-  }
-  
-  &:active {
-    opacity: 0.7;
-  }
-  
-  /* Sizes */
-  &_sm {
-    font-size: 12px;
-  }
-  
-  &_md {
-    font-size: 14px;
-  }
-  
-  &_lg {
-    font-size: 16px;
-  }
-  
-  /* No underline modifier */
-  &_no-underline {
-    text-decoration: none;
-    
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  
-  /* External link indicator */
-  &_external::after {
-    content: ' ↗';
-    font-size: 0.8em;
-  }
+}
+
+.afs-link.is-primary {
+  color: var(--afs-text-icon-link, #0a84ff);
+}
+
+.afs-link.is-primary:hover {
+  color: var(--afs-text-icon-link-hover, #409cff);
+}
+
+.afs-link.is-accent {
+  color: var(--afs-text-icon-link-accent, #ff9f0a);
+  padding-top: 1px;
+  border-bottom: 1px solid var(--afs-text-icon-link-accent-border, rgba(255, 159, 10, 0.3));
+}
+
+.afs-link.is-accent:hover {
+  color: var(--afs-text-icon-link-accent, #ff9f0a);
+  border-bottom: 1px solid var(--afs-text-icon-link-accent, #ff9f0a);
+}
+
+.afs-link.is-secondary {
+  color: var(--afs-text-icon-link-secondary, rgba(255, 255, 255, 0.6));
+}
+
+.afs-link.is-secondary:hover {
+  color: var(--afs-text-icon-link-accent, #ff9f0a);
+}
+
+.afs-link.is-regular-text {
+  color: var(--afs-text-secondary, rgba(255, 255, 255, 0.6));
+}
+
+.afs-link.is-regular-text:hover {
+  color: var(--afs-text-icon-link, #0a84ff);
+}
+
+/* Prevent blur class for within tables */
+.afs-link.prevent-blur:focus {
+  outline: none;
 }
 </style>
