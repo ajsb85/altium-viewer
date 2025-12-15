@@ -7,3 +7,4 @@ storybook/build-storybook.log
 storybook/qc/
 
 storybook/client/
+storybook/src/assets/*.html

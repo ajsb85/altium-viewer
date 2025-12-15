@@ -1,26 +1,36 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { expect, within, userEvent } from 'storybook/test';
-import { ref } from 'vue';
+import { userEvent, within } from 'storybook/test';
 import SearchPanel from './SearchPanel.vue';
 
 /**
- * SearchPanel - Complete search interface with filtering and results
- * 
- * Combines SearchInput, filter dropdown, and SearchResults into a full search experience.
- * 
- * @see Search.js plugin
+ * SearchPanel - Search Side Panel Component
+ *
+ * Side panel with search form, primary search button, and filters toggle.
+ * Production HTML from SearchPanel
  */
 const meta: Meta<typeof SearchPanel> = {
-  title: 'Plugins/SearchPanel',
+  title: 'Views/SearchPanel',
   component: SearchPanel,
   tags: ['autodocs'],
+  argTypes: {
+    title: { description: 'Panel title', control: 'text' },
+    subtitle: { description: 'Keyboard shortcut subtitle', control: 'text' },
+    width: { description: 'Panel width in pixels', control: { type: 'range', min: 200, max: 400, step: 10 } },
+    placeholder: { description: 'Input placeholder text', control: 'text' },
+    showFiltersButton: { description: 'Show filters button', control: 'boolean' },
+    modelValue: { description: 'Search query value', control: 'text' },
+  },
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
+    controls: { expanded: true },
   },
   decorators: [
-    (story) => ({
-      components: { story },
-      template: '<div style="width: 320px; height: 450px; border: 1px solid #e5e7eb; border-radius: 8px;"><story /></div>',
+    () => ({
+      template: `
+        <div style="position: relative; height: 400px; background: #2c2c2e; display: flex; justify-content: flex-end;">
+          <story />
+        </div>
+      `,
     }),
   ],
 };
@@ -28,91 +38,79 @@ const meta: Meta<typeof SearchPanel> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const sampleResults = [
-  {
-    id: 'components',
-    title: 'Components',
-    items: [
-      { id: 'c1', name: 'U1 - ATmega328P', icon: 'component-16' },
-      { id: 'c2', name: 'R1 - 10K Resistor', icon: 'component-16' },
-      { id: 'c3', name: 'C1 - 100nF Capacitor', icon: 'component-16' },
-      { id: 'c4', name: 'LED1 - Red LED', icon: 'component-16' },
-    ],
-  },
-  {
-    id: 'nets',
-    title: 'Nets',
-    items: [
-      { id: 'n1', name: 'GND', icon: 'net-16' },
-      { id: 'n2', name: 'VCC', icon: 'net-16' },
-      { id: 'n3', name: 'RESET', icon: 'net-16' },
-    ],
-  },
-];
-
-/** Default with sample results and interaction test */
+/**
+ * Default search panel
+ */
 export const Default: Story = {
-  render: () => ({
-    components: { SearchPanel },
-    setup() {
-      const results = ref(sampleResults);
-      const selectedId = ref<string | null>(null);
-      
-      const handleSearch = (query: string) => {
-        console.log('Search:', query);
-      };
-      
-      const handleSelectItem = (item: any) => {
-        selectedId.value = item.id;
-      };
-      
-      return { results, selectedId, handleSearch, handleSelectItem };
-    },
-    template: `
-      <SearchPanel 
-        :results="results"
-        :selected-id="selectedId"
-        @search="handleSearch"
-        @select-item="handleSelectItem"
-      />
-    `,
-  }),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    
-    // Verify search input is present
-    const searchInput = canvas.getByPlaceholderText(/search/i);
-    await expect(searchInput).toBeInTheDocument();
-    
-    // Type in search input
-    await userEvent.type(searchInput, 'test');
-    await expect(searchInput).toHaveValue('test');
-    
-    // Verify section headers are displayed (from results prop)
-    const componentsSection = canvas.getByText('Components');
-    await expect(componentsSection).toBeInTheDocument();
-  },
-};
-
-/** Loading state */
-export const Loading: Story = {
   args: {
-    isLoading: true,
+    title: 'Search',
+    subtitle: '(Ctrl+F)',
+    width: 240,
+    placeholder: 'Search',
+    showFiltersButton: true,
   },
 };
 
-/** Empty state */
-export const Empty: Story = {
-  args: {
-    results: [],
-    emptyText: 'No components or nets found',
-  },
-};
-
-/** Without filters */
+/**
+ * Without filters button
+ */
 export const NoFilters: Story = {
   args: {
-    results: sampleResults,
-    showFilters: false,
+    ...Default.args,
+    showFiltersButton: false,
+  },
+};
+
+/**
+ * With pre-filled query
+ */
+export const WithQuery: Story = {
+  args: {
+    ...Default.args,
+    modelValue: 'R1',
+  },
+};
+
+/**
+ * Wide panel
+ */
+export const WidePanel: Story = {
+  args: {
+    ...Default.args,
+    width: 320,
+  },
+};
+
+/**
+ * Interactive demo
+ */
+export const Interactive: Story = {
+  args: {
+    ...Default.args,
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement);
+
+    await step('Type in search input', async () => {
+      const input = canvas.getByPlaceholderText('Search');
+      await userEvent.type(input, 'Capacitor');
+      await new Promise(r => setTimeout(r, 300));
+    });
+
+    await step('Hover over search button', async () => {
+      const searchBtn = canvasElement.querySelector('.form__icon-search') as HTMLElement;
+      if (searchBtn) {
+        await userEvent.hover(searchBtn);
+        await new Promise(r => setTimeout(r, 300));
+      }
+    });
+
+    await step('Click filters button', async () => {
+      const filtersBtn = canvasElement.querySelectorAll('.form__btn')[1] as HTMLElement;
+      if (filtersBtn) {
+        await userEvent.click(filtersBtn);
+        await new Promise(r => setTimeout(r, 300));
+      }
+    });
   },
 };
