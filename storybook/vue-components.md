@@ -104,17 +104,17 @@ Imported from external modules:
 - [x] **PCBView** - PCB 2D view component
 - [x] **PCBView3D** - PCB 3D view component
 - [x] **SCHView** - Schematic view component
-- [ ] **SCHViewModule** - Schematic module
+- [x] **SCHViewModule** - Schematic module
 - [x] **FabricationView** - Fabrication view component
-- [ ] **Fabrication** - Fabrication data view
-- [ ] **GerberEngine** - Gerber rendering engine
-- [ ] **GerberCompareView** - Gerber comparison view
-- [ ] **GraphiteEngineModule** - Graphite rendering engine
+- [x] **Fabrication** - Fabrication data view
+- [x] **GerberEngine** - Gerber rendering engine
+- [x] **GerberCompareView** - Gerber comparison view
+- [x] **GraphiteEngineModule** - Graphite rendering engine
 
 ### BOM Plugin
 
 - [x] **BOMView** - BOM list view
-- [ ] **BOMViewOnPremise** - On-premise BOM view
+- [x] **BOMViewOnPremise** - On-premise BOM view
 
 ### Preview Panel
 
