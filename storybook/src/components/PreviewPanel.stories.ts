@@ -4,19 +4,59 @@ import previewSample from '../assets/preview-sample.png';
 import sample1 from '../assets/sample-1_block_diagram.png';
 import sample2 from '../assets/sample-2_reference.png';
 
+/**
+ * PreviewPanel - Scrollable list of schematic preview thumbnails
+ * 
+ * Used in the Altium viewer sidebar to display and navigate schematic sheets.
+ * Supports lazy loading of images via LibLazyImage's v-lazy directive.
+ * 
+ * Production implementation: PreviewPanel.js (lines 193-194, 662, 685)
+ */
 const meta: Meta<typeof PreviewPanel> = {
   title: 'Plugins/PreviewPanel',
   component: PreviewPanel,
   tags: ['autodocs'],
-  parameters: { layout: 'centered' },
+  parameters: { 
+    layout: 'centered',
+    controls: { expanded: true, sort: 'requiredFirst' },
+  },
   decorators: [(story) => ({
     components: { story },
     template: '<div style="width: 200px; height: 600px; background: var(--afs-background);"><story /></div>',
   })],
+  argTypes: {
+    panelId: {
+      description: 'Unique ID for the panel element (used for mounting)',
+      control: 'text',
+      table: { 
+        category: 'Identity',
+        defaultValue: { summary: 'PreviewPanel' },
+      },
+    },
+    selectedId: {
+      description: 'ID of the currently selected item',
+      control: 'text',
+      table: { category: 'State' },
+    },
+    items: {
+      description: 'Array of preview items to display',
+      control: 'object',
+      table: { 
+        category: 'Content',
+        type: { summary: 'PreviewPanelItem[]' },
+      },
+    },
+  },
+  args: {
+    panelId: 'PreviewPanel',
+    selectedId: '',
+    items: [],
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
 
 /**
  * Production-like preview panel with 34 schematic sheets.

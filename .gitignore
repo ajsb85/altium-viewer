@@ -5,3 +5,5 @@ requests/
 viewer
 storybook/build-storybook.log
 storybook/qc/
+
+storybook/client/

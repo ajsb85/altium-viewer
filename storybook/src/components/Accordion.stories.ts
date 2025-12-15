@@ -8,6 +8,23 @@ const meta: Meta<typeof Accordion> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    controls: { expanded: true },
+  },
+  argTypes: {
+    title: {
+      description: 'Accordion header text',
+      control: 'text',
+      table: { category: 'Content' },
+    },
+    defaultExpanded: {
+      description: 'Whether accordion starts expanded',
+      control: 'boolean',
+      table: { category: 'State' },
+    },
+  },
+  args: {
+    title: 'Click to expand',
+    defaultExpanded: false,
   },
   decorators: [
     (story) => ({

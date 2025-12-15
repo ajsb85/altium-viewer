@@ -21,9 +21,14 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-docs',
     '@storybook/addon-vitest',
+    '@storybook/addon-a11y',
+    '@storybook/addon-mcp',
     '@chromatic-com/storybook',
   ],
-  staticDirs: [{ from: '../../pkg/altium/assets/client', to: '/' }],
+  staticDirs: [
+    { from: '../../pkg/altium/assets/client', to: '/' },
+    { from: '../src/assets', to: '/assets' },
+  ],
   framework: {
     name: '@storybook/vue3-vite',
     options: {},

@@ -1,40 +1,48 @@
 <template>
-  <span class="afs-icon" :class="{ 'afs-icon--filled': filled }">
-    <component :is="iconComponent" v-if="iconComponent" />
-    <span v-else class="afs-icon__fallback" :title="name"></span>
-  </span>
+  <svg
+    class="lib-icon"
+    :class="[`lib-icon--${name}`, { 'lib-icon--filled': filled }]"
+    viewBox="0 0 16 16"
+    aria-hidden="true"
+  >
+    <use :href="`/assets/icons/icons.svg#${name}`" />
+  </svg>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+/**
+ * AfsIcon - SVG Icon Component
+ * 
+ * Production CSS (production.css:38215-38219):
+ * .lib-icon { width: 1em; height: 1em; fill: currentColor; }
+ * 
+ * Uses sprite sheet at /assets/icons/icons.svg
+ */
+defineOptions({ name: 'AfsIcon' });
 
-const props = defineProps<{ 
-  name: string; 
-  filled?: boolean;
-}>();
-
-// Simple mapping or pure fallback. 
-// Ideally this would map names to SVG components or paths.
-// For now, we'll just handle a few known ones or return null to avoid errors.
-const iconComponent = computed(() => {
-    // In a real app this would import SVGs dynamically or from a map
-    return null; 
-});
+withDefaults(
+  defineProps<{
+    name: string;
+    filled?: boolean;
+  }>(),
+  {
+    filled: false,
+  }
+);
 </script>
 
-<style scoped>
-.afs-icon {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-color: currentColor; /* Placeholder for icon mask */
-  mask-size: contain;
-  mask-position: center;
-  mask-repeat: no-repeat;
-}
-.afs-icon__fallback {
-    display: block;
-    width: 100%;
-    height: 100%;
+<style lang="scss">
+/**
+ * Production CSS from production.css:38215-38219
+ */
+.lib-icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  flex-shrink: 0;
+  
+  &--filled {
+    fill: var(--afs-primary-default, #0a84ff);
+  }
 }
 </style>
