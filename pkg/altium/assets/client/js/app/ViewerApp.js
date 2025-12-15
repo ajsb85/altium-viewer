@@ -2299,32 +2299,76 @@
         In = n(37631),
         Rn = n(74646),
         Fn = n(2466);
-      const Hn =  ViewerI18n.messages["en-US"],
-        zn = ViewerI18n.messages["zh-CN"];
-      var Zn =  ViewerI18n.SUPPORTED_LOCALES,
-        Un = function (e) {
-          return e && Zn.includes(e) ? e : Zn[0];
-        },
-        Gn = n(92815),
-        Wn = n(14594);
-      function $n(e) {
+      // ============= I18N CONFIGURATION =============
+      
+      /**
+       * English (US) translations
+       * @type {Object}
+       */
+      const i18nMessagesEnUS = ViewerI18n.messages["en-US"];
+      // Backward compatibility alias
+      const Hn = i18nMessagesEnUS;
+      
+      /**
+       * Chinese (Simplified) translations
+       * @type {Object}
+       */
+      const i18nMessagesZhCN = ViewerI18n.messages["zh-CN"];
+      // Backward compatibility alias
+      const zn = i18nMessagesZhCN;
+      
+      /**
+       * List of supported locale codes
+       * @type {string[]}
+       */
+      var supportedLocales = ViewerI18n.SUPPORTED_LOCALES;
+      // Backward compatibility alias
+      var Zn = supportedLocales;
+      
+      /**
+       * Validate and return a supported locale
+       * Falls back to first supported locale if invalid
+       * @param {string} locale - Requested locale code
+       * @returns {string} Valid locale code
+       */
+      var getValidLocale = function(locale) {
+        return locale && supportedLocales.includes(locale) 
+          ? locale 
+          : supportedLocales[0];
+      };
+      // Backward compatibility alias
+      var Un = getValidLocale;
+
+      // Additional webpack imports for event emitters
+      var Gn = n(92815);
+      var Wn = n(14594);
+
+      /**
+       * Get the typeof a value (ES5 compatible Symbol handling)
+       * Used by regenerator runtime for async iteration
+       * @param {*} value - Value to check type of
+       * @returns {string} The type string
+       */
+      function getSymbolAwareType(value) {
         return (
-          ($n =
+          (getSymbolAwareType =
             "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          $n(e)
+              ? function(v) {
+                  return typeof v;
+                }
+              : function(v) {
+                  return v &&
+                    "function" == typeof Symbol &&
+                    v.constructor === Symbol &&
+                    v !== Symbol.prototype
+                    ? "symbol"
+                    : typeof v;
+                }),
+          getSymbolAwareType(value)
         );
       }
+      // Backward compatibility alias
+      var $n = getSymbolAwareType;
       // ============= SECTION 6: ASYNC GENERATOR RUNTIME =============
       function Yn() {
         Yn = function () {
@@ -2792,86 +2836,150 @@
           e
         );
       }
-      function Jn(e, t, n, r, i, o, a) {
+      // ============= ASYNC HELPER FUNCTIONS =============
+      
+      /**
+       * Step through an async generator with promise resolution
+       * Executes the next step of a generator and handles the result
+       * @param {Generator} generator - The generator instance
+       * @param {Function} resolve - Promise resolve callback  
+       * @param {Function} reject - Promise reject callback
+       * @param {Function} onNext - Handler for next value
+       * @param {Function} onThrow - Handler for thrown error
+       * @param {string} method - "next" or "throw"
+       * @param {*} value - Value to pass to generator
+       */
+      function asyncGeneratorStep(generator, resolve, reject, onNext, onThrow, method, value) {
         try {
-          var s = e[o](a),
-            c = s.value;
-        } catch (e) {
-          return void n(e);
+          var result = generator[method](value);
+          var resultValue = result.value;
+        } catch (error) {
+          reject(error);
+          return;
         }
-        s.done ? t(c) : Promise.resolve(c).then(r, i);
+        if (result.done) {
+          resolve(resultValue);
+        } else {
+          Promise.resolve(resultValue).then(onNext, onThrow);
+        }
       }
-      function Qn(e) {
-        return function () {
-          var t = this,
-            n = arguments;
-          return new Promise(function (r, i) {
-            var o = e.apply(t, n);
-            function a(e) {
-              Jn(o, r, i, a, s, "next", e);
+      // Backward compatibility alias
+      var Jn = asyncGeneratorStep;
+
+      /**
+       * Convert a generator function to an async function
+       * Wraps generator execution in a Promise
+       * @param {GeneratorFunction} generatorFn - Generator function to wrap
+       * @returns {Function} Async function returning a Promise
+       */
+      function asyncToGenerator(generatorFn) {
+        return function() {
+          var self = this;
+          var args = arguments;
+          return new Promise(function(resolve, reject) {
+            var generator = generatorFn.apply(self, args);
+            
+            function handleNext(value) {
+              asyncGeneratorStep(generator, resolve, reject, handleNext, handleThrow, "next", value);
             }
-            function s(e) {
-              Jn(o, r, i, a, s, "throw", e);
+            
+            function handleThrow(error) {
+              asyncGeneratorStep(generator, resolve, reject, handleNext, handleThrow, "throw", error);
             }
-            a(void 0);
+            
+            handleNext(undefined);
           });
         };
       }
-      function er(e) {
-        return tr.apply(this, arguments);
+      // Backward compatibility alias
+      var Qn = asyncToGenerator;
+      /**
+       * Resolve the viewer API domain URL
+       * Order of precedence:
+       * 1. Explicit data-viewer-api-url attribute
+       * 2. Domain from config file (if absolute URL)
+       * 3. Base URL + config path
+       * @param {Object} attributes - Widget data attributes
+       * @returns {Promise<string>} Resolved viewer domain URL
+       */
+      function resolveViewerDomain(attributes) {
+        return resolveViewerDomainAsync.apply(this, arguments);
       }
-      function tr() {
-        return (tr = Qn(
-          Yn().mark(function e(t) {
-            var n, r, i, o;
+      // Backward compatibility alias
+      var er = resolveViewerDomain;
+      
+      function resolveViewerDomainAsync() {
+        return (resolveViewerDomainAsync = Qn(
+          Yn().mark(function resolveDomain(attributes) {
+            var configUrl, fetchResponse, configData, httpScheme;
+            
             return Yn().wrap(
-              function (e) {
-                for (; ;)
-                  switch ((e.prev = e.next)) {
+              function(context) {
+                for (;;)
+                  switch ((context.prev = context.next)) {
                     case 0:
-                      if (!t["data-viewer-api-url"]) {
-                        e.next = 2;
+                      // Check for explicit viewer API URL
+                      if (!attributes["data-viewer-api-url"]) {
+                        context.next = 2;
                         break;
                       }
-                      return e.abrupt("return", t["data-viewer-api-url"]);
+                      return context.abrupt("return", attributes["data-viewer-api-url"]);
+                      
                     case 2:
-                      ((n = ""), (e.next = 17));
+                      // Default: empty config URL
+                      configUrl = "";
+                      context.next = 17;
                       break;
+                      
                     case 7:
-                      return ((r = e.sent), (e.next = 10), r.json());
+                      // Parse config response
+                      fetchResponse = context.sent;
+                      context.next = 10;
+                      return fetchResponse.json();
+                      
                     case 10:
-                      ((i = e.sent).services.viewer && (n = i.services.viewer),
-                        (e.next = 17));
+                      configData = context.sent;
+                      if (configData.services.viewer) {
+                        configUrl = configData.services.viewer;
+                      }
+                      context.next = 17;
                       break;
+                      
                     case 14:
-                      ((e.prev = 14),
-                        (e.t0 = e.catch(4)),
-                        nr.LogWarn(
-                          "Load configuration file error. Use built value.",
-                          e.t0,
-                        ));
-                    case 17:
-                      return (
-                        (o = ["https:", "http:"].find(function (e) {
-                          return n.includes(e);
-                        })),
-                        e.abrupt(
-                          "return",
-                          o ? n : t["data-service-base-url"] + n,
-                        )
+                      // Handle config load error
+                      context.prev = 14;
+                      context.t0 = context.catch(4);
+                      appLogger.LogWarn(
+                        "Load configuration file error. Use built value.",
+                        context.t0
                       );
+                      
+                    case 17:
+                      // Check if URL is absolute (has scheme)
+                      httpScheme = ["https:", "http:"].find(function(scheme) {
+                        return configUrl.includes(scheme);
+                      });
+                      
+                      // Return absolute URL or prepend base URL
+                      return context.abrupt(
+                        "return",
+                        httpScheme ? configUrl : attributes["data-service-base-url"] + configUrl
+                      );
+                      
                     case 19:
                     case "end":
-                      return e.stop();
+                      return context.stop();
                   }
               },
-              e,
+              resolveDomain,
               null,
-              [[4, 14]],
+              [[4, 14]]
             );
-          }),
+          })
         )).apply(this, arguments);
       }
+      // Backward compatibility alias
+      var tr = resolveViewerDomainAsync;
       console.log("69668: Defining window.__APP__");
       window.__APP__ = {
         get afsConfig() {
@@ -2938,126 +3046,200 @@
           },
         },
       };
-      // ============= SECTION 7: APP INITIALIZATION =============
-      var nr = window.__CORE__.createLogger("Index"),
-        rr = (function () {
-          var e = Qn(
-            Yn().mark(function e(t) {
-              var n, r, o, a;
-              return Yn().wrap(function (e) {
-                for (; ;)
-                  switch ((e.prev = e.next)) {
-                    case 0:
-                      return (
-                        (s = (n = Xn({}, t.attributes))["data-i18n-lang"]),
-                        (r = (0, Fn.o)({
-                          locale: Un(s),
-                          allowComposition: !0,
-                          messages: { "en-US": Hn, "zh-CN": zn },
-                          missing: function (e, t) {
-                            return "[$".concat(t, "$]");
-                          },
-                        })),
-                        (window.__APP__.library.i18n = r.global),
-                        window.__APP__.licensesService.setup(
-                          n["data-license-features"],
-                        ),
-                        new Tn().start(n["data-theme"], "dark", window.__APP__),
-                        (o =
-                          null == n
-                            ? void 0
-                            : n["data-external-styles-link"]) && (0, Qt.Z)(o),
-                        (window.__DATA_SERVICE_URL__ =
-                          n["data-service-base-url"]),
-                        (e.next = 11),
-                        er(n)
-                      );
-                    case 11:
-                      return (
-                        (window.__VIEWER_DOMAIN__ = e.sent),
-                        (a = (0, i.createApp)(et, {
-                          domain: window.__VIEWER_DOMAIN__,
-                          coreInitialData: {
-                            designUrl: t.designUrl,
-                            userPluginsNames: Array.isArray(t.userPluginsNames)
-                              ? t.userPluginsNames
-                              : [],
-                            modulesNamesToUrls: ViewerAppConfig.getModulesNamesToUrls(),
-                            attributes: n,
-                          },
-                        })
-                          .use(Mn.Z)
-                          .use(In.X)
-                          .use(Rn.K)
-                          .use(r)).mount("#viewer-app"),
-                        e.abrupt("return", a)
-                      );
-                    case 15:
-                    case "end":
-                      return e.stop();
-                  }
-                var s;
-              }, e);
-            }),
-          );
-          return function (t) {
-            return e.apply(this, arguments);
-          };
-        })();
-      const ir = function (e) {
-        var t = e.url;
-        return (0, r.qv)(e, function (e) {
-          return fetch(t, { body: e.body, method: "POST" })
-            .then(function (e) {
-              429 === e.status &&
+      // ============= SECTION 7: APP INITIALIZATION (DEOBFUSCATED) =============
+      
+      /**
+       * Application logger instance for index/initialization messages
+       * @type {Logger}
+       */
+      var appLogger = window.__CORE__.createLogger("Index");
+      // Backward compatibility alias
+      var nr = appLogger;
+
+      /**
+       * Create and mount the Vue application
+       * Initializes i18n, theme, licenses, and mounts the viewer
+       * @param {Object} options - Application creation options
+       * @param {string} options.designUrl - URL of the design to load
+       * @param {Object} options.attributes - Data attributes from widget
+       * @param {string[]} [options.userPluginsNames] - User-defined plugins
+       * @returns {Promise<Vue>} The mounted Vue application instance
+       */
+      var createVueApplication = (function() {
+        var asyncFn = Qn(
+          Yn().mark(function createAppAsync(options) {
+            var attributes, i18nLang, i18nInstance, externalStylesLink, vueApp;
+            
+            return Yn().wrap(function(context) {
+              for (;;)
+                switch ((context.prev = context.next)) {
+                  case 0:
+                    // Copy attributes to local variable
+                    attributes = Xn({}, options.attributes);
+                    
+                    // Get language setting
+                    i18nLang = attributes["data-i18n-lang"];
+                    
+                    // Create i18n instance
+                    i18nInstance = (0, Fn.o)({
+                      locale: Un(i18nLang),
+                      allowComposition: true,
+                      messages: { 
+                        "en-US": Hn, 
+                        "zh-CN": zn 
+                      },
+                      missing: function(locale, key) {
+                        return "[$" + key + "$]";
+                      }
+                    });
+                    
+                    // Store i18n globally
+                    window.__APP__.library.i18n = i18nInstance.global;
+                    
+                    // Setup license features
+                    window.__APP__.licensesService.setup(attributes["data-license-features"]);
+                    
+                    // Initialize theme manager
+                    new Tn().start(attributes["data-theme"], "dark", window.__APP__);
+                    
+                    // Load external styles if provided
+                    externalStylesLink = attributes["data-external-styles-link"];
+                    if (externalStylesLink) {
+                      (0, Qt.Z)(externalStylesLink);
+                    }
+                    
+                    // Store data service URL
+                    window.__DATA_SERVICE_URL__ = attributes["data-service-base-url"];
+                    
+                    // Resolve viewer domain
+                    context.next = 11;
+                    return resolveViewerDomain(attributes);
+                    
+                  case 11:
+                    // Store resolved domain
+                    window.__VIEWER_DOMAIN__ = context.sent;
+                    
+                    // Create and mount Vue app
+                    vueApp = (0, i.createApp)(et, {
+                      domain: window.__VIEWER_DOMAIN__,
+                      coreInitialData: {
+                        designUrl: options.designUrl,
+                        userPluginsNames: Array.isArray(options.userPluginsNames)
+                          ? options.userPluginsNames
+                          : [],
+                        modulesNamesToUrls: ViewerAppConfig.getModulesNamesToUrls(),
+                        attributes: attributes
+                      }
+                    })
+                      .use(Mn.Z)   // Plugin 1
+                      .use(In.X)   // Plugin 2
+                      .use(Rn.K)   // Plugin 3
+                      .use(i18nInstance);
+                    
+                    // Mount to DOM
+                    vueApp = vueApp.mount("#viewer-app");
+                    
+                    return context.abrupt("return", vueApp);
+                    
+                  case 15:
+                  case "end":
+                    return context.stop();
+                }
+            }, createAppAsync);
+          })
+        );
+        
+        return function(options) {
+          return asyncFn.apply(this, arguments);
+        };
+      })();
+      // Backward compatibility alias
+      var rr = createVueApplication;
+
+      /**
+       * Custom transport for monitoring/telemetry data
+       * Sends data via fetch with fallback to tunnel endpoint
+       * @param {Object} envelope - Monitoring envelope
+       * @param {string} envelope.url - DSN URL
+       * @param {string} envelope.body - Request body
+       */
+      const customMonitoringTransport = function(envelope) {
+        var dsnUrl = envelope.url;
+        
+        return (0, r.qv)(envelope, function(request) {
+          // Primary: Direct fetch to DSN
+          return fetch(dsnUrl, { 
+            body: request.body, 
+            method: "POST" 
+          })
+            .then(function(response) {
+              // Track rate limiting
+              if (response.status === 429) {
                 window.__APP__.analytics.dispatchAnalyticsEvent(
-                  "AppMonitoring.NotSent.RateLimit",
+                  "AppMonitoring.NotSent.RateLimit"
                 );
+              }
             })
-            .catch(function () {
-              var n,
-                r = window.__CORE__,
-                i =
-                  null !== (n = r.response.designId) && void 0 !== n
-                    ? n
-                    : (0, W.kD)("data-project-src", ""),
-                o =
-                  window.__VIEWER_DOMAIN__ +
-                  "/api/monitoringtunnel?source_id=".concat(i),
-                a = Object.assign({}, r.apiHeaders, {
-                  "Content-Type": "text/plain;charset=UTF-8",
-                  Accept: "*/*",
-                  Dsn: t,
-                });
-              fetch(o, { body: e.body, method: "POST", headers: a }).catch(
-                function () {
-                  return window.__APP__.analytics.dispatchAnalyticsEvent(
-                    "AppMonitoring.NotSent.TunnelError",
-                  );
-                },
-              );
+            .catch(function() {
+              // Fallback: Use monitoring tunnel
+              var core = window.__CORE__;
+              var designId = core.response.designId !== null && core.response.designId !== undefined
+                ? core.response.designId
+                : (0, W.kD)("data-project-src", "");
+              
+              var tunnelUrl = window.__VIEWER_DOMAIN__ + 
+                "/api/monitoringtunnel?source_id=" + designId;
+              
+              var headers = Object.assign({}, core.apiHeaders, {
+                "Content-Type": "text/plain;charset=UTF-8",
+                "Accept": "*/*",
+                "Dsn": dsnUrl
+              });
+              
+              fetch(tunnelUrl, { 
+                body: request.body, 
+                method: "POST", 
+                headers: headers 
+              }).catch(function() {
+                window.__APP__.analytics.dispatchAnalyticsEvent(
+                  "AppMonitoring.NotSent.TunnelError"
+                );
+              });
             });
         });
       };
+      // Backward compatibility alias
+      var ir = customMonitoringTransport;
+
+      // Import sanitization utility
       var or = n(73791);
-      function ar(e) {
+
+      /**
+       * Get the typeof a value (ES5 compatible)
+       * Handles Symbol correctly
+       * @param {*} value - Value to check
+       * @returns {string} The type string
+       */
+      function getTypeOf(value) {
         return (
-          (ar =
+          (getTypeOf =
             "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                return typeof e;
-              }
-              : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-          ar(e)
+              ? function(val) {
+                  return typeof val;
+                }
+              : function(val) {
+                  return val &&
+                    "function" == typeof Symbol &&
+                    val.constructor === Symbol &&
+                    val !== Symbol.prototype
+                    ? "symbol"
+                    : typeof val;
+                }),
+          getTypeOf(value)
         );
       }
+      // Backward compatibility alias
+      var ar = getTypeOf;
       function sr() {
         sr = function () {
           return t;
@@ -3728,9 +3910,7 @@
         )).apply(this, arguments);
       }
 
-      // Alias for backward compatibility
-      var appLogger = nr;
-      var customMonitoringTransport = ir;
+      // Note: appLogger and customMonitoringTransport are defined in Section 7
 
       // ============= APPLICATION ENTRY POINT =============
       /**
