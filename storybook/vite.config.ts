@@ -26,6 +26,14 @@ export default defineConfig({
     }
   },
   test: {
+    // Coverage configuration for Storybook component tests
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html', 'json-summary'],
+      reportsDirectory: './coverage',
+      include: ['src/components/**/*.vue'],
+      exclude: ['src/**/*.stories.ts', 'src/**/*.test.ts'],
+    },
     projects: [{
       extends: true,
       plugins: [

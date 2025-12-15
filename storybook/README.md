@@ -1,71 +1,70 @@
 # Altium Viewer - Storybook Component Library
 
-This directory contains the Storybook setup for the Altium Viewer Vue 3 components. It provides an isolated environment for developing, documenting, and testing UI components.
+Vue 3 UI components for the Altium Web Viewer, documented and tested in isolation.
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v18+ recommended)
-- NPM
-
-### Installation
-
-Install the dependencies:
+## Quick Start
 
 ```bash
-npm install
-```
-
-### Running Storybook
-
-Start the Storybook development server:
-
-```bash
+npm install --legacy-peer-deps
 npm run storybook
 ```
 
-This will open Storybook locally at `http://localhost:6006`.
+Opens at `http://localhost:6006`
 
 ## Testing
 
-We use **Vitest** for component testing, integrated directly with Storybook stories.
-
-### Running Tests
-
-To run the full test suite in headless mode (Chromium):
+### Component Tests (Vitest)
 
 ```bash
 npx vitest --project=storybook
 ```
 
-To run tests once without watching for changes:
+### Visual Tests (Chromatic)
+
+Visual regression testing via Chromatic:
 
 ```bash
-npx vitest run --project=storybook
+npx chromatic --project-token=<your-token>
 ```
 
-### Test Configuration
+Or enable in Storybook UI via the Visual Tests panel.
 
-- **Config File**: `vite.config.ts` (configured with `storybookTest` plugin)
-- **Setup File**: `.storybook/vitest.setup.ts`
-- **Environment**: browser (via `@vitest/browser-playwright`)
+### Coverage
 
-## Configuration Notes
+Enable coverage in the testing widget, or run:
 
-### Theming and Aliases
+```bash
+npx vitest --project=storybook --coverage
+```
 
-Due to current versioning quirks in Storybook 10+, we use specific aliases in `.storybook/main.ts` to ensuring blocking dependencies like `@storybook/blocks` can access internal theming logic.
-**Do not remove these aliases or the `@storybook/theming` dependency** without verifying the build survives.
+Coverage reports generated in `./coverage/`.
 
-We also use `createRequire` in `main.ts` to alias `use-sync-external-store/shim/index.js` to its absolute path via `require.resolve`, ensuring both Vite (dev) and Rollup (build) can resolve it correctly. We also include it in `optimizeDeps`.
+## Building
+
+```bash
+npm run build-storybook
+```
+
+Output: `storybook-static/`
+
+## Configuration
+
+- **Storybook config**: `.storybook/main.ts`, `.storybook/preview.ts`
+- **Vitest config**: `vite.config.ts`
+- **Component inventory**: `vue-components.md`
 
 ### Static Assets
 
-The project is configured to serve assets from `pkg/altium/assets/client` at the root. Be aware of this when referencing fonts or images in CSS/SCSS (e.g., path resolution).
+Assets served from `pkg/altium/assets/client` at root path.
+
+### Dependencies
+
+Use `--legacy-peer-deps` for npm install due to `@storybook/blocks` v8/v10 peer conflicts.
 
 ## Project Structure
 
-- `src/components/`: Vue components and their corresponding stories (`*.stories.ts`).
-- `.storybook/`: Storybook configuration (`main.ts`, `preview.ts`, `vitest.setup.ts`).
-- `vue-components.md`: Inventory of components to be implemented.
+```
+src/components/   # Vue components + stories
+.storybook/       # Storybook configuration
+vue-components.md # Component checklist
+```

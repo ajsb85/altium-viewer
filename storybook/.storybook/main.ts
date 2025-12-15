@@ -20,7 +20,8 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-docs',
-    '@storybook/addon-vitest'
+    '@storybook/addon-vitest',
+    '@chromatic-com/storybook',
   ],
   staticDirs: [{ from: '../../pkg/altium/assets/client', to: '/' }],
   framework: {
