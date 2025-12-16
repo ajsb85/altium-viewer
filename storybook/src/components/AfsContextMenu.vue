@@ -8,16 +8,14 @@
       :style="menuStyle"
     >
       <div class="afs-context-menu__inner">
-        <ul class="afs-context-menu__section">
-          <slot />
-        </ul>
+        <slot />
       </div>
     </div>
   </Transition>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onUnmounted } from 'vue';
 
 /**
  * AfsContextMenu - Context menu/dropdown component
@@ -51,9 +49,9 @@ const isOpened = ref(false);
 const menuRef = ref<HTMLElement | null>(null);
 
 const bindTransition = computed(() => ({
-  'enter-class': 'afs-context-menu_enter',
+  'enter-from-class': 'afs-context-menu_enter',
   'enter-active-class': 'afs-context-menu_enter-active',
-  'leave-class': 'afs-context-menu_leave',
+  'leave-from-class': 'afs-context-menu_leave',
   'leave-active-class': 'afs-context-menu_leave-active',
   'leave-to-class': 'afs-context-menu_leave-to',
 }));
@@ -81,19 +79,30 @@ const classes = computed(() => {
 const menuStyle = computed(() => ({
   maxHeight: `${props.maxHeight}px`,
   minWidth: `${props.minWidth}px`,
+  // Ensure the menu is always reachable if fixed positioned but not manually positioned
+  // This is a safety fallback, though parent should control position
 }));
 
 // Public methods
 function open() {
   isOpened.value = true;
+  // Delay adding the listener to avoid the current click from closing it immediately
+  setTimeout(() => {
+    document.addEventListener('click', handleClickOutside);
+  }, 0);
 }
 
 function close() {
   isOpened.value = false;
+  document.removeEventListener('click', handleClickOutside);
 }
 
 function toggle() {
-  isOpened.value = !isOpened.value;
+  if (isOpened.value) {
+    close();
+  } else {
+    open();
+  }
 }
 
 // Click outside handler
@@ -102,10 +111,6 @@ function handleClickOutside(event: MouseEvent) {
     close();
   }
 }
-
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside);
-});
 
 onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside);

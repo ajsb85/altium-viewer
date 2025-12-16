@@ -73,7 +73,6 @@ const emit = defineEmits<{
 }>();
 
 const query = ref('');
-const query = ref('');
 
 function handleSubmit() {
   emit('submit', query.value);

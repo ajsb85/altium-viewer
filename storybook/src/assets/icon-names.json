@@ -1,0 +1,5672 @@
+[
+  {
+    "name": "9dots",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--9dots\""
+  },
+  {
+    "name": "a-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--a-16\""
+  },
+  {
+    "name": "activities",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--activities\""
+  },
+  {
+    "name": "activities-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--activities-16\""
+  },
+  {
+    "name": "activity",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--activity\""
+  },
+  {
+    "name": "ad",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ad\""
+  },
+  {
+    "name": "ad-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ad-16\""
+  },
+  {
+    "name": "add-alternate-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--add-alternate-16\""
+  },
+  {
+    "name": "add-column-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--add-column-16\""
+  },
+  {
+    "name": "add-row-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--add-row-16\""
+  },
+  {
+    "name": "added",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--added\""
+  },
+  {
+    "name": "added-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--added-16\""
+  },
+  {
+    "name": "ai",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ai\""
+  },
+  {
+    "name": "ai-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ai-16\""
+  },
+  {
+    "name": "ai-disabled",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ai-disabled\""
+  },
+  {
+    "name": "ai-info",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ai-info\""
+  },
+  {
+    "name": "ai-warging",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ai-warging\""
+  },
+  {
+    "name": "analyze-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--analyze-16\""
+  },
+  {
+    "name": "area-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--area-16\""
+  },
+  {
+    "name": "arrow-change",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-change\""
+  },
+  {
+    "name": "arrow-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-circle\""
+  },
+  {
+    "name": "arrow-circle-backward",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-circle-backward\""
+  },
+  {
+    "name": "arrow-circle-backward-clock",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-circle-backward-clock\""
+  },
+  {
+    "name": "arrow-clockwise",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-clockwise\""
+  },
+  {
+    "name": "arrow-counterclockwise",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-counterclockwise\""
+  },
+  {
+    "name": "arrow-curve-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-curve-right\""
+  },
+  {
+    "name": "arrow-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-down\""
+  },
+  {
+    "name": "arrow-down-6",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-down-6\""
+  },
+  {
+    "name": "arrow-down-bracket",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-down-bracket\""
+  },
+  {
+    "name": "arrow-down-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-down-circle\""
+  },
+  {
+    "name": "arrow-down-s",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-down-s\""
+  },
+  {
+    "name": "arrow-down-to-square-bracket",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-down-to-square-bracket\""
+  },
+  {
+    "name": "arrow-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-left\""
+  },
+  {
+    "name": "arrow-left-sharp",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-left-sharp\""
+  },
+  {
+    "name": "arrow-merge",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-merge\""
+  },
+  {
+    "name": "arrow-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-right\""
+  },
+  {
+    "name": "arrow-right-2-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-right-2-12\""
+  },
+  {
+    "name": "arrow-right-6",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-right-6\""
+  },
+  {
+    "name": "arrow-right-8",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-right-8\""
+  },
+  {
+    "name": "arrow-right-bracket",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-right-bracket\""
+  },
+  {
+    "name": "arrow-right-from-rectangle-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-right-from-rectangle-32\""
+  },
+  {
+    "name": "arrow-right-sharp",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-right-sharp\""
+  },
+  {
+    "name": "arrow-right-with-rectangle-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-right-with-rectangle-16\""
+  },
+  {
+    "name": "arrow-shape-turn-up-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-shape-turn-up-right\""
+  },
+  {
+    "name": "arrow-split",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-split\""
+  },
+  {
+    "name": "arrow-trending-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-trending-down\""
+  },
+  {
+    "name": "arrow-trending-down-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-trending-down-16\""
+  },
+  {
+    "name": "arrow-trending-up",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-trending-up\""
+  },
+  {
+    "name": "arrow-trending-up-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-trending-up-16\""
+  },
+  {
+    "name": "arrow-triangle-reversed-right-sharp",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-triangle-reversed-right-sharp\""
+  },
+  {
+    "name": "arrow-turn-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-turn-left\""
+  },
+  {
+    "name": "arrow-turn-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-turn-right\""
+  },
+  {
+    "name": "arrow-up",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-up\""
+  },
+  {
+    "name": "arrow-up-arrow-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-up-arrow-down\""
+  },
+  {
+    "name": "arrow-up-bracket",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-up-bracket\""
+  },
+  {
+    "name": "arrow-up-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-up-circle\""
+  },
+  {
+    "name": "arrow-up-orange",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-up-orange\""
+  },
+  {
+    "name": "arrow-up-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-up-right\""
+  },
+  {
+    "name": "arrow-up-s",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrow-up-s\""
+  },
+  {
+    "name": "arrows-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-circle\""
+  },
+  {
+    "name": "arrows-circle-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-circle-16\""
+  },
+  {
+    "name": "arrows-down-left-up-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-down-left-up-right\""
+  },
+  {
+    "name": "arrows-horizontal-inward-bracket",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-horizontal-inward-bracket\""
+  },
+  {
+    "name": "arrows-horizontal-outward-bracket",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-horizontal-outward-bracket\""
+  },
+  {
+    "name": "arrows-left-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-left-right\""
+  },
+  {
+    "name": "arrows-merge-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-merge-16\""
+  },
+  {
+    "name": "arrows-sorting",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-sorting\""
+  },
+  {
+    "name": "arrows-split-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-split-16\""
+  },
+  {
+    "name": "arrows-up-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-up-down\""
+  },
+  {
+    "name": "arrows-up-right-down-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--arrows-up-right-down-left\""
+  },
+  {
+    "name": "assembly-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--assembly-16\""
+  },
+  {
+    "name": "assembly-icon-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--assembly-icon-16\""
+  },
+  {
+    "name": "assembly-view-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--assembly-view-16\""
+  },
+  {
+    "name": "at",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--at\""
+  },
+  {
+    "name": "at-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--at-16\""
+  },
+  {
+    "name": "autofill-extra-qty-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--autofill-extra-qty-16\""
+  },
+  {
+    "name": "avatar",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--avatar\""
+  },
+  {
+    "name": "bell",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bell\""
+  },
+  {
+    "name": "bin",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bin\""
+  },
+  {
+    "name": "bin-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bin-16\""
+  },
+  {
+    "name": "block-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--block-16\""
+  },
+  {
+    "name": "blockquote",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--blockquote\""
+  },
+  {
+    "name": "board-info-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--board-info-12\""
+  },
+  {
+    "name": "bolt",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bolt\""
+  },
+  {
+    "name": "bolt-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bolt-2\""
+  },
+  {
+    "name": "bom-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bom-16\""
+  },
+  {
+    "name": "book-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--book-16\""
+  },
+  {
+    "name": "book-bookmark",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--book-bookmark\""
+  },
+  {
+    "name": "book-open",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--book-open\""
+  },
+  {
+    "name": "bookmark",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bookmark\""
+  },
+  {
+    "name": "box",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--box\""
+  },
+  {
+    "name": "box-gift",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--box-gift\""
+  },
+  {
+    "name": "boxes",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--boxes\""
+  },
+  {
+    "name": "bubble",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bubble\""
+  },
+  {
+    "name": "bubble-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bubble-16\""
+  },
+  {
+    "name": "bubble-add-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bubble-add-16\""
+  },
+  {
+    "name": "bubble-exclamation-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bubble-exclamation-16\""
+  },
+  {
+    "name": "bubble-plus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bubble-plus\""
+  },
+  {
+    "name": "bubble-text",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--bubble-text\""
+  },
+  {
+    "name": "building-company",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--building-company\""
+  },
+  {
+    "name": "building-company-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--building-company-16\""
+  },
+  {
+    "name": "building-home",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--building-home\""
+  },
+  {
+    "name": "calendar",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--calendar\""
+  },
+  {
+    "name": "calendar-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--calendar-16\""
+  },
+  {
+    "name": "calendar-target",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--calendar-target\""
+  },
+  {
+    "name": "camera-photo",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--camera-photo\""
+  },
+  {
+    "name": "camera-photo-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--camera-photo-slash\""
+  },
+  {
+    "name": "camera-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--camera-slash\""
+  },
+  {
+    "name": "camera-video",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--camera-video\""
+  },
+  {
+    "name": "cards-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cards-16\""
+  },
+  {
+    "name": "cart",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cart\""
+  },
+  {
+    "name": "cart-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cart-16\""
+  },
+  {
+    "name": "category-cables-wire",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-cables-wire\""
+  },
+  {
+    "name": "category-circuit-protection",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-circuit-protection\""
+  },
+  {
+    "name": "category-connectors",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-connectors\""
+  },
+  {
+    "name": "category-discrete-semiconductors",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-discrete-semiconductors\""
+  },
+  {
+    "name": "category-electromechanical",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-electromechanical\""
+  },
+  {
+    "name": "category-integrated-circuits",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-integrated-circuits\""
+  },
+  {
+    "name": "category-optoelectronics",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-optoelectronics\""
+  },
+  {
+    "name": "category-passive-components",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-passive-components\""
+  },
+  {
+    "name": "category-power-products",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-power-products\""
+  },
+  {
+    "name": "category-sensors",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-sensors\""
+  },
+  {
+    "name": "category-uncategorized",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--category-uncategorized\""
+  },
+  {
+    "name": "changed-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--changed-16\""
+  },
+  {
+    "name": "character-a-monospace",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--character-a-monospace\""
+  },
+  {
+    "name": "character-a-sans-serif",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--character-a-sans-serif\""
+  },
+  {
+    "name": "character-a-serif",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--character-a-serif\""
+  },
+  {
+    "name": "character-b-bold",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--character-b-bold\""
+  },
+  {
+    "name": "character-i-italic",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--character-i-italic\""
+  },
+  {
+    "name": "character-s-strikethrough",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--character-s-strikethrough\""
+  },
+  {
+    "name": "character-t",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--character-t\""
+  },
+  {
+    "name": "character-u-underline",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--character-u-underline\""
+  },
+  {
+    "name": "characters-2d",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--characters-2d\""
+  },
+  {
+    "name": "characters-3d",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--characters-3d\""
+  },
+  {
+    "name": "characters-a-ideograph",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--characters-a-ideograph\""
+  },
+  {
+    "name": "characters-aa",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--characters-aa\""
+  },
+  {
+    "name": "characters-h-1",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--characters-h-1\""
+  },
+  {
+    "name": "characters-h-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--characters-h-2\""
+  },
+  {
+    "name": "chart-bar-vertical",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chart-bar-vertical\""
+  },
+  {
+    "name": "chart-line",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chart-line\""
+  },
+  {
+    "name": "chart-line-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chart-line-16\""
+  },
+  {
+    "name": "chart-pie",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chart-pie\""
+  },
+  {
+    "name": "chart-segment",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chart-segment\""
+  },
+  {
+    "name": "chat-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chat-16\""
+  },
+  {
+    "name": "check-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--check-circle\""
+  },
+  {
+    "name": "checklist",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--checklist\""
+  },
+  {
+    "name": "checklist-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--checklist-16\""
+  },
+  {
+    "name": "checklist-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--checklist-32\""
+  },
+  {
+    "name": "checkmark",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--checkmark\""
+  },
+  {
+    "name": "checkmark-8",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--checkmark-8\""
+  },
+  {
+    "name": "checkmark-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--checkmark-circle\""
+  },
+  {
+    "name": "checkmark-square-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--checkmark-square-16\""
+  },
+  {
+    "name": "checkmark-starburst",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--checkmark-starburst\""
+  },
+  {
+    "name": "chevron-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-down\""
+  },
+  {
+    "name": "chevron-down-8",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-down-8\""
+  },
+  {
+    "name": "chevron-down-s",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-down-s\""
+  },
+  {
+    "name": "chevron-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-left\""
+  },
+  {
+    "name": "chevron-left-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-left-16\""
+  },
+  {
+    "name": "chevron-left-comment",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-left-comment\""
+  },
+  {
+    "name": "chevron-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-right\""
+  },
+  {
+    "name": "chevron-right-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-right-16\""
+  },
+  {
+    "name": "chevron-right-comment",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-right-comment\""
+  },
+  {
+    "name": "chevron-right-s-8",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-right-s-8\""
+  },
+  {
+    "name": "chevron-up",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-up\""
+  },
+  {
+    "name": "chevron-up-s",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--chevron-up-s\""
+  },
+  {
+    "name": "circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--circle\""
+  },
+  {
+    "name": "circle-above-arc",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--circle-above-arc\""
+  },
+  {
+    "name": "circle-grid-3-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--circle-grid-3-16\""
+  },
+  {
+    "name": "circle-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--circle-slash\""
+  },
+  {
+    "name": "circle-slash-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--circle-slash-16\""
+  },
+  {
+    "name": "circle-slash-sparkles",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--circle-slash-sparkles\""
+  },
+  {
+    "name": "circle-triad",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--circle-triad\""
+  },
+  {
+    "name": "clipboard-document",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--clipboard-document\""
+  },
+  {
+    "name": "clipboard-plus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--clipboard-plus\""
+  },
+  {
+    "name": "clock-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--clock-16\""
+  },
+  {
+    "name": "clock-time-3",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--clock-time-3\""
+  },
+  {
+    "name": "clock-time-7",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--clock-time-7\""
+  },
+  {
+    "name": "clock2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--clock2-16\""
+  },
+  {
+    "name": "clone-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--clone-16\""
+  },
+  {
+    "name": "close-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--close-16\""
+  },
+  {
+    "name": "close-8",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--close-8\""
+  },
+  {
+    "name": "close-rounded-10",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--close-rounded-10\""
+  },
+  {
+    "name": "cloud",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cloud\""
+  },
+  {
+    "name": "cloud-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cloud-16\""
+  },
+  {
+    "name": "cloud-arrow-up",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cloud-arrow-up\""
+  },
+  {
+    "name": "cloud-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cloud-slash\""
+  },
+  {
+    "name": "cm-project",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cm-project\""
+  },
+  {
+    "name": "co-designer",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--co-designer\""
+  },
+  {
+    "name": "code-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--code-16\""
+  },
+  {
+    "name": "coins",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--coins\""
+  },
+  {
+    "name": "comment-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comment-12\""
+  },
+  {
+    "name": "comment-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comment-16\""
+  },
+  {
+    "name": "comment-48",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comment-48\""
+  },
+  {
+    "name": "comment-area",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comment-area\""
+  },
+  {
+    "name": "comment-bubble-text",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comment-bubble-text\""
+  },
+  {
+    "name": "comment-draw",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comment-draw\""
+  },
+  {
+    "name": "comment-left-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comment-left-16\""
+  },
+  {
+    "name": "comment-left-notice-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comment-left-notice-16\""
+  },
+  {
+    "name": "comment-pin",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comment-pin\""
+  },
+  {
+    "name": "comments",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--comments\""
+  },
+  {
+    "name": "compare",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--compare\""
+  },
+  {
+    "name": "compare-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--compare-16\""
+  },
+  {
+    "name": "compare-design-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--compare-design-16\""
+  },
+  {
+    "name": "compass",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--compass\""
+  },
+  {
+    "name": "compass-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--compass-16\""
+  },
+  {
+    "name": "component",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--component\""
+  },
+  {
+    "name": "component-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--component-16\""
+  },
+  {
+    "name": "component-48",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--component-48\""
+  },
+  {
+    "name": "component-arrow-counterclockwise",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--component-arrow-counterclockwise\""
+  },
+  {
+    "name": "component-gear",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--component-gear\""
+  },
+  {
+    "name": "component-on-component-plus-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--component-on-component-plus-16\""
+  },
+  {
+    "name": "component-plus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--component-plus\""
+  },
+  {
+    "name": "component-question",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--component-question\""
+  },
+  {
+    "name": "component-type-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--component-type-16\""
+  },
+  {
+    "name": "components-multiple",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--components-multiple\""
+  },
+  {
+    "name": "components-stacked-plus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--components-stacked-plus\""
+  },
+  {
+    "name": "consolidate-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--consolidate-16\""
+  },
+  {
+    "name": "controller",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--controller\""
+  },
+  {
+    "name": "controls-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--controls-12\""
+  },
+  {
+    "name": "copy-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--copy-16\""
+  },
+  {
+    "name": "counterclockwise-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--counterclockwise-16\""
+  },
+  {
+    "name": "create-component-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--create-component-16\""
+  },
+  {
+    "name": "crop",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--crop\""
+  },
+  {
+    "name": "crop-marks",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--crop-marks\""
+  },
+  {
+    "name": "cross",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cross\""
+  },
+  {
+    "name": "cross-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cross-16\""
+  },
+  {
+    "name": "cross-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cross-circle\""
+  },
+  {
+    "name": "cross-s-8",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cross-s-8\""
+  },
+  {
+    "name": "crossprobe-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--crossprobe-16\""
+  },
+  {
+    "name": "curve",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--curve\""
+  },
+  {
+    "name": "custom-part-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--custom-part-16\""
+  },
+  {
+    "name": "cut-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--cut-16\""
+  },
+  {
+    "name": "dashboard-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--dashboard-16\""
+  },
+  {
+    "name": "datasheet-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--datasheet-16\""
+  },
+  {
+    "name": "del-column-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--del-column-16\""
+  },
+  {
+    "name": "del-row-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--del-row-16\""
+  },
+  {
+    "name": "delete-alternate",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--delete-alternate\""
+  },
+  {
+    "name": "deleted",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--deleted\""
+  },
+  {
+    "name": "design-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--design-16\""
+  },
+  {
+    "name": "desktop-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--desktop-16\""
+  },
+  {
+    "name": "diagram",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--diagram\""
+  },
+  {
+    "name": "diamond",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--diamond\""
+  },
+  {
+    "name": "diamond-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--diamond-16\""
+  },
+  {
+    "name": "disk-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--disk-16\""
+  },
+  {
+    "name": "disk-floppy",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--disk-floppy\""
+  },
+  {
+    "name": "document",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document\""
+  },
+  {
+    "name": "document-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-16\""
+  },
+  {
+    "name": "document-checkmark-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-checkmark-circle\""
+  },
+  {
+    "name": "document-horiz-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-horiz-16\""
+  },
+  {
+    "name": "document-horiz-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-horiz-32\""
+  },
+  {
+    "name": "document-horizontal",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-horizontal\""
+  },
+  {
+    "name": "document-magnifying-glass",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-magnifying-glass\""
+  },
+  {
+    "name": "document-magnifying-glass-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-magnifying-glass-16\""
+  },
+  {
+    "name": "document-schematic",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-schematic\""
+  },
+  {
+    "name": "document-schematic-badge",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-schematic-badge\""
+  },
+  {
+    "name": "document-search-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-search-16\""
+  },
+  {
+    "name": "document-text",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--document-text\""
+  },
+  {
+    "name": "documentation-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--documentation-16\""
+  },
+  {
+    "name": "documents-schematic-stacked",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--documents-schematic-stacked\""
+  },
+  {
+    "name": "documents-stacked",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--documents-stacked\""
+  },
+  {
+    "name": "dot-s",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--dot-s\""
+  },
+  {
+    "name": "download",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--download\""
+  },
+  {
+    "name": "download-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--download-16\""
+  },
+  {
+    "name": "download-v2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--download-v2-16\""
+  },
+  {
+    "name": "downloads-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--downloads-16\""
+  },
+  {
+    "name": "dragging-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--dragging-16\""
+  },
+  {
+    "name": "drawer",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--drawer\""
+  },
+  {
+    "name": "drawer-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--drawer-16\""
+  },
+  {
+    "name": "drawer-2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--drawer-2-16\""
+  },
+  {
+    "name": "drawer-3-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--drawer-3-16\""
+  },
+  {
+    "name": "drop",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--drop\""
+  },
+  {
+    "name": "drop-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--drop-16\""
+  },
+  {
+    "name": "drop-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--drop-slash\""
+  },
+  {
+    "name": "drop-slash-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--drop-slash-16\""
+  },
+  {
+    "name": "eclipse",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eclipse\""
+  },
+  {
+    "name": "edit-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--edit-16\""
+  },
+  {
+    "name": "edit-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--edit-16-2\""
+  },
+  {
+    "name": "editing-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--editing-16\""
+  },
+  {
+    "name": "ellipse-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ellipse-16\""
+  },
+  {
+    "name": "ellipsis",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ellipsis\""
+  },
+  {
+    "name": "ellipsis-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ellipsis-16\""
+  },
+  {
+    "name": "elm",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--elm\""
+  },
+  {
+    "name": "embed",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--embed\""
+  },
+  {
+    "name": "emoji-neutral",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--emoji-neutral\""
+  },
+  {
+    "name": "emoji-sad",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--emoji-sad\""
+  },
+  {
+    "name": "emoji-smile",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--emoji-smile\""
+  },
+  {
+    "name": "envelope",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--envelope\""
+  },
+  {
+    "name": "envelope-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--envelope-16\""
+  },
+  {
+    "name": "envelope-badge",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--envelope-badge\""
+  },
+  {
+    "name": "equal-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--equal-16\""
+  },
+  {
+    "name": "error-64",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--error-64\""
+  },
+  {
+    "name": "exclamation",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--exclamation\""
+  },
+  {
+    "name": "exclamation-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--exclamation-circle\""
+  },
+  {
+    "name": "exclamation-circle-sparkles",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--exclamation-circle-sparkles\""
+  },
+  {
+    "name": "exclamation-triangle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--exclamation-triangle\""
+  },
+  {
+    "name": "exclamation-triangle-dashed",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--exclamation-triangle-dashed\""
+  },
+  {
+    "name": "exclamation-triangle-sparkles",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--exclamation-triangle-sparkles\""
+  },
+  {
+    "name": "explorer-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--explorer-16\""
+  },
+  {
+    "name": "export-time-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--export-time-16\""
+  },
+  {
+    "name": "external-link-rounded-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--external-link-rounded-16\""
+  },
+  {
+    "name": "eye",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eye\""
+  },
+  {
+    "name": "eye-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eye-16\""
+  },
+  {
+    "name": "eye-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eye-16-2\""
+  },
+  {
+    "name": "eye-off-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eye-off-16\""
+  },
+  {
+    "name": "eye-off-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eye-off-16-2\""
+  },
+  {
+    "name": "eye-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eye-slash\""
+  },
+  {
+    "name": "eye-small",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eye-small\""
+  },
+  {
+    "name": "eye-small-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eye-small-slash\""
+  },
+  {
+    "name": "eyedropper",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--eyedropper\""
+  },
+  {
+    "name": "fabrication-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--fabrication-16\""
+  },
+  {
+    "name": "fabrication-view-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--fabrication-view-16\""
+  },
+  {
+    "name": "facebook",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--facebook\""
+  },
+  {
+    "name": "failed-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--failed-16\""
+  },
+  {
+    "name": "failed-mod",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--failed-mod\""
+  },
+  {
+    "name": "field-text-cursor",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--field-text-cursor\""
+  },
+  {
+    "name": "file-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--file-16\""
+  },
+  {
+    "name": "file-horiz-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--file-horiz-16\""
+  },
+  {
+    "name": "file-upload-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--file-upload-32\""
+  },
+  {
+    "name": "files",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--files\""
+  },
+  {
+    "name": "filter",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--filter\""
+  },
+  {
+    "name": "filter-2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--filter-2-16\""
+  },
+  {
+    "name": "filter-empty-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--filter-empty-16\""
+  },
+  {
+    "name": "filter-filled-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--filter-filled-16\""
+  },
+  {
+    "name": "filters-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--filters-12\""
+  },
+  {
+    "name": "flag",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--flag\""
+  },
+  {
+    "name": "flag-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--flag-16\""
+  },
+  {
+    "name": "flame",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--flame\""
+  },
+  {
+    "name": "flowchart",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--flowchart\""
+  },
+  {
+    "name": "folder",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--folder\""
+  },
+  {
+    "name": "folder-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--folder-16\""
+  },
+  {
+    "name": "folder-arrow-right-inside",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--folder-arrow-right-inside\""
+  },
+  {
+    "name": "folder-empty-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--folder-empty-16\""
+  },
+  {
+    "name": "folder-empty-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--folder-empty-32\""
+  },
+  {
+    "name": "folder-opened",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--folder-opened\""
+  },
+  {
+    "name": "folder-outline-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--folder-outline-16\""
+  },
+  {
+    "name": "folder-with-arrow-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--folder-with-arrow-right\""
+  },
+  {
+    "name": "forum-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--forum-16\""
+  },
+  {
+    "name": "fullscreen-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--fullscreen-16\""
+  },
+  {
+    "name": "fullscreen-cancel-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--fullscreen-cancel-16\""
+  },
+  {
+    "name": "gear",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--gear\""
+  },
+  {
+    "name": "gear-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--gear-16\""
+  },
+  {
+    "name": "gear-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--gear-16-2\""
+  },
+  {
+    "name": "gear-empty-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--gear-empty-16\""
+  },
+  {
+    "name": "gear-filled",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--gear-filled\""
+  },
+  {
+    "name": "generic-folder-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--generic-folder-16\""
+  },
+  {
+    "name": "gerber-compare",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--gerber-compare\""
+  },
+  {
+    "name": "gift-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--gift-16\""
+  },
+  {
+    "name": "globe",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--globe\""
+  },
+  {
+    "name": "globe-network",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--globe-network\""
+  },
+  {
+    "name": "google-plus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--google-plus\""
+  },
+  {
+    "name": "grid-dots-2x3",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--grid-dots-2x3\""
+  },
+  {
+    "name": "grid-dots-3-x-3",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--grid-dots-3-x-3\""
+  },
+  {
+    "name": "grid-lines-1×4",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--grid-lines-1×4\""
+  },
+  {
+    "name": "grid-squares-2×2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--grid-squares-2×2\""
+  },
+  {
+    "name": "grid-squares-2×2-unequal",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--grid-squares-2×2-unequal\""
+  },
+  {
+    "name": "group-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--group-16\""
+  },
+  {
+    "name": "hashtag",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--hashtag\""
+  },
+  {
+    "name": "help-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--help-16\""
+  },
+  {
+    "name": "hidden-24",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--hidden-24\""
+  },
+  {
+    "name": "history-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--history-16\""
+  },
+  {
+    "name": "history-2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--history-2-16\""
+  },
+  {
+    "name": "history_16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--history_16\""
+  },
+  {
+    "name": "home-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--home-16\""
+  },
+  {
+    "name": "img-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--img-16\""
+  },
+  {
+    "name": "inbox-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--inbox-16\""
+  },
+  {
+    "name": "info-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--info-16\""
+  },
+  {
+    "name": "info-2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--info-2-16\""
+  },
+  {
+    "name": "info-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--info-circle\""
+  },
+  {
+    "name": "info-circle-sparkles",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--info-circle-sparkles\""
+  },
+  {
+    "name": "info-small-circle-filled",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--info-small-circle-filled\""
+  },
+  {
+    "name": "internet-explorer",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--internet-explorer\""
+  },
+  {
+    "name": "kanban",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--kanban\""
+  },
+  {
+    "name": "kanban-board",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--kanban-board\""
+  },
+  {
+    "name": "language-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--language-16\""
+  },
+  {
+    "name": "layers-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--layers-16\""
+  },
+  {
+    "name": "layers-bottom-view",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--layers-bottom-view\""
+  },
+  {
+    "name": "layers-stacked",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--layers-stacked\""
+  },
+  {
+    "name": "layers-stacked-diagonally",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--layers-stacked-diagonally\""
+  },
+  {
+    "name": "layers-top-view",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--layers-top-view\""
+  },
+  {
+    "name": "layers-v2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--layers-v2-16\""
+  },
+  {
+    "name": "layout-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--layout-left\""
+  },
+  {
+    "name": "layout-left-top",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--layout-left-top\""
+  },
+  {
+    "name": "left-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--left-16\""
+  },
+  {
+    "name": "lego-brick",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lego-brick\""
+  },
+  {
+    "name": "library-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--library-16\""
+  },
+  {
+    "name": "lifecycle-state-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lifecycle-state-16\""
+  },
+  {
+    "name": "light-bulb",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--light-bulb\""
+  },
+  {
+    "name": "light-bulb-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--light-bulb-16\""
+  },
+  {
+    "name": "line-diagonal",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-diagonal\""
+  },
+  {
+    "name": "line-diagonal-dashed",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-diagonal-dashed\""
+  },
+  {
+    "name": "line-diagonal-dotted",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-diagonal-dotted\""
+  },
+  {
+    "name": "line-end-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-end-circle\""
+  },
+  {
+    "name": "line-end-diamond",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-end-diamond\""
+  },
+  {
+    "name": "line-end-square",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-end-square\""
+  },
+  {
+    "name": "line-end-triangle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-end-triangle\""
+  },
+  {
+    "name": "line-horizontal",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-horizontal\""
+  },
+  {
+    "name": "line-start-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-start-circle\""
+  },
+  {
+    "name": "line-start-diamond",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-start-diamond\""
+  },
+  {
+    "name": "line-start-square",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-start-square\""
+  },
+  {
+    "name": "line-start-triangle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-start-triangle\""
+  },
+  {
+    "name": "line-start-triangle-reversed",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-start-triangle-reversed\""
+  },
+  {
+    "name": "line-trend-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--line-trend-16\""
+  },
+  {
+    "name": "lines-4-center",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-4-center\""
+  },
+  {
+    "name": "lines-4-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-4-left\""
+  },
+  {
+    "name": "lines-4-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-4-right\""
+  },
+  {
+    "name": "lines-bottom",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-bottom\""
+  },
+  {
+    "name": "lines-filter",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-filter\""
+  },
+  {
+    "name": "lines-horizontal-3",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-horizontal-3\""
+  },
+  {
+    "name": "lines-horizontal-3-justify",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-horizontal-3-justify\""
+  },
+  {
+    "name": "lines-irregular",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-irregular\""
+  },
+  {
+    "name": "lines-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-left\""
+  },
+  {
+    "name": "lines-left-arrow-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-left-arrow-down\""
+  },
+  {
+    "name": "lines-left-arrow-up",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-left-arrow-up\""
+  },
+  {
+    "name": "lines-middle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-middle\""
+  },
+  {
+    "name": "lines-paragraph",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-paragraph\""
+  },
+  {
+    "name": "lines-parallel-shifted",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-parallel-shifted\""
+  },
+  {
+    "name": "lines-styled",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-styled\""
+  },
+  {
+    "name": "lines-top",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-top\""
+  },
+  {
+    "name": "lines-weighted",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lines-weighted\""
+  },
+  {
+    "name": "link",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--link\""
+  },
+  {
+    "name": "link-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--link-16\""
+  },
+  {
+    "name": "link-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--link-16-2\""
+  },
+  {
+    "name": "link-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--link-slash\""
+  },
+  {
+    "name": "link-to-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--link-to-16\""
+  },
+  {
+    "name": "linkedin",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--linkedin\""
+  },
+  {
+    "name": "list-1-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--list-1-16\""
+  },
+  {
+    "name": "list-2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--list-2-16\""
+  },
+  {
+    "name": "list-3-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--list-3-16\""
+  },
+  {
+    "name": "list-4-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--list-4-16\""
+  },
+  {
+    "name": "list-bulleted",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--list-bulleted\""
+  },
+  {
+    "name": "list-numbered",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--list-numbered\""
+  },
+  {
+    "name": "loader-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--loader-16\""
+  },
+  {
+    "name": "loader-2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--loader-2-16\""
+  },
+  {
+    "name": "lock",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lock\""
+  },
+  {
+    "name": "lock-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lock-2\""
+  },
+  {
+    "name": "lock-filled",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--lock-filled\""
+  },
+  {
+    "name": "magic-wand",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--magic-wand\""
+  },
+  {
+    "name": "magnifying-glass",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--magnifying-glass\""
+  },
+  {
+    "name": "manufacturing-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--manufacturing-16\""
+  },
+  {
+    "name": "marker-local-changes",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--marker-local-changes\""
+  },
+  {
+    "name": "markup-brackets-curly",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--markup-brackets-curly\""
+  },
+  {
+    "name": "markup-brackets-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--markup-brackets-slash\""
+  },
+  {
+    "name": "maximize-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--maximize-16\""
+  },
+  {
+    "name": "mcad",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--mcad\""
+  },
+  {
+    "name": "measurements-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--measurements-16\""
+  },
+  {
+    "name": "minimize-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--minimize-16\""
+  },
+  {
+    "name": "minus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--minus\""
+  },
+  {
+    "name": "minus-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--minus-16\""
+  },
+  {
+    "name": "modified",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--modified\""
+  },
+  {
+    "name": "module-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--module-16\""
+  },
+  {
+    "name": "module-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--module-32\""
+  },
+  {
+    "name": "moon",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--moon\""
+  },
+  {
+    "name": "more",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--more\""
+  },
+  {
+    "name": "more-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--more-16\""
+  },
+  {
+    "name": "more-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--more-16-2\""
+  },
+  {
+    "name": "move",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--move\""
+  },
+  {
+    "name": "multiboard",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--multiboard\""
+  },
+  {
+    "name": "net-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--net-12\""
+  },
+  {
+    "name": "not-mapped-64",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--not-mapped-64\""
+  },
+  {
+    "name": "notification-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--notification-12\""
+  },
+  {
+    "name": "open-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--open-16\""
+  },
+  {
+    "name": "order-bom-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--order-bom-16\""
+  },
+  {
+    "name": "orders",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--orders\""
+  },
+  {
+    "name": "overview",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--overview\""
+  },
+  {
+    "name": "package-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--package-16\""
+  },
+  {
+    "name": "paint-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--paint-16\""
+  },
+  {
+    "name": "paint-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--paint-16-2\""
+  },
+  {
+    "name": "paint-brush",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--paint-brush\""
+  },
+  {
+    "name": "paint-bucket",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--paint-bucket\""
+  },
+  {
+    "name": "palette",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--palette\""
+  },
+  {
+    "name": "paper-plane",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--paper-plane\""
+  },
+  {
+    "name": "paperclip",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--paperclip\""
+  },
+  {
+    "name": "paperclip-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--paperclip-16\""
+  },
+  {
+    "name": "paperplane-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--paperplane-16\""
+  },
+  {
+    "name": "parchment",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--parchment\""
+  },
+  {
+    "name": "part",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--part\""
+  },
+  {
+    "name": "part-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--part-16\""
+  },
+  {
+    "name": "part-choice-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--part-choice-16\""
+  },
+  {
+    "name": "part-choice-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--part-choice-32\""
+  },
+  {
+    "name": "part-request-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--part-request-16\""
+  },
+  {
+    "name": "part-request-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--part-request-16-2\""
+  },
+  {
+    "name": "part-requests-management",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--part-requests-management\""
+  },
+  {
+    "name": "paste-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--paste-16\""
+  },
+  {
+    "name": "pause",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pause\""
+  },
+  {
+    "name": "pcb",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pcb\""
+  },
+  {
+    "name": "pcb-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pcb-16\""
+  },
+  {
+    "name": "pcb-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pcb-16-2\""
+  },
+  {
+    "name": "pcb-parts",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pcb-parts\""
+  },
+  {
+    "name": "pencil",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pencil\""
+  },
+  {
+    "name": "people-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--people-16\""
+  },
+  {
+    "name": "person-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--person-16\""
+  },
+  {
+    "name": "person-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--person-circle\""
+  },
+  {
+    "name": "person-couple",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--person-couple\""
+  },
+  {
+    "name": "person-couple-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--person-couple-16\""
+  },
+  {
+    "name": "person-display",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--person-display\""
+  },
+  {
+    "name": "person-plus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--person-plus\""
+  },
+  {
+    "name": "person-plus-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--person-plus-16\""
+  },
+  {
+    "name": "phone",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--phone\""
+  },
+  {
+    "name": "photo-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--photo-32\""
+  },
+  {
+    "name": "picture",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--picture\""
+  },
+  {
+    "name": "picture-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--picture-16\""
+  },
+  {
+    "name": "pin",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pin\""
+  },
+  {
+    "name": "pin-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pin-16\""
+  },
+  {
+    "name": "pin-empty-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pin-empty-16\""
+  },
+  {
+    "name": "pin-filled-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pin-filled-16\""
+  },
+  {
+    "name": "pin-slash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--pin-slash\""
+  },
+  {
+    "name": "play",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--play\""
+  },
+  {
+    "name": "play-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--play-16\""
+  },
+  {
+    "name": "plug",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--plug\""
+  },
+  {
+    "name": "plug-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--plug-16\""
+  },
+  {
+    "name": "plus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--plus\""
+  },
+  {
+    "name": "plus-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--plus-12\""
+  },
+  {
+    "name": "plus-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--plus-16\""
+  },
+  {
+    "name": "plus-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--plus-16-2\""
+  },
+  {
+    "name": "polygon-points",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--polygon-points\""
+  },
+  {
+    "name": "port-wire",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--port-wire\""
+  },
+  {
+    "name": "price",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--price\""
+  },
+  {
+    "name": "price-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--price-16\""
+  },
+  {
+    "name": "probe-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--probe-16\""
+  },
+  {
+    "name": "process",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--process\""
+  },
+  {
+    "name": "process-active",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--process-active\""
+  },
+  {
+    "name": "project-create-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--project-create-16\""
+  },
+  {
+    "name": "project-upload-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--project-upload-16\""
+  },
+  {
+    "name": "projects",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--projects\""
+  },
+  {
+    "name": "projects-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--projects-16\""
+  },
+  {
+    "name": "publish-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--publish-16\""
+  },
+  {
+    "name": "question-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--question-16\""
+  },
+  {
+    "name": "question-circle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--question-circle\""
+  },
+  {
+    "name": "quota-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--quota-16\""
+  },
+  {
+    "name": "rating-star-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rating-star-16\""
+  },
+  {
+    "name": "rating-star-fill-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rating-star-fill-16\""
+  },
+  {
+    "name": "rectangle-above-line",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangle-above-line\""
+  },
+  {
+    "name": "rectangle-between-lines-horizontal",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangle-between-lines-horizontal\""
+  },
+  {
+    "name": "rectangle-between-lines-vertical",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangle-between-lines-vertical\""
+  },
+  {
+    "name": "rectangle-corners",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangle-corners\""
+  },
+  {
+    "name": "rectangles-aligned-bottom",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangles-aligned-bottom\""
+  },
+  {
+    "name": "rectangles-aligned-center",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangles-aligned-center\""
+  },
+  {
+    "name": "rectangles-aligned-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangles-aligned-left\""
+  },
+  {
+    "name": "rectangles-aligned-middle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangles-aligned-middle\""
+  },
+  {
+    "name": "rectangles-aligned-top",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangles-aligned-top\""
+  },
+  {
+    "name": "rectangles-horizontal-2-right-aligned",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangles-horizontal-2-right-aligned\""
+  },
+  {
+    "name": "rectangles-unaligned",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rectangles-unaligned\""
+  },
+  {
+    "name": "refresh-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--refresh-16\""
+  },
+  {
+    "name": "refresh-2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--refresh-2-16\""
+  },
+  {
+    "name": "releases-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--releases-16\""
+  },
+  {
+    "name": "reload-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--reload-16\""
+  },
+  {
+    "name": "remap-columns-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--remap-columns-16\""
+  },
+  {
+    "name": "remove-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--remove-16\""
+  },
+  {
+    "name": "remove-row-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--remove-row-16\""
+  },
+  {
+    "name": "removed-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--removed-16\""
+  },
+  {
+    "name": "render-loader-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--render-loader-32\""
+  },
+  {
+    "name": "report-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--report-16\""
+  },
+  {
+    "name": "requirement-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--requirement-16\""
+  },
+  {
+    "name": "reset-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--reset-32\""
+  },
+  {
+    "name": "resolve-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--resolve-16\""
+  },
+  {
+    "name": "revert",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--revert\""
+  },
+  {
+    "name": "revert-to-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--revert-to-16\""
+  },
+  {
+    "name": "right-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--right-16\""
+  },
+  {
+    "name": "rocket",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--rocket\""
+  },
+  {
+    "name": "ruler-line-segment",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--ruler-line-segment\""
+  },
+  {
+    "name": "schematic-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--schematic-16\""
+  },
+  {
+    "name": "schematic-modified",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--schematic-modified\""
+  },
+  {
+    "name": "schematic-multi-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--schematic-multi-16\""
+  },
+  {
+    "name": "scissors",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--scissors\""
+  },
+  {
+    "name": "search-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--search-16\""
+  },
+  {
+    "name": "search-2-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--search-2-16\""
+  },
+  {
+    "name": "search-thin-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--search-thin-16\""
+  },
+  {
+    "name": "select-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--select-32\""
+  },
+  {
+    "name": "send-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--send-16\""
+  },
+  {
+    "name": "settings-gear-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--settings-gear-16\""
+  },
+  {
+    "name": "shapes-stacked",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--shapes-stacked\""
+  },
+  {
+    "name": "share-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--share-16\""
+  },
+  {
+    "name": "share-dark",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--share-dark\""
+  },
+  {
+    "name": "share-light",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--share-light\""
+  },
+  {
+    "name": "shared-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--shared-16\""
+  },
+  {
+    "name": "shared-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--shared-16-2\""
+  },
+  {
+    "name": "short-comment-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--short-comment-16\""
+  },
+  {
+    "name": "sidebar-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--sidebar-16\""
+  },
+  {
+    "name": "signout",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--signout\""
+  },
+  {
+    "name": "signout-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--signout-16\""
+  },
+  {
+    "name": "signout-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--signout-16-2\""
+  },
+  {
+    "name": "simulation-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--simulation-16\""
+  },
+  {
+    "name": "simulation-probe-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--simulation-probe-16\""
+  },
+  {
+    "name": "slider",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--slider\""
+  },
+  {
+    "name": "slider-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--slider-16\""
+  },
+  {
+    "name": "soldering-iron",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--soldering-iron\""
+  },
+  {
+    "name": "sort-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--sort-16\""
+  },
+  {
+    "name": "sort-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--sort-down\""
+  },
+  {
+    "name": "sort-up",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--sort-up\""
+  },
+  {
+    "name": "sparkles",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--sparkles\""
+  },
+  {
+    "name": "square",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square\""
+  },
+  {
+    "name": "square-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-16\""
+  },
+  {
+    "name": "square-arrow-turn-left-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-arrow-turn-left-down\""
+  },
+  {
+    "name": "square-arrow-up-left-in",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-arrow-up-left-in\""
+  },
+  {
+    "name": "square-arrow-up-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-arrow-up-right\""
+  },
+  {
+    "name": "square-code",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-code\""
+  },
+  {
+    "name": "square-dashed",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-dashed\""
+  },
+  {
+    "name": "square-fill-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-fill-16\""
+  },
+  {
+    "name": "square-grid-4",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-grid-4\""
+  },
+  {
+    "name": "square-grid-asymmetrical",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-grid-asymmetrical\""
+  },
+  {
+    "name": "square-handles-squares-inside",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-handles-squares-inside\""
+  },
+  {
+    "name": "square-line-horizontal-inside",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-line-horizontal-inside\""
+  },
+  {
+    "name": "square-lines-vertical-inside",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-lines-vertical-inside\""
+  },
+  {
+    "name": "square-markup-brackets-inside",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-markup-brackets-inside\""
+  },
+  {
+    "name": "square-on-square-plus-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-on-square-plus-16\""
+  },
+  {
+    "name": "square-small",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-small\""
+  },
+  {
+    "name": "square-small-dot-inside",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-small-dot-inside\""
+  },
+  {
+    "name": "square-small-minus-inside",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-small-minus-inside\""
+  },
+  {
+    "name": "square-small-plus-inside",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--square-small-plus-inside\""
+  },
+  {
+    "name": "squares-intersect",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--squares-intersect\""
+  },
+  {
+    "name": "squares-intersect-handles",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--squares-intersect-handles\""
+  },
+  {
+    "name": "squares-stacked-plus-inside",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--squares-stacked-plus-inside\""
+  },
+  {
+    "name": "squares-vertical-transition",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--squares-vertical-transition\""
+  },
+  {
+    "name": "stackup-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--stackup-16\""
+  },
+  {
+    "name": "star",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--star\""
+  },
+  {
+    "name": "star-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--star-16\""
+  },
+  {
+    "name": "star-fill-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--star-fill-12\""
+  },
+  {
+    "name": "star-rounded-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--star-rounded-16\""
+  },
+  {
+    "name": "star-rounded-filled-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--star-rounded-filled-16\""
+  },
+  {
+    "name": "stream-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--stream-16\""
+  },
+  {
+    "name": "sun",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--sun\""
+  },
+  {
+    "name": "support-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--support-16\""
+  },
+  {
+    "name": "switch-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--switch-16\""
+  },
+  {
+    "name": "symbol-grounding",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--symbol-grounding\""
+  },
+  {
+    "name": "table",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--table\""
+  },
+  {
+    "name": "table-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--table-16\""
+  },
+  {
+    "name": "table-column-minus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--table-column-minus\""
+  },
+  {
+    "name": "table-column-plus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--table-column-plus\""
+  },
+  {
+    "name": "table-columns",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--table-columns\""
+  },
+  {
+    "name": "table-pencil",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--table-pencil\""
+  },
+  {
+    "name": "table-row-minus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--table-row-minus\""
+  },
+  {
+    "name": "table-row-plus",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--table-row-plus\""
+  },
+  {
+    "name": "tables-stacked",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--tables-stacked\""
+  },
+  {
+    "name": "tables-stacked-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--tables-stacked-16\""
+  },
+  {
+    "name": "tag",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--tag\""
+  },
+  {
+    "name": "tag-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--tag-16\""
+  },
+  {
+    "name": "target",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--target\""
+  },
+  {
+    "name": "target-price",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--target-price\""
+  },
+  {
+    "name": "task-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--task-16\""
+  },
+  {
+    "name": "tasks",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--tasks\""
+  },
+  {
+    "name": "team",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--team\""
+  },
+  {
+    "name": "team-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--team-16\""
+  },
+  {
+    "name": "team-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--team-16-2\""
+  },
+  {
+    "name": "text-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--text-16\""
+  },
+  {
+    "name": "thermometer",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--thermometer\""
+  },
+  {
+    "name": "thickness",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--thickness\""
+  },
+  {
+    "name": "thumb-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--thumb-down\""
+  },
+  {
+    "name": "thumb-up",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--thumb-up\""
+  },
+  {
+    "name": "toggles",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--toggles\""
+  },
+  {
+    "name": "training-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--training-16\""
+  },
+  {
+    "name": "trash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--trash\""
+  },
+  {
+    "name": "trash-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--trash-16\""
+  },
+  {
+    "name": "triangle",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--triangle\""
+  },
+  {
+    "name": "unchanged",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--unchanged\""
+  },
+  {
+    "name": "union-12",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--union-12\""
+  },
+  {
+    "name": "unlink-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--unlink-16\""
+  },
+  {
+    "name": "unmodified",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--unmodified\""
+  },
+  {
+    "name": "up-8",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--up-8\""
+  },
+  {
+    "name": "update-component-revision",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--update-component-revision\""
+  },
+  {
+    "name": "upload-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--upload-16\""
+  },
+  {
+    "name": "upload-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--upload-32\""
+  },
+  {
+    "name": "uploads-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--uploads-16\""
+  },
+  {
+    "name": "user-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--user-16\""
+  },
+  {
+    "name": "user-v2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--user-v2\""
+  },
+  {
+    "name": "utility-arrow-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-arrow-down\""
+  },
+  {
+    "name": "utility-arrow-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-arrow-left\""
+  },
+  {
+    "name": "utility-arrow-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-arrow-right\""
+  },
+  {
+    "name": "utility-arrow-up",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-arrow-up\""
+  },
+  {
+    "name": "utility-checkmark",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-checkmark\""
+  },
+  {
+    "name": "utility-chevron-down",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-chevron-down\""
+  },
+  {
+    "name": "utility-chevron-left",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-chevron-left\""
+  },
+  {
+    "name": "utility-chevron-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-chevron-right\""
+  },
+  {
+    "name": "utility-chevron-up",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-chevron-up\""
+  },
+  {
+    "name": "utility-cross",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-cross\""
+  },
+  {
+    "name": "utility-dash",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-dash\""
+  },
+  {
+    "name": "utility-dot",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-dot\""
+  },
+  {
+    "name": "utility-pencil",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-pencil\""
+  },
+  {
+    "name": "utility-square-arrow-up-right",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--utility-square-arrow-up-right\""
+  },
+  {
+    "name": "video-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--video-16\""
+  },
+  {
+    "name": "video-16-2",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--video-16-2\""
+  },
+  {
+    "name": "video-icon",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--video-icon\""
+  },
+  {
+    "name": "viewer-download-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--viewer-download-16\""
+  },
+  {
+    "name": "viewer-fullscreen-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--viewer-fullscreen-16\""
+  },
+  {
+    "name": "viewer-fullscreen-cancel-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--viewer-fullscreen-cancel-16\""
+  },
+  {
+    "name": "viewer-help-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--viewer-help-16\""
+  },
+  {
+    "name": "viewer-measurements-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--viewer-measurements-16\""
+  },
+  {
+    "name": "viewer-search-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--viewer-search-16\""
+  },
+  {
+    "name": "visible-24",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--visible-24\""
+  },
+  {
+    "name": "warning",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--warning\""
+  },
+  {
+    "name": "wave",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--wave\""
+  },
+  {
+    "name": "wave-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--wave-16\""
+  },
+  {
+    "name": "window",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--window\""
+  },
+  {
+    "name": "window-desktop",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--window-desktop\""
+  },
+  {
+    "name": "workflow-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--workflow-16\""
+  },
+  {
+    "name": "workspace",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--workspace\""
+  },
+  {
+    "name": "workspace-offline-16",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--workspace-offline-16\""
+  },
+  {
+    "name": "workspace-offline-32",
+    "filled": false,
+    "fullId": "id=\"svg-sprite--workspace-offline-32\""
+  },
+  {
+    "name": "3D-2",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--3D-2\""
+  },
+  {
+    "name": "3d-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--3d-32\""
+  },
+  {
+    "name": "activity-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--activity-16\""
+  },
+  {
+    "name": "added-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--added-12\""
+  },
+  {
+    "name": "added-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--added-16\""
+  },
+  {
+    "name": "ai",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ai\""
+  },
+  {
+    "name": "ai-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ai-16\""
+  },
+  {
+    "name": "ai-2",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ai-2\""
+  },
+  {
+    "name": "ai-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ai-32\""
+  },
+  {
+    "name": "ai-disabled",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ai-disabled\""
+  },
+  {
+    "name": "ai-info",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ai-info\""
+  },
+  {
+    "name": "ai-warging",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ai-warging\""
+  },
+  {
+    "name": "altium-agile",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--altium-agile\""
+  },
+  {
+    "name": "altium-designer",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--altium-designer\""
+  },
+  {
+    "name": "amf-address-business",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-address-business\""
+  },
+  {
+    "name": "amf-address-home",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-address-home\""
+  },
+  {
+    "name": "amf-icon-cart",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-icon-cart\""
+  },
+  {
+    "name": "amf-icon-check-gray",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-icon-check-gray\""
+  },
+  {
+    "name": "amf-icon-check-green",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-icon-check-green\""
+  },
+  {
+    "name": "amf-icon-cost",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-icon-cost\""
+  },
+  {
+    "name": "amf-icon-dblcheck-gray",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-icon-dblcheck-gray\""
+  },
+  {
+    "name": "amf-icon-repeat-gray",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-icon-repeat-gray\""
+  },
+  {
+    "name": "amf-icon-repeat-white",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-icon-repeat-white\""
+  },
+  {
+    "name": "amf-icon-stop-red",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-icon-stop-red\""
+  },
+  {
+    "name": "amf-icon-time",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-icon-time\""
+  },
+  {
+    "name": "amf-invoice-tax-company",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-invoice-tax-company\""
+  },
+  {
+    "name": "amf-invoice-tax-individual",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-invoice-tax-individual\""
+  },
+  {
+    "name": "amf-invoice-vat",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-invoice-vat\""
+  },
+  {
+    "name": "amf-radio-checked",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-radio-checked\""
+  },
+  {
+    "name": "amf-radio-unchecked",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-radio-unchecked\""
+  },
+  {
+    "name": "amf-stage-active",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-stage-active\""
+  },
+  {
+    "name": "amf-stage-cancelled",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-stage-cancelled\""
+  },
+  {
+    "name": "amf-stage-completed",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-stage-completed\""
+  },
+  {
+    "name": "amf-stage-enqueued",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-stage-enqueued\""
+  },
+  {
+    "name": "amf-stage-pending",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--amf-stage-pending\""
+  },
+  {
+    "name": "ansys-edb-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ansys-edb-16\""
+  },
+  {
+    "name": "archive-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--archive-16\""
+  },
+  {
+    "name": "assembly",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--assembly\""
+  },
+  {
+    "name": "assembly-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--assembly-16\""
+  },
+  {
+    "name": "assembly-assistant-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--assembly-assistant-16\""
+  },
+  {
+    "name": "assembly-assistant-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--assembly-assistant-32\""
+  },
+  {
+    "name": "assembly-menu-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--assembly-menu-16\""
+  },
+  {
+    "name": "attention-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--attention-32\""
+  },
+  {
+    "name": "avatar",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--avatar\""
+  },
+  {
+    "name": "binary-file",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--binary-file\""
+  },
+  {
+    "name": "block-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--block-32\""
+  },
+  {
+    "name": "bom",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--bom\""
+  },
+  {
+    "name": "bom-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--bom-16\""
+  },
+  {
+    "name": "bom-consolidated-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--bom-consolidated-16\""
+  },
+  {
+    "name": "bom-file-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--bom-file-16\""
+  },
+  {
+    "name": "bom-menu-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--bom-menu-16\""
+  },
+  {
+    "name": "bom-portal-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--bom-portal-32\""
+  },
+  {
+    "name": "bom-release-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--bom-release-32\""
+  },
+  {
+    "name": "bom-template",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--bom-template\""
+  },
+  {
+    "name": "book-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--book-32\""
+  },
+  {
+    "name": "bus-net-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--bus-net-16\""
+  },
+  {
+    "name": "c-base",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--c-base\""
+  },
+  {
+    "name": "c-manufacturer",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--c-manufacturer\""
+  },
+  {
+    "name": "c-supplier",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--c-supplier\""
+  },
+  {
+    "name": "cabinet-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--cabinet-16\""
+  },
+  {
+    "name": "cady-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--cady-32\""
+  },
+  {
+    "name": "changed-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--changed-16\""
+  },
+  {
+    "name": "check-circle",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--check-circle\""
+  },
+  {
+    "name": "checklist-template-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--checklist-template-16\""
+  },
+  {
+    "name": "checklist-template-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--checklist-template-32\""
+  },
+  {
+    "name": "chevron-down-s",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--chevron-down-s\""
+  },
+  {
+    "name": "circle",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--circle\""
+  },
+  {
+    "name": "close-bw-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--close-bw-16\""
+  },
+  {
+    "name": "cm-project",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--cm-project\""
+  },
+  {
+    "name": "co-designer-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--co-designer-32\""
+  },
+  {
+    "name": "compare-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-32\""
+  },
+  {
+    "name": "compare-added-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-added-12\""
+  },
+  {
+    "name": "compare-alldiff",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-alldiff\""
+  },
+  {
+    "name": "compare-different-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-different-12\""
+  },
+  {
+    "name": "compare-identical-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-identical-12\""
+  },
+  {
+    "name": "compare-object-added-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-added-16\""
+  },
+  {
+    "name": "compare-object-kind-bond-wire",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-kind-bond-wire\""
+  },
+  {
+    "name": "compare-object-kind-connection",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-kind-connection\""
+  },
+  {
+    "name": "compare-object-kind-polygon-accordion",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-kind-polygon-accordion\""
+  },
+  {
+    "name": "compare-object-kind-polygon-pour",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-kind-polygon-pour\""
+  },
+  {
+    "name": "compare-object-kind-via-shielding",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-kind-via-shielding\""
+  },
+  {
+    "name": "compare-object-kind-via-stitching",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-kind-via-stitching\""
+  },
+  {
+    "name": "compare-object-modified-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-modified-16\""
+  },
+  {
+    "name": "compare-object-removed-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-removed-16\""
+  },
+  {
+    "name": "compare-object-unchanged-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-object-unchanged-16\""
+  },
+  {
+    "name": "compare-removed-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--compare-removed-12\""
+  },
+  {
+    "name": "component",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component\""
+  },
+  {
+    "name": "component-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component-16\""
+  },
+  {
+    "name": "component-3d-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component-3d-16\""
+  },
+  {
+    "name": "component-base-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component-base-16\""
+  },
+  {
+    "name": "component-blue-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component-blue-16\""
+  },
+  {
+    "name": "component-library",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component-library\""
+  },
+  {
+    "name": "component-managed",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component-managed\""
+  },
+  {
+    "name": "component-manufacturer-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component-manufacturer-16\""
+  },
+  {
+    "name": "component-supplier-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component-supplier-16\""
+  },
+  {
+    "name": "component-template",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--component-template\""
+  },
+  {
+    "name": "csv-file-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--csv-file-16\""
+  },
+  {
+    "name": "design-review",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--design-review\""
+  },
+  {
+    "name": "design-review-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--design-review-32\""
+  },
+  {
+    "name": "devices",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--devices\""
+  },
+  {
+    "name": "doc-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--doc-16\""
+  },
+  {
+    "name": "draftsman-document-template",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--draftsman-document-template\""
+  },
+  {
+    "name": "draftsman-sheet-template",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--draftsman-sheet-template\""
+  },
+  {
+    "name": "eagle-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--eagle-16\""
+  },
+  {
+    "name": "elm-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--elm-32\""
+  },
+  {
+    "name": "entity-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--entity-32\""
+  },
+  {
+    "name": "envelope-badge-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--envelope-badge-16\""
+  },
+  {
+    "name": "error",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--error\""
+  },
+  {
+    "name": "error-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--error-32\""
+  },
+  {
+    "name": "error-64",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--error-64\""
+  },
+  {
+    "name": "error-folder-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--error-folder-16\""
+  },
+  {
+    "name": "error-violation-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--error-violation-16\""
+  },
+  {
+    "name": "esd-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--esd-32\""
+  },
+  {
+    "name": "expired",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--expired\""
+  },
+  {
+    "name": "fabrication",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--fabrication\""
+  },
+  {
+    "name": "fabrication-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--fabrication-16\""
+  },
+  {
+    "name": "fabrication-menu-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--fabrication-menu-16\""
+  },
+  {
+    "name": "facebook",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--facebook\""
+  },
+  {
+    "name": "fatal-error-folder-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--fatal-error-folder-16\""
+  },
+  {
+    "name": "fatal-error-violation-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--fatal-error-violation-16\""
+  },
+  {
+    "name": "feature-activity",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-activity\""
+  },
+  {
+    "name": "feature-compare",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-compare\""
+  },
+  {
+    "name": "feature-component-sync",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-component-sync\""
+  },
+  {
+    "name": "feature-layerstack",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-layerstack\""
+  },
+  {
+    "name": "feature-local-history",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-local-history\""
+  },
+  {
+    "name": "feature-part-request",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-part-request\""
+  },
+  {
+    "name": "feature-project-creation",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-project-creation\""
+  },
+  {
+    "name": "feature-stitching",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-stitching\""
+  },
+  {
+    "name": "feature-task",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-task\""
+  },
+  {
+    "name": "feature-variant",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-variant\""
+  },
+  {
+    "name": "feature-version",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--feature-version\""
+  },
+  {
+    "name": "file-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-16\""
+  },
+  {
+    "name": "file-3d",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-3d\""
+  },
+  {
+    "name": "file-assembly-multiboard",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-assembly-multiboard\""
+  },
+  {
+    "name": "file-binary",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-binary\""
+  },
+  {
+    "name": "file-bom",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-bom\""
+  },
+  {
+    "name": "file-bom-active",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-bom-active\""
+  },
+  {
+    "name": "file-bom-consolidated",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-bom-consolidated\""
+  },
+  {
+    "name": "file-bom-template",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-bom-template\""
+  },
+  {
+    "name": "file-checklist-template",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-checklist-template\""
+  },
+  {
+    "name": "file-component-template",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-component-template\""
+  },
+  {
+    "name": "file-csv",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-csv\""
+  },
+  {
+    "name": "file-design-review",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-design-review\""
+  },
+  {
+    "name": "file-doc",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-doc\""
+  },
+  {
+    "name": "file-draftsman",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-draftsman\""
+  },
+  {
+    "name": "file-draftsman-template",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-draftsman-template\""
+  },
+  {
+    "name": "file-generic",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-generic\""
+  },
+  {
+    "name": "file-gerber",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-gerber\""
+  },
+  {
+    "name": "file-harness-layout-drawing",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-harness-layout-drawing\""
+  },
+  {
+    "name": "file-harness-wiring-diagram",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-harness-wiring-diagram\""
+  },
+  {
+    "name": "file-html",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-html\""
+  },
+  {
+    "name": "file-odb",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-odb\""
+  },
+  {
+    "name": "file-output",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-output\""
+  },
+  {
+    "name": "file-pcb",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-pcb\""
+  },
+  {
+    "name": "file-pdf",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-pdf\""
+  },
+  {
+    "name": "file-requirement",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-requirement\""
+  },
+  {
+    "name": "file-requirement-block",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-requirement-block\""
+  },
+  {
+    "name": "file-requirement-spec",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-requirement-spec\""
+  },
+  {
+    "name": "file-rtf",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-rtf\""
+  },
+  {
+    "name": "file-schematic",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-schematic\""
+  },
+  {
+    "name": "file-schematic-managed",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-schematic-managed\""
+  },
+  {
+    "name": "file-schematic-multiboard",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-schematic-multiboard\""
+  },
+  {
+    "name": "file-schematic-orcad",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-schematic-orcad\""
+  },
+  {
+    "name": "file-schematic-root",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-schematic-root\""
+  },
+  {
+    "name": "file-script",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-script\""
+  },
+  {
+    "name": "file-simulation",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-simulation\""
+  },
+  {
+    "name": "file-step",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-step\""
+  },
+  {
+    "name": "file-txt",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-txt\""
+  },
+  {
+    "name": "file-txt-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-txt-16\""
+  },
+  {
+    "name": "file-xls",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-xls\""
+  },
+  {
+    "name": "file-xml",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--file-xml\""
+  },
+  {
+    "name": "folder",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--folder\""
+  },
+  {
+    "name": "folder-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--folder-16\""
+  },
+  {
+    "name": "folder-green-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--folder-green-16\""
+  },
+  {
+    "name": "folder-open-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--folder-open-16\""
+  },
+  {
+    "name": "footprint-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--footprint-16\""
+  },
+  {
+    "name": "gerber-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--gerber-16\""
+  },
+  {
+    "name": "gerber-compare-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--gerber-compare-12\""
+  },
+  {
+    "name": "gerber-source-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--gerber-source-12\""
+  },
+  {
+    "name": "gerber-target-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--gerber-target-12\""
+  },
+  {
+    "name": "google-plus",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--google-plus\""
+  },
+  {
+    "name": "gray-folder",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--gray-folder\""
+  },
+  {
+    "name": "guest-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--guest-32\""
+  },
+  {
+    "name": "hardware",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--hardware\""
+  },
+  {
+    "name": "harness-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--harness-16\""
+  },
+  {
+    "name": "harness-layout-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--harness-layout-16\""
+  },
+  {
+    "name": "harness-wiring-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--harness-wiring-16\""
+  },
+  {
+    "name": "help-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--help-12\""
+  },
+  {
+    "name": "html-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--html-16\""
+  },
+  {
+    "name": "icon-3d-body",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-3d-body\""
+  },
+  {
+    "name": "icon-arcs",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-arcs\""
+  },
+  {
+    "name": "icon-connection-lines",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-connection-lines\""
+  },
+  {
+    "name": "icon-coordinates",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-coordinates\""
+  },
+  {
+    "name": "icon-dimension",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-dimension\""
+  },
+  {
+    "name": "icon-fills",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-fills\""
+  },
+  {
+    "name": "icon-keepouts",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-keepouts\""
+  },
+  {
+    "name": "icon-pads",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-pads\""
+  },
+  {
+    "name": "icon-polygons",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-polygons\""
+  },
+  {
+    "name": "icon-regions",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-regions\""
+  },
+  {
+    "name": "icon-rooms",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-rooms\""
+  },
+  {
+    "name": "icon-server",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-server\""
+  },
+  {
+    "name": "icon-texts",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-texts\""
+  },
+  {
+    "name": "icon-tracks",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-tracks\""
+  },
+  {
+    "name": "icon-vias",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--icon-vias\""
+  },
+  {
+    "name": "info-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--info-12\""
+  },
+  {
+    "name": "info-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--info-16\""
+  },
+  {
+    "name": "jira",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--jira\""
+  },
+  {
+    "name": "jira-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--jira-32\""
+  },
+  {
+    "name": "key-2",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--key-2\""
+  },
+  {
+    "name": "key-3",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--key-3\""
+  },
+  {
+    "name": "key-5",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--key-5\""
+  },
+  {
+    "name": "key-f",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--key-f\""
+  },
+  {
+    "name": "kicad-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--kicad-16\""
+  },
+  {
+    "name": "layer-stack",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--layer-stack\""
+  },
+  {
+    "name": "linkedin",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--linkedin\""
+  },
+  {
+    "name": "loader-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--loader-16\""
+  },
+  {
+    "name": "loader-64",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--loader-64\""
+  },
+  {
+    "name": "lock",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--lock\""
+  },
+  {
+    "name": "logo",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo\""
+  },
+  {
+    "name": "logo-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-32\""
+  },
+  {
+    "name": "logo-48",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-48\""
+  },
+  {
+    "name": "logo-ad-lifecycle",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-ad-lifecycle\""
+  },
+  {
+    "name": "logo-ai",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-ai\""
+  },
+  {
+    "name": "logo-altimade",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-altimade\""
+  },
+  {
+    "name": "logo-altium",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-altium\""
+  },
+  {
+    "name": "logo-altium-365",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-altium-365\""
+  },
+  {
+    "name": "logo-altium-ai",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-altium-ai\""
+  },
+  {
+    "name": "logo-altium-designer",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-altium-designer\""
+  },
+  {
+    "name": "logo-assembly-assistant",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-assembly-assistant\""
+  },
+  {
+    "name": "logo-bom-portal",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-bom-portal\""
+  },
+  {
+    "name": "logo-circuit-maker",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-circuit-maker\""
+  },
+  {
+    "name": "logo-circuit-studio",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-circuit-studio\""
+  },
+  {
+    "name": "logo-co-designer",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-co-designer\""
+  },
+  {
+    "name": "logo-design-review",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-design-review\""
+  },
+  {
+    "name": "logo-devices",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-devices\""
+  },
+  {
+    "name": "logo-eagle",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-eagle\""
+  },
+  {
+    "name": "logo-elm",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-elm\""
+  },
+  {
+    "name": "logo-hardware",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-hardware\""
+  },
+  {
+    "name": "logo-ihs",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-ihs\""
+  },
+  {
+    "name": "logo-jira-cloud",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-jira-cloud\""
+  },
+  {
+    "name": "logo-kicad",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-kicad\""
+  },
+  {
+    "name": "logo-nexus",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-nexus\""
+  },
+  {
+    "name": "logo-octopart",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-octopart\""
+  },
+  {
+    "name": "logo-orcad",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-orcad\""
+  },
+  {
+    "name": "logo-pads",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-pads\""
+  },
+  {
+    "name": "logo-renesas-365",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-renesas-365\""
+  },
+  {
+    "name": "logo-requirements",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-requirements\""
+  },
+  {
+    "name": "logo-silicon-expert",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-silicon-expert\""
+  },
+  {
+    "name": "logo-silicon-expert-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-silicon-expert-32\""
+  },
+  {
+    "name": "logo-software",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-software\""
+  },
+  {
+    "name": "logo-spectra",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-spectra\""
+  },
+  {
+    "name": "logo-system",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-system\""
+  },
+  {
+    "name": "logo-z2data",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--logo-z2data\""
+  },
+  {
+    "name": "marker-clone",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--marker-clone\""
+  },
+  {
+    "name": "marker-commit-basic",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--marker-commit-basic\""
+  },
+  {
+    "name": "marker-commit-current",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--marker-commit-current\""
+  },
+  {
+    "name": "marker-mcad-1",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--marker-mcad-1\""
+  },
+  {
+    "name": "marker-mcad-2",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--marker-mcad-2\""
+  },
+  {
+    "name": "marker-package",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--marker-package\""
+  },
+  {
+    "name": "marker-release",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--marker-release\""
+  },
+  {
+    "name": "mcad-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--mcad-16\""
+  },
+  {
+    "name": "mcad-tool-autodesc-inventor",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--mcad-tool-autodesc-inventor\""
+  },
+  {
+    "name": "mcad-tool-autodesk-fusion",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--mcad-tool-autodesk-fusion\""
+  },
+  {
+    "name": "mcad-tool-ptc-creo",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--mcad-tool-ptc-creo\""
+  },
+  {
+    "name": "mcad-tool-siemens",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--mcad-tool-siemens\""
+  },
+  {
+    "name": "mcad-tool-solidworks",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--mcad-tool-solidworks\""
+  },
+  {
+    "name": "model-footprint",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--model-footprint\""
+  },
+  {
+    "name": "model-harness-layout",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--model-harness-layout\""
+  },
+  {
+    "name": "model-harness-wiring",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--model-harness-wiring\""
+  },
+  {
+    "name": "model-simulation",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--model-simulation\""
+  },
+  {
+    "name": "model-symbol",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--model-symbol\""
+  },
+  {
+    "name": "multiboard",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--multiboard\""
+  },
+  {
+    "name": "multiboard-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--multiboard-16\""
+  },
+  {
+    "name": "multiboard-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--multiboard-32\""
+  },
+  {
+    "name": "multiboard-asm-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--multiboard-asm-16\""
+  },
+  {
+    "name": "multiboard-sch-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--multiboard-sch-16\""
+  },
+  {
+    "name": "net",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--net\""
+  },
+  {
+    "name": "net-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--net-16\""
+  },
+  {
+    "name": "net-16-v2",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--net-16-v2\""
+  },
+  {
+    "name": "net-diffpair-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--net-diffpair-16\""
+  },
+  {
+    "name": "next-layer-24",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--next-layer-24\""
+  },
+  {
+    "name": "object-3d-body",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-3d-body\""
+  },
+  {
+    "name": "object-accordion",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-accordion\""
+  },
+  {
+    "name": "object-arc",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-arc\""
+  },
+  {
+    "name": "object-bond-wire",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-bond-wire\""
+  },
+  {
+    "name": "object-component",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-component\""
+  },
+  {
+    "name": "object-connection",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-connection\""
+  },
+  {
+    "name": "object-connection-line",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-connection-line\""
+  },
+  {
+    "name": "object-coordinate",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-coordinate\""
+  },
+  {
+    "name": "object-diamond",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-diamond\""
+  },
+  {
+    "name": "object-dimension",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-dimension\""
+  },
+  {
+    "name": "object-fill",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-fill\""
+  },
+  {
+    "name": "object-keepout",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-keepout\""
+  },
+  {
+    "name": "object-net",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-net\""
+  },
+  {
+    "name": "object-pad",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-pad\""
+  },
+  {
+    "name": "object-part",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-part\""
+  },
+  {
+    "name": "object-polygon",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-polygon\""
+  },
+  {
+    "name": "object-port",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-port\""
+  },
+  {
+    "name": "object-region",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-region\""
+  },
+  {
+    "name": "object-reuse-block",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-reuse-block\""
+  },
+  {
+    "name": "object-room",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-room\""
+  },
+  {
+    "name": "object-shielding",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-shielding\""
+  },
+  {
+    "name": "object-text",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-text\""
+  },
+  {
+    "name": "object-track",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-track\""
+  },
+  {
+    "name": "object-via",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--object-via\""
+  },
+  {
+    "name": "octagonal-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--octagonal-12\""
+  },
+  {
+    "name": "odb-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--odb-16\""
+  },
+  {
+    "name": "offline-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--offline-32\""
+  },
+  {
+    "name": "ok-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ok-16\""
+  },
+  {
+    "name": "onshape-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--onshape-32\""
+  },
+  {
+    "name": "open-bus",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--open-bus\""
+  },
+  {
+    "name": "orcad-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--orcad-16\""
+  },
+  {
+    "name": "organization-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--organization-32\""
+  },
+  {
+    "name": "outjob-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--outjob-16\""
+  },
+  {
+    "name": "outputjob",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--outputjob\""
+  },
+  {
+    "name": "overview-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--overview-16\""
+  },
+  {
+    "name": "overview-menu-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--overview-menu-16\""
+  },
+  {
+    "name": "pack-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pack-16\""
+  },
+  {
+    "name": "package-archive",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--package-archive\""
+  },
+  {
+    "name": "package-assembly",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--package-assembly\""
+  },
+  {
+    "name": "package-fabrication",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--package-fabrication\""
+  },
+  {
+    "name": "package-manufacturing",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--package-manufacturing\""
+  },
+  {
+    "name": "package-release",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--package-release\""
+  },
+  {
+    "name": "package-release-bom",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--package-release-bom\""
+  },
+  {
+    "name": "package-software",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--package-software\""
+  },
+  {
+    "name": "package-upload",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--package-upload\""
+  },
+  {
+    "name": "pads-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pads-16\""
+  },
+  {
+    "name": "pan-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pan-32\""
+  },
+  {
+    "name": "pan-tch-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pan-tch-32\""
+  },
+  {
+    "name": "pan3d-tch-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pan3d-tch-32\""
+  },
+  {
+    "name": "part",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--part\""
+  },
+  {
+    "name": "part-choice-list",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--part-choice-list\""
+  },
+  {
+    "name": "pcb",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pcb\""
+  },
+  {
+    "name": "pcb-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pcb-16\""
+  },
+  {
+    "name": "pcb-3d-model",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pcb-3d-model\""
+  },
+  {
+    "name": "pcbblock",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pcbblock\""
+  },
+  {
+    "name": "pdf",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pdf\""
+  },
+  {
+    "name": "pdf-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pdf-16\""
+  },
+  {
+    "name": "pdf-compact",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--pdf-compact\""
+  },
+  {
+    "name": "play-video-22",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--play-video-22\""
+  },
+  {
+    "name": "preferences",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--preferences\""
+  },
+  {
+    "name": "prev-layer-24",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--prev-layer-24\""
+  },
+  {
+    "name": "project-ai",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-ai\""
+  },
+  {
+    "name": "project-devices",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-devices\""
+  },
+  {
+    "name": "project-hardware",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-hardware\""
+  },
+  {
+    "name": "project-harness",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-harness\""
+  },
+  {
+    "name": "project-multiboard",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-multiboard\""
+  },
+  {
+    "name": "project-pcb",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-pcb\""
+  },
+  {
+    "name": "project-pcb-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-pcb-16\""
+  },
+  {
+    "name": "project-requirement",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-requirement\""
+  },
+  {
+    "name": "project-review-package",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-review-package\""
+  },
+  {
+    "name": "project-software",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-software\""
+  },
+  {
+    "name": "project-system",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-system\""
+  },
+  {
+    "name": "project-upload-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--project-upload-16\""
+  },
+  {
+    "name": "question",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--question\""
+  },
+  {
+    "name": "question-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--question-16\""
+  },
+  {
+    "name": "rectangle-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--rectangle-12\""
+  },
+  {
+    "name": "release-bom-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--release-bom-32\""
+  },
+  {
+    "name": "release-package",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--release-package\""
+  },
+  {
+    "name": "removed-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--removed-12\""
+  },
+  {
+    "name": "removed-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--removed-16\""
+  },
+  {
+    "name": "renesas",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--renesas\""
+  },
+  {
+    "name": "renesas-2",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--renesas-2\""
+  },
+  {
+    "name": "request-comp-sync-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--request-comp-sync-16\""
+  },
+  {
+    "name": "request-part-request-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--request-part-request-16\""
+  },
+  {
+    "name": "request-project-create-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--request-project-create-16\""
+  },
+  {
+    "name": "requirement-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--requirement-16\""
+  },
+  {
+    "name": "requirements-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--requirements-16\""
+  },
+  {
+    "name": "requirements-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--requirements-32\""
+  },
+  {
+    "name": "requirements-block-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--requirements-block-16\""
+  },
+  {
+    "name": "requirements-project-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--requirements-project-16\""
+  },
+  {
+    "name": "reset-view-24",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--reset-view-24\""
+  },
+  {
+    "name": "reuse-block-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--reuse-block-16\""
+  },
+  {
+    "name": "rich-text",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--rich-text\""
+  },
+  {
+    "name": "rotate-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--rotate-32\""
+  },
+  {
+    "name": "round-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--round-12\""
+  },
+  {
+    "name": "round-rectangle-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--round-rectangle-12\""
+  },
+  {
+    "name": "sch-folder-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--sch-folder-16\""
+  },
+  {
+    "name": "sch-managed-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--sch-managed-16\""
+  },
+  {
+    "name": "sch-root-folder-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--sch-root-folder-16\""
+  },
+  {
+    "name": "schematic",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--schematic\""
+  },
+  {
+    "name": "schematic-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--schematic-16\""
+  },
+  {
+    "name": "script",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--script\""
+  },
+  {
+    "name": "select-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--select-32\""
+  },
+  {
+    "name": "select-tch-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--select-tch-32\""
+  },
+  {
+    "name": "silicon-expert-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--silicon-expert-32\""
+  },
+  {
+    "name": "simodel",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--simodel\""
+  },
+  {
+    "name": "simulation-model",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--simulation-model\""
+  },
+  {
+    "name": "simulation-net-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--simulation-net-16\""
+  },
+  {
+    "name": "skipped-violation-folder-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--skipped-violation-folder-16\""
+  },
+  {
+    "name": "software",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--software\""
+  },
+  {
+    "name": "solution",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--solution\""
+  },
+  {
+    "name": "status-block",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-block\""
+  },
+  {
+    "name": "status-block-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-block-16\""
+  },
+  {
+    "name": "status-bom",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-bom\""
+  },
+  {
+    "name": "status-bom-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-bom-16\""
+  },
+  {
+    "name": "status-error",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-error\""
+  },
+  {
+    "name": "status-error-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-error-16\""
+  },
+  {
+    "name": "status-info",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-info\""
+  },
+  {
+    "name": "status-ok",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-ok\""
+  },
+  {
+    "name": "status-ok-12",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-ok-12\""
+  },
+  {
+    "name": "status-ok-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-ok-16\""
+  },
+  {
+    "name": "status-question",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-question\""
+  },
+  {
+    "name": "status-success",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-success\""
+  },
+  {
+    "name": "status-warning",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-warning\""
+  },
+  {
+    "name": "status-warning-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-warning-16\""
+  },
+  {
+    "name": "status-warning-2",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-warning-2\""
+  },
+  {
+    "name": "status-warning-2-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-warning-2-16\""
+  },
+  {
+    "name": "status-warning-2-gray",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--status-warning-2-gray\""
+  },
+  {
+    "name": "steps-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--steps-32\""
+  },
+  {
+    "name": "symbol",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--symbol\""
+  },
+  {
+    "name": "table-2-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--table-2-16\""
+  },
+  {
+    "name": "task-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--task-16\""
+  },
+  {
+    "name": "txt-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--txt-16\""
+  },
+  {
+    "name": "upload-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--upload-32\""
+  },
+  {
+    "name": "upload-pr",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--upload-pr\""
+  },
+  {
+    "name": "used-part-report-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--used-part-report-16\""
+  },
+  {
+    "name": "valispace-36",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--valispace-36\""
+  },
+  {
+    "name": "variant-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--variant-16\""
+  },
+  {
+    "name": "waived-violation-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--waived-violation-16\""
+  },
+  {
+    "name": "warning",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--warning\""
+  },
+  {
+    "name": "warning-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--warning-16\""
+  },
+  {
+    "name": "warning-16-v2",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--warning-16-v2\""
+  },
+  {
+    "name": "warning-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--warning-32\""
+  },
+  {
+    "name": "warning-folder-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--warning-folder-16\""
+  },
+  {
+    "name": "warning-violation-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--warning-violation-16\""
+  },
+  {
+    "name": "wave-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--wave-16\""
+  },
+  {
+    "name": "web-item",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--web-item\""
+  },
+  {
+    "name": "workspace",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--workspace\""
+  },
+  {
+    "name": "workspace-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--workspace-32\""
+  },
+  {
+    "name": "ws-active-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--ws-active-16\""
+  },
+  {
+    "name": "xls-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--xls-16\""
+  },
+  {
+    "name": "xml-16",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--xml-16\""
+  },
+  {
+    "name": "youtube-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--youtube-32\""
+  },
+  {
+    "name": "z2data-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--z2data-32\""
+  },
+  {
+    "name": "zoom-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--zoom-32\""
+  },
+  {
+    "name": "zoom-tch-32",
+    "filled": true,
+    "fullId": "id=\"svg-sprite-filled--zoom-tch-32\""
+  }
+]
