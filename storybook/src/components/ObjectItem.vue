@@ -28,8 +28,11 @@ defineOptions({ name: 'ObjectItem' });
 
 withDefaults(
   defineProps<{
+    /** Object name */
     name: string;
+    /** Icon name (suffix only) */
     icon: string;
+    /** Visibility state */
     isVisible?: boolean;
   }>(),
   {

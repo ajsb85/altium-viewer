@@ -35,7 +35,7 @@ withDefaults(
   defineProps<{
     /** Loading state */
     loading?: boolean;
-    /** Error message */
+    /** Error message to display (if any) */
     error?: string;
   }>(),
   {
@@ -49,7 +49,7 @@ const emit = defineEmits<{
   (e: 'pan', x: number, y: number): void;
 }>();
 
-const containerRef = ref<HTMLElement | null>(null);
+
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 const zoom = ref(1);
 
@@ -105,7 +105,7 @@ onUnmounted(() => {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #1a1a2e;
+  background: var(--afs-canvas-bg, #1a1a2e);
   overflow: hidden;
   
   &__canvas {
@@ -122,16 +122,16 @@ onUnmounted(() => {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
+    background: var(--afs-overlay-bg, rgba(0, 0, 0, 0.7));
+    color: var(--afs-text-icon-inverse, #fff);
     font-size: 14px;
   }
   
   &__spinner {
     width: 32px;
     height: 32px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top-color: white;
+    border: 3px solid var(--afs-border, rgba(255, 255, 255, 0.3));
+    border-top-color: var(--afs-accent, #3b82f6);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
   }
@@ -141,13 +141,13 @@ onUnmounted(() => {
   }
   
   &__error {
-    color: #f87171;
+    color: var(--afs-error, #f87171);
   }
   
   &__toolbar {
     position: absolute;
-    bottom: 16px;
-    right: 16px;
+    bottom: 1rem;
+    right: 1rem;
     display: flex;
     gap: 4px;
   }
@@ -155,24 +155,24 @@ onUnmounted(() => {
   &__tool {
     width: 32px;
     height: 32px;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--afs-panel, rgba(255, 255, 255, 0.9));
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
     
     &:hover {
-      background: white;
+      background: var(--afs-secondary-selected, #fff);
     }
   }
   
   &__info {
     position: absolute;
-    bottom: 16px;
-    left: 16px;
+    bottom: 1rem;
+    left: 1rem;
     padding: 4px 8px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+    background: var(--afs-overlay-bg, rgba(0, 0, 0, 0.6));
+    color: var(--afs-text-icon-inverse, #fff);
     font-size: 11px;
     border-radius: 4px;
   }

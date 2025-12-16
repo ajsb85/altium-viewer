@@ -54,13 +54,13 @@ const props = withDefaults(
     hasError?: boolean;
     /** Whether to show an icon in the loader */
     hasIcon?: boolean;
-    /** Semi-transparent background overlay */
+    /** Enable semi-transparent background overlay */
     backgroundAlpha?: boolean;
-    /** Icon name (default: file-upload-32, error: error-64) */
+    /** Icon name to display (default: file-upload-32) */
     icon?: string;
     /** Size variant: 'small' | 'medium' | 'large' */
     size?: 'small' | 'medium' | 'large';
-    /** Primary (default) or secondary styling */
+    /** Use primary styling (default) or secondary */
     primary?: boolean;
   }>(),
   {

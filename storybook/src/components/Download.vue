@@ -45,6 +45,7 @@ interface DownloadOption {
 
 withDefaults(
   defineProps<{
+    /** List of download options */
     options: DownloadOption[];
   }>(),
   {

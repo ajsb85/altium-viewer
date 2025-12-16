@@ -38,9 +38,13 @@ interface MenuItem {
 
 const props = withDefaults(
   defineProps<{
+    /** List of menu items to display */
     items?: MenuItem[];
+    /** Whether the menu is currently visible */
     isVisible?: boolean;
+    /** X coordinate for menu position */
     x?: number;
+    /** Y coordinate for menu position */
     y?: number;
   }>(),
   {

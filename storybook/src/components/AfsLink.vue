@@ -27,19 +27,39 @@ defineOptions({ name: 'AfsLink' });
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * URL to navigate to. If provided, renders an anchor tag.
+     * If not provided, renders a button.
+     */
     href?: string;
+    /**
+     * Link visual style variant.
+     * @default 'primary'
+     */
     variant?: 'primary' | 'accent' | 'secondary' | 'regular-text';
+    /**
+     * Whether to open the link in a new tab (target="_blank") if href is present.
+     * @default true
+     */
     external?: boolean;
+    /**
+     * Whether to prevent the link from losing focus on click (useful for preserving focus in editors).
+     * @default false
+     */
     preventBlur?: boolean;
   }>(),
   {
     variant: 'primary',
     external: true,
     preventBlur: false,
+    // href and preventBlur defaults handled at usage site or implicit
   }
 );
 
 const emit = defineEmits<{
+  /**
+   * Emitted when the link/button is clicked.
+   */
   (e: 'click', event: MouseEvent): void;
 }>();
 

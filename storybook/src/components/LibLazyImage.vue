@@ -60,8 +60,11 @@ defineOptions({
 
 const props = withDefaults(
   defineProps<{
+    /** Image source URL */
     src?: string;
+    /** Alt text */
     alt?: string;
+    /** Aspect ratio percentage (padding-top) for placeholder */
     aspectRatio?: number;
   }>(),
   {

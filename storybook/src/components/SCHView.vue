@@ -42,8 +42,11 @@ interface Sheet {
 
 withDefaults(
   defineProps<{
+    /** Loading state */
     loading?: boolean;
+    /** List of available sheets */
     sheets?: Sheet[];
+    /** ID of the active sheet */
     activeSheet?: string;
   }>(),
   {
@@ -58,7 +61,7 @@ const emit = defineEmits<{
   (e: 'sheetChange', sheetId: string): void;
 }>();
 
-const containerRef = ref<HTMLElement | null>(null);
+
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 const zoom = ref(1);
 
@@ -98,7 +101,7 @@ onMounted(() => {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #fafafa;
+  background: var(--afs-canvas-bg-light, #fafafa);
   overflow: hidden;
   
   &__canvas { width: 100%; height: 100%; }
@@ -111,15 +114,15 @@ onMounted(() => {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--afs-overlay-bg-light, rgba(255, 255, 255, 0.9));
     font-size: 14px;
   }
   
   &__spinner {
     width: 32px;
     height: 32px;
-    border: 3px solid #e5e7eb;
-    border-top-color: #3b82f6;
+    border: 3px solid var(--afs-border, #e5e7eb);
+    border-top-color: var(--afs-accent, #3b82f6);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
   }
@@ -128,8 +131,8 @@ onMounted(() => {
   
   &__toolbar {
     position: absolute;
-    bottom: 16px;
-    right: 16px;
+    bottom: 1rem;
+    right: 1rem;
     display: flex;
     gap: 4px;
   }
@@ -137,19 +140,19 @@ onMounted(() => {
   &__tool {
     width: 32px;
     height: 32px;
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: var(--afs-panel, #fff);
+    border: 1px solid var(--afs-border, #e5e7eb);
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
     
-    &:hover { background: #f3f4f6; }
+    &:hover { background: var(--afs-secondary-selected, #f3f4f6); }
   }
   
   &__sheets {
     position: absolute;
-    top: 16px;
-    left: 16px;
+    top: 1rem;
+    left: 1rem;
     display: flex;
     gap: 4px;
   }
@@ -157,15 +160,15 @@ onMounted(() => {
   &__sheet {
     padding: 6px 12px;
     font-size: 12px;
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: var(--afs-panel, #fff);
+    border: 1px solid var(--afs-border, #e5e7eb);
     border-radius: 4px;
     cursor: pointer;
     
     &.is-active {
-      background: #3b82f6;
-      border-color: #3b82f6;
-      color: white;
+      background: var(--afs-accent, #3b82f6);
+      border-color: var(--afs-accent, #3b82f6);
+      color: var(--afs-text-icon-inverse, #fff);
     }
   }
 }

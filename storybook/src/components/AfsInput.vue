@@ -30,39 +30,45 @@ defineOptions({ name: 'AfsInput' });
 const props = withDefaults(
   defineProps<{
     /**
-     * Input value (v-model)
+     * Input value (v-model).
      */
     modelValue?: string;
     /**
-     * Label text
+     * Label text displayed above the input.
      */
     label?: string;
     /**
-     * Placeholder text
+     * Placeholder text displayed when input is empty.
      */
     placeholder?: string;
     /**
-     * Disabled state
+     * Whether the input is disabled.
+     * @default false
      */
     disabled?: boolean;
     /**
-     * Warning validation state
+     * Whether to show the warning state (orange border).
+     * @default false
      */
     warning?: boolean;
     /**
-     * Error validation state
+     * Whether to show the error state (red border).
+     * @default false
      */
     error?: boolean;
     /**
-     * Transparent style (no background)
+     * Transparent style (no background/border until focused).
+     * @default false
      */
     transparent?: boolean;
     /**
-     * Monospace code font
+     * Whether to use a monospace code font.
+     * @default false
      */
     code?: boolean;
     /**
-     * Rounded corners
+     * Whether to use rounded corners.
+     * @default true
      */
     rounded?: boolean;
   }>(),
@@ -79,8 +85,17 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
+  /**
+   * Emitted when the input value changes.
+   */
   (e: 'update:modelValue', value: string): void;
+  /**
+   * Emitted when the input receives focus.
+   */
   (e: 'focus', event: FocusEvent): void;
+  /**
+   * Emitted when the input loses focus.
+   */
   (e: 'blur', event: FocusEvent): void;
 }>();
 

@@ -30,7 +30,9 @@ interface Section { id: string; title: string; properties: Property[]; }
 
 withDefaults(
   defineProps<{
+    /** View title */
     title?: string;
+    /** Data sections */
     sections?: Section[];
   }>(),
   {

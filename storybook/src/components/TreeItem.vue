@@ -53,13 +53,21 @@ interface TreeItemData {
 
 const props = withDefaults(
   defineProps<{
+    /** Item ID */
     id: string;
+    /** Label text */
     label: string;
+    /** Icon name */
     icon?: string;
+    /** Badge text */
     badge?: string;
+    /** Child items */
     children?: TreeItemData[];
+    /** Expanded state */
     expanded?: boolean;
+    /** Current depth level (internal) */
     depth?: number;
+    /** Selected item ID */
     selectedId?: string | null;
   }>(),
   {

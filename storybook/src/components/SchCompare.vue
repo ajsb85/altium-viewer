@@ -52,8 +52,11 @@ defineOptions({ name: 'SchCompare' });
 
 withDefaults(
   defineProps<{
+    /** Label for lefthand schematic */
     leftLabel?: string;
+    /** Label for righthand schematic */
     rightLabel?: string;
+    /** Total number of changes */
     changesCount?: number;
   }>(),
   {

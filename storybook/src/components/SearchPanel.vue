@@ -82,11 +82,17 @@ defineOptions({ name: 'SearchPanel' });
 
 const props = withDefaults(
   defineProps<{
+    /** Panel title */
     title?: string;
+    /** Subtitle (e.g. shortcut hint) */
     subtitle?: string;
+    /** Panel width in pixels */
     width?: number;
+    /** Input placeholder */
     placeholder?: string;
+    /** Whether to show filters toggle */
     showFiltersButton?: boolean;
+    /** Current search query (v-model) */
     modelValue?: string;
   }>(),
   {

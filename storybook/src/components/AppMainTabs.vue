@@ -60,6 +60,10 @@ import AfsBadge from './AfsBadge.vue';
 // import AfsContextMenu from './AfsContextMenu.vue'; // Not using context menu logic yet in this simplified version
 
 const props = defineProps({
+  /**
+   * Array of tab items to display.
+   * Each item should have `id` and `text` properties.
+   */
   items: {
     type: Array as () => any[],
     default: () => [],
@@ -81,51 +85,77 @@ const onClick = (item: any) => {
 <style lang="scss" scoped>
 .app-main-tabs {
   display: flex;
-  height: 100%;
-  border-bottom: 1px solid #e5e7eb;
+  align-items: stretch;
 
   &__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 16px;
-    height: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    color: #6b7280;
-    transition: all 0.2s;
     position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    min-width: 3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-main-tabs, var(--afs-text-icon-secondary, #6b7280));
+    transition: background-color var(--transition-duration-default, 0.2s);
 
     &:hover {
-      color: #111827;
-      background-color: #f9fafb;
+      background: var(--background-tab-secondary_hover, var(--afs-secondary-selected, #f3f4f6));
     }
 
     &.is-selected {
-      color: #3b82f6;
-      border-bottom-color: #3b82f6;
+      background: var(--background-button-secondary_selected, var(--afs-accent, #3b82f6));
+      color: var(--afs-text-icon-inverse, #fff);
     }
 
     &:disabled {
       opacity: 0.5;
-      cursor: not-allowed;
+      cursor: wait;
     }
   }
 
   &__text {
     display: flex;
     align-items: center;
-    gap: 8px;
+    color: inherit;
+    text-shadow: var(--text-shadow-main-tabs, none);
+    white-space: nowrap;
+  }
+
+  &__name {
+    max-width: 9.38rem;
+    line-height: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__display-items {
+    display: flex;
+    margin-top: -0.12rem;
+    margin-bottom: -0.12rem;
+
+    .app-main-tabs__icon {
+      font-size: 1rem;
+    }
+
+    .app-main-tabs__text {
+      line-height: 1rem;
+
+      &:not(:first-child) {
+        margin-left: 1rem;
+      }
+    }
   }
 
   &__icon {
+    margin-right: 0.5rem;
     flex-shrink: 0;
   }
-  
+
   &__badge {
     margin-left: 8px;
+    text-transform: capitalize;
   }
 }
 </style>

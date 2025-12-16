@@ -21,5 +21,6 @@ defineOptions({ name: 'GridContainer' });
   display: flex;
   flex-direction: column;
   height: 100%;
+  background: var(--afs-panel, transparent);
 }
 </style>

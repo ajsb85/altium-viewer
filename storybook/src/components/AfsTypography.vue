@@ -24,7 +24,8 @@ defineOptions({ name: 'AfsTypography' });
 withDefaults(
   defineProps<{
     /**
-     * Typography variant
+     * Typography variant style.
+     * @default 'text'
      */
     variant?: 
       | 'large-title'
@@ -37,11 +38,13 @@ withDefaults(
       | 'sticker'
       | 'text';
     /**
-     * HTML element to render
+     * HTML element to render (e.g., 'span', 'p', 'h1', etc.).
+     * @default 'span'
      */
     as?: 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'a' | 'label';
     /**
-     * Apply text ellipsis overflow
+     * Whether to apply text ellipsis overflow (single line, ...).
+     * @default false
      */
     ellipsis?: boolean;
   }>(),
@@ -57,6 +60,10 @@ withDefaults(
 /**
  * Production CSS from production.css:8224-8284
  */
+.afs-typography {
+  color: var(--afs-text-icon-primary, inherit);
+}
+
 span.afs-typography,
 a.afs-typography {
   display: inline-block;
@@ -92,6 +99,7 @@ a.afs-typography {
   font-size: 11px;
   font-weight: 400;
   line-height: 12px;
+  color: var(--afs-text-icon-hint, #6b7280);
 }
 
 .afs-typography_group {
@@ -100,6 +108,7 @@ a.afs-typography {
   line-height: 1;
   letter-spacing: 0.08rem;
   text-transform: uppercase;
+  color: var(--afs-text-icon-secondary, #9ca3af);
 }
 
 .afs-typography_sticker {

@@ -51,8 +51,11 @@ interface GerberLayer {
 
 const props = withDefaults(
   defineProps<{
+    /** Array of Gerber layers to render */
     layers: GerberLayer[];
+    /** Canvas width */
     width?: number;
+    /** Canvas height */
     height?: number;
   }>(),
   {
@@ -62,7 +65,7 @@ const props = withDefaults(
   }
 );
 
-const canvasRef = ref<HTMLElement | null>(null);
+
 const cursorX = ref(0);
 const cursorY = ref(0);
 

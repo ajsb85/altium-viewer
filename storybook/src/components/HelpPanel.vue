@@ -119,13 +119,21 @@ export interface HelpMenuItem {
 
 withDefaults(
   defineProps<{
+    /** Panel title */
     title?: string;
+    /** Panel width in pixels */
     width?: number;
+    /** DOM ID for the panel */
     panelId?: string;
+    /** List of menu items (internal actions) */
     menuItems?: HelpMenuItem[];
+    /** List of link items (external URLs) */
     linkItems?: HelpMenuItem[];
+    /** Whether to show the unit switcher */
     showUnitSwitcher?: boolean;
+    /** Available units */
     units?: string[];
+    /** Currently selected unit */
     selectedUnit?: string;
   }>(),
   {

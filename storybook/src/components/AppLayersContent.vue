@@ -49,7 +49,14 @@ interface Layer {
 
 withDefaults(
   defineProps<{
+    /**
+     * Section title.
+     * @default 'Layers'
+     */
     title?: string;
+    /**
+     * Array of layer objects.
+     */
     layers: Layer[];
   }>(),
   {

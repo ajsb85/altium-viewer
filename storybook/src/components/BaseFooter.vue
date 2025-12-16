@@ -25,10 +25,22 @@
  */
 defineOptions({ name: 'BaseFooter' });
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
+    /**
+     * Total count of items/results.
+     * @default 0
+     */
     count?: number;
+    /**
+     * Whether to display the count.
+     * @default true
+     */
     showCount?: boolean;
+    /**
+     * Whether to show the Clear button when actions slot is empty.
+     * @default true
+     */
     showClear?: boolean;
   }>(),
   {

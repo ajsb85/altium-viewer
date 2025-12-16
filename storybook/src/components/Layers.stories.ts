@@ -6,8 +6,14 @@ import Layers from './Layers.vue';
 /**
  * Layers - Layer Visibility Panel
  *
- * Displays PCB layers with visibility toggles and "Only" buttons.
- * Part of the BoardItemsVisibility plugin.
+ * A specialized list layout for managing PCB/Schematic layers.
+ * Features include:
+ * - Color-coded indicators for each layer
+ * - Visibility toggles (eye icon)
+ * - "Show Only" functionality (hover action)
+ * - Top/Bottom view filtering tabs
+ * 
+ * Used within the BoardItemsVisibility plugin.
  */
 const meta: Meta<typeof Layers> = {
   title: 'Plugins/Layers',
@@ -15,15 +21,21 @@ const meta: Meta<typeof Layers> = {
   tags: ['autodocs'],
   argTypes: {
     layers: {
-      description: 'Array of layer items with id, name, color, and visibility',
+      description: 'List of layer definitions. Each layer includes an ID, name, color (hex), and visibility state.',
       control: 'object',
+      table: {
+        type: { summary: 'LayerItem[]' },
+      },
     },
     layersViews: {
-      description: 'View tabs (Top/Bottom board view)',
+      description: 'Definitions for the view tabs (e.g., Top View, Bottom View) used to filter visible layers.',
       control: 'object',
+      table: {
+        type: { summary: 'LayerView[]' },
+      },
     },
     showViewTabs: {
-      description: 'Show Top/Bottom view tabs',
+      description: 'Whether to display the Top/Bottom view switching tabs at the top of the panel.',
       control: 'boolean',
     },
   },
@@ -35,11 +47,16 @@ const meta: Meta<typeof Layers> = {
   parameters: {
     layout: 'padded',
     controls: { expanded: true },
+    docs: {
+      description: {
+        component: 'The `Layers` component provides a control panel for managing the visibility of different PCB layers (e.g., Copper, Silkscreen). It supports individual toggling, "show only" mode, and view-based filtering.',
+      },
+    },
   },
   decorators: [
     () => ({
       template: `
-        <div style="width: 280px; height: 450px; background: var(--afs-sidebar, #1c1c1e); border-radius: 8px; overflow: hidden;">
+        <div style="width: 280px; height: 450px; background: var(--afs-sidebar, #1c1c1e); border-radius: 8px; overflow: hidden; border: 1px solid var(--afs-border, #3c3c3e);">
           <story />
         </div>
       `,
@@ -67,7 +84,10 @@ const layerViews = [
 ];
 
 /**
- * Default layers list
+ * **Default State**
+ * 
+ * Shows a standard list of layers with visibility toggles.
+ * Each item displays a color swatch, layer name, and visibility status.
  */
 export const Default: Story = {
   args: {
@@ -77,7 +97,10 @@ export const Default: Story = {
 };
 
 /**
- * With Top/Bottom view tabs
+ * **With View Tabs**
+ * 
+ * Includes navigation tabs (Top/Bottom) at the top of the list.
+ * This is used to quickly switch between different board perspectives.
  */
 export const WithViewTabs: Story = {
   args: {
@@ -88,7 +111,12 @@ export const WithViewTabs: Story = {
 };
 
 /**
- * Interactive layer toggling
+ * **Interactive Demo**
+ * 
+ * Demonstrates the interactive features:
+ * - Click visibility toggle (eye icon)
+ * - Hover to see "Only" button
+ * - Click "Only" to isolate a specific layer
  */
 export const Interactive: Story = {
   render: (args) => ({
@@ -144,6 +172,12 @@ export const Interactive: Story = {
         await userEvent.click(onlyBtn);
         await new Promise(r => setTimeout(r, 200));
       }
+    });
+
+    // Reset loop
+    await step('Reset state', async () => {
+       // Optional reset logic if needed
+       await new Promise(r => setTimeout(r, 500));
     });
   },
 };

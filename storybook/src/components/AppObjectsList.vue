@@ -43,6 +43,7 @@ interface ObjectItem {
 
 withDefaults(
   defineProps<{
+    /** Array of object items to display */
     items: ObjectItem[];
   }>(),
   {

@@ -44,37 +44,49 @@ const props = withDefaults(
     /**
      * Button variant
      */
+    /**
+     * Button variant style.
+     * @default 'default'
+     */
     variant?: 'default' | 'primary' | 'secondary' | 'transparent' | 'accent';
     /**
-     * Button size
+     * Button size.
+     * @default 'default'
      */
     size?: 'default' | 'sm';
     /**
-     * Full width button
+     * Whether the button should take up the full width of its container.
+     * @default false
      */
     wide?: boolean;
     /**
-     * Disabled state
+     * Whether the button is disabled.
+     * @default false
      */
     disabled?: boolean;
     /**
-     * Loading state (shows spinner)
+     * Whether the button is in a loading state. 
+     * If true, shows a spinner and hides the content.
+     * @default false
      */
     loading?: boolean;
     /**
-     * Icon name (from SVG sprite)
+     * Name of the icon to display (from SVG sprite).
      */
     icon?: string;
     /**
-     * Content justification
+     * Content alignment within the button.
+     * @default 'center'
      */
     justify?: 'left' | 'center' | 'right' | 'space-between';
     /**
-     * Show dropdown arrow
+     * Whether to show a dropdown arrow.
+     * @default false
      */
     arrow?: boolean;
     /**
-     * Border radius corners
+     * Whether the button should have rounded corners.
+     * @default true
      */
     rounded?: boolean;
   }>(),
@@ -91,6 +103,9 @@ const props = withDefaults(
 );
 
 defineEmits<{
+  /**
+   * Emitted when the button is clicked.
+   */
   (e: 'click', event: MouseEvent): void;
 }>();
 

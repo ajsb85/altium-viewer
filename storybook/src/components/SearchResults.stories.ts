@@ -6,8 +6,15 @@ import SearchResults from './SearchResults.vue';
 /**
  * SearchResults - Search Results List with Sections
  *
- * Displays search results grouped by category with highlighting.
- * Part of the Search plugin.
+ * A complex list component that displays search results grouped by category (e.g., Components, Nets).
+ * Features include:
+ * - Grouped results with section headers
+ * - Text highlighting for search terms
+ * - Keyboard navigation support (up/down/enter)
+ * - Loading and empty states
+ * - Selection highlighting
+ * 
+ * Part of the Search plugin for examining PCB/Schematic data.
  */
 const meta: Meta<typeof SearchResults> = {
   title: 'Plugins/SearchResults',
@@ -15,31 +22,34 @@ const meta: Meta<typeof SearchResults> = {
   tags: ['autodocs'],
   argTypes: {
     sections: {
-      description: 'Array of result sections with items',
+      description: 'Array of result sections containing items. Each section has an ID, title, and list of items.',
       control: 'object',
+      table: {
+        type: { summary: 'SearchSection[]' },
+      },
     },
     query: {
-      description: 'Search query for text highlighting',
+      description: 'Current search query string used for text highlighting within results.',
       control: 'text',
     },
     limit: {
-      description: 'Max items per section (null = no limit)',
+      description: 'Maximum number of items to show per section before showing "Show more" button. Set to null for unlimited.',
       control: 'number',
     },
     selectedId: {
-      description: 'Currently selected item ID',
+      description: 'ID of the currently selected item. Used to highlight the active row.',
       control: 'text',
     },
     isLoading: {
-      description: 'Show loading state',
+      description: 'Whether data is currently being fetched. Shows a skeleton or loading indicator.',
       control: 'boolean',
     },
     emptyText: {
-      description: 'Text shown when no results',
+      description: 'Message to display when no results are found matching the query.',
       control: 'text',
     },
     emptyIcon: {
-      description: 'Icon name for empty state',
+      description: 'Icon name from AfsIcon library to display in the empty state.',
       control: 'text',
     },
   },
@@ -50,11 +60,16 @@ const meta: Meta<typeof SearchResults> = {
   parameters: {
     layout: 'padded',
     controls: { expanded: true },
+    docs: {
+      description: {
+        component: 'The `SearchResults` component is the main display area for the search plugin. It renders grouped lists of items found in the design, with support for highlighting matched text and keyboard navigation.',
+      },
+    },
   },
   decorators: [
     () => ({
       template: `
-        <div style="width: 320px; max-height: 450px; background: var(--afs-sidebar, #1c1c1e); border-radius: 8px; overflow: hidden;">
+        <div style="width: 320px; max-height: 450px; background: var(--afs-sidebar, #1c1c1e); border-radius: 8px; overflow: hidden; border: 1px solid var(--afs-border, #3c3c3e);">
           <story />
         </div>
       `,
@@ -90,7 +105,10 @@ const sampleResults = [
 ];
 
 /**
- * Default results with sections
+ * **Default State**
+ * 
+ * Shows a standard list of results grouped by category (Components, Nets).
+ * This is the typical state after a user has typed a query that returns matches.
  */
 export const Default: Story = {
   args: {
@@ -102,7 +120,10 @@ export const Default: Story = {
 };
 
 /**
- * With search highlighting
+ * **Text Highlighting**
+ * 
+ * Demonstrates how search terms are highlighted within the result text.
+ * In this example, "R1" is the query, and it corresponds to matching text in the items.
  */
 export const WithHighlighting: Story = {
   args: {
@@ -114,7 +135,10 @@ export const WithHighlighting: Story = {
 };
 
 /**
- * Loading state
+ * **Loading State**
+ * 
+ * Shown while search results are being fetched from the server or processed.
+ * Displays a loading spinner or skeleton loader.
  */
 export const Loading: Story = {
   args: {
@@ -124,7 +148,10 @@ export const Loading: Story = {
 };
 
 /**
- * Empty state
+ * **Empty State**
+ * 
+ * Displayed when the search query returns no results.
+ * Customizable message and icon guide the user.
  */
 export const Empty: Story = {
   args: {
@@ -136,7 +163,10 @@ export const Empty: Story = {
 };
 
 /**
- * With selected item
+ * **With Selection**
+ * 
+ * Shows how an active item appears when selected.
+ * Used for keyboard navigation or when clicking an item.
  */
 export const WithSelection: Story = {
   args: {

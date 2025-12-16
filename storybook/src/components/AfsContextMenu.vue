@@ -31,11 +31,11 @@ import { ref, computed, onMounted, onUnmounted } from 'vue';
 defineOptions({ name: 'AfsContextMenu' });
 
 const props = defineProps({
-  /** Menu ID for reference */
+  /** Menu ID for reference/accessibility */
   menuId: { type: String, default: '' },
-  /** Show arrow pointer */
+  /** Show arrow pointer on the menu */
   arrow: { type: Boolean, default: false },
-  /** Border radius options */
+  /** Border radius configuration ('all', 'top', 'bottom', 'none') */
   borderRadius: { 
     type: String, 
     default: 'all',

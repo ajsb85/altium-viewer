@@ -44,8 +44,19 @@ defineOptions({ name: 'AfsSearch' });
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * Search query value (v-model).
+     */
     modelValue?: string;
+    /**
+     * Input placeholder text.
+     * @default 'Search'
+     */
     placeholder?: string;
+    /**
+     * Whether to show the clear button when input has value.
+     * @default true
+     */
     showClear?: boolean;
   }>(),
   {
@@ -56,8 +67,17 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
+  /**
+   * Emitted when the input value changes.
+   */
   (e: 'update:modelValue', value: string): void;
+  /**
+   * Emitted when Enter is pressed or search icon is clicked.
+   */
   (e: 'search', value: string): void;
+  /**
+   * Emitted when the search is cleared via the clear button.
+   */
   (e: 'clear'): void;
 }>();
 

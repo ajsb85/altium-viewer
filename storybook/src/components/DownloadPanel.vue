@@ -98,14 +98,23 @@ export interface DownloadFile {
 
 withDefaults(
   defineProps<{
+    /** Panel title */
     title?: string;
+    /** Panel width in pixels */
     width?: number;
+    /** DOM ID for the panel */
     panelId?: string;
+    /** Section title for source files */
     sourceTitle?: string;
+    /** List of source files */
     sourceFiles?: DownloadFile[];
+    /** Section title for derived files */
     derivedTitle?: string;
+    /** List of derived files */
     derivedFiles?: DownloadFile[];
+    /** Info message to display */
     infoMessage?: string;
+    /** Action button text */
     actionText?: string;
   }>(),
   {

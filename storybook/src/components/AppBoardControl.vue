@@ -43,7 +43,14 @@ defineOptions({ name: 'AppBoardControl' });
 
 withDefaults(
   defineProps<{
+    /**
+     * Current PCB view mode.
+     * @values 'top', 'bottom'
+     */
     viewMode?: 'top' | 'bottom';
+    /**
+     * Whether 3D mode is active.
+     */
     is3D?: boolean;
   }>(),
   {

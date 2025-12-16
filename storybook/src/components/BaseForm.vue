@@ -35,7 +35,14 @@ defineOptions({ name: 'BaseForm' });
 
 withDefaults(
   defineProps<{
+    /**
+     * Input placeholder text.
+     * @default 'Search...'
+     */
     placeholder?: string;
+    /**
+     * Input value (v-model).
+     */
     modelValue?: string;
   }>(),
   {

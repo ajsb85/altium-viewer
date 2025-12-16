@@ -36,9 +36,21 @@ defineOptions({ name: 'AppBoardItemsVisibility' });
 
 withDefaults(
   defineProps<{
+    /**
+     * Current PCB view mode ('top' or 'bottom').
+     */
     viewMode?: 'top' | 'bottom';
+    /**
+     * Whether 3D mode is active.
+     */
     is3D?: boolean;
+    /**
+     * Currently active tab ID.
+     */
     activeTab?: string;
+    /**
+     * Array of available tabs.
+     */
     tabs?: { id: string; name: string }[];
   }>(),
   {

@@ -4,7 +4,7 @@
     <div v-if="columns.length" class="lib-table__header">
       <div class="lib-table__row">
         <component
-          v-for="(col, i) in columns"
+          v-for="col in columns"
           :key="col.key"
           :is="col.sortable ? 'button' : 'div'"
           :type="col.sortable ? 'button' : undefined"
@@ -14,7 +14,7 @@
             col.align ? `lib-table__col_text-align-${col.align}` : '',
             sortKey === col.key ? (sortDir === 'asc' ? 'is-asc' : 'is-desc') : ''
           ]"
-          :style="getColStyle(col, i)"
+          :style="getColStyle(col)"
           @click="col.sortable ? handleSort(col.key) : undefined"
         >
           <span class="lib-table__heading">{{ col.label }}</span>
@@ -34,11 +34,11 @@
       >
         <slot name="row" :row="row" :index="rowIndex" :columns="columns">
           <div
-            v-for="(col, colIndex) in columns"
+            v-for="col in columns"
             :key="col.key"
             class="lib-table__col"
             :class="col.align ? `lib-table__col_text-align-${col.align}` : ''"
-            :style="getColStyle(col, colIndex)"
+          :style="getColStyle(col)"
           >
             <slot :name="`cell-${col.key}`" :value="row[col.key]" :row="row">
               {{ row[col.key] }}
@@ -62,7 +62,7 @@
  * Production CSS from production.css:38813-38970
  * Flexbox-based table with sortable columns, hover states, and custom scrollbars.
  */
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
 export interface TableColumn {
   key: string;
@@ -77,10 +77,15 @@ defineOptions({ name: 'LibTable' });
 
 const props = withDefaults(
   defineProps<{
+    /** Column definitions */
     columns: TableColumn[];
+    /** Data rows */
     rows: Record<string, any>[];
+    /** Enable hover effect on rows */
     hasHover?: boolean;
+    /** Initial sort column key */
     defaultSortKey?: string;
+    /** Initial sort direction */
     defaultSortDir?: 'asc' | 'desc';
   }>(),
   {
@@ -98,7 +103,7 @@ const sortKey = ref(props.defaultSortKey || '');
 const sortDir = ref<'asc' | 'desc'>(props.defaultSortDir);
 const focusedRow = ref<number | null>(null);
 
-function getColStyle(col: TableColumn, index: number) {
+function getColStyle(col: TableColumn) {
   const styles: Record<string, string> = {};
   
   if (col.flex) {

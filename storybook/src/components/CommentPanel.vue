@@ -87,11 +87,17 @@ defineOptions({ name: 'CommentPanel' });
 
 withDefaults(
   defineProps<{
+    /** Panel title */
     title?: string;
+    /** Panel width in pixels */
     width?: number;
+    /** Whether to show placeholder state */
     showPlaceholder?: boolean;
+    /** Text to display in placeholder */
     placeholderText?: string;
+    /** Text for placeholder action button */
     actionText?: string;
+    /** URL for feedback link */
     feedbackUrl?: string;
   }>(),
   {

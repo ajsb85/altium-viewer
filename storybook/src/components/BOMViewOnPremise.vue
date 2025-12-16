@@ -66,7 +66,9 @@ interface Column {
 
 const props = withDefaults(
   defineProps<{
+    /** Table columns definition */
     columns: Column[];
+    /** Data items for the BOM table */
     items: Record<string, string | number | boolean>[];
   }>(),
   {

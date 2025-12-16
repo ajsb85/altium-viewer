@@ -39,23 +39,28 @@ defineOptions({ name: 'AfsCheckbox' });
 const props = withDefaults(
   defineProps<{
     /**
-     * Checked state (v-model)
+     * Checked state (v-model).
+     * @default false
      */
     modelValue?: boolean;
     /**
-     * Disabled state
+     * Whether the checkbox is disabled.
+     * @default false
      */
     disabled?: boolean;
     /**
-     * Warning validation state
+     * Warning validation state (orange border).
+     * @default false
      */
     warning?: boolean;
     /**
-     * Error validation state
+     * Error validation state (red border).
+     * @default false
      */
     error?: boolean;
     /**
-     * Indeterminate state (shows horizontal bar)
+     * Indeterminate state (shows horizontal bar instead of check).
+     * @default false
      */
     indeterminate?: boolean;
   }>(),
@@ -69,7 +74,13 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
+  /**
+   * Emitted when the checked state changes.
+   */
   (e: 'update:modelValue', value: boolean): void;
+  /**
+   * Emitted when the checkbox is clicked (deprecated, use update:modelValue).
+   */
   (e: 'change', value: boolean): void;
 }>();
 

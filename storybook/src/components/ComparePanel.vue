@@ -77,15 +77,15 @@ withDefaults(
   defineProps<{
     /** Panel title */
     title?: string;
-    /** Comparison modes */
+    /** Comparison modes available */
     modes?: Mode[];
-    /** Active mode */
+    /** ID of currently active mode */
     activeMode?: string;
-    /** Left side label */
+    /** Label for the left side view */
     leftLabel?: string;
-    /** Right side label */
+    /** Label for the right side view */
     rightLabel?: string;
-    /** List of differences */
+    /** List of detected differences */
     differences?: Difference[];
   }>(),
   {

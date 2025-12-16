@@ -37,7 +37,9 @@ interface MeasurementItem {
 
 withDefaults(
   defineProps<{
+    /** Section title */
     title: string;
+    /** List of measurement items to display */
     items?: MeasurementItem[];
   }>(),
   {

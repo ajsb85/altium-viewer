@@ -58,14 +58,23 @@ defineOptions({ name: 'LibModal' });
 
 withDefaults(
   defineProps<{
+    /** Whether modal is visible */
     visible?: boolean;
+    /** Modal title */
     title?: string;
+    /** Side position (left/right) */
     position?: 'left' | 'right';
+    /** Width in pixels */
     width?: number;
+    /** Top position offset in pixels */
     offsetTop?: number;
+    /** Enable resize handle */
     resizable?: boolean;
+    /** Stretch to full height (minus offset) */
     fullHeight?: boolean;
+    /** Show standard header */
     showHeader?: boolean;
+    /** Z-index property */
     zIndex?: number;
   }>(),
   {

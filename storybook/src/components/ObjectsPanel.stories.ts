@@ -6,8 +6,14 @@ import ObjectsPanel from './ObjectsPanel.vue';
 /**
  * ObjectsPanel - Objects Visibility Panel
  *
- * Displays object types (Pads, Tracks, Vias) with visibility toggles.
- * Part of the BoardItemsVisibility plugin.
+ * A specialized control panel for managing visibility of specific PCB object types.
+ * Features include:
+ * - List of object types (Pads, Vias, Tracks, etc.)
+ * - Individual visibility toggles
+ * - "Show Only" functionality (hover action)
+ * - Master "All Objects" toggle
+ * 
+ * Used within the BoardItemsVisibility plugin.
  */
 const meta: Meta<typeof ObjectsPanel> = {
   title: 'Plugins/ObjectsPanel',
@@ -15,15 +21,18 @@ const meta: Meta<typeof ObjectsPanel> = {
   tags: ['autodocs'],
   argTypes: {
     objects: {
-      description: 'Array of object items with id, name, and visibility',
+      description: 'List of object type definitions. Each item has an ID, name, and visibility state.',
       control: 'object',
+      table: {
+        type: { summary: 'ObjectItem[]' },
+      },
     },
     allObjectsVisible: {
-      description: 'Master toggle state for all objects',
+      description: 'Master toggle state affecting all object types simultaneously.',
       control: 'boolean',
     },
     allObjectsLabel: {
-      description: 'Label for the "all objects" toggle',
+      description: 'Text label displayed next to the master toggle checkbox.',
       control: 'text',
     },
   },
@@ -35,11 +44,16 @@ const meta: Meta<typeof ObjectsPanel> = {
   parameters: {
     layout: 'padded',
     controls: { expanded: true },
+    docs: {
+      description: {
+        component: 'The `ObjectsPanel` provides granular control over the visibility of various PCB object types such as pads, vias, tracks, and text. It supports bulk toggling via a master checkbox and isolating specific object types.',
+      },
+    },
   },
   decorators: [
     () => ({
       template: `
-        <div style="width: 280px; height: 400px; background: var(--afs-sidebar, #1c1c1e); border-radius: 8px; overflow: hidden;">
+        <div style="width: 280px; height: 400px; background: var(--afs-sidebar, #1c1c1e); border-radius: 8px; overflow: hidden; border: 1px solid var(--afs-border, #3c3c3e);">
           <story />
         </div>
       `,
@@ -62,7 +76,10 @@ const pcbObjects = [
 ];
 
 /**
- * Default objects list
+ * **Default State**
+ * 
+ * Shows all object types (Pads, Vias, etc.) enabled by default.
+ * The master checkbox reflects the state of all items.
  */
 export const Default: Story = {
   args: {
@@ -73,7 +90,10 @@ export const Default: Story = {
 };
 
 /**
- * Some objects hidden
+ * **Partially Visible**
+ * 
+ * Demonstrates a state where some objects are hidden.
+ * The master checkbox appears in an indeterminate or unchecked state depending on logic.
  */
 export const PartiallyVisible: Story = {
   args: {
@@ -84,7 +104,12 @@ export const PartiallyVisible: Story = {
 };
 
 /**
- * Interactive object toggling
+ * **Interactive Demo**
+ * 
+ * Demonstrates the full interactivity:
+ * - Toggle individual items via checkbox
+ * - Toggle all items via master checkbox
+ * - Click "Only" button on hover to isolate an object type
  */
 export const Interactive: Story = {
   render: (args) => ({
@@ -154,6 +179,11 @@ export const Interactive: Story = {
         await userEvent.click(onlyBtn);
         await new Promise(r => setTimeout(r, 200));
       }
+    });
+
+    // Reset loop
+    await step('Reset state', async () => {
+       await new Promise(r => setTimeout(r, 500));
     });
   },
 };

@@ -1,40 +1,160 @@
-# Altium Viewer UI Component Library
+import { Meta } from "@storybook/blocks";
 
-Vue 3 components for the Altium Web Viewer.
+<Meta title="Introduction" />
 
----
+<style>
+  {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 900;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
 
-## Quick Start
+    .link-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+    }
 
-Browse components using the sidebar:
-- **Canvas** - Interactive preview
-- **Docs** - Auto-generated documentation  
-- **Controls** - Adjust props in real-time
+    @media (min-width: 620px) {
+      .link-list {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
 
-## Components
+    @media all and (-ms-high-contrast:none) {
+    .link-list {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+      }
+    }
 
-### Core UI
+    .link-item {
+      display: block;
+      padding: 20px 30px 20px 15px;
+      border: 1px solid #00000010;
+      border-radius: 5px;
+      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+      color: #333333;
+      display: flex;
+      align-items: flex-start;
+    }
 
-- **AfsBadge** - Labels and status
-- **AfsLink** - Styled links
-- **AfsContextMenu** - Dropdowns
+    .link-item:hover {
+      border-color: #1EA7FD50;
+      transform: translate3d(0, -3px, 0);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    }
 
-### Layout
+    .link-item:active {
+      border-color: #1EA7FD;
+      transform: translate3d(0, 0, 0);
+    }
 
-- **AfsSidebar** - Resizable sidebar
-- **AppAlert** - Full-screen alerts
-- **AppLoader** - Loading overlay
+    .link-item strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
 
-### Plugins
+    .link-item img {
+      height: 40px;
+      width: 40px;
+      margin-right: 15px;
+      flex: none;
+    }
 
-- **BoardItemsVisibility** - Layer visibility
-- **SearchPanel** - Search interface
-- **DownloadPanel** - File downloads
-- **MeasurementDisplay** - Distance display
+    /* Dark Mode Support */
+    @media (prefers-color-scheme: dark) {
+      .link-item {
+        border-color: #ffffff20;
+        color: #eeeeee;
+        background: #2c2c2e;
+      }
+    }
+    
+    .sb-section-title {
+        margin-bottom: 32px;
+    }
+  `}
+</style>
 
-## Development
+# Altium Viewer UI Components
+
+Welcome to the **Altium Viewer** component library. This Storybook documents the Vue 3 components used to build the web-based PCB and Schematic viewer.
+
+<div className="subheading">Highlights</div>
+
+<div className="link-list">
+  <div className="link-item">
+    <img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="plugin" />
+    <span>
+      <strong>Vue 3 & TypeScript</strong>
+      Built with Composition API and strict typing for reliability.
+    </span>
+  </div>
+  <div className="link-item">
+    <img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="colors" />
+    <span>
+      <strong>100% CSS Variables</strong>
+      Fully themable (Dark/Light) using native CSS custom properties.
+    </span>
+  </div>
+  <div className="link-item">
+    <img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="repo" />
+    <span>
+      <strong>Production Ready</strong>
+      Components mirror the actual production styles (`production.css`).
+    </span>
+  </div>
+  <div className="link-item">
+    <img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="direction" />
+    <span>
+      <strong>Interactive</strong>
+      Play functions included for testing complex interactions.
+    </span>
+  </div>
+</div>
+
+<div className="subheading">Validation & Testing</div>
+
+<div className="link-list">
+  <a className="link-item" href="/?path=/story/verification-themetest--side-by-side" target="_top">
+    <span>
+      <strong>Theme Verification</strong>
+      View Light vs Dark mode side-by-side.
+    </span>
+  </a>
+  <a className="link-item" href="/?path=/story/components-libtable--stress-test" target="_top">
+    <span>
+      <strong>Performance Stress Test</strong>
+      1000-row table rendering benchmark.
+    </span>
+  </a>
+</div>
+
+
+<div className="subheading">Component Categories</div>
+
+*   **Core UI**: Base atoms like `AfsButton`, `AfsInput`, `AfsText` (Typography).
+*   **Layout**: Structural components like `AppSidebar`, `GridContainer`, `TabPanel`.
+*   **Plugins**: Feature-specific modules like `LayersPanel`, `ObjectsPanel`, `SearchResults`.
+*   **Views**: Full-page or complex views like `BOMView`, `PCBView` (Canvas).
+
+<div className="subheading">Development</div>
+
+To run this Storybook locally:
 
 ```bash
-npm run storybook      # Start dev
-npm run build-storybook # Build static
+npm run storybook
 ```

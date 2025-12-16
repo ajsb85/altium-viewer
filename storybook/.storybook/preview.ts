@@ -3,6 +3,7 @@ import type { Preview } from '@storybook/vue3-vite';
 // Import global styles
 import '../src/styles/dark-theme.scss';
 import '../src/styles/global.scss';
+import '../src/styles/production-clean.css';
 import '../../pkg/altium/assets/client/styles/appStyles.css';
 
 // Import SVG sprite as raw text and inject into DOM

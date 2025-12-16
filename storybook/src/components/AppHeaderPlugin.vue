@@ -25,10 +25,25 @@ defineOptions({ name: 'AppHeaderPlugin' });
 
 withDefaults(
   defineProps<{
+    /**
+     * Icon name for the plugin button.
+     */
     icon: string;
+    /**
+     * Optional label text.
+     */
     label?: string;
+    /**
+     * Tooltip text on hover.
+     */
     tooltip?: string;
+    /**
+     * Badge text/number to display.
+     */
     badge?: string;
+    /**
+     * Whether the plugin is currently active/selected.
+     */
     isActive?: boolean;
   }>(),
   {

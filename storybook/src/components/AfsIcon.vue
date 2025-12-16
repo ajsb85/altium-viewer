@@ -5,7 +5,7 @@
     viewBox="0 0 16 16"
     aria-hidden="true"
   >
-    <use :href="`#svg-sprite--${name}`" />
+    <use :href="`#svg-sprite${filled ? '-filled' : ''}--${name}`" />
   </svg>
 </template>
 
@@ -22,7 +22,17 @@ defineOptions({ name: 'AfsIcon' });
 
 withDefaults(
   defineProps<{
+    /**
+     * The name of the icon to display.
+     * This corresponds to the icon names available in the sprite sheet.
+     * Example: 'search', 'close', 'arrow-right'
+     */
     name: string;
+    /**
+     * Whether to use the filled version of the icon.
+     * If true, appends '-filled' to the icon name in the sprite reference.
+     * @default false
+     */
     filled?: boolean;
   }>(),
   {

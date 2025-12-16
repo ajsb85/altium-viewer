@@ -22,6 +22,7 @@ defineOptions({ name: 'GraphiteEngineModule' });
 
 withDefaults(
   defineProps<{
+    /** Whether the engine has finished initialization */
     isReady?: boolean;
   }>(),
   {

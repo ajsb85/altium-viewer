@@ -46,6 +46,7 @@ interface FabricationSection {
 
 withDefaults(
   defineProps<{
+    /** Sections of fabrication data */
     sections: FabricationSection[];
   }>(),
   {

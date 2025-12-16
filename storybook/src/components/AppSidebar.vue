@@ -28,18 +28,33 @@ import AfsSidebar from './AfsSidebar.vue';
 import AfsText from './AfsText.vue';
 
 const props = defineProps({
+  /**
+   * Meta information for the sidebar (e.g. title, subtitle).
+   */
   metaInfo: {
     type: Object,
     default: () => ({}),
   },
+  /**
+   * Sidebar size variant.
+   * @default 'sm'
+   */
   size: {
     type: String,
     default: 'sm',
   },
+  /**
+   * Whether the sidebar is resizable.
+   * @default false
+   */
   resizable: {
     type: Boolean,
     default: false,
   },
+  /**
+   * Whether the sidebar should flex to fill available space.
+   * @default false
+   */
   flex: {
     type: Boolean,
     default: false,
@@ -62,8 +77,7 @@ const hasSlot = (name: string) => !!slots[name];
 .app-sidebar {
   display: flex;
   flex-direction: column;
-  background-color: #f9fafb;
-  border-right: 1px solid #e5e7eb;
+  background-color: var(--afs-sidebar, var(--afs-panel, #2c2c2e));
   
   &_sm { width: 240px; }
   &_md { width: 320px; }
@@ -75,31 +89,42 @@ const hasSlot = (name: string) => !!slots[name];
   }
   
   &__title {
-    font-size: 18px;
-    font-weight: 600;
-    padding: 16px 16px 8px 16px;
-    color: #111827;
+    color: var(--color-control-secondary, var(--afs-text-icon-secondary, #9ca3af));
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1rem;
+    font-weight: 500;
+    font-size: 0.63rem;
   }
   
   &__sub-title {
-    font-size: 14px;
-    color: #6b7280;
-    padding: 0 16px 16px 16px;
-    border-bottom: 1px solid #e5e7eb;
+    color: var(--afs-color-primary, var(--afs-text-icon-primary, #e5e7eb));
+    line-height: 1.5rem;
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+    font-size: 0.88rem;
+    border-bottom: 1px solid var(--afs-primary-border, var(--afs-border, #3c3c3e));
   }
   
   &__sub-title-additional-text {
-    margin-left: 8px;
-    font-size: 12px;
-    background-color: #e5e7eb;
-    padding: 2px 6px;
-    border-radius: 4px;
+    color: var(--global-text-base-tertiary, var(--afs-text-icon-hint, #6b7280));
+    margin-left: 0.25rem;
   }
   
   &__content {
     flex: 1;
     overflow-y: auto;
-    padding: 16px;
+  }
+
+  // Custom scrollbar for webkit browsers  
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border: 8px solid transparent;
+    background-clip: padding-box;
+    min-height: 40px;
   }
 }
 </style>

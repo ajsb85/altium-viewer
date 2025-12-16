@@ -55,7 +55,9 @@ interface Section {
 
 withDefaults(
   defineProps<{
+    /** Document title */
     title?: string;
+    /** Array of sections with changes */
     sections: Section[];
   }>(),
   {

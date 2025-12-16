@@ -31,8 +31,18 @@ defineOptions({ name: 'AppBaseHeader' });
 
 withDefaults(
   defineProps<{
+    /**
+     * Header title text.
+     */
     title?: string;
+    /**
+     * Optional icon name to display before title.
+     */
     icon?: string;
+    /**
+     * Whether to show the close button.
+     * @default true
+     */
     showClose?: boolean;
   }>(),
   {

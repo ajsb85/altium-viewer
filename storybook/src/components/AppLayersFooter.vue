@@ -35,8 +35,20 @@ defineOptions({ name: 'AppLayersFooter' });
 
 withDefaults(
   defineProps<{
+    /**
+     * Number of currently visible layers.
+     * @default 0
+     */
     visibleCount?: number;
+    /**
+     * Total number of layers.
+     * @default 0
+     */
     totalCount?: number;
+    /**
+     * Whether the "Show All" state is active.
+     * @default true
+     */
     showAll?: boolean;
   }>(),
   {

@@ -44,6 +44,7 @@ interface CompareLayer {
 
 withDefaults(
   defineProps<{
+    /** Array of layer comparison objects */
     layers?: CompareLayer[];
   }>(),
   {

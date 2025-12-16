@@ -6,8 +6,14 @@ import TabPanel from './TabPanel.vue';
 /**
  * TabPanel - Tab Navigation Component
  *
- * Tab navigation for switching between views within a panel.
- * Used by BoardItemsVisibility for Layers/Objects tabs.
+ * A navigational component for switching between views within a sidebar panel.
+ * Features include:
+ * - Text-based labels
+ * - Optional badges (counters or indicators)
+ * - Active state styling
+ * - Full width layout
+ * 
+ * Commonly used at the top of utility panels like BoardItemsVisibility.
  */
 const meta: Meta<typeof TabPanel> = {
   title: 'Layout/TabPanel',
@@ -15,22 +21,30 @@ const meta: Meta<typeof TabPanel> = {
   tags: ['autodocs'],
   argTypes: {
     tabs: {
-      description: 'Array of tab definitions with id, name, and optional badge',
+      description: 'List of tab definitions. Each tab has an ID, name, and optional badge configuration.',
       control: 'object',
+      table: {
+        type: { summary: 'TabItem[]' },
+      },
     },
     modelValue: {
-      description: 'Currently active tab ID (v-model)',
+      description: 'The ID of the currently active tab (v-model support).',
       control: 'text',
     },
   },
   parameters: {
     layout: 'padded',
     controls: { expanded: true },
+    docs: {
+      description: {
+        component: 'The `TabPanel` component renders a horizontal list of tabs for navigation. It supports v-model for finding the active tab and can display notification badges on individual tabs.',
+      },
+    },
   },
   decorators: [
     () => ({
       template: `
-        <div style="width: 300px; height: 400px; background: var(--afs-panel, #2c2c2e); border-radius: 8px; overflow: hidden;">
+        <div style="width: 300px; height: 400px; background: var(--afs-panel, #2c2c2e); border-radius: 8px; overflow: hidden; border: 1px solid var(--afs-border, #3c3c3e);">
           <story />
         </div>
       `,
@@ -52,7 +66,10 @@ const tabsWithBadges = [
 ];
 
 /**
- * Default tabs without badges
+ * **Default State**
+ * 
+ * Standard usage with text-only tabs.
+ * Content is switched based on the active tab ID.
  */
 export const Default: Story = {
   render: (args) => ({
@@ -81,7 +98,10 @@ export const Default: Story = {
 };
 
 /**
- * Tabs with badge counts
+ * **With Badges**
+ * 
+ * Tabs can display badges to indicate counts or status.
+ * This is useful for showing the number of active items in a category.
  */
 export const WithBadges: Story = {
   render: (args) => ({
@@ -110,7 +130,10 @@ export const WithBadges: Story = {
 };
 
 /**
- * Interactive tab switching
+ * **Interactive Demo**
+ * 
+ * Click on tabs to switch views.
+ * Demonstrates internal content switching logic.
  */
 export const Interactive: Story = {
   render: (args) => ({
@@ -152,12 +175,14 @@ export const Interactive: Story = {
       const objectsTab = canvas.getByRole('button', { name: /objects/i });
       await userEvent.click(objectsTab);
       await expect(objectsTab).toHaveClass('is-active');
+      await new Promise(r => setTimeout(r, 300));
     });
 
     await step('Click Layers tab', async () => {
       const layersTab = canvas.getByRole('button', { name: /layers/i });
       await userEvent.click(layersTab);
       await expect(layersTab).toHaveClass('is-active');
+      await new Promise(r => setTimeout(r, 300));
     });
   },
 };

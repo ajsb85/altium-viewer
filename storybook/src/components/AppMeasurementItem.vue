@@ -33,12 +33,19 @@ defineOptions({ name: 'AppMeasurementItem' });
 
 const props = withDefaults(
   defineProps<{
+    /** Label text */
     label?: string;
+    /** X coordinates */
     x?: number;
+    /** Y coordinates */
     y?: number;
+    /** Distance between points */
     distance?: number;
+    /** Unit suffix (e.g. 'mm') */
     unit?: string;
+    /** Active selection state */
     isActive?: boolean;
+    /** Whether delete button is visible */
     removable?: boolean;
   }>(),
   {

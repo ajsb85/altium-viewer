@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import AfsIcon from './AfsIcon.vue';
 
 /**
@@ -30,9 +30,13 @@ defineOptions({ name: 'SCHViewModule' });
 
 const props = withDefaults(
   defineProps<{
+    /** Name of the sheet to display */
     sheetName?: string;
+    /** Zoom level */
     zoom?: number;
+    /** Grid size in pixels */
     gridSize?: number;
+    /** Whether to show the background grid */
     showGrid?: boolean;
   }>(),
   {
@@ -43,7 +47,7 @@ const props = withDefaults(
   }
 );
 
-const canvasRef = ref<HTMLElement | null>(null);
+
 
 const gridStyle = computed(() => ({
   backgroundSize: `${props.gridSize * props.zoom}px ${props.gridSize * props.zoom}px`,

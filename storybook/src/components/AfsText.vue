@@ -8,6 +8,10 @@
 import { computed } from 'vue';
 
 const props = defineProps({
+  /**
+   * The typography style type.
+   * Valid values: 'large title', 'medium title', 'title', 'paragraph', 'single line', 'hint', 'tooltip', 'group', 'sticker', 'text'.
+   */
   type: {
     type: String,
     default: 'paragraph',
@@ -16,8 +20,19 @@ const props = defineProps({
       'single line', 'hint', 'tooltip', 'group', 'sticker', 'text'
     ].includes(v),
   },
+  /**
+   * Whether to render as an inline element (span) instead of block (div).
+   */
   inline: { type: Boolean, default: false },
+  /**
+   * Whether to truncate text with an ellipsis if it overflows.
+   * Automatically enabled for 'single line' type.
+   */
   ellipsis: { type: Boolean, default: false },
+  /**
+   * Custom HTML tag to use for the component.
+   * If not provided, defaults to 'div' (or 'span' if inline is true).
+   */
   tag: { type: String, default: '' },
 });
 
@@ -63,46 +78,77 @@ const getBEMClass = (e: string) => {
 
 <style lang="scss" scoped>
 .afs-typography {
-  /* Basic typography styles */
+  /* Base typography - inherits color from parent */
   font-family: inherit;
-  color: inherit;
+  color: var(--afs-text-icon-primary, inherit);
   margin: 0;
   
   &_large-title {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
   }
   
   &_medium-title {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
   }
   
   &_title {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
   }
   
-  &_paragraph {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  
+  &_paragraph,
   &_single-line {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
   }
   
   &_hint-tooltip {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 12px;
+    color: var(--afs-text-icon-hint, #6b7280);
+  }
+  
+  &_group {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    color: var(--afs-text-icon-secondary, #9ca3af);
+  }
+  
+  &_sticker {
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08rem;
+  }
+  
+  &_text {
     font-size: 12px;
-    color: #666;
+    font-weight: 400;
+    line-height: 16px;
   }
   
   &_ellipsis {
+    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+}
+
+/* Inline typography */
+span.afs-typography,
+a.afs-typography {
+  display: inline-block;
+  max-width: 100%;
 }
 </style>

@@ -43,8 +43,11 @@ defineOptions({ name: 'PCBView3D' });
 
 withDefaults(
   defineProps<{
+    /** Board physical width (for scaling) */
     boardWidth?: number;
+    /** Board physical height (for scaling) */
     boardHeight?: number;
+    /** Board thickness */
     boardThickness?: number;
   }>(),
   {

@@ -29,6 +29,7 @@ defineOptions({ name: 'BaseRecentSearch' });
 
 withDefaults(
   defineProps<{
+    /** List of recent search queries */
     searches?: string[];
   }>(),
   {

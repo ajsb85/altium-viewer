@@ -35,15 +35,15 @@ const props = withDefaults(
   defineProps<{
     /** Side of the viewport: 'left' or 'right' */
     side?: 'left' | 'right';
-    /** Size preset: 'sm' (280px), 'md' (default), 'lg' (360px) */
+    /** Width preset: 'sm' (280px), 'md' (320px), 'lg' (360px) */
     size?: 'sm' | 'md' | 'lg';
-    /** Enable resize handle */
+    /** Enable resizing handle */
     resizable?: boolean;
-    /** Minimum width in pixels (default: 240) */
+    /** Minimum resize width in pixels */
     minPanelWidth?: number | null;
-    /** Maximum width in pixels (default: 640) */
+    /** Maximum resize width in pixels */
     maxPanelWidth?: number | null;
-    /** Initial width in pixels */
+    /** Initial explicit width in pixels (overrides size preset) */
     initialWidth?: number | null;
   }>(),
   {

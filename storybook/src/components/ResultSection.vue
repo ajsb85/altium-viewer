@@ -32,9 +32,13 @@ defineOptions({ name: 'ResultSection' });
 
 withDefaults(
   defineProps<{
+    /** Section title */
     title: string;
+    /** Result count to display */
     count?: number;
+    /** Icon name */
     icon?: string;
+    /** Initial collapsed state */
     defaultCollapsed?: boolean;
   }>(),
   {

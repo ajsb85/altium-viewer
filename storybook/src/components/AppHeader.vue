@@ -39,14 +39,23 @@ import AppMainTabs from './AppMainTabs.vue';
 import AppHeaderPlugin from './AppHeaderPlugin.vue';
 
 const props = defineProps({
+  /**
+   * Array of view definitions (e.g. PCB, SCH, BOM) for the main tabs.
+   */
   views: {
     type: Array,
     default: () => [],
   },
+  /**
+   * Array of global plugin definitions to display in the header.
+   */
   globalPlugins: {
     type: Array as () => any[],
     default: () => [],
   },
+  /**
+   * Array of local plugin definitions (specific to current view).
+   */
   localPlugins: {
     type: Array as () => any[],
     default: () => [],
@@ -82,30 +91,29 @@ const handlePluginClick = (plugin: any) => {
 .app-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 48px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 0 16px;
+  background: var(--afs-toolbar, var(--background-header, #1c1c1e));
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: stretch;
+    flex-basis: 100%;
+  }
 
   &__left {
-    display: flex;
-    align-items: center;
-    height: 100%;
+    justify-content: flex-start;
   }
 
   &__right {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    gap: 8px;
+    justify-content: flex-end;
   }
-  
+
   &__separator {
-      width: 1px;
-      height: 24px;
-      background-color: #e5e7eb;
-      margin: 0 4px;
+    width: 1px;
+    height: 2rem;
+    background-color: var(--afs-border, var(--border-primary, #3c3c3e));
+    margin: auto 0.25rem;
+    opacity: 0.5;
   }
 }
 </style>

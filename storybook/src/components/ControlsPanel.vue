@@ -96,9 +96,13 @@ export interface ControlSection {
 
 const props = withDefaults(
   defineProps<{
+    /** Panel title */
     title?: string;
+    /** Panel width in pixels */
     width?: number;
+    /** DOM ID for the panel */
     panelId?: string;
+    /** Configuration for control sections */
     controlSections?: ControlSection[];
   }>(),
   {

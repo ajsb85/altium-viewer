@@ -27,9 +27,13 @@ defineOptions({ name: 'AppObjectsButton' });
 
 withDefaults(
   defineProps<{
+    /** Button label text */
     label?: string;
+    /** Icon name */
     icon?: string;
+    /** Count badge number */
     count?: number;
+    /** Active/selected state */
     isActive?: boolean;
   }>(),
   {

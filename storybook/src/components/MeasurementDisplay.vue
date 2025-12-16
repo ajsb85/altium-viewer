@@ -105,15 +105,15 @@ const props = withDefaults(
   defineProps<{
     /** Panel title */
     title?: string;
-    /** Active measurement */
+    /** Active measurement data */
     measurement?: MeasurementItem | null;
     /** List of saved measurements */
     measurements?: MeasurementItem[];
-    /** Display unit */
+    /** Display unit (mm, mil, inch) */
     unit?: 'mm' | 'mil' | 'inch';
-    /** Selected measurement ID */
+    /** ID of currently selected measurement */
     selectedId?: string | number | null;
-    /** Whether currently measuring */
+    /** Whether measurement tool is active */
     isMeasuring?: boolean;
   }>(),
   {

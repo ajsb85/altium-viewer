@@ -59,6 +59,9 @@ interface HistoryItem {
 
 withDefaults(
   defineProps<{
+    /**
+     * Array of measurement history items.
+     */
     items: HistoryItem[];
   }>(),
   {

@@ -32,8 +32,18 @@ interface Mode {
 
 withDefaults(
   defineProps<{
+    /**
+     * Array of mode definitions to display.
+     */
     modes?: Mode[];
+    /**
+     * ID of the currently active mode.
+     */
     activeMode?: string;
+    /**
+     * Whether to show text labels alongside icons.
+     * @default false
+     */
     showLabels?: boolean;
   }>(),
   {

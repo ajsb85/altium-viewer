@@ -63,9 +63,13 @@ defineOptions({ name: 'LayerItem' });
 
 withDefaults(
   defineProps<{
+    /** Layer name */
     name: string;
+    /** Layer color (CSS color string) */
     color: string;
+    /** Visibility state */
     isVisible?: boolean;
+    /** Checkbox state */
     isChecked?: boolean;
   }>(),
   {

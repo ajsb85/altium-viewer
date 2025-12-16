@@ -112,6 +112,7 @@ defineOptions({ name: 'BomView' });
 
 const props = withDefaults(
   defineProps<{
+    /** List of BOM items */
     items: BomItem[];
   }>(),
   {
@@ -171,7 +172,7 @@ const filteredItems = computed(() => {
     });
   }
   
-  return result.map((item, index) => ({
+  return result.map((item) => ({
     ...item,
     designator: item.designators.join(', '),
   }));
@@ -190,7 +191,7 @@ function handleSort(key: string, dir: 'asc' | 'desc') {
   sortDir.value = dir;
 }
 
-function handleRowClick(row: Record<string, any>, index: number) {
+function handleRowClick(_row: Record<string, any>, index: number) {
   emit('row-click', props.items[index]);
 }
 

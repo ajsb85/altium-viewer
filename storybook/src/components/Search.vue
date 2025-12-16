@@ -9,7 +9,6 @@
       <div class="form__section">
         <div class="afs-input">
           <input
-            ref="inputRef"
             v-model="query"
             class="form__input afs-input__control"
             type="text"
@@ -52,8 +51,11 @@ defineOptions({ name: 'Search' });
 
 withDefaults(
   defineProps<{
+    /** Input placeholder text */
     placeholder?: string;
+    /** Keyboard shortcut hint */
     shortcut?: string;
+    /** Whether to show filter button */
     showFilters?: boolean;
   }>(),
   {
@@ -71,7 +73,7 @@ const emit = defineEmits<{
 }>();
 
 const query = ref('');
-const inputRef = ref<HTMLInputElement | null>(null);
+const query = ref('');
 
 function handleSubmit() {
   emit('submit', query.value);

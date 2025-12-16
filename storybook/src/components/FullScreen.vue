@@ -23,7 +23,10 @@ defineOptions({ name: 'FullScreen' });
 
 const props = withDefaults(
   defineProps<{
-    /** Target element selector (default: document) */
+    /**
+     * Selector for the target element to toggle fullscreen on.
+     * If not provided, toggles `document.documentElement`.
+     */
     target?: string;
   }>(),
   {

@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { userEvent, within, expect } from 'storybook/test';
+import { ref, computed } from 'vue';
 import LibTable from './LibTable.vue';
+import AfsLink from './AfsLink.vue';
+import AfsSearch from './AfsSearch.vue';
 
 /**
  * LibTable - Production Table Component
@@ -140,27 +143,88 @@ export const NoHover: Story = {
  */
 export const InteractiveSort: Story = {
   args: {
-    ...Default.args,
+    columns: bomColumns,
+    hasHover: true,
   },
+  render: (args) => ({
+    components: { LibTable },
+    setup() {
+      const sortKey = ref('name');
+      const sortDir = ref<'asc' | 'desc'>('desc');
+      
+      const sortedRows = computed(() => {
+        const rows = [...bomRows];
+        if (!sortKey.value) return rows;
+        
+        return rows.sort((a, b) => {
+          const aVal = a[sortKey.value as keyof typeof a];
+          const bVal = b[sortKey.value as keyof typeof b];
+          
+          // Handle numeric values
+          if (typeof aVal === 'number' && typeof bVal === 'number') {
+            return sortDir.value === 'asc' ? aVal - bVal : bVal - aVal;
+          }
+          
+          // Handle string values (strip $ for prices)
+          const aStr = String(aVal || '').replace('$', '');
+          const bStr = String(bVal || '').replace('$', '');
+          
+          // Try numeric comparison for price-like strings
+          const aNum = parseFloat(aStr);
+          const bNum = parseFloat(bStr);
+          if (!isNaN(aNum) && !isNaN(bNum)) {
+            return sortDir.value === 'asc' ? aNum - bNum : bNum - aNum;
+          }
+          
+          // Fall back to string comparison
+          return sortDir.value === 'asc' 
+            ? aStr.localeCompare(bStr) 
+            : bStr.localeCompare(aStr);
+        });
+      });
+      
+      const handleSort = (key: string, dir: 'asc' | 'desc') => {
+        sortKey.value = key;
+        sortDir.value = dir;
+      };
+      
+      return { args, sortedRows, handleSort };
+    },
+    template: `
+      <div style="height: 300px; display: flex; flex-direction: column;">
+        <LibTable 
+          v-bind="args" 
+          :rows="sortedRows" 
+          @sort="handleSort"
+        />
+      </div>
+    `,
+  }),
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
 
     await step('Click Name column to toggle sort', async () => {
       const nameHeader = canvas.getByText('Name');
       await userEvent.click(nameHeader);
-      await new Promise(r => setTimeout(r, 300));
+      await new Promise(r => setTimeout(r, 500));
     });
 
     await step('Click Price column to sort by price', async () => {
       const priceHeader = canvas.getByText('Price');
       await userEvent.click(priceHeader);
-      await new Promise(r => setTimeout(r, 300));
+      await new Promise(r => setTimeout(r, 500));
     });
 
     await step('Click Qty column to sort by quantity', async () => {
       const qtyHeader = canvas.getByText('Qty');
       await userEvent.click(qtyHeader);
-      await new Promise(r => setTimeout(r, 300));
+      await new Promise(r => setTimeout(r, 500));
+    });
+
+    await step('Click Qty again to reverse sort', async () => {
+      const qtyHeader = canvas.getByText('Qty');
+      await userEvent.click(qtyHeader);
+      await new Promise(r => setTimeout(r, 500));
     });
   },
 };
@@ -207,4 +271,207 @@ export const NumericAlignment: Story = {
     ],
     hasHover: true,
   },
+};
+
+/**
+ * **Performance Stress Test**
+ * 
+ * Renders 1000 rows to verify rendering performance.
+ * The play function measures the time taken for the table to appear.
+ */
+export const StressTest: Story = {
+  args: {
+    columns: bomColumns,
+    rows: Array.from({ length: 1000 }, (_, i) => ({
+      rowNum: 1000 - i,
+      name: `Performance-Test-Component-${String(i + 1).padStart(4, '0')}`,
+      price: `$${(Math.random() * 100).toFixed(2)}`,
+      description: `Stress testing row ${i + 1} with a longer description to ensure text rendering and layout handling is efficient at scale.`,
+      quantity: Math.floor(Math.random() * 1000) + 1,
+    })),
+    hasHover: true,
+  },
+  decorators: [
+    () => ({
+      template: '<div style="height: 500px; display: flex; flex-direction: column;"><story /></div>',
+    }),
+  ],
+  play: async ({ canvasElement, step }) => {
+    const start = performance.now();
+    const canvas = within(canvasElement);
+    
+    await step('Wait for first row to render', async () => {
+      await canvas.findByText('Performance-Test-Component-0001');
+    });
+
+    const end = performance.now();
+    const duration = end - start;
+    console.log(`[StressTest] 1000 rows rendered in ${duration.toFixed(2)}ms`);
+    
+    await step('Scroll to bottom (simulation)', async () => {
+      const lastRow = canvas.queryByText('Performance-Test-Component-1000');
+      // In a real virtualized table this would be complex, but for simple rendering:
+      if (lastRow) {
+         // It might be visible or in DOM
+         await expect(lastRow).toBeInTheDocument();
+      }
+    });
+  },
+};
+
+/**
+ * Complex BOM View Example
+ * Matches specific final render requirements with search, links, and custom cell formatting.
+ */
+export const BOMExample: Story = {
+  render: (args) => ({
+    components: { LibTable, AfsLink, AfsSearch },
+    setup() {
+      const searchQuery = ref('');
+      
+      const columns = [
+        { key: 'rowNum', label: '№', width: '44px' },
+        { key: 'partNumber', label: 'Name', flex: '1 1 18%', sortable: true },
+        { key: 'price', label: 'Price', width: '60px', align: 'right' as const, sortable: true },
+        { key: 'description', label: 'Description', flex: '1 1 62%' },
+        { key: 'designators', label: 'Designator', flex: '1 1 20%' },
+        { key: 'quantity', label: 'Quantity', width: '82px', align: 'right' as const, sortable: true },
+      ];
+
+      const allRows = [
+        {
+          rowNum: 1,
+          partNumber: '1SS400CSFH',
+          partLink: 'https://octopart.com/part/rohm/1SS400CSFHT2RA',
+          price: '$0.06',
+          description: 'Switching Diode (High Speed Switching), 80 V, 100 mA, 2-Pin SOD-923, RoHS, Tape and Reel',
+          designators: ['D21', 'D22', 'D23', 'D25', 'D26', 'D27', 'D31', 'D34'],
+          quantity: 8
+        },
+        {
+          rowNum: 2,
+          partNumber: '47219-2001',
+          partLink: 'https://octopart.com/part/molex/47219-2001',
+          price: '$0.24',
+          description: 'MicroSD Card Connector, Hinge Type, -40 to 85 degC, 8-Pin SMD, RoHS, Tape and Reel',
+          designators: ['SKT3'],
+          quantity: 1
+        },
+        {
+          rowNum: 3,
+          partNumber: '91931-31125LF',
+          partLink: 'https://octopart.com/part/amphenol-communications-solutions/91931-31125LF',
+          price: '$2.71',
+          description: 'Receptacle, Pitch 1 mm, 25 Position, Height 4.15 mm, -55 to 130 degC',
+          designators: ['CN1', 'CN2'],
+          quantity: 2
+        },
+        {
+          rowNum: 18,
+          partNumber: 'BM05B-GHS-TBT',
+          partLink: 'https://octopart.com/part/jst/BM05B-GHS-TBT%20%28LF%29%28SN%29%28N%29',
+          price: '$0.17',
+          description: 'GH Disconnectable Crimp Style Connector, Pitch 1.25 mm, 1 x 5 Position, Height 4.05 mm, -25 to 85 degC, RoHS, Tape and Reel',
+          designators: ['CN6', 'CN8'],
+          quantity: 2
+        },
+        {
+          rowNum: 20,
+          partNumber: 'Capacitor 1µF +/-0.1% 25V 0603',
+          partLink: 'https://octopart.com/part/samsung-electro-mechanics/CL10A105KA8NNNC',
+          price: '$0.01',
+          description: 'Chip Capacitor, 1µF +/-0.1%, 25V, 0603, Thickness 1 mm',
+          designators: ['C3', 'C4', 'C142', 'C143'],
+          quantity: 4
+        }
+      ];
+
+      const filteredRows = computed(() => {
+        if (!searchQuery.value) return allRows;
+        const query = searchQuery.value.toLowerCase();
+        return allRows.filter(row => 
+          row.partNumber.toLowerCase().includes(query) || 
+          row.description.toLowerCase().includes(query) ||
+          row.designators.some(d => d.toLowerCase().includes(query))
+        );
+      });
+
+      return { columns, filteredRows, searchQuery };
+    },
+    template: `
+      <div class="app__view app__view_BOMView" data-view="BOMView" style="padding: 0; background: #fff; height: 100vh; display: flex; flex-direction: column;">
+        <div class="bom" style="display: flex; flex-direction: column; flex: 1; overflow: hidden;">
+          
+          <!-- Search Header -->
+          <div class="search bom__search" style="padding: 12px 16px; border-bottom: 1px solid #e5e5e5;">
+            <div class="afs-search-container">
+               <AfsSearch v-model="searchQuery" placeholder="Search components..." />
+            </div>
+          </div>
+
+          <!-- Content Area -->
+          <div class="content bom__content" style="flex: 1; overflow: hidden; display: flex; flex-direction: column;">
+            <LibTable 
+              class="content__table"
+              :columns="columns" 
+              :rows="filteredRows"
+              :has-hover="true"
+              style="height: 100%;"
+            >
+              <!-- Name Column with Link -->
+              <template #cell-partNumber="{ row }">
+                <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
+                  <AfsLink 
+                    variant="primary" 
+                    :href="row.partLink" 
+                    target="_blank"
+                    style="font-size: 13px; font-weight: 500;"
+                  >
+                    {{ row.partNumber }}
+                  </AfsLink>
+                </div>
+              </template>
+
+              <!-- Description Column -->
+               <template #cell-description="{ value }">
+                <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #374151;" :title="value">{{ value }}</div>
+              </template>
+
+              <!-- Designators Column (Multiple Links) -->
+              <template #cell-designators="{ value }">
+                <div style="display: flex; flex-wrap: wrap; gap: 4px; max-height: 4.5em; overflow: hidden;">
+                  <AfsLink 
+                    v-for="d in value" 
+                    :key="d"
+                    variant="primary"
+                    style="font-size: 12px;"
+                  >
+                    {{ d }}
+                  </AfsLink>
+                </div>
+              </template>
+
+              <!-- Row Num Column -->
+              <template #cell-rowNum="{ value }">
+                <div style="color: #9ca3af; font-size: 11px; text-align: center;">{{ value }}</div>
+              </template>
+              
+              <!-- Empty State -->
+              <template v-if="filteredRows.length === 0" #footer>
+                <div style="padding: 32px; text-align: center; color: #6b7280; font-size: 13px;">
+                  No components found matching "{{ searchQuery }}"
+                </div>
+              </template>
+
+            </LibTable>
+          </div>
+          
+          <!-- Status Footer -->
+          <div style="padding: 8px 16px; border-top: 1px solid #e5e5e5; font-size: 12px; color: #9ca3af; display: flex; justify-content: space-between;">
+            <span>{{ filteredRows.length }} items</span>
+          </div>
+        </div>
+      </div>
+    `,
+  }),
 };

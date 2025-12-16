@@ -94,17 +94,17 @@ const props = withDefaults(
   defineProps<{
     /** Panel title */
     title?: string;
-    /** Table columns */
+    /** Table columns definition */
     columns?: Column[];
-    /** BOM items */
+    /** BOM items data */
     items?: BOMItem[];
-    /** Selected item ID */
+    /** Currently selected item ID */
     selectedId?: string | number | null;
-    /** Show search input */
+    /** Enable search functionality */
     searchable?: boolean;
-    /** Show export button */
+    /** Enable export functionality */
     exportable?: boolean;
-    /** Empty state text */
+    /** Text for empty state */
     emptyText?: string;
   }>(),
   {

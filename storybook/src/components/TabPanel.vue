@@ -40,12 +40,23 @@ interface Tab {
   badgeType?: string;
 }
 
-const props = defineProps<{
-  /** Array of tab definitions */
-  tabs: Tab[];
-  /** Currently active tab ID (v-model) */
-  modelValue: string;
-}>();
+const props = defineProps({
+  /**
+   * Array of tab definitions.
+   * Each item usually contains `id`, `name`, `badge`, `badgeType`.
+   */
+  tabs: {
+    type: Array as () => Tab[],
+    required: true
+  },
+  /**
+   * Currently active tab ID (v-model).
+   */
+  modelValue: {
+    type: String,
+    required: true
+  }
+});
 
 const emit = defineEmits<{
   (e: 'update:modelValue', tabId: string): void;

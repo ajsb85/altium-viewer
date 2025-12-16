@@ -43,6 +43,9 @@ interface Plugin {
 
 withDefaults(
   defineProps<{
+    /**
+     * Array of plugin definitions to display.
+     */
     plugins: Plugin[];
   }>(),
   {

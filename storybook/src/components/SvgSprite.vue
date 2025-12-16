@@ -4,7 +4,7 @@
     The SVG sprite is now globally injected via .storybook/preview.ts
     This component exists only for backward compatibility.
   -->
-  <div style="display: none;" />
+  <div class="svg-sprite" />
 </template>
 
 <script setup lang="ts">
@@ -17,3 +17,11 @@
  */
 defineOptions({ name: 'SvgSprite' });
 </script>
+
+<style lang="scss">
+.svg-sprite {
+  display: none;
+  visibility: var(--afs-hidden, hidden);
+}
+</style>
+

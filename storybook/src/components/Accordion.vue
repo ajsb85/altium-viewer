@@ -36,11 +36,11 @@ defineOptions({ name: 'Accordion' });
 
 const props = withDefaults(
   defineProps<{
-    /** Panel title */
+    /** Panel title displayed in header */
     title?: string;
-    /** Initially expanded */
+    /** Initial expanded state */
     defaultExpanded?: boolean;
-    /** Controlled expanded state */
+    /** Controlled expanded state (overrides default) */
     expanded?: boolean;
   }>(),
   {

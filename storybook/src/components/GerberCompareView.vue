@@ -56,8 +56,11 @@ defineOptions({ name: 'GerberCompareView' });
 
 withDefaults(
   defineProps<{
+    /** Label for left view */
     leftLabel?: string;
+    /** Label for right view */
     rightLabel?: string;
+    /** Total count of differences found */
     differencesCount?: number;
   }>(),
   {

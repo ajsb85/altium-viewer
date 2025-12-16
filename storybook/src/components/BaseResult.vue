@@ -21,12 +21,19 @@ defineOptions({ name: 'BaseResult' });
 
 const props = withDefaults(
   defineProps<{
+    /** Main title text */
     title: string;
+    /** Secondary text */
     subtitle?: string;
+    /** Icon name */
     icon?: string;
+    /** Badge text */
     badge?: string;
+    /** Badge style type */
     badgeType?: 'primary' | 'success' | 'warning' | 'error';
+    /** Selected state */
     isSelected?: boolean;
+    /** Query string to highlight in title */
     highlightQuery?: string;
   }>(),
   {

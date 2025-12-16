@@ -23,22 +23,47 @@ import { computed } from 'vue';
 defineOptions({ name: 'AfsBadge' });
 
 const props = defineProps({
+  /**
+   * HTML tag to render.
+   * @default 'div'
+   */
   tag: { type: String, default: "div" },
+  /**
+   * Badge size variant.
+   * Valid values: '', 'xs', 'small', 'middle'.
+   */
   size: {
     type: String,
     default: "",
     validator: (v: string) => Object.values(BADGE_SIZES).includes(v)
   },
+  /**
+   * Badge style type.
+   * Valid values: 'base', 'pro', 'success', 'alpha', 'new', 'guest', ''.
+   */
   type: {
     type: String,
     default: "",
     validator: (v: string) => Object.values(BADGE_TYPES).includes(v)
   },
+  /**
+   * Whether to force uppercase text.
+   * @default false
+   */
   uppercase: { type: Boolean, default: false },
+  /**
+   * Border radius application.
+   * Can include 'top-left', 'top-right', 'bottom-left', 'bottom-right'.
+   * @default "top-left top-right bottom-left bottom-right"
+   */
   radius: {
     type: String, 
     default: "top-left top-right bottom-left bottom-right"
   },
+  /**
+   * Data-locator attribute for automation.
+   * @default 'badge'
+   */
   dataLocator: { type: String, default: "badge" }
 });
 

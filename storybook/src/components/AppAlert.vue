@@ -34,7 +34,10 @@ defineOptions({ name: 'AppAlert' });
 
 withDefaults(
   defineProps<{
-    /** Icon name to display (from AfsIcon library) */
+    /** 
+     * Icon name to display (from AfsIcon library).
+     * @default 'error-64'
+     */
     icon?: string;
   }>(),
   {

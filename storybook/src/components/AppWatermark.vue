@@ -67,23 +67,23 @@ withDefaults(
 .app-watermark {
   position: absolute;
   display: block;
-  opacity: 0.7;
-  transition: opacity 0.15s;
-  z-index: 10;
+  opacity: var(--afs-watermark-opacity, 0.48);
+  transition: opacity var(--transition-duration-default, 0.15s);
+  z-index: 5;
   
   &:hover {
     opacity: 1;
   }
   
-  &--top-left { top: 16px; left: 16px; }
-  &--top-right { top: 16px; right: 16px; }
-  &--bottom-left { bottom: 16px; left: 16px; }
-  &--bottom-right { bottom: 16px; right: 16px; }
+  &--top-left { top: 0.5rem; left: 0.5rem; }
+  &--top-right { top: 0.5rem; right: 0.5rem; }
+  &--bottom-left { bottom: 0.5rem; left: 0.5rem; }
+  &--bottom-right { bottom: 0.5rem; right: 0.5rem; }
   
   &__icon {
     display: block;
-    width: 120px;
-    height: 44px;
+    width: 6rem;
+    height: 2.75rem;
   }
 }
 </style>
