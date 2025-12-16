@@ -1,0 +1,67 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as ObjectsPanelStories from './ObjectsPanel.stories';
+import ObjectsPanel from './ObjectsPanel.vue';
+
+<Meta of={ObjectsPanelStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `ObjectsPanel` provides a centralized control for managing the visibility of different PCB object types (e.g., Pads, Tracks, Vias). It supports granular control over individual object types as well as a master toggle for global visibility.
+
+## Features
+- **Object Type Management**: Lists all available PCB object types with visibility controls.
+- **Bulk Control**: "All Objects" toggle for quickly showing or hiding everything.
+- **Isolation Mode**: "Show Only" functionality to isolate specific object types.
+- **Granular Visibility**: Individual toggles for each object type.
+
+## Usage
+
+```html
+<ObjectsPanel
+  :objects="[
+    { id: 'pads', name: 'Pads', isVisible: true },
+    { id: 'vias', name: 'Vias', isVisible: false }
+  ]"
+  :all-objects-visible="false"
+  @toggleObject="handleToggle"
+  @showOnly="handleShowOnly"
+  @toggleAllObjects="toggleAll"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### ObjectItem
+
+```typescript
+interface ObjectItem {
+  id: string | number; // Unique identifier (e.g., 'pads', 'vias')
+  name: string;        // Display label
+  isVisible: boolean;  // Visibility state
+}
+```
+
+## Examples
+
+### Default
+Standard panel allowing control over all object types.
+
+<Canvas of={ObjectsPanelStories.Default} />
+
+### Interactive
+Demonstrates the interaction between the master toggle and individual object toggles.
+
+<Canvas of={ObjectsPanelStories.Interactive} />
+
+### Partially Visible
+Shows the state where only a subset of object types are visible.
+
+<Canvas of={ObjectsPanelStories.PartiallyVisible} />

@@ -1,0 +1,74 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsTypographyStories from './AfsTypography.stories';
+
+<Meta of={AfsTypographyStories} />
+
+# AfsTypography Component
+
+The `AfsTypography` component is the standard for rendering text application-wide. It ensures consistency in font sizes, weights, and line heights, adhering to the design system.
+
+## Features
+- **Semantic Variants**: clearly defined purpose for each style (e.g., `large-title`, `hint-tooltip`).
+- **Polymorphic**: Can render as any HTML tag via the `as` prop, decoupling semantics from style.
+- **Utils**: Built-in support for text ellipsis.
+- **Design System**: Directly maps to production typography tokens.
+
+## Usage
+
+```html
+<AfsTypography variant="large-title" as="h1">Page Title</AfsTypography>
+<AfsTypography variant="hint-tooltip">Ctrl + C</AfsTypography>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `string` | `'text'` | Style variant: `'large-title'`, `'medium-title'`, `'title'`, `'paragraph'`, `'single-line'`, `'hint-tooltip'`, `'group'`, `'sticker'`, `'text'`. |
+| `as` | `string` | `'span'` | HTML tag to render: `'span'`, `'p'`, `'h1'`-`'h6'`, `'div'`, `'a'`, `'label'`. |
+| `ellipsis` | `boolean` | `false` | Forces text truncation with ellipsis if it overflows. |
+
+## Variants
+
+| Variant | Size | Weight | Usage |
+| :--- | :--- | :--- | :--- |
+| `large-title` | 16px | 500 | Main page or panel headers. |
+| `medium-title` | 14px | 500 | Section headers. |
+| `title` | 12px | 500 | Subsection headers. |
+| `paragraph` | 12px | 400 | Body text. |
+| `hint-tooltip` | 11px | 400 | Secondary information, help text. |
+| `group` | 10px | 500 | Uppercase labels for groups/sections. |
+| `sticker` | 8px | 700 | Small badges or indicators. |
+
+## Examples
+
+### Default
+Standard text rendering.
+<Canvas of={AfsTypographyStories.Default} />
+
+### Headings
+Hierarchy of title styles.
+<Canvas of={AfsTypographyStories.LargeTitle} />
+<Canvas of={AfsTypographyStories.MediumTitle} />
+<Canvas of={AfsTypographyStories.Title} />
+
+### Body Text
+Standard paragraph style.
+<Canvas of={AfsTypographyStories.Paragraph} />
+
+### Small Text
+Used for hints, tooltips, and secondary info.
+<Canvas of={AfsTypographyStories.HintTooltip} />
+
+### Labels & Indicators
+Specialized styles for UI elements.
+<Canvas of={AfsTypographyStories.Group} />
+<Canvas of={AfsTypographyStories.Sticker} />
+
+### Text Truncation
+Handling long text with ellipsis.
+<Canvas of={AfsTypographyStories.WithEllipsis} />
+
+### Contextual Usage
+Examples of typography used in realistic UI patterns.
+<Canvas of={AfsTypographyStories.PanelHeader} />

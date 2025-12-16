@@ -1,0 +1,68 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsButtonStories from './AfsButton.stories';
+
+<Meta of={AfsButtonStories} />
+
+# AfsButton Component
+
+The `AfsButton` is the primary interactive element for user actions. It supports multiple variants, sizes, and states (loading, disabled, etc.) to fit various contexts within the application.
+
+## Features
+- **Variants**: Standard styles including Default, Primary, Secondary, Transparent, and Accent.
+- **Sizes**: Default and Small sizes.
+- **Loading State**: Built-in spinner overlay for async actions.
+- **Icons**: Support for SVG sprite icons.
+- **Layout Control**: Options for justification, full-width (wide), and rounded corners.
+
+## Usage
+
+```html
+<AfsButton variant="primary" @click="save">Save Changes</AfsButton>
+<AfsButton variant="transparent" icon="search-16" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `variant` | `string` | `'default'` | Visual style: `'default'`, `'primary'`, `'secondary'`, `'transparent'`, `'accent'`. |
+| `size` | `string` | `'default'` | Size variant: `'default'`, `'sm'`. |
+| `wide` | `boolean` | `false` | Whether to expand to full width of container. |
+| `disabled` | `boolean` | `false` | Whether the button is interactive. |
+| `loading` | `boolean` | `false` | Shows a loading spinner and disables interaction. |
+| `icon` | `string` | `undefined` | Icon name from the SVG sprite system. |
+| `justify` | `string` | `'center'` | Content alignment: `'left'`, `'center'`, `'right'`, `'space-between'`. |
+| `arrow` | `boolean` | `false` | Displays a dropdown arrow indicator. |
+| `rounded` | `boolean` | `true` | Whether to apply rounded corners. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `click` | `MouseEvent` | Emitted when the button is clicked. |
+
+## Examples
+
+### Default
+Standard button for neutral actions.
+<Canvas of={AfsButtonStories.Default} />
+
+### Primary
+Used for the main action in a view or dialog.
+<Canvas of={AfsButtonStories.Primary} />
+
+### Transparent
+Minimal style, often used in toolbars or secondary interactions.
+<Canvas of={AfsButtonStories.Transparent} />
+
+### With Icon
+Buttons can display icons alongside text or as standalone icon buttons.
+<Canvas of={AfsButtonStories.WithIcons} />
+
+### Loading State
+Automatically handles loading UI feedback.
+<Canvas of={AfsButtonStories.Loading} />
+
+### Full Width
+Useful for mobile layouts or stacked actions.
+<Canvas of={AfsButtonStories.Wide} />

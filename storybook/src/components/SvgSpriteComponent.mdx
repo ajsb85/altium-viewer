@@ -1,0 +1,24 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as SvgSpriteStories from './SvgSprite.stories';
+import SvgSprite from './SvgSprite.vue';
+
+<Meta of={SvgSpriteStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `SvgSprite` component is a deprecated utility. Its original purpose was to inject the SVG sprite sheet into the DOM, but this is now handled globally by the application shell or Storybook preview configuration. It renders nothing and exists solely for backward compatibility.
+
+## Usage
+
+```html
+<!-- Deprecated: No longer needed -->
+<SvgSprite />
+```
+
+<Primary />
+
+## Props
+
+<Controls />

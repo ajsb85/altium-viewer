@@ -1,0 +1,44 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as SnappingStories from './Snapping.stories';
+import Snapping from './Snapping.vue';
+
+<Meta of={SnappingStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `Snapping` component provides a toggle and configuration menu for the grid snapping behavior. It allows users to enable/disable snapping and select the specific snap mode (e.g., Grid, Endpoints).
+
+## Features
+- **Global Toggle**: Master switch to enable or disable all snapping behaviors.
+- **Mode Selection**: Dropdown menu to choose between different snap targets.
+- **Visual Feedback**: Active state styling indicates when snapping is engaged.
+
+## Usage
+
+```html
+<Snapping
+  v-model="isSnappingEnabled"
+  :snap-type="currentSnapMode"
+  @typeChange="updateSnapMode"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard interactive snapping control.
+
+<Canvas of={SnappingStories.Default} />
+
+### No Options
+Simplified view showing only the toggle button.
+
+<Canvas of={SnappingStories.NoOptions} />

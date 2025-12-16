@@ -1,0 +1,40 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as GraphiteEngineModuleStories from './GraphiteEngineModule.stories';
+import GraphiteEngineModule from './GraphiteEngineModule.vue';
+
+<Meta of={GraphiteEngineModuleStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `GraphiteEngineModule` acts as the container for the application's core rendering engine. In the production environment, this component manages the WebGL context required for high-performance CAM file visualization. This Storybook implementation provides a lightweight Canvas 2D demonstration with grid and primitive shape rendering to simulate the engine's presence.
+
+## Features
+- **Engine Container**: Provides a structured canvas environment for the rendering engine.
+- **Status Indication**: Displays an overlay indicating whether the engine is ready or loading.
+- **Responsive**: Automatically adjusts internal canvas dimensions to match the container.
+
+## Usage
+
+```html
+<GraphiteEngineModule :is-ready="true" />
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Ready State
+The default state when the engine has successfully initialized.
+
+<Canvas of={GraphiteEngineModuleStories.Ready} />
+
+### Loading State
+Displays a loading indicator while the engine is initializing.
+
+<Canvas of={GraphiteEngineModuleStories.Loading} />

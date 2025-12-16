@@ -1,0 +1,49 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppLayersFooterStories from './AppLayersFooter.stories';
+
+<Meta of={AppLayersFooterStories} />
+
+# AppLayersFooter Component
+
+The `AppLayersFooter` component provides bulk action controls at the bottom of the visibility panel. It enables users to quickly show or hide all layers and displays a visibility summary.
+
+## Features
+- **Bulk Actions**: Buttons to "Show All" or "Hide All" layers instantly.
+- **Summary Status**: Shows a count of visible vs. total layers.
+- **Visual Feedback**: highlights the selected bulk state.
+
+## Usage
+
+```html
+<AppLayersFooter 
+  :visibleCount="5" 
+  :totalCount="10" 
+  @showAll="showAllLayers" 
+  @hideAll="hideAllLayers" 
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `visibleCount` | `number` | `0` | Count of currently visible items. |
+| `totalCount` | `number` | `0` | Total count of items. |
+| `showAll` | `boolean` | `true` | Indicates if the 'Show All' state is considered active. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `showAll` | `void` | Emitted when the "Show All" button is clicked. |
+| `hideAll` | `void` | Emitted when the "Hide All" button is clicked. |
+
+## Examples
+
+### Default
+Standard footer state with mixed visibility.
+<Canvas of={AppLayersFooterStories.Default} />
+
+### All Visible
+State when all layers are visible.
+<Canvas of={AppLayersFooterStories.AllVisible} />

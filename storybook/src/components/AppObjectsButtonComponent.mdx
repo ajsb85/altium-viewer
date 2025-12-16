@@ -1,0 +1,53 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppObjectsButtonStories from './AppObjectsButton.stories';
+
+<Meta of={AppObjectsButtonStories} />
+
+# AppObjectsButton Component
+
+The `AppObjectsButton` is a toggle button designed for the Objects panel. It expands or collapses sections of object types (e.g., Components, Nets) and displays a count of items within that section.
+
+## Features
+- **Object Context**: Optimized for listing object categories.
+- **Count Indicator**: Optionally displays a number badge (e.g. "45").
+- **Toggle State**: Visual indication of expanded/collapsed state via chevron rotation.
+
+## Usage
+
+```html
+<AppObjectsButton 
+  label="Components" 
+  :count="45" 
+  :isActive="isExpanded" 
+  @click="toggleSection" 
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `label` | `string` | `'Objects'` | The text label for the button. |
+| `icon` | `string` | `'objects-16'` | Leading icon name. |
+| `count` | `number` | `undefined` | Optional count displayed next to the label. |
+| `isActive` | `boolean` | `false` | Selected state. Rotates the chevron when true. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `click` | `void` | Emitted when the button is clicked. |
+
+## Examples
+
+### Default
+Standard button with label and count.
+<Canvas of={AppObjectsButtonStories.Default} />
+
+### Active State
+Highlighted state with rotated chevron, indicating an expanded section.
+<Canvas of={AppObjectsButtonStories.Active} />
+
+### No Count
+Button variant without the numerical indicator.
+<Canvas of={AppObjectsButtonStories.NoCount} />

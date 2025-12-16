@@ -1,0 +1,54 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppAlertStories from './AppAlert.stories';
+
+<Meta of={AppAlertStories} />
+
+# AppAlert Component
+
+The `AppAlert` component displays a full-screen overlay for critical notifications or status messages that require user attention. It typically centers content on a dimmed background.
+
+## Features
+- **Overlay**: Full-screen modal behavior with dimmed background.
+- **Iconography**: Prominent icon display for status indication.
+- **Slots**: Support for main content and metadata (secondary info).
+- **Styling**: production-matched shadow and spacing.
+
+## Usage
+
+```html
+<AppAlert icon="error-64">
+  <p>Failed to load design.</p>
+  <template #meta>Error Code: 500</template>
+</AppAlert>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `icon` | `string` | `'error-64'` | Icon name to display from `AfsIcon` library (e.g., `'error-64'`, `'warning-64'`). |
+
+## Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `default` | Main content area for the alert message. |
+| `meta` | Secondary metadata area, typically for error codes or technical details. |
+
+## Examples
+
+### Default
+Standard error alert with an icon.
+<Canvas of={AppAlertStories.Default} />
+
+### Custom Text
+Alert with formatted message.
+<Canvas of={AppAlertStories.WithText} />
+
+### With Meta Data
+Alert including technical details or secondary information.
+<Canvas of={AppAlertStories.WithMeta} />
+
+### Full Content
+Combination of message and metadata.
+<Canvas of={AppAlertStories.FullContent} />

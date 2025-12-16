@@ -1,0 +1,69 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppHeaderPluginsStories from './AppHeaderPlugins.stories';
+
+<Meta of={AppHeaderPluginsStories} />
+
+# AppHeaderPlugins Component
+
+The `AppHeaderPlugins` component is a collection container for multiple plugin buttons. It iterates through a provided list of plugin configurations and renders them using a consistent button style.
+
+## Features
+- **Data Driven**: Renders buttons based on a JSON-like array of plugin objects.
+- **Dynamic Styling**: Handles active states, labels, and dropdown indicators automatically.
+- **Event Handling**: Emits a single `click` event with the ID of the clicked plugin.
+- **Flexibility**: Supports mixed local and global plugin types.
+
+## Usage
+
+```html
+<AppHeaderPlugins 
+  :plugins="pluginList" 
+  @click="handlePluginClick" 
+/>
+```
+
+```javascript
+const pluginList = [
+  { id: 'search', icon: 'search-16' },
+  { id: 'layers', icon: 'layers-16', isActive: true }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `plugins` | `Array<Plugin>` | `[]` | List of plugin objects. See interface below. |
+
+### Protein Interface
+```typescript
+interface Plugin {
+  id: string;          // Unique identifier
+  icon: string;        // Icon name
+  label?: string;      // Optional text label
+  isActive?: boolean;  // Selected state
+  isLocal?: boolean;   // Changes styling for local vs global scope
+  hasDropdown?: boolean; // Shows dropdown arrow
+  preventClose?: boolean; // Special flag for modal behavior
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `click` | `string` | Emitted when a button is clicked. Payload is the `id` of the plugin. |
+
+## Examples
+
+### Default
+Standard group of icon-only buttons.
+<Canvas of={AppHeaderPluginsStories.Default} />
+
+### With Active Item
+Demonstrates the active/selected state.
+<Canvas of={AppHeaderPluginsStories.WithActive} />
+
+### With Labels & Dropdowns
+Complex plugin items with text labels and dropdown indicators (e.g., Project Selector).
+<Canvas of={AppHeaderPluginsStories.WithLabels} />

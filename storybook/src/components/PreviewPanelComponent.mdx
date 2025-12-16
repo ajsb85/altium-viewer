@@ -1,0 +1,66 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as PreviewPanelStories from './PreviewPanel.stories';
+import PreviewPanel from './PreviewPanel.vue';
+
+<Meta of={PreviewPanelStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `PreviewPanel` is a container component designed to display a vertically scrollable list of document previews. It is typically used for schematic sheet navigation, allowing users to browse through multi-sheet designs visually.
+
+## Features
+- **Virtualization Support**: Efficiently handles large lists of items.
+- **Lazy Loading**: Integrated image lazy loading for optimal performance.
+- **Grouping**: Supports optional group headers to categorize items.
+- **Selection**: Manages active item state and navigation events.
+
+## Usage
+
+```html
+<PreviewPanel
+  :items="[
+    { id: '1', title: 'Top Sheet', imageSrc: 'thumb1.png' },
+    { id: '2', title: 'Power', imageSrc: 'thumb2.png' }
+  ]"
+  selected-id="1"
+  @select="selectSheet"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### PreviewPanelItem
+
+```typescript
+interface PreviewPanelItem {
+  id: string;          // Unique identifier
+  title: string;       // Display title
+  imageSrc?: string;   // Thumbnail URL
+  groupTitle?: string; // Optional header text above this item
+}
+```
+
+## Examples
+
+### Default
+Standard panel configuration with multiple sheets.
+
+<Canvas of={PreviewPanelStories.Default} />
+
+### Interactive Lazy Load
+Demonstration of lazy loading behavior as user scrolls through a long list.
+
+<Canvas of={PreviewPanelStories.InteractiveLazyLoad} />
+
+### Empty
+State when no items are available to display.
+
+<Canvas of={PreviewPanelStories.Empty} />

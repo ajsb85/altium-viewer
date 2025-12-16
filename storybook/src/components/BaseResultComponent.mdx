@@ -1,0 +1,62 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as BaseResultStories from './BaseResult.stories';
+
+<Meta of={BaseResultStories} />
+
+# BaseResult Component
+
+The `BaseResult` component is a flexible list item used primarily in search results and autocomplete dropdowns. It features title highlighting for search query matching, icon support, sub-labels, and integrated badges.
+
+## Features
+- **Query Highlighting**: Automatically bolds text matching the `highlightQuery` prop.
+- **Rich Content**: Supports icon, title, subtitle, and badge.
+- **States**: Hover and active/selected states.
+- **Badge System**: Built-in support for status badges (e.g. pin counts).
+
+## Usage
+
+```html
+<BaseResult 
+  title="U1" 
+  subtitle="Microcontroller" 
+  icon="component-16" 
+  highlightQuery="u" 
+  @click="onSelect" 
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | **Required** | Main text label. |
+| `subtitle` | `string` | `''` | Secondary description text. |
+| `icon` | `string` | `''` | Leading icon name. |
+| `badge` | `string` | `''` | Text content for the trailing badge. |
+| `badgeType` | `'primary' \| 'success' \| 'warning' \| 'error'` | `'primary'` | Stylistic variant of the badge. |
+| `isSelected` | `boolean` | `false` | Visual state for selected active items. |
+| `highlightQuery` | `string` | `''` | Text string to match and highlight within the title. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `click` | `void` | Emitted when the result item is clicked. |
+
+## Examples
+
+### Default
+Standard result item.
+<Canvas of={BaseResultStories.Default} />
+
+### With Badge
+Result displaying additional metadata via badge.
+<Canvas of={BaseResultStories.WithBadge} />
+
+### Highlighted Match
+Demonstrates search query highlighting (matching "mega").
+<Canvas of={BaseResultStories.Highlighted} />
+
+### Selected State
+Active state for keyboard navigation or selection.
+<Canvas of={BaseResultStories.Selected} />

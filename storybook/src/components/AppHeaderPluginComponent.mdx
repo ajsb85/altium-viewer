@@ -1,0 +1,55 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppHeaderPluginStories from './AppHeaderPlugin.stories';
+
+<Meta of={AppHeaderPluginStories} />
+
+# AppHeaderPlugin Component
+
+The `AppHeaderPlugin` component represents an individual action item or tool within the application header. It can display an icon, text, badge, and tooltip.
+
+## Features
+- **Flexible Content**: Supports icon only, icon + text, or icon + badge combinations.
+- **States**: Interactive hover and active states.
+- **Tooltips**: Built-in simple title tooltip.
+- **Badging**: Integrated badge for notifications or counts.
+
+## Usage
+
+```html
+<AppHeaderPlugin icon="search-16" title="Search" @click="toggleSearch" />
+<AppHeaderPlugin icon="layers-16" label="Layers" isActive />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `icon` | `string` | **Required** | The icon name to display. |
+| `label` | `string` | `''` | Optional text label. |
+| `tooltip` | `string` | `''` | Tooltip text displayed on hover. |
+| `badge` | `string` | `''` | Small notification badge content. |
+| `isActive` | `boolean` | `false` | Whether the plugin button is in the active/selected state. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `click` | `void` | Emitted when the plugin button is clicked. |
+
+## Examples
+
+### Default
+Standard icon-only plugin button.
+<Canvas of={AppHeaderPluginStories.Default} />
+
+### With Label
+Plugin with descriptive text.
+<Canvas of={AppHeaderPluginStories.WithLabel} />
+
+### Active State
+Visually distinguished state for active tools.
+<Canvas of={AppHeaderPluginStories.Active} />
+
+### With Badge
+Plugin displaying a count or notification badge.
+<Canvas of={AppHeaderPluginStories.WithBadge} />

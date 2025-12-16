@@ -1,0 +1,60 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsSidebarStories from './AfsSidebar.stories';
+
+<Meta of={AfsSidebarStories} />
+
+# AfsSidebar Component
+
+The `AfsSidebar` is a resizable container component used for side panels/drawers. It provides width management, resizing logic, and standard styling for application sidebars.
+
+## Features
+- **Resizable**: Built-in drag handle to resize the panel within min/max constraints.
+- **Positioning**: Supports both Left and Right side modes.
+- **Presets**: Size presets (`sm`, `md`, `lg`) for consistent layouts.
+- **Constraints**: Configurable minimum and maximum widths.
+
+## Usage
+
+```html
+<AfsSidebar side="left" resizable @size-changed="onResize">
+  <div>Sidebar content here...</div>
+</AfsSidebar>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `side` | `'left' \| 'right'` | `'left'` | Which side of the viewport the sidebar is on. Controls border and resizer position. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Initial width preset (sm: 280px, md: 320px, lg: 360px). |
+| `resizable` | `boolean` | `false` | Enables the drag handle for resizing. |
+| `minPanelWidth` | `number` | `240` | Minimum allowed width in pixels. |
+| `maxPanelWidth` | `number` | `640` | Maximum allowed width in pixels. |
+| `initialWidth` | `number` | `null` | Overrides the preset size with a specific pixel value. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `size-changed` | `number` | Emitted when resizing ends. Payload is the new width in pixels. |
+
+## Methods
+The component exposes the following methods:
+
+- `setWidth({ type: 'add' | 'subtract', value: number })`: Programmatically adjust width relative to current size.
+
+## Examples
+
+### Left Sidebar
+Standard resizable left sidebar. Drag the right edge to resize.
+<Canvas of={AfsSidebarStories.Left} />
+
+### Right Sidebar
+Sidebar positioned on the right. Resizer is on the left edge.
+<Canvas of={AfsSidebarStories.Right} />
+
+### Size Presets
+Fixed width presets (Small).
+<Canvas of={AfsSidebarStories.SmallSize} />
+Fixed width presets (Large).
+<Canvas of={AfsSidebarStories.LargeSize} />

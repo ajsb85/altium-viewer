@@ -1,0 +1,65 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as FabricationViewStories from './FabricationView.stories';
+
+<Meta of={FabricationViewStories} />
+
+# FabricationView Component
+
+The `FabricationView` component displays technical fabrication data. It is similar to `Fabrication` but designed as a stand-alone view, often used within a sidebar or modal context. It formats key-value properties into a readable definition list (`<dl>`).
+
+## Features
+- **Grouped Properties**: Display data sections with headers.
+- **Definition List Layout**: Semantic HTML structure for key-value pairs (`<dt>`/`<dd>`).
+- **Clean Typography**: Standardized fonts and colors for readability.
+
+## Usage
+
+```html
+<FabricationView 
+  title="Board Specs" 
+  :sections="viewSections" 
+/>
+```
+
+```javascript
+const viewSections = [
+  {
+    id: 'dimensions',
+    title: 'Dimensions',
+    properties: [
+      { key: 'w', label: 'Width', value: '100mm' }
+    ]
+  }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | `'Fabrication Data'` | Main view title. |
+| `sections` | `Array<Section>` | `[]` | List of property groups. |
+
+### Section Interface
+```typescript
+interface Section {
+  id: string;          // Unique identifier
+  title: string;       // Section header
+  properties: Property[]; // Data items
+}
+```
+
+### Property Interface
+```typescript
+interface Property {
+  key: string;            // Unique key
+  label: string;          // Display label
+  value: string | number; // Display value
+}
+```
+
+## Examples
+
+### Default
+Standard fabrication data view.
+<Canvas of={FabricationViewStories.Default} />

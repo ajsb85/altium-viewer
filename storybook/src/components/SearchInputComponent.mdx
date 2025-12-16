@@ -1,0 +1,58 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as SearchInputStories from './SearchInput.stories';
+import SearchInput from './SearchInput.vue';
+
+<Meta of={SearchInputStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `SearchInput` component provides a robust text field for search queries. It includes built-in features for clearing the input and an optional dropdown trigger for filtering search results.
+
+## Features
+- **Integrated Actions**: Clear button appears automatically when text is present.
+- **Filter Support**: Optional filter toggle button for refined searches.
+- **Visual Feedback**: Focus states and styled borders align with the application theme.
+- **Keyboard Events**: Native support for Enter (submit) and Escape (clear) keys.
+
+## Usage
+
+```html
+<SearchInput
+  v-model="query"
+  placeholder="Search..."
+  active-filter-name="Components"
+  :show-filters="true"
+  @submit="performSearch"
+  @toggleFilters="showFilterMenu"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard search input with filter option.
+
+<Canvas of={SearchInputStories.Default} />
+
+### With Query
+Input state showing active text and clear button.
+
+<Canvas of={SearchInputStories.WithQuery} />
+
+### No Filters
+simplified version without the filter dropdown.
+
+<Canvas of={SearchInputStories.NoFilters} />
+
+### Interactive
+Interactive demo showing state updates.
+
+<Canvas of={SearchInputStories.Interactive} />

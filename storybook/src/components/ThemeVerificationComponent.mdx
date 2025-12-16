@@ -1,0 +1,24 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as ThemeVerificationStories from './ThemeVerification.stories';
+
+<Meta of={ThemeVerificationStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `ThemeVerification` component is a visual testing utility designed to validate component behavior under different theming contexts (Dark vs Light). It renders a side-by-side comparison of core UI elements to ensure consistency.
+
+## Purpose
+- **Visual Regression**: Quickly identify broken styles in different themes.
+- **Component Audit**: Verify that buttons, inputs, and typography adhere to token definitions.
+- **Layout Check**: Ensure spacing and containers behave correctly in both modes.
+
+<Primary />
+
+## Examples
+
+### Side By Side
+Renders the full component suite in both Dark (default) and Light (simulated) themes.
+
+<Canvas of={ThemeVerificationStories.SideBySide} />

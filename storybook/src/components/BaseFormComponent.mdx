@@ -1,0 +1,52 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as BaseFormStories from './BaseForm.stories';
+
+<Meta of={BaseFormStories} />
+
+# BaseForm Component
+
+The `BaseForm` component acts as a standardized search input wrapper. It includes a search icon, text input field, and a clear button that appears when content is present.
+
+## Features
+- **Integrated Icons**: Pre-configured search and clear icons.
+- **Model Binding**: Supports `v-model` for two-way data binding.
+- **Form Submission**: Emits submit event on Enter key.
+- **Focus Management**: Clean focus states and events.
+
+## Usage
+
+```html
+<BaseForm 
+  v-model="searchQuery" 
+  placeholder="Search Datasheets..." 
+  @submit="onSearch" 
+  @clear="onClear" 
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `modelValue` | `string` | `''` | Value of the input field. |
+| `placeholder` | `string` | `'Search...'` | Input placeholder text. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `update:modelValue` | `string` | Emitted when input changes (standard v-model). |
+| `input` | `string` | Emitted on every keystroke. |
+| `submit` | `string` | Emitted when the user presses Enter. |
+| `focus` | `void` | Emitted when input gains focus. |
+| `blur` | `void` | Emitted when input loses focus. |
+
+## Examples
+
+### Default
+Standard search input.
+<Canvas of={BaseFormStories.Default} />
+
+### Custom Placeholder
+Search input with custom placeholder text.
+<Canvas of={BaseFormStories.Custom} />

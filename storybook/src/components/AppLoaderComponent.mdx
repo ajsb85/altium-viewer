@@ -1,0 +1,62 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppLoaderStories from './AppLoader.stories';
+
+<Meta of={AppLoaderStories} />
+
+# AppLoader Component
+
+The `AppLoader` component provides a full-screen overlay to indicate loading states or processing activities. It features an animated spinner and can display status text, icons, and error states.
+
+## Features
+- **Spinner Animation**: CSS-based rotation animation.
+- **Overlay**: Covers the content area with a dimmed background option.
+- **Status slots**: Areas for primary message and secondary details.
+- **Error State**: Can transform into an error display with a relevant icon.
+
+## Usage
+
+```html
+<AppLoader v-if="isLoading" has-icon icon="file-upload-32">
+  <p>Processing File...</p>
+</AppLoader>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `hasError` | `boolean` | `false` | Switches to error state (stops spinner, shows error icon). |
+| `hasIcon` | `boolean` | `false` | Whether to display an icon inside the loader figure. |
+| `icon` | `string` | `'file-upload-32'` | Icon to use if `hasIcon` is true. |
+| `backgroundAlpha` | `boolean` | `false` | Enables a semi-transparent background overlay. |
+| `size` | `'small' \| 'medium' \| 'large'` | `'large'` | Size of the central figure/spinner. |
+| `primary` | `boolean` | `true` | Toggles between primary (blue) and secondary (pink) spinner colors. |
+
+## Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `default` | Primary loading message or status text. |
+| `meta` | Secondary or helper text (e.g. progress percentage). |
+
+## Examples
+
+### Default
+Standard loading state.
+<Canvas of={AppLoaderStories.Default} />
+
+### With Icon & Meta
+Detailed loading state with an icon and sub-text.
+<Canvas of={AppLoaderStories.WithIcon} />
+
+### Error State
+Displaying a failure condition.
+<Canvas of={AppLoaderStories.Error} />
+
+### Secondary Color
+Using the secondary theme color.
+<Canvas of={AppLoaderStories.Secondary} />
+
+### Small Size
+Compact variant.
+<Canvas of={AppLoaderStories.SmallSize} />

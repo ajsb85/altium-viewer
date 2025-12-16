@@ -1,0 +1,69 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as MeasurementDisplayStories from './MeasurementDisplay.stories';
+import MeasurementDisplay from './MeasurementDisplay.vue';
+
+<Meta of={MeasurementDisplayStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `MeasurementDisplay` component acts as the interface for the board measurement tool. It displays real-time distance calculations (ΔX, ΔY, Distance) and manages a history of saved measurements.
+
+## Features
+- **Real-Time Readout**: Shows active measurement values.
+- **Unit Conversion**: Built-in support for switching between mm, mil, and inch active display units.
+- **History Management**: Allows saving, selecting, and deleting past measurements.
+- **Empty & Active States**: Visual feedback for "start measuring" prompts vs. active measuring states.
+
+## Usage
+
+```html
+<MeasurementDisplay
+  :measurement="{ x: 10, y: 10, xy: 14.14 }"
+  unit="mm"
+  @save="saveMeasurement"
+  @unitChange="updateUnit"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### MeasurementItem
+
+```typescript
+interface MeasurementItem {
+  id?: string | number; // Unique identifier (optional for active measurement)
+  x: number;            // Delta X distance
+  y: number;            // Delta Y distance
+  xy: number;           // Euclidean distance
+}
+```
+
+## Examples
+
+### Empty
+Value display state when no measurement is active.
+
+<Canvas of={MeasurementDisplayStories.Empty} />
+
+### With Measurement
+Active display showing calculated distances.
+
+<Canvas of={MeasurementDisplayStories.WithMeasurement} />
+
+### With Saved Measurements
+Shows the history list of saved measurements.
+
+<Canvas of={MeasurementDisplayStories.WithSavedMeasurements} />
+
+### Measuring State
+Visual indication (e.g., instructions) when the user is actively selecting points.
+
+<Canvas of={MeasurementDisplayStories.Measuring} />

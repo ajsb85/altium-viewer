@@ -1,0 +1,56 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as BaseFooterStories from './BaseFooter.stories';
+
+<Meta of={BaseFooterStories} />
+
+# BaseFooter Component
+
+The `BaseFooter` component is a standardized bottom bar for panels, search lists, or forms. It typically displays a results count and provides actionable buttons like "Clear".
+
+## Features
+- **Result Counting**: Formats and displays item counts (e.g., "12 results").
+- **Action Area**: Slot for custom action buttons.
+- **Built-in Actions**: Default "Clear" button functionality.
+
+## Usage
+
+```html
+<BaseFooter 
+  :count="12" 
+  @clear="clearSearch" 
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `count` | `number` | `0` | Total number of items/results to display. |
+| `showCount` | `boolean` | `true` | Toggles visibility of the count text. |
+| `showClear` | `boolean` | `true` | Toggles visibility of the default Clear button. |
+
+## Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `actions` | Area for custom action buttons. Overrides the default Clear button. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `clear` | `void` | Emitted when the default Clear button is clicked. |
+
+## Examples
+
+### Default
+Standard footer counting results.
+<Canvas of={BaseFooterStories.Default} />
+
+### No Clear Button
+Footer displaying only status text.
+<Canvas of={BaseFooterStories.NoClear} />
+
+### No Count
+Footer displaying only actions.
+<Canvas of={BaseFooterStories.NoCount} />

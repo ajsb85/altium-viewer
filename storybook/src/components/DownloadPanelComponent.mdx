@@ -1,0 +1,68 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as DownloadPanelStories from './DownloadPanel.stories';
+
+<Meta of={DownloadPanelStories} />
+
+# DownloadPanel Component
+
+The `DownloadPanel` is a sliding side panel that acts as the download manager. It lists project source files and generated derived files (like Gerber, PDF, BOM) in categorized sections, often including a call-to-action button for access rights.
+
+## Features
+- **Categorized Sections**: dedicated areas for Source Files and Derived Files.
+- **Info & Actions**: Supports informational messages and primary action buttons (e.g. "Save to Personal Space").
+- **Visual Feedback**: Icons for file types aid quick identification.
+
+## Usage
+
+```html
+<DownloadPanel 
+  :sourceFiles="projectFiles" 
+  :derivedFiles="outputs" 
+  actionText="Download All" 
+  @action="startDownload" 
+  @close="closePanel"
+/>
+```
+
+```javascript
+const projectFiles = [{ name: 'Project.PrjPcb', icon: 'project-pcb-16' }];
+const outputs = [{ name: 'Gerber', icon: 'gerber-16' }];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | `'Download'` | Panel title. |
+| `width` | `number` | `240` | Panel width in pixels. |
+| `sourceTitle` | `string` | `'Project Source Files'` | Header for source files section. |
+| `sourceFiles` | `Array<DownloadFile>` | `[]` | List of source files. |
+| `derivedTitle` | `string` | `'Derived Files'` | Header for derived files section. |
+| `derivedFiles` | `Array<DownloadFile>` | `[]` | List of output files. |
+| `infoMessage` | `string` | `''` | Optional informational text block. |
+| `actionText` | `string` | `''` | Label for the main action button (if present). |
+
+### DownloadFile Interface
+```typescript
+interface DownloadFile {
+  name: string;
+  icon: string;
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `close` | `void` | Emitted when the close button is clicked. |
+| `action` | `void` | Emitted when the primary action button is clicked. |
+
+## Examples
+
+### Default
+Standard download panel with source files, derived outputs, and a CTA.
+<Canvas of={DownloadPanelStories.Default} />
+
+### Source Files Only
+Panel configured to show only project source files.
+<Canvas of={DownloadPanelStories.SourceFilesOnly} />

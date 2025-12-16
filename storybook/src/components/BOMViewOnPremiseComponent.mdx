@@ -1,0 +1,65 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as BOMViewOnPremiseStories from './BOMViewOnPremise.stories';
+
+<Meta of={BOMViewOnPremiseStories} />
+
+# BOMViewOnPremise Component
+
+The `BOMViewOnPremise` component renders a Bill of Materials table specifically styled for the on-premise viewer variant. It includes a search filter, export capability, and column-based data display.
+
+## Features
+- **Data Table**: Render rows and columns dynamically.
+- **Search Filtering**: Built-in client-side text filtering across all row values.
+- **Scrollable Layout**: Fixed header with scrollable body.
+- **Selection**: Row selection support.
+- **On-Premise Branding**: Distinctive "On-Premise" badge in the header.
+
+## Usage
+
+```html
+<BOMViewOnPremise 
+  :columns="bomColumns" 
+  :items="bomData" 
+  @select="onRowSelect" 
+  @export="onExport" 
+/>
+```
+
+```javascript
+const bomColumns = [
+  { id: 'designator', label: 'Designator' },
+  { id: 'qty', label: 'Qty' }
+];
+
+const bomData = [
+  { designator: 'R1', qty: 1 }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `columns` | `Array<Column>` | `[]` | Table column definitions. See interface below. |
+| `items` | `Array<Object>` | `[]` | List of data objects representing BOM rows. Key names must match column IDs. |
+
+### Column Interface
+```typescript
+interface Column {
+  id: string;    // Data key to bind to
+  label: string; // Header text display
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `select` | `number` | Emitted when a row is clicked. Payload is the **index** of the item. |
+| `export` | `void` | Emitted when the Export button is clicked. |
+
+## Examples
+
+### Default
+Standard BOM table view with sample data.
+<Canvas of={BOMViewOnPremiseStories.Default} />

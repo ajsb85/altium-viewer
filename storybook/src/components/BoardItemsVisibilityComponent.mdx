@@ -1,0 +1,68 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as BoardItemsVisibilityStories from './BoardItemsVisibility.stories';
+
+<Meta of={BoardItemsVisibilityStories} />
+
+# BoardItemsVisibility Component
+
+The `BoardItemsVisibility` component acts as the main controller sidebar for PCB visualization. It aggregates the `Layers` and `ObjectsPanel` into a tabbed interface, providing comprehensive control over what is displayed on the board canvas.
+
+## Features
+- **Tab Integration**: Unified view for switching between Layer and Object visibility modes.
+- **Accordion Layout**: Organizes layers into collapsible groups (Copper, Solder Mask, etc.).
+- **View Selection**: Controls for toggling Top/Bottom board views.
+- **Batch Actions**: "Show Only" and visibility toggles for improved workflow efficiency.
+
+## Usage
+
+```html
+<BoardItemsVisibility 
+  :layers="pcbLayers" 
+  :objects="pcbObjects" 
+  @layerToggle="onToggleLayer" 
+  @viewSelect="onSwitchView"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `layers` | `Array<Layer>` | `[]` | List of PCB layer definitions. |
+| `objects` | `Array<ObjectItem>` | `[]` | List of renderable object types (Pads, Vias, etc.). |
+| `layersViews` | `Array` | `[{id:1, name:'Top'}, ...]` | Configuration for board side views. |
+| `showLayers` | `boolean` | `true` | Enables the Layers tab. |
+| `showObjects` | `boolean` | `true` | Enables the Objects tab. |
+
+### Layer Interface
+```typescript
+interface Layer {
+  id: string | number;
+  name: string;
+  color?: string;
+  isVisible: boolean;
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `layerToggle` | `Layer` | Emitted when a single layer's visibility changes. |
+| `layerShowOnly` | `Layer` | Emitted when "Show Only" this layer is triggered. |
+| `objectToggle` | `ObjectItem` | Emitted when an object type visibility changes. |
+| `viewSelect` | `number` | Emitted when Top/Bottom view is switched. |
+
+## Examples
+
+### Default
+Standard visibility panel with full layers stack.
+<Canvas of={BoardItemsVisibilityStories.Default} />
+
+### Eight Layer Board
+Demo showing a complex copper stackup.
+<Canvas of={BoardItemsVisibilityStories.EightLayerBoard} />
+
+### Objects Only
+Configuration hiding the layers tab to focus on object types.
+<Canvas of={BoardItemsVisibilityStories.ObjectsOnly} />

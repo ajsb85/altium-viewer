@@ -1,0 +1,63 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as ComparePanelStories from './ComparePanel.stories';
+
+<Meta of={ComparePanelStories} />
+
+# ComparePanel Component
+
+The `ComparePanel` is a high-level layout component designed for file comparison workflows. It manages the comparison mode (Overlay, Side-by-side, Diff) and provides slots for version selection controls of the "Current" and "Previous" documents.
+
+## Features
+- **Mode Switching**: Built-in toggle for comparison visualization modes.
+- **Side Slots**: Dedicated "left" and "right" slots for version pickers or file trees.
+- **Diff List**: Integrated list view for navigating specific changes.
+
+## Usage
+
+```html
+<ComparePanel 
+  activeMode="sideBySide" 
+  :differences="diffList" 
+  @modeChange="setMode" 
+  @selectDiff="onDiffSelect"
+>
+  <template #left>
+    <VersionPicker v-model="v1" />
+  </template>
+  <template #right>
+    <VersionPicker v-model="v2" />
+  </template>
+</ComparePanel>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | `'Compare'` | Panel title. |
+| `activeMode` | `string` | `'overlay'` | Currently selected comparison logic. |
+| `leftLabel` | `string` | `'Current'` | Label for the left/primary side. |
+| `rightLabel` | `string` | `'Previous'` | Label for the right/reference side. |
+| `differences` | `Array<Difference>` | `[]` | List of detected differences. |
+
+### Difference Interface
+```typescript
+interface Difference {
+  id: string;
+  name: string;
+  type: 'added' | 'removed' | 'changed';
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `modeChange` | `string` | Emitted when a new comparison mode is selected. |
+| `selectDiff` | `Difference` | Emitted when a difference item is clicked. |
+
+## Examples
+
+### Default
+Standard comparison setup with a list of differences.
+<Canvas of={ComparePanelStories.Default} />

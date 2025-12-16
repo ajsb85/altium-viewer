@@ -1,0 +1,77 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppMenuStories from './AppMenu.stories';
+
+<Meta of={AppMenuStories} />
+
+# AppMenu Component
+
+The `AppMenu` component renders a floating context menu. It supports standard menu features like icons, keyboard shortcuts, disabled items, and separators.
+
+## Features
+- **Contextual Positioning**: Fixed positioning based on X/Y coordinates.
+- **Rich Items**: Support for icons, text labels, and keyboard shortcut hints.
+- **Separators**: Visual dividers to group related commands.
+- **Interaction**: Handles click-outside to close automatically.
+
+## Usage
+
+```html
+<AppMenu 
+  :items="menuItems" 
+  :isVisible="showMenu" 
+  :x="cursorX" 
+  :y="cursorY" 
+  @select="onMenuSelect" 
+  @close="showMenu = false" 
+/>
+```
+
+```javascript
+const menuItems = [
+  { id: 'copy', label: 'Copy', shortcut: 'Cmd+C' },
+  { separator: true },
+  { id: 'delete', label: 'Delete' }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `items` | `Array<MenuItem>` | `[]` | List of menu items. See interface below. |
+| `isVisible` | `boolean` | `false` | Controls visibility of the menu. |
+| `x` | `number` | `0` | Left position in pixels. |
+| `y` | `number` | `0` | Top position in pixels. |
+
+### MenuItem Interface
+```typescript
+interface MenuItem {
+  id: string;          // Unique identifier
+  label?: string;      // Display text
+  icon?: string;       // Icon name
+  shortcut?: string;   // Keyboard shortcut hint (e.g. 'Cmd+C')
+  disabled?: boolean;  // Interaction state
+  separator?: boolean; // If true, renders a divider line instead of an item
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `select` | `MenuItem` | Emitted when an item is clicked. Payload is the item object. |
+| `close` | `void` | Emitted when clicking outside or selecting an item. |
+
+## Examples
+
+### Default
+Standard context menu representation.
+<Canvas of={AppMenuStories.Default} />
+
+### Interactive
+Demonstrates hover states and separation.
+<Canvas of={AppMenuStories.Interactive} />
+
+### With Disabled Items
+Menu containing unselectable options.
+<Canvas of={AppMenuStories.WithDisabledItems} />

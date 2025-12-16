@@ -1,0 +1,50 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as LabelStories from './Label.stories';
+import Label from './Label.vue';
+
+<Meta of={LabelStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `Label` component provides consistent typography and styling for field labels, status text, or other short auxiliary text elements.
+
+## Features
+- **Flexible Content**: Accepts text via props or a default slot for custom markup.
+- **States**: Includes a `disabled` state interaction style.
+- **Typography**: Applies standard application typography settings.
+
+## Usage
+
+```html
+<Label text="Username" />
+
+<!-- OR with slot -->
+<Label>
+  Required <strong>Field</strong>
+</Label>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard label with text prop.
+
+<Canvas of={LabelStories.Default} />
+
+### Using Slot
+Label with custom HTML content passed via the default slot.
+
+<Canvas of={LabelStories.UsingSlot} />
+
+### Disabled
+Visual style for disabled state.
+
+<Canvas of={LabelStories.Disabled} />

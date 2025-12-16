@@ -1,0 +1,74 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as LibTableStories from './LibTable.stories';
+import LibTable from './LibTable.vue';
+
+<Meta of={LibTableStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `LibTable` is a data grid component built for dense information display, such as Bills of Materials (BOM) or component lists. It uses a flexbox-based architecture to support fixed headers with scrollable bodies and custom column sizing.
+
+## Features
+- **Sortable Columns**: Built-in support for column sorting with direction indicators.
+- **Flexible Layouts**: Columns can be sized by fixed width or flexible ratios.
+- **Custom Rendering**: Extensive slot support for custom cell, row, and footer content.
+- **Interactivity**: Row hover effects and click events.
+- **Styling**: Production-grade styling with custom scrollbars and typography.
+
+## Usage
+
+```html
+<LibTable
+  :columns="[
+    { key: 'name', label: 'Name', flex: '1 1 auto', sortable: true },
+    { key: 'qty', label: 'Qty', width: '60px', align: 'right' }
+  ]"
+  :rows="[
+    { name: 'Resistor', qty: 100 },
+    { name: 'Capacitor', qty: 50 }
+  ]"
+  default-sort-key="name"
+  @sort="handleSort"
+  @row-click="handleRowClick"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### TableColumn
+
+```typescript
+interface TableColumn {
+  key: string;              // Data key matching row property
+  label: string;            // Header display text
+  width?: string;           // Fixed width (e.g., "100px")
+  flex?: string;            // Flex shorthand (e.g., "1 1 auto")
+  align?: 'left' | 'right' | 'center'; // Text alignment
+  sortable?: boolean;       // Enable sorting for this column
+}
+```
+
+## Examples
+
+### Default
+Standard BOM-style table with mixed column types.
+
+<Canvas of={LibTableStories.Default} />
+
+### Numeric Alignment
+Demonstrates right alignment for numeric data columns.
+
+<Canvas of={LibTableStories.NumericAlignment} />
+
+### Interactive Sort
+Fully functional example with sorting logic implemented.
+
+<Canvas of={LibTableStories.InteractiveSort} />

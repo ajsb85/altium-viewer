@@ -1,0 +1,62 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppBaseHeaderStories from './AppBaseHeader.stories';
+
+<Meta of={AppBaseHeaderStories} />
+
+# AppBaseHeader Component
+
+The `AppBaseHeader` component serves as a standardized header for panels and widgets. It typically includes a title, an optional icon, and a close button.
+
+## Features
+- **Standard Layout**: Consistent title alignment and spacing.
+- **Icon Support**: Optional icon before the title.
+- **Close Action**: Integrated close button with event emission.
+- **Extensible**: Slots for left content (replacing title) and custom actions.
+
+## Usage
+
+```html
+<AppBaseHeader title="Layer Manager" icon="layers-16" @close="closePanel" />
+
+<AppBaseHeader>
+  <template #left>Custom Title Context</template>
+  <template #actions>
+    <button>Save</button>
+  </template>
+</AppBaseHeader>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | `''` | The header title text. |
+| `icon` | `string` | `''` | Optional icon name to display before the title. |
+| `showClose` | `boolean` | `true` | Whether to display the close button. |
+
+## Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `left` | Replaces the standard title/icon section. |
+| `actions` | Area between the title and close button for additional controls. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `close` | `void` | Emitted when the close button is clicked. |
+
+## Examples
+
+### Default
+Standard usage with a title.
+<Canvas of={AppBaseHeaderStories.Default} />
+
+### With Icon
+Header with an identifying icon.
+<Canvas of={AppBaseHeaderStories.WithIcon} />
+
+### No Close Button
+For persistent panels that cannot be dismissed.
+<Canvas of={AppBaseHeaderStories.NoClose} />

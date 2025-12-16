@@ -1,0 +1,81 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as LayersStories from './Layers.stories';
+import Layers from './Layers.vue';
+
+<Meta of={LayersStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `Layers` component serves as the primary interface for managing layer visibility in the PCB design viewer. It aggregates individual layer controls into a scrollable list and supports view-based filtering (e.g., switching between Top and Bottom layer sets).
+
+## Features
+- **Layer Management**: List-based interface for toggling visibility of multiple layers.
+- **View Tabs**: Optional tabbing system to filter layers by physical side (Top/Bottom).
+- **Batch Actions**: Supports "Show Only" actions to isolate specific layers.
+- **Visual Feedback**: Real-time updates of layer state and color coding.
+
+## Usage
+
+```html
+<Layers
+  :layers="[
+    { id: 1, name: 'Top Copper', color: '#ff0000', isVisible: true }
+  ]"
+  :show-view-tabs="true"
+  :layers-views="[
+    { id: 0, name: 'Top Layers', isActive: true },
+    { id: 1, name: 'Bottom Layers', isActive: false }
+  ]"
+  @toggleVisibility="handleToggle"
+  @showOnly="handleShowOnly"
+  @selectView="handleViewChange"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### Layer
+
+```typescript
+interface Layer {
+  id: string | number;  // Unique identifier
+  name: string;         // Display name
+  color?: string;       // CSS color string
+  isVisible: boolean;   // Visibility state
+}
+```
+
+### LayersView
+
+```typescript
+interface LayersView {
+  id: number;           // View identifier
+  name: string;         // Tab label (e.g., "Top View")
+  isActive: boolean;    // Active state
+}
+```
+
+## Examples
+
+### Default
+Standard list of layers without view tabs.
+
+<Canvas of={LayersStories.Default} />
+
+### With View Tabs
+Includes navigation tabs for filtering displayed layers.
+
+<Canvas of={LayersStories.WithViewTabs} />
+
+### Interactive
+Demonstrates user interactions including visibility toggling and "Show Only" mode.
+
+<Canvas of={LayersStories.Interactive} />

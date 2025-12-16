@@ -1,0 +1,63 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppLayersContentStories from './AppLayersContent.stories';
+
+<Meta of={AppLayersContentStories} />
+
+# AppLayersContent Component
+
+The `AppLayersContent` component renders a visual list of layers or objects. Each item includes a visibility toggle, color indicator, and label.
+
+## Features
+- **Visibility Control**: Individual toggle for each layer.
+- **Color Indicators**: Visual cue for layer color coding.
+- **Grouped Layout**: Designed to be used within section containers.
+- **Hover Effects**: Interactive feedback on layer rows.
+
+## Usage
+
+```html
+<AppLayersContent 
+  title="Signal Layers" 
+  :layers="layerData" 
+  @toggleVisibility="onToggle" 
+/>
+```
+
+```javascript
+const layerData = [
+  { id: 'top', name: 'Top Layer', color: '#ff0000', visible: true }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | `'Layers'` | Section title displayed at the top. |
+| `layers` | `Array<Layer>` | `[]` | List of layer objects. See interface below. |
+
+### Layer Interface
+```typescript
+interface Layer {
+  id: string;      // Unique identifier
+  name: string;    // Display name
+  color: string;   // CSS color string (hex/rgb)
+  visible: boolean; // Visibility state
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `toggleVisibility` | `string` | Emitted when the eye icon is clicked. Payload is the `id` of the layer. |
+
+## Examples
+
+### Default
+Standard list of mixed visible and hidden layers.
+<Canvas of={AppLayersContentStories.Default} />
+
+### All Hidden
+Example with all layers toggled off.
+<Canvas of={AppLayersContentStories.AllHidden} />

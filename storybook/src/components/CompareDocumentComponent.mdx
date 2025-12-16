@@ -1,0 +1,71 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as CompareDocumentStories from './CompareDocument.stories';
+
+<Meta of={CompareDocumentStories} />
+
+# CompareDocument Component
+
+The `CompareDocument` component visualizes the differences between two document versions. It organizes changes into sections (e.g., "Components", "Nets") and details individual modifications with status indicators.
+
+## Features
+- **Change Grouping**: Hierarchical display of changes by section.
+- **Status Indicators**: Color-coded badges and icons for `added`, `removed`, and `modified` states.
+- **Visual Clarity**: Clean list layout for easy scanning of differences.
+
+## Usage
+
+```html
+<CompareDocument 
+  title="Schematic Changes" 
+  :sections="changeLog" 
+/>
+```
+
+```javascript
+const changeLog = [
+  {
+    id: 'comp',
+    title: 'Components',
+    status: 'modified',
+    changes: [
+      { id: '1', type: 'added', description: 'Added U1' }
+    ]
+  }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | `'Document Comparison'` | Header title for the comparison panel. |
+| `sections` | `Array<Section>` | `[]` | List of change sections. See detailed interface below. |
+
+### Section Interface
+```typescript
+interface Section {
+  id: string;
+  title: string;
+  status: 'added' | 'removed' | 'modified' | 'unchanged';
+  changes: Change[];
+}
+```
+
+### Change Interface
+```typescript
+interface Change {
+  id: string;
+  type: 'added' | 'removed' | 'modified';
+  description: string;
+}
+```
+
+## Examples
+
+### Default
+Standard comparison view showing mixed changes.
+<Canvas of={CompareDocumentStories.Default} />
+
+### Empty State
+View when no changes are detected.
+<Canvas of={CompareDocumentStories.Empty} />

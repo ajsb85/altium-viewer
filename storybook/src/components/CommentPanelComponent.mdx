@@ -1,0 +1,66 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as CommentPanelStories from './CommentPanel.stories';
+
+<Meta of={CommentPanelStories} />
+
+# CommentPanel Component
+
+The `CommentPanel` component renders a sliding side panel used for collaboration features like comments, tasks, and notes. It includes a header, a customizable empty state/placeholder, and a footer for feedback links.
+
+## Features
+- **Sliding Panel**: Positioned absolutely as a side drawer (right-aligned by default).
+- **Placeholder State**: Built-in empty state with a call-to-action button.
+- **Customizable**: Configurable title, widths, and text strings.
+- **Slot Support**: Main content area is a slot, allowing full flexibility when content exists.
+
+## Usage
+
+```html
+<CommentPanel 
+  title="Design Review" 
+  :width="300" 
+  :showPlaceholder="!hasComments" 
+  @action="addComment" 
+  @close="closePanel"
+>
+  <div class="comments-list">...</div>
+</CommentPanel>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | `'Comments'` | Panel header title. |
+| `width` | `number` | `240` | Width of the panel in pixels. |
+| `showPlaceholder` | `boolean` | `true` | Toggles the empty state view. |
+| `placeholderText` | `string` | `'Ask a question...'` | Text displayed in the empty state. |
+| `actionText` | `string` | `'Place a Comment'` | Label for the primary action button in empty state. |
+| `feedbackUrl` | `string` | `...` | URL for the bottom feedback link. |
+
+## Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `default` | Main content area (visible when `showPlaceholder` is false). |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `close` | `void` | Emitted when the close (X) button is clicked. |
+| `action` | `void` | Emitted when the placeholder action button is clicked. |
+
+## Examples
+
+### Default (Placeholder)
+Initial empty state of the comments panel.
+<Canvas of={CommentPanelStories.Default} />
+
+### With Content
+Panel populated with comment threads (simulated via slot).
+<Canvas of={CommentPanelStories.WithContent} />
+
+### Custom Width & Title
+Variant for specific workflows like "Tasks" or "Notes".
+<Canvas of={CommentPanelStories.TasksPanel} />

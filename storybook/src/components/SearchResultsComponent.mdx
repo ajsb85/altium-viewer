@@ -1,0 +1,84 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as SearchResultsStories from './SearchResults.stories';
+import SearchResults from './SearchResults.vue';
+
+<Meta of={SearchResultsStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `SearchResults` component renders grouped lists of search results. It handles text highlighting for matching queries, section-based organization, and supports "show more" pagination logic within sections.
+
+## Features
+- **Grouped Display**: Organizes results into titled sections (e.g., Components, Nets).
+- **Text Highlighting**: Automatically highlights query matches within item names.
+- **Loading & Empty States**: Built-in feedback for async search operations.
+- **Selection Support**: API for managing active item selection.
+
+## Usage
+
+```html
+<SearchResults
+  :sections="[
+    {
+      id: 'components',
+      title: 'Components',
+      items: [{ id: 'U1', name: 'U1', icon: 'component-16' }]
+    }
+  ]"
+  query="U1"
+  :selected-id="activeId"
+  @select="handleSelect"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### SearchSection
+
+```typescript
+interface SearchSection {
+  id: string;
+  title: string;
+  items: SearchItem[];
+}
+```
+
+### SearchItem
+
+```typescript
+interface SearchItem {
+  id: string | number;
+  name: string;
+  icon?: string;
+}
+```
+
+## Examples
+
+### Default
+Standard categorized result list.
+
+<Canvas of={SearchResultsStories.Default} />
+
+### With Highlighting
+Demonstrates text highlighting of search terms.
+
+<Canvas of={SearchResultsStories.WithHighlighting} />
+
+### Loading
+Active search loading indicator.
+
+<Canvas of={SearchResultsStories.Loading} />
+
+### Empty
+State when no results match the query.
+
+<Canvas of={SearchResultsStories.Empty} />

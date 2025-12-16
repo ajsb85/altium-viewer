@@ -1,0 +1,85 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as ControlsPanelStories from './ControlsPanel.stories';
+
+<Meta of={ControlsPanelStories} />
+
+# ControlsPanel Component
+
+The `ControlsPanel` component renders a help sidebar that lists available keyboard controls and mouse interactions for the viewer. It supports resizing, grouped sections, and custom keyboard shortcut displays.
+
+## Features
+- **Key Visualization**: Renders key combinations (e.g. "LMB", "Scroll", "R") in styled boxes.
+- **Grouped Layout**: Supports multiple sections of controls separated by dividers.
+- **Resizable**: Drag handle allows users to adjust panel width (min/max constraints applied).
+
+## Usage
+
+```html
+<ControlsPanel 
+  :controlSections="shortcuts" 
+  @close="hidePanel" 
+  @back="goBack"
+/>
+```
+
+```javascript
+const shortcuts = [
+  {
+    controls: [
+      { label: 'Select', keys: ['LMB'] }
+    ]
+  },
+  {
+    dividerBefore: true,
+    controls: [
+      { label: 'Reset View', keys: ['R'] }
+    ]
+  }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | `'Controls'` | Panel header title. |
+| `width` | `number` | `240` | Width in pixels. |
+| `controlSections` | `Array<ControlSection>` | `[...]` | List of control groups. See interface below. |
+
+### ControlSection Interface
+```typescript
+interface ControlSection {
+  controls: ControlItem[]; // List of controls in this group
+  dividerBefore?: boolean; // Whether to render a separator line before this group
+}
+```
+
+### ControlItem Interface
+```typescript
+interface ControlItem {
+  label: string; // Description of the action (e.g. "Zoom In")
+  keys: string[]; // List of keys/buttons (e.g. ["Scroll", "Ctrl+Z"])
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `close` | `void` | Emitted when the close (X) button is clicked. |
+| `back` | `void` | Emitted when the back chevron/title area is clicked. |
+| `resize` | `number` | Emitted when the panel is resized. Payload is new width. |
+
+## Examples
+
+### Default
+Standard controls list.
+<Canvas of={ControlsPanelStories.Default} />
+
+### Wide Panel
+Custom width configuration.
+<Canvas of={ControlsPanelStories.WidePanel} />
+
+### Minimal
+Simplistic view with fewer controls.
+<Canvas of={ControlsPanelStories.MinimalControls} />

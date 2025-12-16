@@ -1,0 +1,62 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as SCHViewStories from './SCHView.stories';
+import SCHView from './SCHView.vue';
+
+<Meta of={SCHViewStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `SCHView` component is the primary viewport for rendering schematic diagrams. It combines the graphics canvas with navigation tools for zooming and switching between multiple schematic sheets.
+
+## Features
+- **Sheet Navigation**: Tabbed interface for switching between multiple schematic sheets.
+- **Canvas Rendering**: High-performance rendering area for schematic vectors.
+- **Zoom Controls**: Integrated toolbar for zooming in, out, and fitting the view.
+- **State Feedback**: Built-in loading overlays.
+
+## Usage
+
+```html
+<SCHView
+  :sheets="[{ id: '1', name: 'Main' }, { id: '2', name: 'Power' }]"
+  active-sheet="1"
+  @sheetChange="handleSheetChange"
+  @zoom="handleZoom"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### Sheet
+
+```typescript
+interface Sheet {
+  id: string;   // Unique identifier for the sheet
+  name: string; // Display name (e.g., "Power Supply")
+}
+```
+
+## Examples
+
+### Default
+Basic single-sheet view.
+
+<Canvas of={SCHViewStories.Default} />
+
+### With Sheets
+Multi-sheet configuration showing navigation tabs.
+
+<Canvas of={SCHViewStories.WithSheets} />
+
+### Loading
+Active loading state overlay.
+
+<Canvas of={SCHViewStories.Loading} />

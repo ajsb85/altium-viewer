@@ -1,0 +1,43 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as SelectStories from './Select.stories';
+import Select from './Select.vue';
+
+<Meta of={SelectStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `Select` component is a toolbar toggle button that controls the selection mode. It serves as both a mode switch (enabling selection interactions) and a status indicator for the number of currently active selections.
+
+## Features
+- **Mode Toggle**: Switches selection mode on/off via v-model.
+- **Count Badge**: Automatically displays a badge when items are selected.
+- **Visual Feedback**: Distinct active state styling to indicate current tool mode.
+
+## Usage
+
+```html
+<Select
+  v-model="isSelectionMode"
+  :selected-items="activeItems"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard toggle button in inactive state.
+
+<Canvas of={SelectStories.Default} />
+
+### With Selection
+Active state showing the count of selected items.
+
+<Canvas of={SelectStories.WithSelection} />

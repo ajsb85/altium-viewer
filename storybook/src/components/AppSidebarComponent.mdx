@@ -1,0 +1,51 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppSidebarStories from './AppSidebar.stories';
+
+<Meta of={AppSidebarStories} />
+
+# AppSidebar Component
+
+The `AppSidebar` component is a high-level wrapper around `AfsSidebar`. It adds a standardized header structure with title, subtitle, and meta information, providing a consistent layout for application panels.
+
+## Features
+- **Standardized Header**: Built-in slots for Title and Subtitle.
+- **Meta Information**: Support for additional text in the header (e.g. version numbers).
+- **Flexible Sizing**: Preset widths (`sm`, `md`, `lg`) and flexible mode.
+- **Scrollable Content**: Main content area handles overflow automatically.
+
+## Usage
+
+```html
+<AppSidebar size="md" resizable>
+  <template #title>Project Explorer</template>
+  <template #subTitle>Files</template>
+  <div class="content">Tree view...</div>
+</AppSidebar>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'sm'` | Preset width of the sidebar. |
+| `resizable` | `boolean` | `false` | Enables resize handle. |
+| `flex` | `boolean` | `false` | If true, sidebar flexes to fill available space. |
+| `metaInfo` | `object` | `{}` | Object containing metadata like `subTitleAdditionalText`. |
+
+## Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `default` | Main content area of the sidebar. |
+| `title` | Primary header title. |
+| `subTitle` | Secondary header subtitle / section name. |
+
+## Examples
+
+### Default
+Standard sidebar with title and subtitle.
+<Canvas of={AppSidebarStories.Default} />
+
+### With Meta Info
+Sidebar showing additional metadata text in the subtitle area.
+<Canvas of={AppSidebarStories.WithSubtitleExtra} />

@@ -1,0 +1,48 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as ResultSectionStories from './ResultSection.stories';
+import ResultSection from './ResultSection.vue';
+
+<Meta of={ResultSectionStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `ResultSection` component organizes search results into collapsible groups. It displays a header with a title, item count, and optional icon, allowing users to toggle the visibility of the detailed results within.
+
+## Features
+- **Collapsible Grouping**: Toggles visibility of content to manage screen space.
+- **Section Metadata**: Displays section title and the count of items contained.
+- **Iconography**: Optional semantic icon for visual categorization.
+- **Header Interaction**: Entire header area is clickable for easy toggling.
+
+## Usage
+
+```html
+<ResultSection title="Nets" :count="5" icon="net-16">
+  <div v-for="net in nets" :key="net.id">{{ net.name }}</div>
+</ResultSection>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard visible section with count and content.
+
+<Canvas of={ResultSectionStories.Default} />
+
+### With Icon
+Section header featuring a category icon.
+
+<Canvas of={ResultSectionStories.WithIcon} />
+
+### Collapsed
+Initially collapsed state.
+
+<Canvas of={ResultSectionStories.Collapsed} />

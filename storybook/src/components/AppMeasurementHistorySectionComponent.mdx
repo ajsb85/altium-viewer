@@ -1,0 +1,65 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppMeasurementHistorySectionStories from './AppMeasurementHistorySection.stories';
+
+<Meta of={AppMeasurementHistorySectionStories} />
+
+# AppMeasurementHistorySection Component
+
+The `AppMeasurementHistorySection` component displays a list of previously recorded measurements. It provides functionality to review past values, re-select them, delete individual entries, or clear the entire history.
+
+## Features
+- **History List**: Scrollable list of measurement cards.
+- **Selection**: Ability to select a measurement item for focus.
+- **Management**: Controls to delete individual items or clear all history.
+- **Empty State**: Dedicated view when no measurements are recorded.
+
+## Usage
+
+```html
+<AppMeasurementHistorySection 
+  :items="historyItems" 
+  @select="onSelect" 
+  @delete="onDelete" 
+  @clearAll="onClearAll" 
+/>
+```
+
+```javascript
+const historyItems = [
+  { id: '1', label: 'Distance', value: '15.24 mm' }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `items` | `Array<HistoryItem>` | `[]` | List of measurement history items. |
+
+### HistoryItem Interface
+```typescript
+interface HistoryItem {
+  id: string;        // Unique identifier
+  label: string;     // Measurement type (e.g. 'Point to Point')
+  value: string;     // Formatted value string
+  isSelected?: boolean; // Highlighted state
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `select` | `string` | Emitted when an item is clicked (payload: `id`). |
+| `delete` | `string` | Emitted when the trash icon is clicked (payload: `id`). |
+| `clearAll` | `void` | Emitted when the "Clear all" button is clicked. |
+
+## Examples
+
+### Default
+Standard view with measurement history.
+<Canvas of={AppMeasurementHistorySectionStories.Default} />
+
+### Empty State
+View displayed when the history list is empty.
+<Canvas of={AppMeasurementHistorySectionStories.Empty} />

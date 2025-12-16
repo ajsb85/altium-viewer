@@ -1,0 +1,44 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as PCBView3DStories from './PCBView3D.stories';
+import PCBView3D from './PCBView3D.vue';
+
+<Meta of={PCBView3DStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `PCBView3D` provides an interactive 3D representation of the circuit board. It allows users to rotate, pan, and zoom to inspect physical aspects of the design such as layer stacking and component height.
+
+## Features
+- **Interactive Controls**: Supports mouse-based rotation (drag) and zooming (scroll).
+- **Physical Representation**: Renders board thickness and dimensions based on props.
+- **View Reset**: Quick action to return to the default isometric view.
+
+## Usage
+
+```html
+<PCBView3D
+  :board-width="100"
+  :board-height="80"
+  :board-thickness="1.6"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard 3D view of a generic board.
+
+<Canvas of={PCBView3DStories.Default} />
+
+### Large Board
+Example showing a larger form factor configuration.
+
+<Canvas of={PCBView3DStories.LargeBoard} />

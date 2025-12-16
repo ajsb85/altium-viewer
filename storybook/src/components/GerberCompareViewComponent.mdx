@@ -1,0 +1,55 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as GerberCompareViewStories from './GerberCompareView.stories';
+
+<Meta of={GerberCompareViewStories} />
+
+# GerberCompareView Component
+
+The `GerberCompareView` component is a layout wrapper for visualizing differences between two Gerber files. It provides a split-pane interface (Left/Right) and a standardized color legend for Added, Removed, and Modified elements.
+
+## Features
+- **Split Layout**: Side-by-side comparison panes with labels.
+- **Color Legend**: built-in status indicators for Red (Removed), Green (Added), and Blue (Modified).
+- **Slot Architecture**: Canvas areas are slots, allowing integration of the actual WebGL/Canvas rendering engines.
+
+## Usage
+
+```html
+<GerberCompareView 
+  leftLabel="Revision 1" 
+  rightLabel="Revision 2" 
+  :differencesCount="5"
+>
+  <template #left>
+    <CanvasRenderer />
+  </template>
+  <template #right>
+    <CanvasRenderer />
+  </template>
+</GerberCompareView>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `leftLabel` | `string` | `'Before'` | Header label for the left pane. |
+| `rightLabel` | `string` | `'After'` | Header label for the right pane. |
+| `differencesCount` | `number` | `0` | Total number of detected changes displayed in the header. |
+
+## Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `left` | Content area for the left-side view (e.g. original version). |
+| `right` | Content area for the right-side view (e.g. new version). |
+
+## Examples
+
+### Default
+Standard comparison layout.
+<Canvas of={GerberCompareViewStories.Default} />
+
+### No Differences
+View execution when files match.
+<Canvas of={GerberCompareViewStories.NoDifferences} />

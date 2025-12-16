@@ -1,0 +1,46 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as GridContainerStories from './GridContainer.stories';
+import GridContainer from './GridContainer.vue';
+
+<Meta of={GridContainerStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `GridContainer` is a fundamental layout component acting as a flexbox container with column direction. It creates a full-height structural wrapper, commonly used for sidebars, panels, and application sections that require vertical stacking of child elements.
+
+## Features
+- **Flex Column Layout**: Sets `display: flex` and `flex-direction: column` for children.
+- **Full Height**: Occupies 100% of the parent container's height.
+- **Lightweight**: Minimal style overhead, serving primarily as a structural utility.
+
+## Usage
+
+```html
+<GridContainer>
+  <div>Header</div>
+  <div style="flex: 1">Scrollable Content</div>
+  <div>Footer</div>
+</GridContainer>
+```
+
+<Primary />
+
+## Props
+
+The component accepts standard HTML attributes but does not define specific props. It relies on the default slot for content.
+
+<Controls />
+
+## Examples
+
+### Default
+Basic vertical stacking of elements with a flexible middle section.
+
+<Canvas of={GridContainerStories.Default} />
+
+### Sidebar Layout
+Example of how `GridContainer` can be used to structure a sidebar with fixed headers/footers and a scrollable list.
+
+<Canvas of={GridContainerStories.SidebarLayout} />

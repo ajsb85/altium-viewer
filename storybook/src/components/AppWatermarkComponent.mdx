@@ -1,0 +1,37 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppWatermarkStories from './AppWatermark.stories';
+
+<Meta of={AppWatermarkStories} />
+
+# AppWatermark Component
+
+The `AppWatermark` component displays the "Powered by Altium 365" branding. It is typically positioned as an overlay in the viewer area and links to the relevant landing page.
+
+## Features
+- **Branding**: Official SVG graphic.
+- **Positioning**: Configurable for any of the four corners.
+- **Interactivity**: Hover effects and link behavior (`target="_blank"`).
+- **Responsive**: Adapts opacity based on context constants.
+
+## Usage
+
+```html
+<AppWatermark position="bottom-right" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `href` | `string` | `'https://altium.com/viewer'` | Destination URL when clicked. |
+| `position` | `'top-left' \| 'top-right' \| 'bottom-left' \| 'bottom-right'` | `'bottom-right'` | Corner placement of the watermark. |
+
+## Examples
+
+### Default (Bottom Right)
+Standard placement for the viewer.
+<Canvas of={AppWatermarkStories.Default} />
+
+### Top Left
+Alternative placement.
+<Canvas of={AppWatermarkStories.TopLeft} />

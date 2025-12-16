@@ -1,0 +1,71 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as ListStories from './List.stories';
+import List from './List.vue';
+
+<Meta of={ListStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `List` component is a flexible utility for rendering vertical lists of items where each row can contain multiple cells of different types (text, icon, color swatch).
+
+## Features
+- **Flexible Content**: Cells can be configured as text, icons, or color swatches.
+- **Selection State**: Built-in styling for selected rows.
+- **Ellipsis Support**: Text truncation for long values.
+
+## Usage
+
+```html
+<List
+  :items="[
+    {
+      cells: [
+        { type: 'icon', value: 'file-16' },
+        { value: 'Document.pdf', ellipsis: true }
+      ],
+      isSelected: false
+    }
+  ]"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### ListItem
+
+```typescript
+interface ListItem {
+  cells: ListCell[];
+  isSelected?: boolean;
+}
+```
+
+### ListCell
+
+```typescript
+interface ListCell {
+  type?: 'text' | 'icon' | 'color'; // Defaults to 'text'
+  value: string;                    // Content (text, icon name, color hex)
+  ellipsis?: boolean;               // Enable text truncation
+}
+```
+
+## Examples
+
+### Default
+Standard list with color indicators and text.
+
+<Canvas of={ListStories.Default} />
+
+### With Icons
+List configuration using icons for the first column.
+
+<Canvas of={ListStories.WithIcons} />

@@ -1,0 +1,50 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as CompareLayersStories from './CompareLayers.stories';
+
+<Meta of={CompareLayersStories} />
+
+# CompareLayers Component
+
+The `CompareLayers` component provides a list view for comparing PCB layers. It visually flags layers that contain differences between two revisions of a design.
+
+## Features
+- **Visual Status**: Immediately identifies layers with changes ("diffCount").
+- **Integrated Legend**: Color-swatches match the PCB design colors.
+- **Match Indication**: Explicitly marks layers that are identical.
+
+## Usage
+
+```html
+<CompareLayers 
+  :layers="layerDifferences" 
+/>
+```
+
+```javascript
+const layerDifferences = [
+  { id: 'top', name: 'Top Copper', color: 'red', hasDifference: true, diffCount: 3 }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `layers` | `Array<CompareLayer>` | `[]` | List of layers to display. |
+
+### CompareLayer Interface
+```typescript
+interface CompareLayer {
+  id: string;             // Layer ID
+  name: string;           // Layer name
+  color: string;          // Hex color string
+  hasDifference: boolean; // True if changes exist
+  diffCount?: number;     // Number of changes detected
+}
+```
+
+## Examples
+
+### Default
+Standard comparison view showing a mix of changed and unchanged layers.
+<Canvas of={CompareLayersStories.Default} />

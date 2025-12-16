@@ -1,0 +1,61 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as DownloadStories from './Download.stories';
+
+<Meta of={DownloadStories} />
+
+# Download Component
+
+The `Download` component renders a list of available file download options. Each option presents a prominent icon, title, description, and action button.
+
+## Features
+- **Rich Lists**: Displays options with icons and detailed descriptions.
+- **State Management**: Supports disabled states for unavailable downloads.
+- **Consistent Styling**: Uses `afs-subheader` and standard interaction states.
+
+## Usage
+
+```html
+<Download 
+  :options="downloadList" 
+  @download="onDownload" 
+/>
+```
+
+```javascript
+const downloadList = [
+  { id: 'pdf', title: 'Schematic PDF', icon: 'file-pdf-16', description: 'Printable version' }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `options` | `Array<DownloadOption>` | `[]` | List of items to download. |
+
+### DownloadOption Interface
+```typescript
+interface DownloadOption {
+  id: string;          // Unique identifier
+  title: string;       // Display title
+  icon: string;        // Icon name
+  description?: string; // Secondary info
+  disabled?: boolean;  // Interaction state
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `download` | `string` | Emitted when an option is clicked. Payload is the `id`. |
+
+## Examples
+
+### Default
+Standard list of download formats.
+<Canvas of={DownloadStories.Default} />
+
+### With Disabled Options
+Demonstrates unavailable states.
+<Canvas of={DownloadStories.WithDisabled} />

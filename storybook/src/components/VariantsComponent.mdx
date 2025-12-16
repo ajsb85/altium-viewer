@@ -1,0 +1,60 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as VariantsStories from './Variants.stories';
+import Variants from './Variants.vue';
+
+<Meta of={VariantsStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `Variants` component provides a list to explore different assembly variants of a design. It allows users to switch between predefined configurations (e.g., Fitted vs Not Fitted) to see how the board changes.
+
+## Features
+- **Variant Listing**: scrollable list of available design variants.
+- **Selection Support**: Highlight active variant and emit selection events.
+- **Metadata Display**: Shows variant name, description, and "Default" status badges.
+
+## Usage
+
+```html
+<Variants
+  :variants="[
+    { id: 'v1', name: 'Production', isDefault: true },
+    { id: 'v2', name: 'Prototype', description: 'With debug headers' }
+  ]"
+  selected-id="v1"
+  @select="handleSwitchVariant"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### Variant
+
+```typescript
+interface Variant {
+  id: string;             // Unique identifier
+  name: string;           // Display name
+  description?: string;   // Optional details or notes
+  isDefault?: boolean;    // Whether this is the base design
+}
+```
+
+## Examples
+
+### Default
+Standard interactive variant selector.
+
+<Canvas of={VariantsStories.Default} />
+
+### Empty
+State when no variants are available.
+
+<Canvas of={VariantsStories.Empty} />

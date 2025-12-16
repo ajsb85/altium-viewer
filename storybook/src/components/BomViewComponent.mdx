@@ -1,0 +1,65 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as BomViewStories from './BomView.stories';
+
+<Meta of={BomViewStories} />
+
+# BomView Component
+
+The `BomView` component renders a comprehensive Bill of Materials (BOM) interface. It combines search functionality with a sortable, detailed table of components including pricing, descriptions, and linked designators.
+
+## Features
+- **Searchable**: Integrated search bar filters by component name, description, and designators.
+- **Sortable Columns**: Sort by Name, Price, and Quantity.
+- **Rich Cells**: Supports links for datasheets/suppliers and interactive designator links.
+- **Auto-Filtering**: Client-side filtering logic included.
+
+## Usage
+
+```html
+<BomView 
+  :items="bomList" 
+  @designator-click="onDesignatorClick" 
+  @row-click="onRowSelect"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `items` | `Array<BomItem>` | `[]` | The list of BOM entries to display. |
+
+### BomItem Interface
+```typescript
+interface BomItem {
+  rowNum: number;        // Row index
+  name: string;          // Component name / Part number
+  href?: string;         // Link to datasheet/supplier
+  price?: string;        // Formatted price string
+  description: string;   // Component description
+  designators: string[]; // List of references (e.g. ['R1', 'R2'])
+  quantity: number;      // Total count
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `designator-click` | `string` | Emitted when a specific designator link (e.g. "R1") is clicked. |
+| `row-click` | `BomItem` | Emitted when a table row is clicked. |
+| `search` | `string` | Emitted when search query changes. |
+
+## Examples
+
+### Default (Production Data)
+A realistic BOM view populated with production-like data.
+<Canvas of={BomViewStories.ProductionBom} />
+
+### Interactive Search
+Demonstrate filtering capabilities.
+<Canvas of={BomViewStories.InteractiveSearch} />
+
+### Components Only
+Filtered view showing only ICs and active components.
+<Canvas of={BomViewStories.ComponentsOnly} />

@@ -1,0 +1,58 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsLinkStories from './AfsLink.stories';
+
+<Meta of={AfsLinkStories} />
+
+# AfsLink Component
+
+The `AfsLink` component renders a styled link or button. It is used for navigation, external links, and text-based actions.
+
+## Features
+- **Polymorphic**: Renders as an `<a>` tag if `href` is present, otherwise as a `<button>`.
+- **Variants**: Supports `primary`, `accent`, `secondary`, and `regular-text` styles.
+- **External Links**: Automatically handles `target="_blank"` for external URLs.
+- **Focus Control**: `preventBlur` prop helps maintain focus flow in complex UIs like tables.
+
+## Usage
+
+```html
+<AfsLink href="https://example.com">Go to Website</AfsLink>
+<AfsLink @click="openModal">Open Settings</AfsLink>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `href` | `string` | `undefined` | URL to navigate to. Transforms component into `<a>`. |
+| `variant` | `string` | `'primary'` | Visual style: `'primary'`, `'accent'`, `'secondary'`, `'regular-text'`. |
+| `external` | `boolean` | `true` | If true, adds `target="_blank"` when `href` is present. |
+| `preventBlur` | `boolean` | `false` | Prevents the element from losing focus on click (via `mousedown.prevent` or similar). |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `click` | `MouseEvent` | Emitted when the link/button is clicked. |
+
+## Examples
+
+### Primary
+Default link style, typically blue.
+<Canvas of={AfsLinkStories.Primary} />
+
+### Accent
+Used for emphasized links, often orange.
+<Canvas of={AfsLinkStories.Accent} />
+
+### Secondary
+Subtle links for less critical actions.
+<Canvas of={AfsLinkStories.Secondary} />
+
+### Regular Text
+Links that blend with body text until hovered.
+<Canvas of={AfsLinkStories.RegularText} />
+
+### As Button
+When no `href` is provided, it renders as a semantic button but looks like a link.
+<Canvas of={AfsLinkStories.AsButton} />

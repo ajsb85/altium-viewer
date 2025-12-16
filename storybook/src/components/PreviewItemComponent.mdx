@@ -1,0 +1,56 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as PreviewItemStories from './PreviewItem.stories';
+import PreviewItem from './PreviewItem.vue';
+
+<Meta of={PreviewItemStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `PreviewItem` component renders a single schematic sheet preview. It combines a lazy-loaded thumbnail image with a title and optional icon, used primarily in navigation lists for selecting different sheets.
+
+## Features
+- **Lazy Loading**: Integrated `LibLazyImage` handles efficient image loading.
+- **Selection State**: Visual indication for active/selected items.
+- **Icon Support**: Optional icon display alongside the title.
+- **Responsive**: Adapts to container width while maintaining aspect ratio.
+
+## Usage
+
+```html
+<PreviewItem
+  title="[1] Power Supply"
+  imageSrc="/thumbnails/sheet1.png"
+  :is-selected="isActive"
+  @click="handleSelect"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard unselected preview item.
+
+<Canvas of={PreviewItemStories.Default} />
+
+### Selected
+Active item state with visual highlighting.
+
+<Canvas of={PreviewItemStories.Selected} />
+
+### With Icon
+Example showing a file type icon next to the title.
+
+<Canvas of={PreviewItemStories.WithIcon} />
+
+### Loading State
+Appearance while the thumbnail image is being fetched (spinner placeholder).
+
+<Canvas of={PreviewItemStories.Loading} />

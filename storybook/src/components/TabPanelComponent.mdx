@@ -1,0 +1,69 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as TabPanelStories from './TabPanel.stories';
+import TabPanel from './TabPanel.vue';
+
+<Meta of={TabPanelStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `TabPanel` component provides a standard UI for switching between different content views within a panel. It features a tab bar with support for badges and automatic content switching based on the active tab ID.
+
+## Features
+- **Tab Navigation**: Clean interface for view switching.
+- **Badge Support**: Integrated badges for displaying counts or alerts on tabs.
+- **Scoped Slots**: Provides the active tab ID to the default slot for dynamic content rendering.
+
+## Usage
+
+```html
+<TabPanel
+  v-model="activeTabId"
+  :tabs="[
+    { id: 'general', name: 'General' },
+    { id: 'advanced', name: 'Advanced', badge: '!' }
+  ]"
+>
+  <template #default="{ activeTab }">
+    <div v-if="activeTab === 'general'">General settings...</div>
+    <div v-if="activeTab === 'advanced'">Advanced settings...</div>
+  </template>
+</TabPanel>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### Tab
+
+```typescript
+interface Tab {
+  id: string;               // Unique ID for the tab
+  name: string;             // Display label
+  badge?: string | number;  // Optional badge content
+  badgeType?: string;       // Badge style variant (e.g., 'accent')
+}
+```
+
+## Examples
+
+### Default
+Basic text-based tab navigation.
+
+<Canvas of={TabPanelStories.Default} />
+
+### With Badges
+Tabs featuring notification badges.
+
+<Canvas of={TabPanelStories.WithBadges} />
+
+### Interactive
+Interactive demonstration of view switching.
+
+<Canvas of={TabPanelStories.Interactive} />

@@ -1,0 +1,57 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as MeasurementSectionStories from './MeasurementSection.stories';
+import MeasurementSection from './MeasurementSection.vue';
+
+<Meta of={MeasurementSectionStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `MeasurementSection` helps organize measurement data into collapsible groups. It's often used within the larger measurement panel to segment different types of properties (e.g., Geometry vs. Properties).
+
+## Features
+- **Collapsible**: Section header toggles visibility of content.
+- **Key-Value Display**: Structured layout for labeled data points.
+- **Monospace Values**: Ensures numerical alignment for precision data.
+
+## Usage
+
+```html
+<MeasurementSection
+  title="Geometry"
+  :items="[
+    { label: 'Length', value: '10.5 mm' },
+    { label: 'Angle', value: '45°' }
+  ]"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### MeasurementItem
+
+```typescript
+interface MeasurementItem {
+  label: string; // Property name
+  value: string; // Formatted value string
+}
+```
+
+## Examples
+
+### Default
+Standard measurement group showing X, Y, and total delta distances.
+
+<Canvas of={MeasurementSectionStories.Default} />
+
+### Board Dimensions
+Example usage for displaying overall board statistics.
+
+<Canvas of={MeasurementSectionStories.BoardDimensions} />

@@ -1,0 +1,70 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppObjectsListStories from './AppObjectsList.stories';
+
+<Meta of={AppObjectsListStories} />
+
+# AppObjectsList Component
+
+The `AppObjectsList` component renders a scrollable list of items, such as components or nets. It supports selection, hover highlighting, and rich item details including icons and secondary values.
+
+## Features
+- **Interactable**: Supports click selection and hover highlighting events.
+- **Rich Content**: Displays item name, icon, and an optional value (e.g. "10kΩ").
+- **Empty State**: Integrated fallback view when the list is empty.
+- **Scrollable**: Built-in vertical scrolling for long lists.
+
+## Usage
+
+```html
+<AppObjectsList 
+  :items="objects" 
+  @select="onSelect" 
+  @highlight="onHighlight"
+/>
+```
+
+```javascript
+const objects = [
+  { id: '1', name: 'R101', icon: 'resistor-16', value: '10k' }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `items` | `Array<ObjectItem>` | `[]` | List of items to display. See interface below. |
+
+### ObjectItem Interface
+```typescript
+interface ObjectItem {
+  id: string;            // Unique identifier
+  name: string;          // Primary label
+  icon?: string;         // Icon name
+  value?: string;        // Secondary value text
+  isSelected?: boolean;  // Active selection state
+  isHighlighted?: boolean; // Hover/Active highlight state
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `select` | `string` | Emitted when an item is clicked. Payload is `id`. |
+| `highlight` | `string` | Emitted on mouse enter. Payload is `id`. |
+| `unhighlight` | `string` | Emitted on mouse leave. Payload is `id`. |
+
+## Examples
+
+### Default
+Standard list of objects.
+<Canvas of={AppObjectsListStories.Default} />
+
+### Empty State
+View when no items are provided.
+<Canvas of={AppObjectsListStories.Empty} />
+
+### With Highlights
+Demonstration of highlighting styling (e.g. simulating mouse hover or cross-probing).
+<Canvas of={AppObjectsListStories.NetsWithHighlight} />

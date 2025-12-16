@@ -1,0 +1,56 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppMeasurementItemStories from './AppMeasurementItem.stories';
+
+<Meta of={AppMeasurementItemStories} />
+
+# AppMeasurementItem Component
+
+The `AppMeasurementItem` component renders the details of a single measurement event. It is designed to display X/Y coordinates and the calculated distance between points, along with a label and actions.
+
+## Features
+- **Coordinate Display**: Structured grid for X, Y, and Total Distance values.
+- **Formatting**: Automatic number formatting (3 decimal places) with units.
+- **Selection**: Distinct active state styling.
+- **Actions**: Integrated delete button (optional).
+
+## Usage
+
+```html
+<AppMeasurementItem 
+  label="M1" 
+  :x="12.5" 
+  :y="5.0" 
+  :distance="13.4" 
+  @select="onSelect" 
+  @remove="onRemove" 
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `label` | `string` | `'Measurement'` | Label text for the item. |
+| `x` | `number` | `0` | X-axis value. |
+| `y` | `number` | `0` | Y-axis value. |
+| `distance` | `number` | `0` | Calculated distance. |
+| `unit` | `string` | `'mm'` | Measurement unit displayed. |
+| `isActive` | `boolean` | `false` | Highlight selection state. |
+| `removable` | `boolean` | `true` | Whether to show the delete button. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `select` | `void` | Emitted when the item card is clicked. |
+| `remove` | `void` | Emitted when the close/delete button is clicked. |
+
+## Examples
+
+### Default
+Standard measurement display.
+<Canvas of={AppMeasurementItemStories.Default} />
+
+### Active Selection
+Highlighted state indicating the currently selected measurement.
+<Canvas of={AppMeasurementItemStories.Active} />

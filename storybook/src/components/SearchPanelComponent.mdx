@@ -1,0 +1,63 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as SearchPanelStories from './SearchPanel.stories';
+import SearchPanel from './SearchPanel.vue';
+
+<Meta of={SearchPanelStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `SearchPanel` is a right-side drawer component dedicated to application-wide search functionality. It encapsulates the search header, input form, and a flexible slot for displaying results.
+
+## Features
+- **Header Actions**: Includes title, shortcut hint, and close button.
+- **Search Form**: Integrated text input with submit and filter toggle buttons.
+- **Flexible Results**: Uses a named slot to render arbitrary search results or states.
+- **Responsive**: Configurable width to fit various layout requirements.
+
+## Usage
+
+```html
+<SearchPanel
+  title="Find Objects"
+  subtitle="(Ctrl+F)"
+  v-model="query"
+  @search="handleSearch"
+  @close="closePanel"
+>
+  <template #results>
+    <div v-for="item in results" :key="item.id">
+      {{ item.name }}
+    </div>
+  </template>
+</SearchPanel>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard configuration with default title and width.
+
+<Canvas of={SearchPanelStories.Default} />
+
+### With Query
+State showing a pre-filled search query.
+
+<Canvas of={SearchPanelStories.WithQuery} />
+
+### Wide Panel
+Custom width for displaying wider result content.
+
+<Canvas of={SearchPanelStories.WidePanel} />
+
+### Interactive
+Interactive demo showcasing the search workflow.
+
+<Canvas of={SearchPanelStories.Interactive} />

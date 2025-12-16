@@ -1,0 +1,67 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as HelpPanelStories from './HelpPanel.stories';
+import HelpPanel from './HelpPanel.vue';
+
+<Meta of={HelpPanelStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `HelpPanel` is a right-side overlay panel designed to provide utility access, such as keyboard shortcuts ("Controls"), detailed board information, external documentation links, and global unit configuration (mm vs mil).
+
+## Features
+- **Sectioned Lists**: Supports multiple grouped lists of items (e.g., internal actions vs. external links).
+- **Unit Switcher**: Integrated tab controls to switch display units globally.
+- **Responsive Width**: Customizable panel width.
+- **External Links**: Automatically detects `href` properties to render anchor tags instead of buttons.
+
+## Usage
+
+```html
+<HelpPanel
+  title="Information"
+  :menu-items="[
+    { id: 'shortcuts', label: 'Keyboard Shortcuts', icon: 'keyboard-12' }
+  ]"
+  :link-items="[
+    { id: 'docs', label: 'Documentation', icon: 'help-12', href: 'https://example.com' }
+  ]"
+  :show-unit-switcher="true"
+  selected-unit="mm"
+  @close="isOpen = false"
+  @unit-change="handleUnitChange"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### HelpMenuItem
+
+```typescript
+interface HelpMenuItem {
+  id: string;        // Unique identifier for events
+  label: string;     // Display text
+  icon: string;      // Icon name (from sprite)
+  href?: string;     // URL for external links (makes item an <a> tag)
+  filled?: boolean;  // Whether to use filled version of the icon
+}
+```
+
+## Examples
+
+### Default
+Standard configuration with menu items, links, and unit switcher.
+
+<Canvas of={HelpPanelStories.Default} />
+
+### No Unit Switcher
+Configured without the unit selection tabs.
+
+<Canvas of={HelpPanelStories.NoUnitSwitcher} />

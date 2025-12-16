@@ -1,0 +1,54 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppHeaderStories from './AppHeader.stories';
+
+<Meta of={AppHeaderStories} />
+
+# AppHeader Component
+
+The `AppHeader` component is the primary top navigation bar of the application. It orchestrates the layout of three key areas:
+1. **Left**: Project context and secondary controls.
+2. **Center**: Main view navigation tabs (PCB, Schematic, BOM, etc.).
+3. **Right**: Global and local action plugins.
+
+## Features
+- **Responsive Layout**: 3-column flex layout (Left/Center/Right).
+- **Tab Integration**: Centers the `AppMainTabs` component.
+- **Plugin System**: Automatically groups and renders plugins (Global vs Local, Primary vs Secondary).
+- **Separators**: Visual dividers between plugin groups.
+
+## Usage
+
+```html
+<AppHeader 
+  :views="viewList"
+  :globalPlugins="globalPluginList"
+  :localPlugins="localPluginList"
+  @view-change="onViewChange"
+  @plugin-click="onPluginClick"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `views` | `Array` | `[]` | List of view definitions for the center tabs. |
+| `globalPlugins` | `Array` | `[]` | Plugins always visible (e.g., Search, Help). |
+| `localPlugins` | `Array` | `[]` | Plugins specific to the active view (e.g., Layers). |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `view-change` | `object` | Emitted when a main tab is selected. |
+| `plugin-click` | `object` | Emitted when any plugin button is clicked. |
+
+## Examples
+
+### Default
+Basic configuration with mocked data.
+<Canvas of={AppHeaderStories.Default} />
+
+### Production Header
+Full layout reproducing the production application state, including Project Selector, View Tabs, and Groups of Action Plugins.
+<Canvas of={AppHeaderStories.ProductionHeader} />

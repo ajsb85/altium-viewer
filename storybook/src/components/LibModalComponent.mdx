@@ -1,0 +1,54 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as LibModalStories from './LibModal.stories';
+import LibModal from './LibModal.vue';
+
+<Meta of={LibModalStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `LibModal` creates a side-anchored overlay panel (drawer), typically used for displaying detailed information, property editors, or navigation menus without navigating away from the main view.
+
+## Features
+- **Positioning**: Anchors to either the left or right side of the screen.
+- **Resizable**: Built-in resize handle support.
+- **Header Slots**: Customizable header area for titles and additional controls.
+- **Layout Control**: Configurable width, offset, and height behaviors.
+
+## Usage
+
+```html
+<LibModal
+  title="Properties"
+  position="right"
+  :width="300"
+  :visible="isOpen"
+  @close="isOpen = false"
+>
+  <div class="panel-content">...</div>
+</LibModal>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default (Right Aligned)
+Standard property panel configuration anchoring to the right.
+
+<Canvas of={LibModalStories.Default} />
+
+### Left Position
+Navigation-style drawer anchoring to the left.
+
+<Canvas of={LibModalStories.Left} />
+
+### No Header
+Minimalist configuration without the standard title bar.
+
+<Canvas of={LibModalStories.NoHeader} />

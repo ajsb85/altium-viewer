@@ -1,0 +1,57 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as ObjectItemStories from './ObjectItem.stories';
+import ObjectItem from './ObjectItem.vue';
+
+<Meta of={ObjectItemStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `ObjectItem` component represents a single PCB object type (e.g., Pads, Vias, Tracks) within the Objects visibility panel. It provides controls to toggle global visibility for that specific object type.
+
+## Features
+- **Object Identification**: Displays a specific icon and label for each PCB object type.
+- **Visibility Toggle**: Eye icon indicates and toggles the visible state.
+- **"Show Only" Mode**: Quick action to isolate the specific object type by hiding all others.
+- **Interactive States**: Hover effects reveal secondary actions like "Only".
+
+## Usage
+
+```html
+<ObjectItem
+  name="Pads"
+  icon="pads"
+  :is-visible="true"
+  @toggle="togglePads"
+  @only="showOnlyPads"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard visible state.
+
+<Canvas of={ObjectItemStories.Default} />
+
+### Hidden
+State representing a hidden object type.
+
+<Canvas of={ObjectItemStories.Hidden} />
+
+### All Objects
+Demonstration of all supported PCB object types.
+
+<Canvas of={ObjectItemStories.AllObjects} />
+
+### Interactive
+Interactive demo of the toggle functionality.
+
+<Canvas of={ObjectItemStories.Interactive} />

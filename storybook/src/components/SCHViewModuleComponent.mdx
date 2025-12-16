@@ -1,0 +1,50 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as SCHViewModuleStories from './SCHViewModule.stories';
+import SCHViewModule from './SCHViewModule.vue';
+
+<Meta of={SCHViewModuleStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `SCHViewModule` is the core rendering unit for a single schematic sheet. It handles the drawing grid, zoom transformations, and displays sheet metadata overlay.
+
+## Features
+- **Grid System**: Renders a dynamic background grid that scales with zoom levels.
+- **Info Overlay**: Displays current sheet name and zoom percentage.
+- **Transformations**: Manages visual scaling based on zoom props.
+
+## Usage
+
+```html
+<SCHViewModule
+  sheet-name="Power.SchDoc"
+  :zoom="1.5"
+  :grid-size="20"
+  :show-grid="true"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard schematic sheet view.
+
+<Canvas of={SCHViewModuleStories.Default} />
+
+### Zoomed
+Example with increased zoom level.
+
+<Canvas of={SCHViewModuleStories.Zoomed} />
+
+### No Grid
+Rendering without the background grid enabled.
+
+<Canvas of={SCHViewModuleStories.NoGrid} />

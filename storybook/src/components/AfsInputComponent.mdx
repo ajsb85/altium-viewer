@@ -1,0 +1,65 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsInputStories from './AfsInput.stories';
+
+<Meta of={AfsInputStories} />
+
+# AfsInput Component
+
+The `AfsInput` component renders a text input field with support for labels, validation states, and various stylistic options. It is designed to handle common text entry tasks within the application.
+
+## Features
+- **Labeling**: Integrated label support.
+- **Validation**: Visual states for Warning and Error.
+- **Styles**: Options for transparent background, code (monospace), and rounded corners.
+- **Interaction**: Standard focus and hover effects matching the design system.
+
+## Usage
+
+```html
+<AfsInput v-model="value" label="Username" placeholder="Enter username" />
+<AfsInput v-model="code" code placeholder="console.log()" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `modelValue` | `string` | `''` | Input value (v-model). |
+| `label` | `string` | `undefined` | Label text displayed above the input. |
+| `placeholder` | `string` | `''` | Placeholder text. |
+| `disabled` | `boolean` | `false` | Disables interaction. |
+| `warning` | `boolean` | `false` | Applies warning styling (orange border). |
+| `error` | `boolean` | `false` | Applies error styling (red border). |
+| `transparent` | `boolean` | `false` | Removes background and border until focused. |
+| `code` | `boolean` | `false` | Uses a monospace font. |
+| `rounded` | `boolean` | `true` | Applies rounded corners. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `update:modelValue` | `string` | Emitted when value changes. |
+| `focus` | `FocusEvent` | Emitted on focus. |
+| `blur` | `FocusEvent` | Emitted on blur. |
+
+## Examples
+
+### Default
+Standard input with placehoder.
+<Canvas of={AfsInputStories.Default} />
+
+### With Label
+Inputs often require a label for context.
+<Canvas of={AfsInputStories.WithLabel} />
+
+### Validation States
+Feedback for invalid or questionable input.
+<Canvas of={AfsInputStories.ValidationStates} />
+
+### Code Input
+Monospace font for technical data entry.
+<Canvas of={AfsInputStories.CodeInput} />
+
+### Transparent
+Useful for seamless editing within other components or dense UI.
+<Canvas of={AfsInputStories.Transparent} />

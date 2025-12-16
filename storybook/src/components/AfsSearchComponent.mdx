@@ -1,0 +1,58 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsSearchStories from './AfsSearch.stories';
+
+<Meta of={AfsSearchStories} />
+
+# AfsSearch Component
+
+The `AfsSearch` component provides a search input field optimized for the Altium Viewer specific look and feel. It integrates a search icon, a clear button, and proper input styling.
+
+## Features
+- **Integrated Icon**: Search icon included by default.
+- **Clear Button**: Automatically shows a clear button when text is entered.
+- **Form Submission**: Emits search event on Enter key or icon click.
+- **Aesthetics**: Matches the production search field design with transparency and focus states.
+
+## Usage
+
+```html
+<AfsSearch v-model="query" @search="onSearch" placeholder="Search components..." />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `modelValue` | `string` | `''` | Search query text (v-model). |
+| `placeholder` | `string` | `'Search'` | Input placeholder text. |
+| `showClear` | `boolean` | `true` | Whether to show the clear button when input has content. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `update:modelValue` | `string` | Emitted when input changes. |
+| `search` | `string` | Emitted on Enter key or search icon click. Payload is the current value. |
+| `clear` | `void` | Emitted when the clear button is clicked. |
+
+## Examples
+
+### Default
+Standard search input.
+<Canvas of={AfsSearchStories.Default} />
+
+### With Value
+Demonstrates the filled state with clear button visible.
+<Canvas of={AfsSearchStories.WithValue} />
+
+### Custom Placeholder
+Adaptable to different contexts.
+<Canvas of={AfsSearchStories.CustomPlaceholder} />
+
+### Interactive Demo
+Try typing to see the clear button appear, and press Enter to search.
+<Canvas of={AfsSearchStories.InteractiveDemo} />
+
+### BOM Context
+Example of usage within a wider container like a BOM table header.
+<Canvas of={AfsSearchStories.InBomContext} />

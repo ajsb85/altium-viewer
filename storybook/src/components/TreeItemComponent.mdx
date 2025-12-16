@@ -1,0 +1,77 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as TreeItemStories from './TreeItem.stories';
+import TreeItem from './TreeItem.vue';
+
+<Meta of={TreeItemStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `TreeItem` component enables hierarchical navigation structures. It supports recursive rendering of nested children, distinct folder vs. leaf node styles, and visual indicators like icons and badges.
+
+## Features
+- **Recursive Rendering**: Autoscales indentations for unlimited nesting depth.
+- **Folder Expansion**: Interactive expand/collapse controls for nested items.
+- **Visual Richness**: Supports customizable icons and status badges per item.
+- **Selection State**: Manages active highlighting across the entire tree.
+
+## Usage
+
+```html
+<TreeItem
+  id="root"
+  label="Project Files"
+  icon="folder-16"
+  :children="[
+    { id: '1', label: 'Schematic.doc', icon: 'file-16' }
+  ]"
+  :expanded="true"
+  selected-id="1"
+  @select="handleSelect"
+  @toggle="handleToggle"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### TreeItemData
+
+```typescript
+interface TreeItemData {
+  id: string;               // Unique ID
+  label: string;            // Display text
+  icon?: string;            // Icon name
+  badge?: string;           // Optional badge text
+  children?: TreeItemData[];// Nested children
+  expanded?: boolean;       // Expansion state
+}
+```
+
+## Examples
+
+### Default
+Standard tree view with nested structure.
+
+<Canvas of={TreeItemStories.Default} />
+
+### Leaf Item
+Single item representing a file (no children).
+
+<Canvas of={TreeItemStories.LeafItem} />
+
+### With Badge
+Item displaying a metadata badge (e.g., layer count).
+
+<Canvas of={TreeItemStories.WithBadge} />
+
+### Deep Nesting
+Demonstration of deep recursive hierarchy support.
+
+<Canvas of={TreeItemStories.DeepNesting} />

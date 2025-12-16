@@ -1,0 +1,70 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppMainTabsStories from './AppMainTabs.stories';
+
+<Meta of={AppMainTabsStories} />
+
+# AppMainTabs Component
+
+The `AppMainTabs` component provides the primary navigation for switching between major application views (e.g., PCB, Schematic, BOM). It renders a row of tab buttons that can include icons, text, badges, and dropdown menus.
+
+## Features
+- **Key Navigation**: Central hub for view switching.
+- **Rich Content**: Supports icons, text labels, and status badges (e.g., "BETA").
+- **States**: Distinct visual styles for active, hover, and disabled states.
+- **Dropdown Support**: Capability to render nested items within a tab (via `displayItems`).
+
+## Usage
+
+```html
+<AppMainTabs :items="tabs" @change="onTabChange" />
+```
+
+```javascript
+const tabs = [
+  { id: 'pcb', text: 'PCB', icon: 'layer', isActive: true },
+  { id: 'sch', text: 'Schematic', beta: true, betaText: 'New' }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `items` | `Array<TabItem>` | `[]` | List of tab definitions. See interface below. |
+
+### TabItem Interface
+```typescript
+interface TabItem {
+  id: string;            // Unique identifier
+  text: string;          // Button label
+  icon?: string;         // Icon name
+  isActive?: boolean;    // Selected state
+  disabled?: boolean;    // Disabled state
+  beta?: boolean;        // Show beta badge
+  betaText?: string;     // Text for beta badge (default: 'beta')
+  displayItems?: Array<{ // Nested items for composite buttons
+    text: string;
+    icon?: string;
+  }>;
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `change` | `TabItem` | Emitted when a tab is clicked. Payload is the entire item object. |
+
+## Examples
+
+### Default
+Standard navigation tabs.
+<Canvas of={AppMainTabsStories.Default} />
+
+### With Dropdowns
+Tab item displaying nested sub-items.
+<Canvas of={AppMainTabsStories.WithDropdowns} />
+
+### Interactive
+Demonstration of tab switching logic.
+<Canvas of={AppMainTabsStories.Interactive} />

@@ -1,0 +1,60 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as FabricationStories from './Fabrication.stories';
+
+<Meta of={FabricationStories} />
+
+# Fabrication Component
+
+The `Fabrication` component renders a structured panel of manufacturing specifications. It organizes key-value pairs (like board dimensions, layer counts, and copper weights) into labeled sections.
+
+## Features
+- **Structured Data**: Hierarchical display of tech specs.
+- **Data Formatting**: Clean alignment of labels and values (often monospaced).
+- **Sectioning**: Divides specs into logical groups (Board, Copper, Vias).
+
+## Usage
+
+```html
+<Fabrication :sections="specs" />
+```
+
+```javascript
+const specs = [
+  {
+    id: 'general',
+    title: 'General Info',
+    items: [
+      { label: 'Layer Count', value: '4' }
+    ]
+  }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `sections` | `Array<FabricationSection>` | `[]` | List of data sections. |
+
+### FabricationSection Interface
+```typescript
+interface FabricationSection {
+  id: string;             // Unique identifier
+  title: string;          // Section header
+  items: FabricationItem[]; // Data rows
+}
+```
+
+### FabricationItem Interface
+```typescript
+interface FabricationItem {
+  label: string; // Property name (e.g. "Min Track")
+  value: string; // Property value (e.g. "0.15 mm")
+}
+```
+
+## Examples
+
+### Default
+Standard view of fabrication parameters.
+<Canvas of={FabricationStories.Default} />

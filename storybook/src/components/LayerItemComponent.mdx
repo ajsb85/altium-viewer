@@ -1,0 +1,54 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as LayerItemStories from './LayerItem.stories';
+import LayerItem from './LayerItem.vue';
+
+<Meta of={LayerItemStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `LayerItem` component helps users manage layer visibility within the design. It is designed to be part of a list (e.g., in the Layers panel) and provides quick access to common visibility actions.
+
+## Features
+- **Visibility Control**: Toggle individual layer visibility or isolate a layer ("Only" mode).
+- **Selection**: Integrated checkbox for batch operations.
+- **Visual Identification**: Displays a color swatch matching the layer's rendering color.
+- **Interaction**: Hover states reveal additional controls like the "Only" button.
+
+## Usage
+
+```html
+<LayerItem
+  name="Top Copper"
+  color="#ff0000"
+  :is-visible="true"
+  :is-checked="false"
+  @toggle="toggleLayer"
+  @only="showOnlyLayer"
+  @check="updateSelection"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard visible layer state.
+
+<Canvas of={LayerItemStories.Default} />
+
+### Hidden
+State representing a hidden layer (dimmed text, eye-slash icon).
+
+<Canvas of={LayerItemStories.Hidden} />
+
+### Interactive Stack
+Demonstration of a list of layers functioning together (Layer Stack simulation).
+
+<Canvas of={LayerItemStories.LayerStack} />

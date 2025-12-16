@@ -1,0 +1,63 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsContextMenuStories from './AfsContextMenu.stories';
+
+<Meta of={AfsContextMenuStories} />
+
+# AfsContextMenu Component
+
+The `AfsContextMenu` component creates a floating menu used for context actions or dropdowns. It supports positioning, sections, icons, and keyboard interactions.
+
+## Features
+- **Flexible Triggering**: Can be controlled programmatically via `open`, `close`, and `toggle` methods.
+- **Positioning**: Supports absolute or fixed positioning.
+- **Structured Content**: Designed to work with list-based sections and items.
+- **Click Outside**: Automatically closes when clicking outside the menu.
+- **Customizable Appearance**: Options for border radius, arrow indicator, and dimensions.
+
+## Usage
+
+```html
+<button @click.stop="$refs.menu.toggle()">Options</button>
+
+<AfsContextMenu ref="menu">
+  <ul class="afs-context-menu__section">
+    <li class="afs-context-menu__item">
+      <button class="afs-context-menu__item-clickable afs-context-menu__item-in">
+        Action
+      </button>
+    </li>
+  </ul>
+</AfsContextMenu>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `menuId` | `string` | `''` | Unique ID for accessibility and DOM selection. |
+| `arrow` | `boolean` | `false` | Shows an arrow pointer (tooltip style). |
+| `borderRadius` | `string` | `'all'` | Radius options: `'all'`, `'top'`, `'bottom'`, `'none'`. |
+| `maxHeight` | `number` | `400` | Maximum height in pixels. |
+| `minWidth` | `number` | `180` | Minimum width in pixels. |
+
+## Methods
+The component exposes the following methods via template ref:
+
+- `open()`: Opens the menu and attaches click-outside listeners.
+- `close()`: Closes the menu.
+- `toggle()`: Toggles the open state.
+- `isOpened`: Read-only ref indicating current state.
+
+## Examples
+
+### Default
+Basic context menu with a list of actions.
+<Canvas of={AfsContextMenuStories.Default} />
+
+### With Sections
+Menus can be divided into logical sections using separators.
+<Canvas of={AfsContextMenuStories.WithSections} />
+
+### Interactive Control
+Demonstrates handling actions and programmatically controlling the menu.
+<Canvas of={AfsContextMenuStories.Interactive} />

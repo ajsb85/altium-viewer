@@ -1,0 +1,64 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as GerberEngineStories from './GerberEngine.stories';
+import GerberEngine from './GerberEngine.vue';
+
+<Meta of={GerberEngineStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `GerberEngine` component handles the visualization of Gerber files. While the production environment utilizes WebGL/Canvas for high-performance rendering, this Storybook implementation uses SVG to demonstrate layer composition and interaction.
+
+## Features
+- **Layer Rendering**: Visualizes multiple Gerber layers with customizable colors and opacity.
+- **Coordinate System**: Displays real-time cursor coordinates in millimeters.
+- **Responsive**: Adapts to container dimensions (via props).
+
+## Usage
+
+```html
+<GerberEngine
+  :layers="[
+    { id: 'top', name: 'Top Layer', color: '#ff0000', visible: true }
+  ]"
+  :width="200"
+  :height="150"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Interfaces
+
+### GerberLayer
+
+```typescript
+interface GerberLayer {
+  id: string;      // Unique identifier
+  name: string;    // Display name
+  color: string;   // Layer color (hex/rgb)
+  visible: boolean;// Visibility state
+  x?: number;      // Position X (demo)
+  y?: number;      // Position Y (demo)
+  width?: number;  // Width (demo)
+  height?: number; // Height (demo)
+  opacity?: number;// Opacity (0-1)
+}
+```
+
+## Examples
+
+### Default
+Standard single-layer view.
+
+<Canvas of={GerberEngineStories.Default} />
+
+### Multiple Layers
+Demonstrates rendering of multiple overlapping layers with different colors and opacities.
+
+<Canvas of={GerberEngineStories.MultipleLayers} />

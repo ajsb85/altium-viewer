@@ -1,0 +1,52 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as SchCompareStories from './SchCompare.stories';
+import SchCompare from './SchCompare.vue';
+
+<Meta of={SchCompareStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `SchCompare` component provides a side-by-side comparison view for schematic revisions. It features a split-pane layout with dedicated headers for each revision and a summary change counter.
+
+## Features
+- **Split View Layout**: Dual-pane display for direct visual comparison.
+- **Revision Labeling**: Customizable headers for identifying compared versions.
+- **Change Tracking**: Displays the total count of detected differences.
+- **Flexible Content**: Slots for injecting arbitrary content (renderers, images) into each pane.
+
+## Usage
+
+```html
+<SchCompare
+  left-label="Revision A"
+  right-label="Revision B"
+  :changes-count="5"
+>
+  <template #left>
+    <!-- Left revision content -->
+  </template>
+  <template #right>
+    <!-- Right revision content -->
+  </template>
+</SchCompare>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard comparison view with detected changes.
+
+<Canvas of={SchCompareStories.Default} />
+
+### No Changes
+State indicating identical revisions.
+
+<Canvas of={SchCompareStories.NoChanges} />

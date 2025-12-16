@@ -1,0 +1,60 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsIconStories from './AfsIcon.stories';
+
+<Meta of={AfsIconStories} />
+
+# AfsIcon Component
+
+The `AfsIcon` component renders SVG icons from a sprite sheet. It is the core mechanism for displaying iconography throughout the application.
+
+## Features
+- **Efficient Loading**: Uses SVG sprites (`<use href="...">`) for optimal performance.
+- **Scalable**: Inherits font-size from parent, allowing easy resizing.
+- **Colorable**: Inherits text color (`currentColor`) for easy theming.
+- **Filled Variant**: Supports an alternate "filled" state for active/selected icons.
+
+## Usage
+
+```html
+<AfsIcon name="settings-16" />
+<AfsIcon name="star-16" filled />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `name` | `string` | **Required** | The ID of the icon in the sprite sheet (e.g., `'search-16'`). |
+| `filled` | `boolean` | `false` | If true, applies a specific filtered/filled style (typically primary color). |
+
+## Styling
+The icon size is determined by the `font-size` of its container or the icon element itself. The color defaults to the current text color but can be overridden via CSS `color` property.
+
+```css
+.my-button {
+  font-size: 24px; /* Icon will be 24px */
+  color: red;      /* Icon will be red */
+}
+```
+
+## Examples
+
+### Default
+Basic icon usage.
+<Canvas of={AfsIconStories.Default} />
+
+### Filled State
+Often used to indicate an active or selected state.
+<Canvas of={AfsIconStories.Filled} />
+
+### Sizes
+Icons scale with `font-size`.
+<Canvas of={AfsIconStories.Sizes} />
+
+### Colors
+Icons inherit `currentColor`, making them adaptable to any theme or status color.
+<Canvas of={AfsIconStories.Colors} />
+
+### Gallery
+A showcase of available icons.
+<Canvas of={AfsIconStories.Gallery} />

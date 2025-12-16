@@ -1,0 +1,56 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as LibLazyImageStories from './LibLazyImage.stories';
+import LibLazyImage from './LibLazyImage.vue';
+
+<Meta of={LibLazyImageStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `LibLazyImage` component optimizes performance by delaying the loading of images until they enter the viewport ("lazy loading"). It provides a smooth user experience with integrated loading states (spinner), error handling, and aspect-ratio preservation to prevent layout shifts.
+
+## Features
+- **Intersection Observer**: Uses `v-lazy` directive to trigger load only when visible.
+- **Loading State**: Displays a spinning loader icon during fetching.
+- **Error Handling**: Falls back to a "broken image" icon if the source fails.
+- **Layout Stability**: Accepts an `aspectRatio` prop to reserve vertical space, preventing content jumping.
+- **Transitions**: Smooth fade-in effect when the image loads.
+
+## Usage
+
+```html
+<LibLazyImage
+  src="https://example.com/image.jpg"
+  alt="Schematic Preview"
+  :aspect-ratio="68"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Loading State
+Demonstrates the appearance while waiting for an image source (simulated here with an empty source).
+
+<Canvas of={LibLazyImageStories.Loading} />
+
+### Loaded State
+The final state after the image has been successfully fetched and rendered.
+
+<Canvas of={LibLazyImageStories.Loaded} />
+
+### Error State
+Visual feedback when an image fails to load (e.g., 404 or network error).
+
+<Canvas of={LibLazyImageStories.Error} />
+
+### Aspect Ratios
+Comparison of different aspect ratio settings to reserve container space.
+
+<Canvas of={LibLazyImageStories.AspectRatios} />

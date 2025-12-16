@@ -1,0 +1,37 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as FullScreenStories from './FullScreen.stories';
+
+<Meta of={FullScreenStories} />
+
+# FullScreen Component
+
+The `FullScreen` component is a dedicated toggle button for entering and exiting fullscreen mode. It automatically detects the current state and updates its icon and tooltip accordingly.
+
+## Features
+- **Auto-Detection**: Listens to `fullscreenchange` events to stay in sync.
+- **Toggle Logic**: Handles both entry and exit requests.
+- **Targeting**: Can target specific elements (via selector) or default to the entire document.
+
+## Usage
+
+```html
+<FullScreen target="#app-container" @change="onFullscreenChange" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `target` | `string` | `''` | CSS selector for the element to make fullscreen. If empty, uses `document.documentElement`. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `change` | `boolean` | Emitted when fullscreen state changes. `true` = active. |
+
+## Examples
+
+### Default
+Standard fullscreen toggle button.
+<Canvas of={FullScreenStories.Default} />

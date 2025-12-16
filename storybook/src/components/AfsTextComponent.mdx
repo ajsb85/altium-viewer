@@ -1,0 +1,64 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsTextStories from './AfsText.stories';
+
+<Meta of={AfsTextStories} />
+
+# AfsText Component
+
+The `AfsText` component is the core typography element. It enforces consistent font sizes, weights, and line heights according to the design system.
+
+## Features
+- **Semantic Types**: Predefined styles for titles, paragraphs, hits, etc.
+- **Polymorphic**: Can render as `div`, `span`, or any custom tag via the `tag` prop.
+- **Constraints**: Options for single-line truncation and inline rendering.
+- **BEM Naming**: Uses strictly defined BEM classes for styling.
+
+## Usage
+
+```html
+<AfsText type="large title">Page Header</AfsText>
+<AfsText type="paragraph">Body text goes here.</AfsText>
+<AfsText type="hint" inline>Inline hint</AfsText>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `type` | `string` | `'paragraph'` | Typography variant: `'large title'`, `'medium title'`, `'title'`, `'paragraph'`, `'single line'`, `'hint'`, `'tooltip'`, `'group'`, `'sticker'`, `'text'`. |
+| `inline` | `boolean` | `false` | Renders as `<span>` (unless `tag` is specified) and applies inline-block styling. |
+| `ellipsis` | `boolean` | `false` | Forces text truncation with ellipsis if it overflows. Auto-enabled for `'single line'`. |
+| `tag` | `string` | `undefined` | Custom HTML element tag (e.g., `'h1'`, `'p'`). Defaults to `div` (block) or `span` (inline). |
+
+## Styling
+The text color inherits from the parent by default. This makes it easy to theme or adjust color contextually (e.g., inside a button vs. on a dark background).
+
+## Examples
+
+### Large Title
+Used for page headers and major sections.
+<Canvas of={AfsTextStories.LargeTitle} />
+
+### Medium Title
+Standard section headers.
+<Canvas of={AfsTextStories.MediumTitle} />
+
+### Title
+Subsection headers or card titles.
+<Canvas of={AfsTextStories.Title} />
+
+### Paragraph
+Standard body text.
+<Canvas of={AfsTextStories.Paragraph} />
+
+### Hint
+Smaller text for secondary information or help tooltips.
+<Canvas of={AfsTextStories.Hint} />
+
+### Single Line (Truncated)
+Automatically truncates text with an ellipsis when it exceeds the container width.
+<Canvas of={AfsTextStories.SingleLine} />
+
+### Inline
+Renders inline within other text blocks.
+<Canvas of={AfsTextStories.InlineText} />

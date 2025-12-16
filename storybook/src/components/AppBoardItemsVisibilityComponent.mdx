@@ -1,0 +1,67 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppBoardItemsVisibilityStories from './AppBoardItemsVisibility.stories';
+
+<Meta of={AppBoardItemsVisibilityStories} />
+
+# AppBoardItemsVisibility Component
+
+The `AppBoardItemsVisibility` is a high-level container component for the visibility panel. It integrates view controls, tab switching (Layers vs Objects), and bulk show/hide actions.
+
+## Features
+- **Integrated Controls**: Includes `AppBoardControl` for top/bottom/3D switching.
+- **Tab Navigation**: Tab interface to switch between different visibility lists.
+- **Footer Actions**: Standard footer for bulk "Show All" / "Hide All" operations.
+- **Layout**: Structured layout with a scrolling content area.
+
+## Usage
+
+```html
+<AppBoardItemsVisibility 
+  v-model:viewMode="mode" 
+  v-model:activeTab="tab" 
+  @showAll="showAllLayers"
+>
+  <div class="layer-list">
+    <!-- List of visibility toggles -->
+  </div>
+</AppBoardItemsVisibility>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `viewMode` | `'top' \| 'bottom'` | `'top'` | Current board side view. |
+| `is3D` | `boolean` | `false` | 3D mode state. |
+| `activeTab` | `string` | `'layers'` | ID of the currently active tab. |
+| `tabs` | `Array` | `[{id: 'layers', name: 'Layers'}, {id: 'objects', name: 'Objects'}]` | List of tabs to display. |
+
+## Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `default` | Main content area for the visibility list (e.g., list of layers or objects). |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `update:viewMode` | `'top' \| 'bottom'` | Emitted when view mode changes. |
+| `update:is3D` | `boolean` | Emitted when 3D mode is toggled. |
+| `update:activeTab` | `string` | Emitted when a tab is selected. |
+| `showAll` | `void` | Emitted when "Show All" is clicked. |
+| `hideAll` | `void` | Emitted when "Hide All" is clicked. |
+
+## Examples
+
+### Default (Layers Tab)
+Standard view showing the Layers tab.
+<Canvas of={AppBoardItemsVisibilityStories.Default} />
+
+### Objects Tab
+View switched to the Objects tab.
+<Canvas of={AppBoardItemsVisibilityStories.ObjectsTab} />
+
+### Interactive Layout
+Demonstrates switching tabs and view modes within the container.
+<Canvas of={AppBoardItemsVisibilityStories.Interactive} />

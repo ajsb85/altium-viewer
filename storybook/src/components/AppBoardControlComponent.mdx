@@ -1,0 +1,55 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppBoardControlStories from './AppBoardControl.stories';
+
+<Meta of={AppBoardControlStories} />
+
+# AppBoardControl Component
+
+The `AppBoardControl` provides a set of toggle buttons to control the PCB viewer's perspective. It allows switching between Top and Bottom layers and toggling 3D mode.
+
+## Features
+- **View Switching**: Toggle between Top and Bottom side views.
+- **3D Toggle**: Enable/disable 3D visualization.
+- **Iconography**: Uses intuitive icons for each state.
+- **Visual Feedback**: Highly visible active states for selected modes.
+
+## Usage
+
+```html
+<AppBoardControl 
+  v-model:viewMode="currentSide" 
+  v-model:is3D="view3D" 
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `viewMode` | `'top' \| 'bottom'` | `'top'` | Current active side of the board. |
+| `is3D` | `boolean` | `false` | Whether 3D mode is currently active. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `update:viewMode` | `'top' \| 'bottom'` | Emitted when switching sides. |
+| `update:is3D` | `boolean` | Emitted when toggling 3D mode. |
+
+## Examples
+
+### Top View
+Default state showing top side.
+<Canvas of={AppBoardControlStories.TopSide} />
+
+### Bottom View
+Bottom side active.
+<Canvas of={AppBoardControlStories.BottomSide} />
+
+### 3D Mode
+3D visualization enabled.
+<Canvas of={AppBoardControlStories.View3D} />
+
+### Interactive
+Try clicking the buttons to toggle states.
+<Canvas of={AppBoardControlStories.Interactive} />

@@ -1,0 +1,57 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AccordionStories from './Accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion Component
+
+The `Accordion` component is a collapsible content panel. It consists of a header with a title and a toggle icon, and a content body that expands or collapses.
+
+## Features
+- **Collapsible Content**: Expands and collapses content with smooth transitions.
+- **Header Customization**: Accepts a title prop or a custom slot.
+- **State Control**: Can be controlled externally via props or managed internally.
+- **Icons**: Visual indicators for expanded/collapsed state.
+
+## Usage
+
+```html
+<Accordion title="My Section">
+  <p>Content goes here...</p>
+</Accordion>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | `''` | Title text displayed in the header. |
+| `defaultExpanded` | `boolean` | `false` | Initial expanded state for uncontrolled mode. |
+| `expanded` | `boolean` | `undefined` | Controlled expanded state. If provided, state must be managed by parent. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `toggle` | `boolean` | Emitted when the header is clicked. Payload is the new expanded state. |
+
+## Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `default` | The content to be displayed in the collapsible body. |
+| `title` | Custom content for the header title (overrides `title` prop). |
+
+## Examples
+
+### Default
+Standard accordion with a title and content.
+<Canvas of={AccordionStories.Default} />
+
+### Initially Expanded
+You can set the initial state to expanded using `defaultExpanded`.
+<Canvas of={AccordionStories.Expanded} />
+
+### Multiple Accordions
+Accordions can be stacked to organize content sections.
+<Canvas of={AccordionStories.Multiple} />

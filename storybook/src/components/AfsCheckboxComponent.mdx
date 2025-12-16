@@ -1,0 +1,62 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsCheckboxStories from './AfsCheckbox.stories';
+
+<Meta of={AfsCheckboxStories} />
+
+# AfsCheckbox Component
+
+The `AfsCheckbox` component allows users to select one or more items from a set. It supports various states including checked, unchecked, indeterminate, disabled, and validation states (warning, error).
+
+## Features
+- **States**: Checked, Unchecked, Indeterminate.
+- **Validation**: Visual feedback for Warning and Error states.
+- **Disabled**: Non-interactive state.
+- **Label**: integrated label text via slot.
+- **Accessibility**: Keyboard navigation and focus states.
+
+## Usage
+
+```html
+<AfsCheckbox v-model="isEnabled">Enable Feature</AfsCheckbox>
+<AfsCheckbox v-model="selectAll" indeterminate>Select All</AfsCheckbox>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `modelValue` | `boolean` | `false` | Checked state (v-model). |
+| `disabled` | `boolean` | `false` | Whether the checkbox is interactive. |
+| `warning` | `boolean` | `false` | Shows warning styling (orange). |
+| `error` | `boolean` | `false` | Shows error styling (red). |
+| `indeterminate` | `boolean` | `false` | Shows indeterminate state (horizontal line). |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `update:modelValue` | `boolean` | Emitted when the checked state changes. |
+| `change` | `boolean` | **Deprecated**. Use `update:modelValue` instead. |
+
+## Examples
+
+### Default
+Standard checkbox with a label.
+<Canvas of={AfsCheckboxStories.Unchecked} />
+
+### Checked
+Initially checked state.
+<Canvas of={AfsCheckboxStories.Checked} />
+
+### Indeterminate
+Used when a parent checkbox represents a partially selected group of children.
+<Canvas of={AfsCheckboxStories.Indeterminate} />
+
+### Disabled
+Non-interactive states for restricted actions.
+<Canvas of={AfsCheckboxStories.Disabled} />
+
+### Validation States
+Feedback for validation issues.
+<Canvas of={AfsCheckboxStories.Warning} />
+<Canvas of={AfsCheckboxStories.Error} />

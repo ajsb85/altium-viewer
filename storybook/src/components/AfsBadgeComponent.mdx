@@ -1,0 +1,51 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AfsBadgeStories from './AfsBadge.stories';
+
+<Meta of={AfsBadgeStories} />
+
+# AfsBadge Component
+
+The `AfsBadge` component is a versatile chip/badge element used for status indicators, counts, and labels. It supports various sizes, colors, and stylistic variants.
+
+## Features
+- **Multiple Sizes**: Available in XS, Small, Middle, and Default sizes.
+- **Type Variants**: Semantic color styles like Success, Warning (Alpha), Accent (New), etc.
+- **Radius Control**: Customizable border radius for different corners.
+- **Tag Customization**: Renders as a `div` by default but can be changed to any HTML tag.
+- **Text Transform**: Optional uppercase text transformation.
+
+## Usage
+
+```html
+<AfsBadge type="success" size="small">Active</AfsBadge>
+<AfsBadge type="pro" uppercase>Pro</AfsBadge>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `tag` | `string` | `'div'` | The HTML tag to render. |
+| `size` | `string` | `''` | Size variant: `'xs'`, `'small'`, `'middle'`, or empty for default. |
+| `type` | `string` | `''` | Color style: `'base'`, `'pro'`, `'success'`, `'alpha'`, `'new'`, `'guest'`. |
+| `uppercase` | `boolean` | `false` | Whether to transform text to uppercase. |
+| `radius` | `string` | `'top-left top-right bottom-left bottom-right'` | Border radius application. Space-separated values. |
+| `dataLocator` | `string` | `'badge'` | For automation/testing selectors. |
+
+## Examples
+
+### Default
+Standard badge with no specific type or size.
+<Canvas of={AfsBadgeStories.Default} />
+
+### Type Variants
+Different color schemes for various contexts.
+<Canvas of={AfsBadgeStories.TypeVariants} />
+
+### Size Variants
+Badges come in different sizes to fit various layouts.
+<Canvas of={AfsBadgeStories.SizeVariants} />
+
+### Uppercase
+Useful for feature flags or specific status labels like "BETA" or "PRO".
+<Canvas of={AfsBadgeStories.Uppercase} />

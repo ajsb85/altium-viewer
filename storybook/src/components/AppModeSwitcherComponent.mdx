@@ -1,0 +1,69 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as AppModeSwitcherStories from './AppModeSwitcher.stories';
+
+<Meta of={AppModeSwitcherStories} />
+
+# AppModeSwitcher Component
+
+The `AppModeSwitcher` component provides a segmented control or toggle group for switching between mutually exclusive modes, such as measurement types (Point/Line/Area) or View states (2D/3D).
+
+## Features
+- **Toggle Group**: Mutually exclusive selection logic.
+- **Icon Support**: Designed for compact, icon-based toolbars.
+- **Labels**: Optional text labels for clarity.
+- **Tooltips**: Built-in native tooltip support.
+
+## Usage
+
+```html
+<AppModeSwitcher 
+  :modes="toolModes" 
+  :activeMode="currentTool" 
+  @change="setTool" 
+/>
+```
+
+```javascript
+const toolModes = [
+  { id: 'point', label: 'Point', icon: 'dot-16' },
+  { id: 'line', label: 'Line', icon: 'line-16' }
+];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `modes` | `Array<Mode>` | `[]` | List of available modes. See interface below. |
+| `activeMode` | `string` | `''` | ID of the currently selected mode. |
+| `showLabels` | `boolean` | `false` | Whether to display text labels next to icons. |
+
+### Mode Interface
+```typescript
+interface Mode {
+  id: string;        // Unique identifier
+  label: string;     // Display text
+  icon?: string;     // Icon name
+  tooltip?: string;  // Hover text
+}
+```
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `change` | `string` | Emitted when a mode button is clicked. Payload is the `id` of the selected mode. |
+
+## Examples
+
+### Default
+Standard icon-based tool switcher.
+<Canvas of={AppModeSwitcherStories.Default} />
+
+### View Switcher (Text Labels)
+Switcher with text labels enabled (e.g. 2D vs 3D).
+<Canvas of={AppModeSwitcherStories.ViewSwitcher} />
+
+### Interactive
+Demonstration of mode selection.
+<Canvas of={AppModeSwitcherStories.Interactive} />

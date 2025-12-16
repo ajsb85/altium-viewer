@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as BaseRecentSearchStories from './BaseRecentSearch.stories';
+
+<Meta of={BaseRecentSearchStories} />
+
+# BaseRecentSearch Component
+
+The `BaseRecentSearch` component displays a list of previously entered search queries. It allows users to quickly recall past terms or clear their search history.
+
+## Features
+- **History List**: Renders a vertical list of search term buttons.
+- **Icons**: Standard history icon for visual recognition.
+- **Management**: "Clear" button to wipe the history list.
+
+## Usage
+
+```html
+<BaseRecentSearch 
+  :searches="recentQueries" 
+  @select="onHistorySelect" 
+  @clearAll="clearHistory" 
+/>
+```
+
+```javascript
+const recentQueries = ['Resistors', 'Capacitors', 'U1'];
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `searches` | `Array<string>` | `[]` | List of search strings to display. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `select` | `string` | Emitted when a history item is clicked. Payload is the search text. |
+| `clearAll` | `void` | Emitted when the "Clear" button is clicked. |
+
+## Examples
+
+### Default
+Standard view with recent items.
+<Canvas of={BaseRecentSearchStories.Default} />

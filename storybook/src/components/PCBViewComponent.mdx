@@ -1,0 +1,50 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas } from '@storybook/blocks';
+import * as PCBViewStories from './PCBView.stories';
+import PCBView from './PCBView.vue';
+
+<Meta of={PCBViewStories} />
+
+<Title />
+<Subtitle />
+<Description />
+
+The `PCBView` component is the primary viewport for 2D PCB rendering. It handles the canvas initialization, loading states, and provides basic navigation controls (zoom/pan).
+
+## Features
+- **Canvas Rendering**: Manages the HTML5 canvas lifecycle for 2D graphics.
+- **State Management**: Built-in displays for loading spinners and error messages.
+- **Navigation**: Integrated toolbar for Zoom In, Zoom Out, and Fit to Screen.
+- **Feedback**: Overlay showing current zoom level.
+
+## Usage
+
+```html
+<PCBView
+  :loading="isLoading"
+  :error="errorMessage"
+  @zoom="handleZoom"
+/>
+```
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default
+Standard view ready for rendering.
+
+<Canvas of={PCBViewStories.Default} />
+
+### Loading
+Active loading state with spinner overlay.
+
+<Canvas of={PCBViewStories.Loading} />
+
+### Error
+Error state displaying a user-friendly message.
+
+<Canvas of={PCBViewStories.Error} />

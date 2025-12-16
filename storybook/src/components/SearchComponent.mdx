@@ -1,0 +1,60 @@
+import { Meta, Canvas, Controls, Story } from '@storybook/blocks';
+import * as SearchStories from './Search.stories';
+
+<Meta of={SearchStories} />
+
+# Search Component
+
+The `Search` component provides a search input field with an optional filter button. It is designed to match the production search experience, including styling and interactions.
+
+## Features
+- **Input Field**: A text input for search queries.
+- **Search Icon**: A visual indicator for the search action.
+- **Filter Button**: An optional button to toggle search filters.
+- **Shortcuts**: Displays a keyboard shortcut hint.
+
+## Usage
+
+```html
+<Search
+  placeholder="Search..."
+  shortcut="Ctrl+F"
+  :showFilters="true"
+  @submit="onSearch"
+  @toggleFilters="onToggleFilters"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `placeholder` | `string` | `'Search'` | Placeholder text for the input. |
+| `shortcut` | `string` | `'Ctrl+F'` | Keyboard shortcut hint text displayed in the header. |
+| `showFilters` | `boolean` | `true` | Whether to show the filter toggle button. |
+
+## Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `submit` | `string` | Emitted when the form is submitted (Enter key or search button). Payload is the query string. |
+| `focus` | - | Emitted when the input receives focus. |
+| `blur` | - | Emitted when the input loses focus. |
+| `toggleFilters` | - | Emitted when the filter button is clicked. |
+
+## Examples
+
+### Default
+Standard search component with default settings.
+<Canvas of={SearchStories.Default} />
+
+### With Custom Placeholder
+You can customize the placeholder text.
+<Canvas of={SearchStories.CustomPlaceholder} />
+
+### Without Filters
+The filter button can be hidden using the `showFilters` prop.
+<Canvas of={SearchStories.NoFilters} />
+
+## slots
+The component supports a default slot `default` to render content below the search header (e.g., search results or suggestions).
